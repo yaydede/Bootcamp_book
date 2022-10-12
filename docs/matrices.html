@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Matrices | R Bootcamp - How to use R for Data Science</title>
+  <meta name="description" content="This book is companion fro RBootcamp package." />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Matrices | R Bootcamp - How to use R for Data Science" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://yaydede.github.io/Bootcamp_book//Users/yigitaydede/Dropbox/Documents/Courses/MBAN/RBootcamps/Bootcamp_book/png/cover.png" />
+  <meta property="og:description" content="This book is companion fro RBootcamp package." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Matrices | R Bootcamp - How to use R for Data Science" />
+  
+  <meta name="twitter:description" content="This book is companion fro RBootcamp package." />
+  <meta name="twitter:image" content="https://yaydede.github.io/Bootcamp_book//Users/yigitaydede/Dropbox/Documents/Courses/MBAN/RBootcamps/Bootcamp_book/png/cover.png" />
+
+<meta name="author" content="Yigit Aydede" />
+
+
+<meta name="date" content="2022-10-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="vectors.html"/>
+<link rel="next" href="cross.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R Bootcamp</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-r"><i class="fa fa-check"></i>Why R?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#installation-of-r-rstudio-and-r-packages"><i class="fa fa-check"></i><b>1.1</b> Installation of R, RStudio and R Packages</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#rstudio"><i class="fa fa-check"></i><b>1.2</b> RStudio</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#packages"><i class="fa fa-check"></i><b>1.3</b> Packages</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#working-directory"><i class="fa fa-check"></i><b>1.4</b> Working directory</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#hints"><i class="fa fa-check"></i><b>1.5</b> Hints</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#console-or-script"><i class="fa fa-check"></i><b>1.6</b> Console or Script?</a></li>
+<li class="chapter" data-level="1.7" data-path="introduction.html"><a href="introduction.html#r-as-a-calculator"><i class="fa fa-check"></i><b>1.7</b> R as a calculator</a></li>
+<li class="chapter" data-level="1.8" data-path="introduction.html"><a href="introduction.html#data-object-types"><i class="fa fa-check"></i><b>1.8</b> Data &amp; Object Types</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="vectors.html"><a href="vectors.html"><i class="fa fa-check"></i><b>2</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="vectors.html"><a href="vectors.html#one-type-same-type"><i class="fa fa-check"></i><b>2.1</b> One type, same type</a></li>
+<li class="chapter" data-level="2.2" data-path="vectors.html"><a href="vectors.html#patterns"><i class="fa fa-check"></i><b>2.2</b> Patterns</a></li>
+<li class="chapter" data-level="2.3" data-path="vectors.html"><a href="vectors.html#attributes"><i class="fa fa-check"></i><b>2.3</b> Attributes</a></li>
+<li class="chapter" data-level="2.4" data-path="vectors.html"><a href="vectors.html#character-operators"><i class="fa fa-check"></i><b>2.4</b> Character operators</a></li>
+<li class="chapter" data-level="2.5" data-path="vectors.html"><a href="vectors.html#sort-rank-and-order"><i class="fa fa-check"></i><b>2.5</b> Sort, rank, and order</a></li>
+<li class="chapter" data-level="2.6" data-path="vectors.html"><a href="vectors.html#simple-descriptive-measures"><i class="fa fa-check"></i><b>2.6</b> Simple descriptive measures</a></li>
+<li class="chapter" data-level="2.7" data-path="vectors.html"><a href="vectors.html#subsetting-vectors"><i class="fa fa-check"></i><b>2.7</b> Subsetting Vectors</a></li>
+<li class="chapter" data-level="2.8" data-path="vectors.html"><a href="vectors.html#vectorization-or-vector-operations"><i class="fa fa-check"></i><b>2.8</b> Vectorization or vector operations</a></li>
+<li class="chapter" data-level="2.9" data-path="vectors.html"><a href="vectors.html#set-operations"><i class="fa fa-check"></i><b>2.9</b> Set operations</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>3</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="matrices.html"><a href="matrices.html#matrix-operations"><i class="fa fa-check"></i><b>3.1</b> Matrix Operations</a></li>
+<li class="chapter" data-level="3.2" data-path="matrices.html"><a href="matrices.html#subsetting-matrix"><i class="fa fa-check"></i><b>3.2</b> Subsetting Matrix</a></li>
+<li class="chapter" data-level="3.3" data-path="matrices.html"><a href="matrices.html#r-style-guide"><i class="fa fa-check"></i><b>3.3</b> R-Style Guide</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>4</b> Cross-references</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>4.1</b> Chapters and sub-chapters</a></li>
+<li class="chapter" data-level="4.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>4.2</b> Captioned figures and tables</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>5</b> Parts</a></li>
+<li class="chapter" data-level="6" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>6</b> Footnotes and citations</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>6.1</b> Footnotes</a></li>
+<li class="chapter" data-level="6.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>6.2</b> Citations</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>7</b> Blocks</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>7.1</b> Equations</a></li>
+<li class="chapter" data-level="7.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>7.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="7.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>7.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>8</b> Sharing your book</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>8.1</b> Publishing</a></li>
+<li class="chapter" data-level="8.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>8.2</b> 404 pages</a></li>
+<li class="chapter" data-level="8.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>8.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Bootcamp - How to use R for Data Science</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="matrices" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Matrices<a href="matrices.html#matrices" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>R stores matrices and arrays in a similar manner as vectors, but with the attribute called dimension. A matrix is an array that has two dimensions. Data in a matrix are organized into rows and columns. Matrices are commonly used while arrays are rare. We will not see arrays in this book. Matrices are homogeneous data structures, just like atomic vectors, but they can have 2 dimensions, rows and columns, unlike vectors.</p>
+<p>Matrices can be created using the <strong>matrix</strong> function.</p>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="matrices.html#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Let&#39;s create 5 x 4 numeric matrix containing numbers from 1 to 20</span></span>
+<span id="cb212-2"><a href="matrices.html#cb212-2" aria-hidden="true" tabindex="-1"></a>mymatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">4</span>)  <span class="co">#Here we order the number by columns</span></span>
+<span id="cb212-3"><a href="matrices.html#cb212-3" aria-hidden="true" tabindex="-1"></a>mymatrix</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    6   11   16
+## [2,]    2    7   12   17
+## [3,]    3    8   13   18
+## [4,]    4    9   14   19
+## [5,]    5   10   15   20</code></pre>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="matrices.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mymatrix)</span></code></pre></div>
+<pre><code>## [1] &quot;matrix&quot; &quot;array&quot;</code></pre>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="matrices.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(mymatrix)</span></code></pre></div>
+<pre><code>## [1] 5 4</code></pre>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="matrices.html#cb218-1" aria-hidden="true" tabindex="-1"></a>mymatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">4</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb218-2"><a href="matrices.html#cb218-2" aria-hidden="true" tabindex="-1"></a>mymatrix</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    2    3    4
+## [2,]    5    6    7    8
+## [3,]    9   10   11   12
+## [4,]   13   14   15   16
+## [5,]   17   18   19   20</code></pre>
+<p>We will be using two different variables. Following the usual mathematical convention, lower-case x (or any other letter), which stores a vector and capital <code>X</code>, which stores a matrix. We can do this because R is case sensitive.</p>
+<div id="matrix-operations" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Matrix Operations<a href="matrices.html#matrix-operations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now some key matrix operations:</p>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="matrices.html#cb220-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb220-2"><a href="matrices.html#cb220-2" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">11</span><span class="sc">:</span><span class="dv">19</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb220-3"><a href="matrices.html#cb220-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb220-4"><a href="matrices.html#cb220-4" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> X <span class="sc">+</span> Y</span>
+<span id="cb220-5"><a href="matrices.html#cb220-5" aria-hidden="true" tabindex="-1"></a>A</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]   12   18   24
+## [2,]   14   20   26
+## [3,]   16   22   28</code></pre>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="matrices.html#cb222-1" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> X <span class="sc">*</span> Y</span>
+<span id="cb222-2"><a href="matrices.html#cb222-2" aria-hidden="true" tabindex="-1"></a>B</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]   11   56  119
+## [2,]   24   75  144
+## [3,]   39   96  171</code></pre>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="matrices.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="co">#The symbol %*% is called pipe operator.</span></span>
+<span id="cb224-2"><a href="matrices.html#cb224-2" aria-hidden="true" tabindex="-1"></a><span class="co">#And it carries out a matrix multiplication</span></span>
+<span id="cb224-3"><a href="matrices.html#cb224-3" aria-hidden="true" tabindex="-1"></a><span class="co">#different than a simple multiplication.</span></span>
+<span id="cb224-4"><a href="matrices.html#cb224-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-5"><a href="matrices.html#cb224-5" aria-hidden="true" tabindex="-1"></a>C <span class="ot">&lt;-</span> X<span class="sc">%*%</span>Y  </span>
+<span id="cb224-6"><a href="matrices.html#cb224-6" aria-hidden="true" tabindex="-1"></a>C</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]  150  186  222
+## [2,]  186  231  276
+## [3,]  222  276  330</code></pre>
+<p>Note that X * Y is not a matrix multiplication. It is element by element multiplication. (Same for X / Y). Instead, matrix multiplication uses <code>%*%</code>. Other matrix functions include <code>t()</code> which gives the transpose of a matrix and <code>solve()</code> which returns the inverse of a square matrix if it is invertible.</p>
+<p><code>matrix()</code> function is not the only way to create a matrix. Matrices can also be created by combining vectors as columns, using <code>cbind()</code>, or combining vectors as rows, using <code>rbind()</code>. Look at this:</p>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="matrices.html#cb226-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Let&#39;s create 2 vectors.</span></span>
+<span id="cb226-2"><a href="matrices.html#cb226-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rev</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>))  <span class="co">#this can be done by c(9:1). I wanted to show rev()</span></span>
+<span id="cb226-3"><a href="matrices.html#cb226-3" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1] 9 8 7 6 5 4 3 2 1</code></pre>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="matrices.html#cb228-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">2</span>, <span class="dv">9</span>)</span>
+<span id="cb228-2"><a href="matrices.html#cb228-2" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
+<pre><code>## [1] 2 2 2 2 2 2 2 2 2</code></pre>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="matrices.html#cb230-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">rbind</span>(x, y)</span>
+<span id="cb230-2"><a href="matrices.html#cb230-2" aria-hidden="true" tabindex="-1"></a>A</span></code></pre></div>
+<pre><code>##   [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+## x    9    8    7    6    5    4    3    2    1
+## y    2    2    2    2    2    2    2    2    2</code></pre>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="matrices.html#cb232-1" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">cbind</span>(x, y)</span>
+<span id="cb232-2"><a href="matrices.html#cb232-2" aria-hidden="true" tabindex="-1"></a>B</span></code></pre></div>
+<pre><code>##       x y
+##  [1,] 9 2
+##  [2,] 8 2
+##  [3,] 7 2
+##  [4,] 6 2
+##  [5,] 5 2
+##  [6,] 4 2
+##  [7,] 3 2
+##  [8,] 2 2
+##  [9,] 1 2</code></pre>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="matrices.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="co">#You can label each column and row</span></span>
+<span id="cb234-2"><a href="matrices.html#cb234-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(B) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;column1&quot;</span>, <span class="st">&quot;column2&quot;</span>)</span>
+<span id="cb234-3"><a href="matrices.html#cb234-3" aria-hidden="true" tabindex="-1"></a>B</span></code></pre></div>
+<pre><code>##       column1 column2
+##  [1,]       9       2
+##  [2,]       8       2
+##  [3,]       7       2
+##  [4,]       6       2
+##  [5,]       5       2
+##  [6,]       4       2
+##  [7,]       3       2
+##  [8,]       2       2
+##  [9,]       1       2</code></pre>
+<p>Here are some operations very useful when using matrices:</p>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="matrices.html#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rowMeans</span>(A)</span></code></pre></div>
+<pre><code>## x y 
+## 5 2</code></pre>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="matrices.html#cb238-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(B)</span></code></pre></div>
+<pre><code>## column1 column2 
+##       5       2</code></pre>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="matrices.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rowSums</span>(B)</span></code></pre></div>
+<pre><code>## [1] 11 10  9  8  7  6  5  4  3</code></pre>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="matrices.html#cb242-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(A)</span></code></pre></div>
+<pre><code>## [1] 11 10  9  8  7  6  5  4  3</code></pre>
+<p>Last thing: When vectors are coerced to become matrices, they are column vectors. So a vector of length n becomes an <span class="math inline">\(n \times 1\)</span> matrix after coercion.</p>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="matrices.html#cb244-1" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1] 9 8 7 6 5 4 3 2 1</code></pre>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="matrices.html#cb246-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(x)</span>
+<span id="cb246-2"><a href="matrices.html#cb246-2" aria-hidden="true" tabindex="-1"></a>X</span></code></pre></div>
+<pre><code>##       [,1]
+##  [1,]    9
+##  [2,]    8
+##  [3,]    7
+##  [4,]    6
+##  [5,]    5
+##  [6,]    4
+##  [7,]    3
+##  [8,]    2
+##  [9,]    1</code></pre>
+</div>
+<div id="subsetting-matrix" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Subsetting Matrix<a href="matrices.html#subsetting-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Like vectors, matrices can be subsetted using square brackets, <code>[ ]</code>. However, since matrices are two-dimensional, we need to specify both row and column indices when subsetting.</p>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="matrices.html#cb248-1" aria-hidden="true" tabindex="-1"></a>Y</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]   11   14   17
+## [2,]   12   15   18
+## [3,]   13   16   19</code></pre>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="matrices.html#cb250-1" aria-hidden="true" tabindex="-1"></a>Y[<span class="dv">1</span>,<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] 17</code></pre>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="matrices.html#cb252-1" aria-hidden="true" tabindex="-1"></a>Y[,<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] 17 18 19</code></pre>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="matrices.html#cb254-1" aria-hidden="true" tabindex="-1"></a>Y[<span class="dv">2</span>,]</span></code></pre></div>
+<pre><code>## [1] 12 15 18</code></pre>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="matrices.html#cb256-1" aria-hidden="true" tabindex="-1"></a>Y[<span class="dv">2</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)] <span class="co"># If we need more than a column (row), we use c()</span></span></code></pre></div>
+<pre><code>## [1] 12 18</code></pre>
+<p>Conditional subsetting is the same as before in vectors.<br />
+Let’s solve this problem: what’s the number in column 1 in <code>Y</code> when the number in column 3 is 18?</p>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="matrices.html#cb258-1" aria-hidden="true" tabindex="-1"></a>Y</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]   11   14   17
+## [2,]   12   15   18
+## [3,]   13   16   19</code></pre>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="matrices.html#cb260-1" aria-hidden="true" tabindex="-1"></a>Y[Y[,<span class="dv">3</span>]<span class="sc">==</span><span class="dv">18</span>, <span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="matrices.html#cb262-1" aria-hidden="true" tabindex="-1"></a><span class="co">#What are the numbers in a row when the number in column 3 is 18?</span></span>
+<span id="cb262-2"><a href="matrices.html#cb262-2" aria-hidden="true" tabindex="-1"></a>Y[Y[,<span class="dv">3</span>]<span class="sc">==</span><span class="dv">19</span>, ]</span></code></pre></div>
+<pre><code>## [1] 13 16 19</code></pre>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="matrices.html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Print the rows in Y when the number in column 3 is more than 17?</span></span>
+<span id="cb264-2"><a href="matrices.html#cb264-2" aria-hidden="true" tabindex="-1"></a>Y[Y[,<span class="dv">3</span>] <span class="sc">&gt;</span> <span class="dv">17</span>, ]</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]   12   15   18
+## [2,]   13   16   19</code></pre>
+<p>We will see later how these conditional subsetting can be done much smoother with data frames.</p>
+</div>
+<div id="r-style-guide" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> R-Style Guide<a href="matrices.html#r-style-guide" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The idea is simple: your R code, or any other code in different languages, should be written in a readable and maintainable style. Here is a <a href="https://rpahl.github.io/r-some-blog/my-r-style-guide/">blog</a> by Roman Pahl that may help you develop a better styling in your codes. (You may find in some chapters and labs that my codes are not following the “good” styling practices. I am trying to improve!)</p>
+<p><strong>Next: Lists and data frames</strong></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="vectors.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="cross.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/yaydede/Bootcamp_book/edit/main/01-intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Book_for_RBootcamp.pdf", "Book_for_RBootcamp.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

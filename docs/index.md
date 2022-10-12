@@ -1,55 +1,42 @@
 --- 
-title: "Book for R Bootcamp"
-author: "Yigit Aydede"
-date: "2022-10-11"
+title: "R Bootcamp - How to use R for Data Science"
+author: "[Yigit Aydede](https://yaydede.github.io/)"
+date: "2022-10-12"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
-url: https://yaydede.github.io/Bootcamp_book/
+url: 'https\://yaydede.github.io/Bootcamp_book/'
 cover-image: /Users/yigitaydede/Dropbox/Documents/Courses/MBAN/RBootcamps/Bootcamp_book/png/cover.png
 description: |
   This book is companion fro RBootcamp package.
 link-citations: yes
-github-repo: rstudio/bookdown-demo
+urlcolor: cyan
 ---
 
-# About
+# About {.unnumbered}
 
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports; for example, a math equation $a^2 + b^2 = c^2$.
+This book covers basics to learn R for Data Science. It is designed for MBAN students.
 
-## Usage 
+We also have a companion R package named `RBootcamp`, containing the data sets used as well as interactive exercises for each part.
 
-Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading.
+![](png/cover.png){width=400px height=550px}
 
-Use second-level and higher headings within chapters like: `## A short section` or `### An even shorter section`.
+## Why R? {.unnumbered} 
 
-The `index.Rmd` file is required, and is also your first book chapter. It will be the homepage when you render the book.
+R is both a programming language and software environment for statistical computing, which is free and open-source.  
 
-## Render book
+With ever increasing availability of large amounts of data, it is critical to have the ability to analyze the data and learn from it for making informed decisions. Familiarity with software such as R allows users to visualize data, run statistical tests, and apply machine learning algorithms. Even if you already know other software, there are still good reasons to learn R:
 
-You can render the HTML version of this example book without changing anything:
+1. **R is free.** If your future employer does not already have R installed, you can always download it for free, unlike other proprietary software packages that require expensive licenses. You can always have access to R on your computer.
 
-1. Find the **Build** pane in the RStudio IDE, and
+2. **R gives you access to cutting-edge technology.** Top researchers develop statistical learning methods in R, and new algorithms are constantly added to the list of packages you can download.
 
-1. Click on **Build Book**, then select your output format, or select "All formats" if you'd like to use multiple formats from the same book source files.
+3. **R is a useful skill.** Employers that value analytics recognize R as useful and important. If for no other reason, learning R is worthwhile to help **boost your resume.**
 
-Or build the book from the R console:
+Here is a very good article about R and Programming that everybody should read: [7 Reasons for policy professionals to get into R programming in 2019](http://gilesd-j.com/2019/01/07/7-reasons-for-policy-professionals-to-get-pumped-about-r-programming-in-2019/) [@Jones_2019].
 
+## License {.unnumbered}
 
-```r
-bookdown::render_book()
-```
-
-To render this example to PDF as a `bookdown::pdf_book`, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>.
-
-## Preview book
-
-As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in "Preview book", or from the R console:
-
-
-```r
-bookdown::serve_book()
-```
-
+![This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).](png/cc.png)
 
 
