@@ -349,7 +349,7 @@ Without further specification, files will be loaded from and saved to the workin
 ## [16] "book.bib"               "Bootcamp_book.Rproj"    "docs"                  
 ## [19] "index.md"               "index.Rmd"              "packages.bib"          
 ## [22] "png"                    "preamble.tex"           "README.md"             
-## [25] "render16a06589614b.rds" "style.css"
+## [25] "render1a5727895a64.rds" "style.css"
 \end{verbatim}
 
 \begin{Shaded}
@@ -1662,6 +1662,170 @@ To check whether each element of \texttt{x} is inside \texttt{y}
 
 \begin{verbatim}
 ## [1]  TRUE FALSE  TRUE  TRUE  TRUE
+\end{verbatim}
+
+\hypertarget{missing-values}{%
+\section{Missing values}\label{missing-values}}
+
+R uses \texttt{NA} to represent missing values indicating they are not available. In a data file, NA's are very common and have to be dealt with properly. Why?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\ConstantTok{NA}\NormalTok{, }\DecValTok{2}\NormalTok{, }\ConstantTok{NA}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\FunctionTok{mean}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] NA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] NA
+\end{verbatim}
+
+And it's contagious
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{:}\DecValTok{5}
+\NormalTok{x}\SpecialCharTok{+}\NormalTok{y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  2 NA  5 NA  8
+\end{verbatim}
+
+To deal with NA's, we need to know how to find indices with missing values
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Do we have and NA?}
+\FunctionTok{anyNA}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Which ones?}
+\FunctionTok{is.na}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE  TRUE FALSE  TRUE FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Or}
+\FunctionTok{which}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(x))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2 4
+\end{verbatim}
+
+How to remove? But before removing them:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(x, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+
+So we may skip removing them from the data as many functions has built-in arguments
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x2 }\OtherTok{\textless{}{-}}\NormalTok{ x[}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(x)]}
+\NormalTok{x2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1 2 3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Or}
+\NormalTok{x[}\FunctionTok{complete.cases}\NormalTok{(x)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1 2 3
+\end{verbatim}
+
+\hypertarget{factors}{%
+\section{Factors}\label{factors}}
+
+Factor type is known as an ``indicator'' variable.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{((}\DecValTok{123}\NormalTok{))}
+\NormalTok{anim }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(animals, }\DecValTok{100}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{anim}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] "donkey" "donkey" "donkey" "cat"    "donkey" "cat"    "cat"    "cat"   
+##   [9] "donkey" "dog"    "cat"    "cat"    "dog"    "cat"    "donkey" "dog"   
+##  [17] "donkey" "donkey" "dog"    "dog"    "dog"    "dog"    "donkey" "cat"   
+##  [25] "donkey" "cat"    "dog"    "cat"    "donkey" "cat"    "dog"    "donkey"
+##  [33] "donkey" "dog"    "donkey" "cat"    "dog"    "donkey" "dog"    "dog"   
+##  [41] "cat"    "donkey" "donkey" "dog"    "donkey" "dog"    "donkey" "cat"   
+##  [49] "dog"    "cat"    "dog"    "dog"    "donkey" "dog"    "cat"    "dog"   
+##  [57] "dog"    "donkey" "dog"    "cat"    "dog"    "donkey" "dog"    "donkey"
+##  [65] "cat"    "donkey" "cat"    "cat"    "donkey" "cat"    "cat"    "donkey"
+##  [73] "donkey" "dog"    "cat"    "cat"    "dog"    "cat"    "dog"    "dog"   
+##  [81] "cat"    "donkey" "donkey" "dog"    "cat"    "dog"    "cat"    "dog"   
+##  [89] "donkey" "donkey" "cat"    "donkey" "dog"    "cat"    "cat"    "donkey"
+##  [97] "cat"    "dog"    "donkey" "donkey"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{table}\NormalTok{(anim)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## anim
+##    cat    dog donkey 
+##     32     33     35
+\end{verbatim}
+
+Let's define \texttt{anim} vector as factor variable:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{animf }\OtherTok{\textless{}{-}}\FunctionTok{as.factor}\NormalTok{(anim)}
+\FunctionTok{levels}\NormalTok{(animf)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "cat"    "dog"    "donkey"
 \end{verbatim}
 
 \hypertarget{matrices}{%

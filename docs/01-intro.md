@@ -139,7 +139,7 @@ dir()
 ## [16] "book.bib"               "Bootcamp_book.Rproj"    "docs"                  
 ## [19] "index.md"               "index.Rmd"              "packages.bib"          
 ## [22] "png"                    "preamble.tex"           "README.md"             
-## [25] "render176c6b8125dc.rds" "style.css"
+## [25] "render1b211840bb5a.rds" "style.css"
 ```
 
 ```r
@@ -1265,6 +1265,151 @@ x %in% y
 
 ```
 ## [1]  TRUE FALSE  TRUE  TRUE  TRUE
+```
+
+## Missing values
+
+R uses `NA` to represent missing values indicating they are not available. In a data file, NA's are very common and have to be dealt with properly.  Why?
+
+
+```r
+x <- c(1, NA, 2, NA, 3)
+mean(x)
+```
+
+```
+## [1] NA
+```
+
+```r
+sum(x)
+```
+
+```
+## [1] NA
+```
+
+And it's contagious
+
+
+```r
+y <- 1:5
+x+y
+```
+
+```
+## [1]  2 NA  5 NA  8
+```
+
+To deal with NA's, we need to know how to find indices with missing values
+
+
+```r
+# Do we have and NA?
+anyNA(x)
+```
+
+```
+## [1] TRUE
+```
+
+```r
+# Which ones?
+is.na(x)
+```
+
+```
+## [1] FALSE  TRUE FALSE  TRUE FALSE
+```
+
+```r
+# Or
+which(is.na(x))
+```
+
+```
+## [1] 2 4
+```
+
+How to remove?  But before removing them:
+
+
+```r
+mean(x, na.rm = TRUE)
+```
+
+```
+## [1] 2
+```
+
+So we may skip removing them from the data as many functions has built-in arguments
+
+
+```r
+x2 <- x[!is.na(x)]
+x2
+```
+
+```
+## [1] 1 2 3
+```
+
+```r
+# Or
+x[complete.cases(x)]
+```
+
+```
+## [1] 1 2 3
+```
+
+## Factors
+
+Factor type is known as an "indicator" variable.  
+
+
+```r
+set.seed((123))
+anim <- sample(animals, 100, replace = TRUE)
+anim
+```
+
+```
+##   [1] "donkey" "donkey" "donkey" "cat"    "donkey" "cat"    "cat"    "cat"   
+##   [9] "donkey" "dog"    "cat"    "cat"    "dog"    "cat"    "donkey" "dog"   
+##  [17] "donkey" "donkey" "dog"    "dog"    "dog"    "dog"    "donkey" "cat"   
+##  [25] "donkey" "cat"    "dog"    "cat"    "donkey" "cat"    "dog"    "donkey"
+##  [33] "donkey" "dog"    "donkey" "cat"    "dog"    "donkey" "dog"    "dog"   
+##  [41] "cat"    "donkey" "donkey" "dog"    "donkey" "dog"    "donkey" "cat"   
+##  [49] "dog"    "cat"    "dog"    "dog"    "donkey" "dog"    "cat"    "dog"   
+##  [57] "dog"    "donkey" "dog"    "cat"    "dog"    "donkey" "dog"    "donkey"
+##  [65] "cat"    "donkey" "cat"    "cat"    "donkey" "cat"    "cat"    "donkey"
+##  [73] "donkey" "dog"    "cat"    "cat"    "dog"    "cat"    "dog"    "dog"   
+##  [81] "cat"    "donkey" "donkey" "dog"    "cat"    "dog"    "cat"    "dog"   
+##  [89] "donkey" "donkey" "cat"    "donkey" "dog"    "cat"    "cat"    "donkey"
+##  [97] "cat"    "dog"    "donkey" "donkey"
+```
+
+```r
+table(anim)
+```
+
+```
+## anim
+##    cat    dog donkey 
+##     32     33     35
+```
+
+Let's define `anim` vector as factor variable:
+
+
+```r
+animf <-as.factor(anim)
+levels(animf)
+```
+
+```
+## [1] "cat"    "dog"    "donkey"
 ```
 
 

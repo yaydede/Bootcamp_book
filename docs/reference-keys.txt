@@ -20,6 +20,8 @@ simple-descriptive-measures
 subsetting-vectors
 vectorization-or-vector-operations
 set-operations
+missing-values
+factors
 matrices
 matrix-operations
 subsetting-matrix

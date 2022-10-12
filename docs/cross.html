@@ -185,6 +185,8 @@ div.csl-indent {
 <li class="chapter" data-level="2.7" data-path="vectors.html"><a href="vectors.html#subsetting-vectors"><i class="fa fa-check"></i><b>2.7</b> Subsetting Vectors</a></li>
 <li class="chapter" data-level="2.8" data-path="vectors.html"><a href="vectors.html#vectorization-or-vector-operations"><i class="fa fa-check"></i><b>2.8</b> Vectorization or vector operations</a></li>
 <li class="chapter" data-level="2.9" data-path="vectors.html"><a href="vectors.html#set-operations"><i class="fa fa-check"></i><b>2.9</b> Set operations</a></li>
+<li class="chapter" data-level="2.10" data-path="vectors.html"><a href="vectors.html#missing-values"><i class="fa fa-check"></i><b>2.10</b> Missing values</a></li>
+<li class="chapter" data-level="2.11" data-path="vectors.html"><a href="vectors.html#factors"><i class="fa fa-check"></i><b>2.11</b> Factors</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>3</b> Matrices</a>
 <ul>
@@ -258,8 +260,8 @@ div.csl-indent {
 <h2><span class="header-section-number">4.2</span> Captioned figures and tables<a href="cross.html#captioned-figures-and-tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Figures and tables <em>with captions</em> can also be cross-referenced from elsewhere in your book using <code>\@ref(fig:chunk-label)</code> and <code>\@ref(tab:chunk-label)</code>, respectively.</p>
 <p>See Figure <a href="cross.html#fig:nice-fig">4.1</a>.</p>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="cross.html#cb266-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, .<span class="dv">1</span>, .<span class="dv">1</span>))</span>
-<span id="cb266-2"><a href="cross.html#cb266-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure, <span class="at">type =</span> <span class="st">&#39;b&#39;</span>, <span class="at">pch =</span> <span class="dv">19</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="cross.html#cb290-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, .<span class="dv">1</span>, .<span class="dv">1</span>))</span>
+<span id="cb290-2"><a href="cross.html#cb290-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure, <span class="at">type =</span> <span class="st">&#39;b&#39;</span>, <span class="at">pch =</span> <span class="dv">19</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nice-fig"></span>
 <img src="02-cross-refs_files/figure-html/nice-fig-1.png" alt="Plot with connected points showing that vapor pressure of mercury increases exponentially as temperature increases." width="80%" />
 <p class="caption">
@@ -267,10 +269,10 @@ Figure 4.1: Here is a nice figure!
 </p>
 </div>
 <p>Don’t miss Table <a href="cross.html#tab:nice-tab">4.1</a>.</p>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="cross.html#cb267-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
-<span id="cb267-2"><a href="cross.html#cb267-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(pressure, <span class="dv">10</span>), <span class="at">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,</span>
-<span id="cb267-3"><a href="cross.html#cb267-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">booktabs =</span> <span class="cn">TRUE</span></span>
-<span id="cb267-4"><a href="cross.html#cb267-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="cross.html#cb291-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb291-2"><a href="cross.html#cb291-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(pressure, <span class="dv">10</span>), <span class="at">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,</span>
+<span id="cb291-3"><a href="cross.html#cb291-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">booktabs =</span> <span class="cn">TRUE</span></span>
+<span id="cb291-4"><a href="cross.html#cb291-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <table>
 <caption><span id="tab:nice-tab">Table 4.1: </span>Here is a nice table!</caption>
 <thead>

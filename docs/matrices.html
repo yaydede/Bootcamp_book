@@ -185,6 +185,8 @@ div.csl-indent {
 <li class="chapter" data-level="2.7" data-path="vectors.html"><a href="vectors.html#subsetting-vectors"><i class="fa fa-check"></i><b>2.7</b> Subsetting Vectors</a></li>
 <li class="chapter" data-level="2.8" data-path="vectors.html"><a href="vectors.html#vectorization-or-vector-operations"><i class="fa fa-check"></i><b>2.8</b> Vectorization or vector operations</a></li>
 <li class="chapter" data-level="2.9" data-path="vectors.html"><a href="vectors.html#set-operations"><i class="fa fa-check"></i><b>2.9</b> Set operations</a></li>
+<li class="chapter" data-level="2.10" data-path="vectors.html"><a href="vectors.html#missing-values"><i class="fa fa-check"></i><b>2.10</b> Missing values</a></li>
+<li class="chapter" data-level="2.11" data-path="vectors.html"><a href="vectors.html#factors"><i class="fa fa-check"></i><b>2.11</b> Factors</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>3</b> Matrices</a>
 <ul>
@@ -240,21 +242,21 @@ div.csl-indent {
 <h1><span class="header-section-number">Chapter 3</span> Matrices<a href="matrices.html#matrices" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>R stores matrices and arrays in a similar manner as vectors, but with the attribute called dimension. A matrix is an array that has two dimensions. Data in a matrix are organized into rows and columns. Matrices are commonly used while arrays are rare. We will not see arrays in this book. Matrices are homogeneous data structures, just like atomic vectors, but they can have 2 dimensions, rows and columns, unlike vectors.</p>
 <p>Matrices can be created using the <strong>matrix</strong> function.</p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="matrices.html#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Let&#39;s create 5 x 4 numeric matrix containing numbers from 1 to 20</span></span>
-<span id="cb212-2"><a href="matrices.html#cb212-2" aria-hidden="true" tabindex="-1"></a>mymatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">4</span>)  <span class="co">#Here we order the number by columns</span></span>
-<span id="cb212-3"><a href="matrices.html#cb212-3" aria-hidden="true" tabindex="-1"></a>mymatrix</span></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="matrices.html#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Let&#39;s create 5 x 4 numeric matrix containing numbers from 1 to 20</span></span>
+<span id="cb236-2"><a href="matrices.html#cb236-2" aria-hidden="true" tabindex="-1"></a>mymatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">4</span>)  <span class="co">#Here we order the number by columns</span></span>
+<span id="cb236-3"><a href="matrices.html#cb236-3" aria-hidden="true" tabindex="-1"></a>mymatrix</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    1    6   11   16
 ## [2,]    2    7   12   17
 ## [3,]    3    8   13   18
 ## [4,]    4    9   14   19
 ## [5,]    5   10   15   20</code></pre>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="matrices.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mymatrix)</span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="matrices.html#cb238-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mymatrix)</span></code></pre></div>
 <pre><code>## [1] &quot;matrix&quot; &quot;array&quot;</code></pre>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="matrices.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(mymatrix)</span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="matrices.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(mymatrix)</span></code></pre></div>
 <pre><code>## [1] 5 4</code></pre>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="matrices.html#cb218-1" aria-hidden="true" tabindex="-1"></a>mymatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">4</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb218-2"><a href="matrices.html#cb218-2" aria-hidden="true" tabindex="-1"></a>mymatrix</span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="matrices.html#cb242-1" aria-hidden="true" tabindex="-1"></a>mymatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">4</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb242-2"><a href="matrices.html#cb242-2" aria-hidden="true" tabindex="-1"></a>mymatrix</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    1    2    3    4
 ## [2,]    5    6    7    8
@@ -265,47 +267,47 @@ div.csl-indent {
 <div id="matrix-operations" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> Matrix Operations<a href="matrices.html#matrix-operations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now some key matrix operations:</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="matrices.html#cb220-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
-<span id="cb220-2"><a href="matrices.html#cb220-2" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">11</span><span class="sc">:</span><span class="dv">19</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
-<span id="cb220-3"><a href="matrices.html#cb220-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb220-4"><a href="matrices.html#cb220-4" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> X <span class="sc">+</span> Y</span>
-<span id="cb220-5"><a href="matrices.html#cb220-5" aria-hidden="true" tabindex="-1"></a>A</span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="matrices.html#cb244-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb244-2"><a href="matrices.html#cb244-2" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">11</span><span class="sc">:</span><span class="dv">19</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb244-3"><a href="matrices.html#cb244-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb244-4"><a href="matrices.html#cb244-4" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> X <span class="sc">+</span> Y</span>
+<span id="cb244-5"><a href="matrices.html#cb244-5" aria-hidden="true" tabindex="-1"></a>A</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]   12   18   24
 ## [2,]   14   20   26
 ## [3,]   16   22   28</code></pre>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="matrices.html#cb222-1" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> X <span class="sc">*</span> Y</span>
-<span id="cb222-2"><a href="matrices.html#cb222-2" aria-hidden="true" tabindex="-1"></a>B</span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="matrices.html#cb246-1" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> X <span class="sc">*</span> Y</span>
+<span id="cb246-2"><a href="matrices.html#cb246-2" aria-hidden="true" tabindex="-1"></a>B</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]   11   56  119
 ## [2,]   24   75  144
 ## [3,]   39   96  171</code></pre>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="matrices.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="co">#The symbol %*% is called pipe operator.</span></span>
-<span id="cb224-2"><a href="matrices.html#cb224-2" aria-hidden="true" tabindex="-1"></a><span class="co">#And it carries out a matrix multiplication</span></span>
-<span id="cb224-3"><a href="matrices.html#cb224-3" aria-hidden="true" tabindex="-1"></a><span class="co">#different than a simple multiplication.</span></span>
-<span id="cb224-4"><a href="matrices.html#cb224-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb224-5"><a href="matrices.html#cb224-5" aria-hidden="true" tabindex="-1"></a>C <span class="ot">&lt;-</span> X<span class="sc">%*%</span>Y  </span>
-<span id="cb224-6"><a href="matrices.html#cb224-6" aria-hidden="true" tabindex="-1"></a>C</span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="matrices.html#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="co">#The symbol %*% is called pipe operator.</span></span>
+<span id="cb248-2"><a href="matrices.html#cb248-2" aria-hidden="true" tabindex="-1"></a><span class="co">#And it carries out a matrix multiplication</span></span>
+<span id="cb248-3"><a href="matrices.html#cb248-3" aria-hidden="true" tabindex="-1"></a><span class="co">#different than a simple multiplication.</span></span>
+<span id="cb248-4"><a href="matrices.html#cb248-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb248-5"><a href="matrices.html#cb248-5" aria-hidden="true" tabindex="-1"></a>C <span class="ot">&lt;-</span> X<span class="sc">%*%</span>Y  </span>
+<span id="cb248-6"><a href="matrices.html#cb248-6" aria-hidden="true" tabindex="-1"></a>C</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]  150  186  222
 ## [2,]  186  231  276
 ## [3,]  222  276  330</code></pre>
 <p>Note that X * Y is not a matrix multiplication. It is element by element multiplication. (Same for X / Y). Instead, matrix multiplication uses <code>%*%</code>. Other matrix functions include <code>t()</code> which gives the transpose of a matrix and <code>solve()</code> which returns the inverse of a square matrix if it is invertible.</p>
 <p><code>matrix()</code> function is not the only way to create a matrix. Matrices can also be created by combining vectors as columns, using <code>cbind()</code>, or combining vectors as rows, using <code>rbind()</code>. Look at this:</p>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="matrices.html#cb226-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Let&#39;s create 2 vectors.</span></span>
-<span id="cb226-2"><a href="matrices.html#cb226-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rev</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>))  <span class="co">#this can be done by c(9:1). I wanted to show rev()</span></span>
-<span id="cb226-3"><a href="matrices.html#cb226-3" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="matrices.html#cb250-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Let&#39;s create 2 vectors.</span></span>
+<span id="cb250-2"><a href="matrices.html#cb250-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rev</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>))  <span class="co">#this can be done by c(9:1). I wanted to show rev()</span></span>
+<span id="cb250-3"><a href="matrices.html#cb250-3" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1] 9 8 7 6 5 4 3 2 1</code></pre>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="matrices.html#cb228-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">2</span>, <span class="dv">9</span>)</span>
-<span id="cb228-2"><a href="matrices.html#cb228-2" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="matrices.html#cb252-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">2</span>, <span class="dv">9</span>)</span>
+<span id="cb252-2"><a href="matrices.html#cb252-2" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
 <pre><code>## [1] 2 2 2 2 2 2 2 2 2</code></pre>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="matrices.html#cb230-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">rbind</span>(x, y)</span>
-<span id="cb230-2"><a href="matrices.html#cb230-2" aria-hidden="true" tabindex="-1"></a>A</span></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="matrices.html#cb254-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">rbind</span>(x, y)</span>
+<span id="cb254-2"><a href="matrices.html#cb254-2" aria-hidden="true" tabindex="-1"></a>A</span></code></pre></div>
 <pre><code>##   [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
 ## x    9    8    7    6    5    4    3    2    1
 ## y    2    2    2    2    2    2    2    2    2</code></pre>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="matrices.html#cb232-1" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">cbind</span>(x, y)</span>
-<span id="cb232-2"><a href="matrices.html#cb232-2" aria-hidden="true" tabindex="-1"></a>B</span></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="matrices.html#cb256-1" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">cbind</span>(x, y)</span>
+<span id="cb256-2"><a href="matrices.html#cb256-2" aria-hidden="true" tabindex="-1"></a>B</span></code></pre></div>
 <pre><code>##       x y
 ##  [1,] 9 2
 ##  [2,] 8 2
@@ -316,9 +318,9 @@ div.csl-indent {
 ##  [7,] 3 2
 ##  [8,] 2 2
 ##  [9,] 1 2</code></pre>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="matrices.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="co">#You can label each column and row</span></span>
-<span id="cb234-2"><a href="matrices.html#cb234-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(B) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;column1&quot;</span>, <span class="st">&quot;column2&quot;</span>)</span>
-<span id="cb234-3"><a href="matrices.html#cb234-3" aria-hidden="true" tabindex="-1"></a>B</span></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="matrices.html#cb258-1" aria-hidden="true" tabindex="-1"></a><span class="co">#You can label each column and row</span></span>
+<span id="cb258-2"><a href="matrices.html#cb258-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(B) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;column1&quot;</span>, <span class="st">&quot;column2&quot;</span>)</span>
+<span id="cb258-3"><a href="matrices.html#cb258-3" aria-hidden="true" tabindex="-1"></a>B</span></code></pre></div>
 <pre><code>##       column1 column2
 ##  [1,]       9       2
 ##  [2,]       8       2
@@ -330,21 +332,21 @@ div.csl-indent {
 ##  [8,]       2       2
 ##  [9,]       1       2</code></pre>
 <p>Here are some operations very useful when using matrices:</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="matrices.html#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rowMeans</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="matrices.html#cb260-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rowMeans</span>(A)</span></code></pre></div>
 <pre><code>## x y 
 ## 5 2</code></pre>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="matrices.html#cb238-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(B)</span></code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="matrices.html#cb262-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(B)</span></code></pre></div>
 <pre><code>## column1 column2 
 ##       5       2</code></pre>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="matrices.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rowSums</span>(B)</span></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="matrices.html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rowSums</span>(B)</span></code></pre></div>
 <pre><code>## [1] 11 10  9  8  7  6  5  4  3</code></pre>
-<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="matrices.html#cb242-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="matrices.html#cb266-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(A)</span></code></pre></div>
 <pre><code>## [1] 11 10  9  8  7  6  5  4  3</code></pre>
 <p>Last thing: When vectors are coerced to become matrices, they are column vectors. So a vector of length n becomes an <span class="math inline">\(n \times 1\)</span> matrix after coercion.</p>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="matrices.html#cb244-1" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="matrices.html#cb268-1" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1] 9 8 7 6 5 4 3 2 1</code></pre>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="matrices.html#cb246-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(x)</span>
-<span id="cb246-2"><a href="matrices.html#cb246-2" aria-hidden="true" tabindex="-1"></a>X</span></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="matrices.html#cb270-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(x)</span>
+<span id="cb270-2"><a href="matrices.html#cb270-2" aria-hidden="true" tabindex="-1"></a>X</span></code></pre></div>
 <pre><code>##       [,1]
 ##  [1,]    9
 ##  [2,]    8
@@ -359,33 +361,33 @@ div.csl-indent {
 <div id="subsetting-matrix" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Subsetting Matrix<a href="matrices.html#subsetting-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Like vectors, matrices can be subsetted using square brackets, <code>[ ]</code>. However, since matrices are two-dimensional, we need to specify both row and column indices when subsetting.</p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="matrices.html#cb248-1" aria-hidden="true" tabindex="-1"></a>Y</span></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="matrices.html#cb272-1" aria-hidden="true" tabindex="-1"></a>Y</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]   11   14   17
 ## [2,]   12   15   18
 ## [3,]   13   16   19</code></pre>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="matrices.html#cb250-1" aria-hidden="true" tabindex="-1"></a>Y[<span class="dv">1</span>,<span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="matrices.html#cb274-1" aria-hidden="true" tabindex="-1"></a>Y[<span class="dv">1</span>,<span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## [1] 17</code></pre>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="matrices.html#cb252-1" aria-hidden="true" tabindex="-1"></a>Y[,<span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="matrices.html#cb276-1" aria-hidden="true" tabindex="-1"></a>Y[,<span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## [1] 17 18 19</code></pre>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="matrices.html#cb254-1" aria-hidden="true" tabindex="-1"></a>Y[<span class="dv">2</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="matrices.html#cb278-1" aria-hidden="true" tabindex="-1"></a>Y[<span class="dv">2</span>,]</span></code></pre></div>
 <pre><code>## [1] 12 15 18</code></pre>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="matrices.html#cb256-1" aria-hidden="true" tabindex="-1"></a>Y[<span class="dv">2</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)] <span class="co"># If we need more than a column (row), we use c()</span></span></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="matrices.html#cb280-1" aria-hidden="true" tabindex="-1"></a>Y[<span class="dv">2</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)] <span class="co"># If we need more than a column (row), we use c()</span></span></code></pre></div>
 <pre><code>## [1] 12 18</code></pre>
 <p>Conditional subsetting is the same as before in vectors.<br />
 Let’s solve this problem: what’s the number in column 1 in <code>Y</code> when the number in column 3 is 18?</p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="matrices.html#cb258-1" aria-hidden="true" tabindex="-1"></a>Y</span></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="matrices.html#cb282-1" aria-hidden="true" tabindex="-1"></a>Y</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]   11   14   17
 ## [2,]   12   15   18
 ## [3,]   13   16   19</code></pre>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="matrices.html#cb260-1" aria-hidden="true" tabindex="-1"></a>Y[Y[,<span class="dv">3</span>]<span class="sc">==</span><span class="dv">18</span>, <span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="matrices.html#cb284-1" aria-hidden="true" tabindex="-1"></a>Y[Y[,<span class="dv">3</span>]<span class="sc">==</span><span class="dv">18</span>, <span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## [1] 12</code></pre>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="matrices.html#cb262-1" aria-hidden="true" tabindex="-1"></a><span class="co">#What are the numbers in a row when the number in column 3 is 18?</span></span>
-<span id="cb262-2"><a href="matrices.html#cb262-2" aria-hidden="true" tabindex="-1"></a>Y[Y[,<span class="dv">3</span>]<span class="sc">==</span><span class="dv">19</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="matrices.html#cb286-1" aria-hidden="true" tabindex="-1"></a><span class="co">#What are the numbers in a row when the number in column 3 is 18?</span></span>
+<span id="cb286-2"><a href="matrices.html#cb286-2" aria-hidden="true" tabindex="-1"></a>Y[Y[,<span class="dv">3</span>]<span class="sc">==</span><span class="dv">19</span>, ]</span></code></pre></div>
 <pre><code>## [1] 13 16 19</code></pre>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="matrices.html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Print the rows in Y when the number in column 3 is more than 17?</span></span>
-<span id="cb264-2"><a href="matrices.html#cb264-2" aria-hidden="true" tabindex="-1"></a>Y[Y[,<span class="dv">3</span>] <span class="sc">&gt;</span> <span class="dv">17</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="matrices.html#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Print the rows in Y when the number in column 3 is more than 17?</span></span>
+<span id="cb288-2"><a href="matrices.html#cb288-2" aria-hidden="true" tabindex="-1"></a>Y[Y[,<span class="dv">3</span>] <span class="sc">&gt;</span> <span class="dv">17</span>, ]</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]   12   15   18
 ## [2,]   13   16   19</code></pre>
