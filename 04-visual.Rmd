@@ -1,0 +1,237 @@
+# Data visualisation with R
+
+Let’s first introduce the data set that will be used throughout this chapter. The data set is a part of the Ames Housing Price data, containing 165 observations and 12 features including the sale date and price.
+
+```{r }
+library(AmesHousing)
+amesdata <- make_ames()
+str(amesdata)
+```
+
+## Scatterplots
+
+Are the bigger houses more expensive?  In base R, we can use the `plot()` function to generate this scatterplot with the first argument being the variable on the x-axis and the second argument being the variable on the y-axis.
+
+```{r pressure, echo=FALSE}
+plot(amesdata$Gr_Liv_Area, amesdata$Sale_Price)
+```
+
+It's OK but not nice.  The `plot()` function provides a rich capability of customization by setting the graphical parameters. 
+
+```{r}
+plot(amesdata$Gr_Liv_Area, amesdata$Sale_Price, 
+     col = "red", 
+     xlab = "Living Area", 
+     ylab = "Sale Price", 
+     main = "Sale Price vs. Living Area",  
+     pch = 1, #Shape of the points
+     cex = 1) #Size of text and symbols
+```
+
+Although the `plot()` function gets the work done, the `ggplot2` package provides a superior user experience. It's a member of the `tidyverse` package, you don’t need to install it separately if tidyverse was already installed. 
+
+```{r}
+library(ggplot2)
+ggplot(data = amesdata) + 
+  geom_point(mapping = aes(x = Gr_Liv_Area, y = Sale_Price))
+```
+
+In a nutshell, `ggplot2` implements the grammar of graphics, a coherent system for describing and building graphs.  We always start with the function `ggplot()` with a data frame or tibble as its argument. To generate a scatterplot, you can add a layer using the `+` operator followed by the `geom_point()` function, which is one of the many available geoms in ggplot. Inside `geom_point()`, you need to set the value of the mapping argument. The mapping argument takes a functional form as `mapping = aes()`, where the `aes` is short for aesthetics. For example, you can use `aes()` to tell ggplot to use which variable on the x-axis, which variable on the y-axis. 
+
+```{r}
+ggplot(data = amesdata) + 
+  geom_point(mapping = aes(Gr_Liv_Area, y = Sale_Price), 
+             color = "red",
+             shape = 2,
+             size = 0.5,
+             alpha = 0.3) #transparency level of the points
+```
+
+Suppose we want to use different colors according to the different `House_Style` in the scatterplot.
+
+```{r}
+ggplot(data = amesdata) + 
+  geom_point(mapping = aes(x = Gr_Liv_Area, 
+                           y = Sale_Price, 
+                           color = House_Style), 
+             size = 1)
+```
+
+In addition to color, you can also map a discrete variable to the size aesthetic.
+
+```{r, warning=FALSE}
+ggplot(data = amesdata) + 
+  geom_point(mapping = aes(x = Gr_Liv_Area, 
+                           y = Sale_Price, 
+                           size = House_Style), 
+             alpha = 0.5)
+```
+
+Or
+
+```{r}
+ggplot(data = amesdata) + 
+  geom_point(mapping = aes(x = Gr_Liv_Area, 
+                           y = Sale_Price, 
+                           shape = Exter_Qual), 
+             alpha = 0.5,
+             size = 2)
+```
+  
+and multiple mapping:
+
+```{r}
+ggplot(data = amesdata) + 
+  geom_point(mapping = aes(x = Gr_Liv_Area, 
+                           y = Sale_Price, 
+                           shape = Exter_Qual,
+                           color = Central_Air), 
+             alpha = 0.5,
+             size = 2)
+```
+
+## Smootlines
+
+```{r}
+ggplot(data = amesdata) + 
+  geom_smooth(mapping = aes(x = Gr_Liv_Area, 
+                           y = Sale_Price), 
+              size = 1.5)
+```
+
+```{r}
+ggplot(data = amesdata) + 
+  geom_smooth(mapping = aes(x = Gr_Liv_Area, 
+                           y = Sale_Price), 
+              size = 1.5,
+              method = "lm")
+```
+
+And 
+
+```{r}
+ggplot(data = amesdata) + 
+  geom_point(mapping = aes(x = Gr_Liv_Area, 
+                           y = Sale_Price)) +
+  geom_smooth(mapping = aes(x = Gr_Liv_Area, 
+                           y = Sale_Price)) 
+
+# Or with global mapping
+
+ggplot(data = amesdata, 
+       mapping = aes(x = Gr_Liv_Area, 
+                     y = Sale_Price,
+                     color = Central_Air)) +
+  geom_point() +
+  geom_smooth() 
+```
+
+## Histograms & Density
+
+How do we visualize continuous variables? One popular plot is called histograms.
+
+```{r}
+hist(amesdata$Sale_Price)
+```
+
+And density with ggplot
+
+```{r}
+ggplot(data = amesdata, aes(x = Sale_Price)) +
+  geom_histogram(aes(y = ..density..)) +
+  geom_density(color = "red",
+               size = 1.5)
+```
+
+## Multiple plots
+
+```{r}
+fc <- ggplot(data = amesdata, aes(x = Sale_Price)) +
+  geom_histogram(aes(y = ..density..)) +
+  geom_density(color = "red",
+               size = 1.5)
+fc + facet_wrap("Street")
+```
+## Lables etc.
+
+```{r}
+fc + 
+  xlab("Sale Price") + 
+  ylab("Density") + 
+  ggtitle("Price vs. Area") +
+  theme(axis.text = element_text(size = 25, color = "red")) +
+  theme(plot.title = element_text(size = 24, 
+                                     color = "magenta", 
+                                     face = "bold",
+                                     hjust = 0.5)) 
+```
+
+## Add lines
+
+Let's create some series (compounding series) of \$1000:
+
+```{r}
+t <- seq(0, 10, 1/4)
+A1 <- 1000*(1+0.05)^t
+A2 <- 1000*(1+0.03)^t
+A3 <- 1000*(1+0.07)^t
+A4 <- 1000*(1+0.1)^t
+```
+
+```{r}
+plot(t, A1)
+```
+
+Here is a simple but beautiful plot ... So you may not want to use ggplot all the time:  
+
+```{r}
+plot(t, A1,  ylim = c(1000,2000), 
+     type = "l", xlab = "Time (in years)", 
+     ylab = "Accumulated Value (in $)", 
+     main = "Accumulated Value of $1000 Investment", col = "black")
+lines(t, A2, type = "l", col = "blue", lty = 2, lwd = 2)
+lines(t, A3, type = "l", col = "red", lty = 3, lwd = 3)
+legend("bottomright", 
+       legend = c("3% Interest", "5% Interest", "7% Interest"), 
+       col = c("blue", "black", "red"), 
+       lty = c(2, 1, 3), bty = "o", cex = 0.75)
+```
+
+Or we can put them next to each other:
+
+```{r}
+par(mfrow=c(2,2), oma = c(0,0,2,0)) # puts 4 plots in one window (2x2)
+
+plot(t, A1, type = "l", xlab = "Time (in years)", 
+     ylab = "AV - $", ylim = c(1000, 2500),
+     main = "(i = 0.05)")
+
+plot(t, A2, type = "l", xlab = "Time (in years)", 
+     ylab = "AV - $", ylim = c(1000, 2500),
+     main = "(i = 0.03)")
+
+plot(t, A3, type = "l", xlab = "Time (in years)", 
+     ylab = "AV - $", ylim = c(1000, 2500),
+     main = "(i = 0.07)")
+
+plot(t, A4, type = "l", xlab = "Time (in years)", 
+     ylab = "AV - $", ylim = c(1000, 2500),
+     main = "(i = 0.1)")
+
+mtext("Accumulated Value of $1000 Investment",
+      outer=TRUE, cex = 1.5, col="olivedrab")
+```
+
+## Pairwise relationship
+
+R package `corrplot` provides a visual exploratory tool on correlation matrix that supports automatic variable reordering to help detect hidden patterns among variables.  See more details [here](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html)
+
+```{r}
+library(corrplot)
+M = cor(mtcars)
+corrplot(M, method = 'number') # colorful number
+corrplot(M)
+corrplot(M, order = 'AOE')
+corrplot.mixed(M, order = 'AOE')
+```
+

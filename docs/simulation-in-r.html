@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 Simulation in R | R Bootcamp - How to use R for Data Science</title>
+  <meta name="description" content="This book is companion fro RBootcamp package." />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 Simulation in R | R Bootcamp - How to use R for Data Science" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://yaydede.github.io/Bootcamp_book//Users/yigitaydede/Dropbox/Documents/Courses/MBAN/RBootcamps/Bootcamp_book/png/cover.png" />
+  <meta property="og:description" content="This book is companion fro RBootcamp package." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 Simulation in R | R Bootcamp - How to use R for Data Science" />
+  
+  <meta name="twitter:description" content="This book is companion fro RBootcamp package." />
+  <meta name="twitter:image" content="https://yaydede.github.io/Bootcamp_book//Users/yigitaydede/Dropbox/Documents/Courses/MBAN/RBootcamps/Bootcamp_book/png/cover.png" />
+
+<meta name="author" content="Yigit Aydede" />
+
+
+<meta name="date" content="2022-10-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="programing-basics.html"/>
+<link rel="next" href="parts.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R Bootcamp</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-r"><i class="fa fa-check"></i>Why R?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#installation-of-r-rstudio-and-r-packages"><i class="fa fa-check"></i><b>1.1</b> Installation of R, RStudio and R Packages</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#rstudio"><i class="fa fa-check"></i><b>1.2</b> RStudio</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#packages"><i class="fa fa-check"></i><b>1.3</b> Packages</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#working-directory"><i class="fa fa-check"></i><b>1.4</b> Working directory</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#hints"><i class="fa fa-check"></i><b>1.5</b> Hints</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#console-or-script"><i class="fa fa-check"></i><b>1.6</b> Console or Script?</a></li>
+<li class="chapter" data-level="1.7" data-path="introduction.html"><a href="introduction.html#r-as-a-calculator"><i class="fa fa-check"></i><b>1.7</b> R as a calculator</a></li>
+<li class="chapter" data-level="1.8" data-path="introduction.html"><a href="introduction.html#data-object-types"><i class="fa fa-check"></i><b>1.8</b> Data &amp; Object Types</a></li>
+<li class="chapter" data-level="1.9" data-path="introduction.html"><a href="introduction.html#r-style-guide"><i class="fa fa-check"></i><b>1.9</b> R-Style Guide</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="vectors.html"><a href="vectors.html"><i class="fa fa-check"></i><b>2</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="vectors.html"><a href="vectors.html#one-type-same-type"><i class="fa fa-check"></i><b>2.1</b> One type, same type</a></li>
+<li class="chapter" data-level="2.2" data-path="vectors.html"><a href="vectors.html#patterns"><i class="fa fa-check"></i><b>2.2</b> Patterns</a></li>
+<li class="chapter" data-level="2.3" data-path="vectors.html"><a href="vectors.html#attributes"><i class="fa fa-check"></i><b>2.3</b> Attributes</a></li>
+<li class="chapter" data-level="2.4" data-path="vectors.html"><a href="vectors.html#character-operators"><i class="fa fa-check"></i><b>2.4</b> Character operators</a></li>
+<li class="chapter" data-level="2.5" data-path="vectors.html"><a href="vectors.html#sort-rank-and-order"><i class="fa fa-check"></i><b>2.5</b> Sort, rank, and order</a></li>
+<li class="chapter" data-level="2.6" data-path="vectors.html"><a href="vectors.html#simple-descriptive-measures"><i class="fa fa-check"></i><b>2.6</b> Simple descriptive measures</a></li>
+<li class="chapter" data-level="2.7" data-path="vectors.html"><a href="vectors.html#subsetting-vectors"><i class="fa fa-check"></i><b>2.7</b> Subsetting Vectors</a></li>
+<li class="chapter" data-level="2.8" data-path="vectors.html"><a href="vectors.html#vectorization-or-vector-operations"><i class="fa fa-check"></i><b>2.8</b> Vectorization or vector operations</a></li>
+<li class="chapter" data-level="2.9" data-path="vectors.html"><a href="vectors.html#set-operations"><i class="fa fa-check"></i><b>2.9</b> Set operations</a></li>
+<li class="chapter" data-level="2.10" data-path="vectors.html"><a href="vectors.html#missing-values"><i class="fa fa-check"></i><b>2.10</b> Missing values</a></li>
+<li class="chapter" data-level="2.11" data-path="vectors.html"><a href="vectors.html#factors"><i class="fa fa-check"></i><b>2.11</b> Factors</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="other-r-objects.html"><a href="other-r-objects.html"><i class="fa fa-check"></i><b>3</b> Other R Objects</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="other-r-objects.html"><a href="other-r-objects.html#matrices"><i class="fa fa-check"></i><b>3.1</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="other-r-objects.html"><a href="other-r-objects.html#matrix-operations"><i class="fa fa-check"></i><b>3.1.1</b> Matrix Operations</a></li>
+<li class="chapter" data-level="3.1.2" data-path="other-r-objects.html"><a href="other-r-objects.html#combine-vectors-or-matrices-into-a-matrix"><i class="fa fa-check"></i><b>3.1.2</b> Combine vectors or matrices into a matrix</a></li>
+<li class="chapter" data-level="3.1.3" data-path="other-r-objects.html"><a href="other-r-objects.html#subsetting-matrix"><i class="fa fa-check"></i><b>3.1.3</b> Subsetting Matrix</a></li>
+<li class="chapter" data-level="3.1.4" data-path="other-r-objects.html"><a href="other-r-objects.html#apply-function"><i class="fa fa-check"></i><b>3.1.4</b> <code>apply()</code> function</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="other-r-objects.html"><a href="other-r-objects.html#data-frames"><i class="fa fa-check"></i><b>3.2</b> Data Frames</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="other-r-objects.html"><a href="other-r-objects.html#subsetting-data-frames"><i class="fa fa-check"></i><b>3.2.1</b> Subsetting Data Frames</a></li>
+<li class="chapter" data-level="3.2.2" data-path="other-r-objects.html"><a href="other-r-objects.html#tibble"><i class="fa fa-check"></i><b>3.2.2</b> Tibble</a></li>
+<li class="chapter" data-level="3.2.3" data-path="other-r-objects.html"><a href="other-r-objects.html#plotting-from-data-frame"><i class="fa fa-check"></i><b>3.2.3</b> Plotting from data frame</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="other-r-objects.html"><a href="other-r-objects.html#lists"><i class="fa fa-check"></i><b>3.3</b> Lists</a></li>
+<li class="chapter" data-level="3.4" data-path="other-r-objects.html"><a href="other-r-objects.html#array"><i class="fa fa-check"></i><b>3.4</b> Array</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="reading-and-writting-data-files.html"><a href="reading-and-writting-data-files.html"><i class="fa fa-check"></i><b>4</b> Reading and writting data files</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="reading-and-writting-data-files.html"><a href="reading-and-writting-data-files.html#reading-importing"><i class="fa fa-check"></i><b>4.1</b> Reading (importing)</a></li>
+<li class="chapter" data-level="4.2" data-path="reading-and-writting-data-files.html"><a href="reading-and-writting-data-files.html#writing-exporting"><i class="fa fa-check"></i><b>4.2</b> Writing (exporting)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html"><i class="fa fa-check"></i><b>5</b> Data visualisation with R</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html#scatterplots"><i class="fa fa-check"></i><b>5.1</b> Scatterplots</a></li>
+<li class="chapter" data-level="5.2" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html#smootlines"><i class="fa fa-check"></i><b>5.2</b> Smootlines</a></li>
+<li class="chapter" data-level="5.3" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html#histograms-density"><i class="fa fa-check"></i><b>5.3</b> Histograms &amp; Density</a></li>
+<li class="chapter" data-level="5.4" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html#multiple-plots"><i class="fa fa-check"></i><b>5.4</b> Multiple plots</a></li>
+<li class="chapter" data-level="5.5" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html#add-lines"><i class="fa fa-check"></i><b>5.5</b> Add lines</a></li>
+<li class="chapter" data-level="5.6" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html#pairwise-relationship"><i class="fa fa-check"></i><b>5.6</b> Pairwise relationship</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-management.html"><a href="data-management.html"><i class="fa fa-check"></i><b>6</b> Data Management</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="data-management.html"><a href="data-management.html#filter"><i class="fa fa-check"></i><b>6.1</b> Filter</a></li>
+<li class="chapter" data-level="6.2" data-path="data-management.html"><a href="data-management.html#arrange"><i class="fa fa-check"></i><b>6.2</b> Arrange</a></li>
+<li class="chapter" data-level="6.3" data-path="data-management.html"><a href="data-management.html#pipe"><i class="fa fa-check"></i><b>6.3</b> Pipe</a></li>
+<li class="chapter" data-level="6.4" data-path="data-management.html"><a href="data-management.html#select"><i class="fa fa-check"></i><b>6.4</b> Select</a></li>
+<li class="chapter" data-level="6.5" data-path="data-management.html"><a href="data-management.html#create-group_by"><i class="fa fa-check"></i><b>6.5</b> Create &amp; <code>group_by()</code></a></li>
+<li class="chapter" data-level="6.6" data-path="data-management.html"><a href="data-management.html#more-tools"><i class="fa fa-check"></i><b>6.6</b> More tools</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="data-management.html"><a href="data-management.html#subset"><i class="fa fa-check"></i><b>6.6.1</b> <code>subset()</code></a></li>
+<li class="chapter" data-level="6.6.2" data-path="data-management.html"><a href="data-management.html#within-with"><i class="fa fa-check"></i><b>6.6.2</b> <code>within()</code> &amp; <code>with()</code></a></li>
+<li class="chapter" data-level="6.6.3" data-path="data-management.html"><a href="data-management.html#aggregate"><i class="fa fa-check"></i><b>6.6.3</b> <code>aggregate()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="programing-basics.html"><a href="programing-basics.html"><i class="fa fa-check"></i><b>7</b> Programing basics</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="programing-basics.html"><a href="programing-basics.html#conditional-flows"><i class="fa fa-check"></i><b>7.1</b> Conditional flows</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="programing-basics.html"><a href="programing-basics.html#ifelse"><i class="fa fa-check"></i><b>7.1.1</b> if/Else</a></li>
+<li class="chapter" data-level="7.1.2" data-path="programing-basics.html"><a href="programing-basics.html#nested-conditions"><i class="fa fa-check"></i><b>7.1.2</b> Nested conditions</a></li>
+<li class="chapter" data-level="7.1.3" data-path="programing-basics.html"><a href="programing-basics.html#simpler-ifelse"><i class="fa fa-check"></i><b>7.1.3</b> Simpler <code>ifelse</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="programing-basics.html"><a href="programing-basics.html#loops"><i class="fa fa-check"></i><b>7.2</b> Loops</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="programing-basics.html"><a href="programing-basics.html#conditional-loops"><i class="fa fa-check"></i><b>7.2.1</b> Conditional loops</a></li>
+<li class="chapter" data-level="7.2.2" data-path="programing-basics.html"><a href="programing-basics.html#while-and-repeat"><i class="fa fa-check"></i><b>7.2.2</b> <code>while()</code> and <code>repeat()</code></a></li>
+<li class="chapter" data-level="7.2.3" data-path="programing-basics.html"><a href="programing-basics.html#nested-loops"><i class="fa fa-check"></i><b>7.2.3</b> Nested loops</a></li>
+<li class="chapter" data-level="7.2.4" data-path="programing-basics.html"><a href="programing-basics.html#outer"><i class="fa fa-check"></i><b>7.2.4</b> <code>outer()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="programing-basics.html"><a href="programing-basics.html#the-apply-family"><i class="fa fa-check"></i><b>7.3</b> The <code>apply()</code> family</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="programing-basics.html"><a href="programing-basics.html#apply"><i class="fa fa-check"></i><b>7.3.1</b> <code>apply()</code></a></li>
+<li class="chapter" data-level="7.3.2" data-path="programing-basics.html"><a href="programing-basics.html#lapply"><i class="fa fa-check"></i><b>7.3.2</b> <code>lapply()</code></a></li>
+<li class="chapter" data-level="7.3.3" data-path="programing-basics.html"><a href="programing-basics.html#sapply"><i class="fa fa-check"></i><b>7.3.3</b> <code>sapply()</code></a></li>
+<li class="chapter" data-level="7.3.4" data-path="programing-basics.html"><a href="programing-basics.html#tapply"><i class="fa fa-check"></i><b>7.3.4</b> <code>tapply()</code></a></li>
+<li class="chapter" data-level="7.3.5" data-path="programing-basics.html"><a href="programing-basics.html#mapply"><i class="fa fa-check"></i><b>7.3.5</b> <code>mapply()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="programing-basics.html"><a href="programing-basics.html#functions"><i class="fa fa-check"></i><b>7.4</b> Functions</a></li>
+<li class="chapter" data-level="7.5" data-path="programing-basics.html"><a href="programing-basics.html#source"><i class="fa fa-check"></i><b>7.5</b> <code>source()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="simulation-in-r.html"><a href="simulation-in-r.html"><i class="fa fa-check"></i><b>8</b> Simulation in R</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="simulation-in-r.html"><a href="simulation-in-r.html#sampling-in-r-sample"><i class="fa fa-check"></i><b>8.1</b> Sampling in R: <code>sample()</code></a></li>
+<li class="chapter" data-level="8.2" data-path="simulation-in-r.html"><a href="simulation-in-r.html#random-number-generating-with-probablity-distributions"><i class="fa fa-check"></i><b>8.2</b> Random number generating with probablity distributions</a></li>
+<li class="chapter" data-level="8.3" data-path="simulation-in-r.html"><a href="simulation-in-r.html#simulation-for-statistical-inference"><i class="fa fa-check"></i><b>8.3</b> Simulation for statistical inference</a></li>
+<li class="chapter" data-level="8.4" data-path="simulation-in-r.html"><a href="simulation-in-r.html#creataing-data-with-a-data-generating-model-dgm"><i class="fa fa-check"></i><b>8.4</b> Creataing data with a Data Generating Model (DGM)</a></li>
+<li class="chapter" data-level="8.5" data-path="simulation-in-r.html"><a href="simulation-in-r.html#bootstrapping"><i class="fa fa-check"></i><b>8.5</b> Bootstrapping</a></li>
+<li class="chapter" data-level="8.6" data-path="simulation-in-r.html"><a href="simulation-in-r.html#monty-hall---fun-example"><i class="fa fa-check"></i><b>8.6</b> Monty Hall - Fun example</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>9</b> Parts</a></li>
+<li class="chapter" data-level="10" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>10</b> Footnotes and citations</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>10.1</b> Footnotes</a></li>
+<li class="chapter" data-level="10.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>10.2</b> Citations</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>11</b> Blocks</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>11.1</b> Equations</a></li>
+<li class="chapter" data-level="11.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>11.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="11.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>11.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>12</b> Sharing your book</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>12.1</b> Publishing</a></li>
+<li class="chapter" data-level="12.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>12.2</b> 404 pages</a></li>
+<li class="chapter" data-level="12.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>12.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="13" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>13</b> Cross-references</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>13.1</b> Chapters and sub-chapters</a></li>
+<li class="chapter" data-level="13.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>13.2</b> Captioned figures and tables</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Bootcamp - How to use R for Data Science</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="simulation-in-r" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Simulation in R<a href="simulation-in-r.html#simulation-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In this chapter, we will learn how to simulate data and illustrate their use in several examples. More specifically we’ll cover the following subjects:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Sampling in R: <code>sample()</code>,</strong></li>
+<li><strong>Random number generating with probability distributions,</strong></li>
+<li><strong>Simulation for statistical inference,</strong></li>
+<li><strong>Creating data with a DGM,</strong></li>
+<li><strong>Bootstrapping,</strong></li>
+<li><strong>Power of simulation - A fun example.</strong></li>
+</ol>
+<p>Why would we want to simulate data? Why not just use real data? Because with real data, we don’t know what the right answer is. Suppose we use real data and we apply a method to extract information, how do we know that we applied the method correctly? Now suppose we create artificial data by simulating a “Data Generating Model”. Since we can know the correct answer, we can check whether or not our methods work to extract the information we wish to have. If our method is correct, than we can apply it to real data.</p>
+<div id="sampling-in-r-sample" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Sampling in R: <code>sample()</code><a href="simulation-in-r.html#sampling-in-r-sample" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s play with sample() for simple random sampling. We will see the arguments of sample() function.</p>
+<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="simulation-in-r.html#cb590-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;H&quot;</span>,<span class="st">&quot;T&quot;</span>), <span class="at">size =</span> <span class="dv">8</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)  <span class="co"># fair coin</span></span></code></pre></div>
+<pre><code>## [1] &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot;</code></pre>
+<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="simulation-in-r.html#cb592-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>))</span></code></pre></div>
+<pre><code>## [1] 1 5</code></pre>
+<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="simulation-in-r.html#cb594-1" aria-hidden="true" tabindex="-1"></a><span class="co">#let&#39;s do it again</span></span>
+<span id="cb594-2"><a href="simulation-in-r.html#cb594-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;H&quot;</span>,<span class="st">&quot;T&quot;</span>), <span class="at">size =</span> <span class="dv">8</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)  <span class="co"># fair coin</span></span></code></pre></div>
+<pre><code>## [1] &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot;</code></pre>
+<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="simulation-in-r.html#cb596-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>))</span></code></pre></div>
+<pre><code>## [1] 1 3</code></pre>
+<p>The results are different. If we use <code>set.seed()</code> then we can get the same results each time. Lets try now:</p>
+<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="simulation-in-r.html#cb598-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb598-2"><a href="simulation-in-r.html#cb598-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;H&quot;</span>,<span class="st">&quot;T&quot;</span>), <span class="at">size =</span> <span class="dv">8</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)  <span class="co"># fair coin</span></span></code></pre></div>
+<pre><code>## [1] &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot;</code></pre>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="simulation-in-r.html#cb600-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>))</span></code></pre></div>
+<pre><code>## [1] 4 4</code></pre>
+<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="simulation-in-r.html#cb602-1" aria-hidden="true" tabindex="-1"></a><span class="co">#let&#39;s do it again</span></span>
+<span id="cb602-2"><a href="simulation-in-r.html#cb602-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb602-3"><a href="simulation-in-r.html#cb602-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb602-4"><a href="simulation-in-r.html#cb602-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;H&quot;</span>,<span class="st">&quot;T&quot;</span>), <span class="at">size =</span> <span class="dv">8</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)  <span class="co"># fair coin</span></span></code></pre></div>
+<pre><code>## [1] &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot;</code></pre>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="simulation-in-r.html#cb604-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>))</span></code></pre></div>
+<pre><code>## [1] 4 4</code></pre>
+<p>We use <code>replace=TRUE</code> to override the default sample without replacement. This means the same thing can get selected from the population multiple times. And, <code>prob=</code> to sample elements with different probabilities, e.g. over sample based on some factor. The <code>set.seed()</code> function allow you to make a reproducible set of random numbers. Let’s see the difference.</p>
+<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="simulation-in-r.html#cb606-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span></span>
+<span id="cb606-2"><a href="simulation-in-r.html#cb606-2" aria-hidden="true" tabindex="-1"></a><span class="co"># a random permutation</span></span>
+<span id="cb606-3"><a href="simulation-in-r.html#cb606-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb606-4"><a href="simulation-in-r.html#cb606-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb606-5"><a href="simulation-in-r.html#cb606-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(x)</span></code></pre></div>
+<pre><code>##  [1]  3 12 10  2  6 11  5  4  9  8  1  7</code></pre>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="simulation-in-r.html#cb608-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This shuffles the numbers</span></span>
+<span id="cb608-2"><a href="simulation-in-r.html#cb608-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb608-3"><a href="simulation-in-r.html#cb608-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(x, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##  [1]  3  3 10  2  6 11  5  4  6  9 10 11</code></pre>
+<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="simulation-in-r.html#cb610-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This shuffles the numbers and replacing them</span></span></code></pre></div>
+<p>More…</p>
+<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="simulation-in-r.html#cb611-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sample()&#39;s surprise -- example</span></span>
+<span id="cb611-2"><a href="simulation-in-r.html#cb611-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb611-3"><a href="simulation-in-r.html#cb611-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sample</span>(x[x <span class="sc">&gt;</span>  <span class="dv">3</span>]) <span class="co"># length 2</span></span></code></pre></div>
+<pre><code>## [1]  8  6  9  4  7 10  5</code></pre>
+<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="simulation-in-r.html#cb613-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sample</span>(x[x <span class="sc">&gt;</span>  <span class="dv">9</span>]) <span class="co"># oops -- length 10!  So this doesn&#39;t work</span></span></code></pre></div>
+<pre><code>##  [1]  3  8  2  7  9  1  6 10  4  5</code></pre>
+<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="simulation-in-r.html#cb615-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sample</span>(x[x <span class="sc">&gt;</span> <span class="dv">10</span>]) <span class="co"># length 0</span></span></code></pre></div>
+<pre><code>## integer(0)</code></pre>
+<p>Here is an example: let’s generate 501 coin flips. In the true model, this should generate heads half of the time, and tails half of the time.</p>
+<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="simulation-in-r.html#cb617-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb617-2"><a href="simulation-in-r.html#cb617-2" aria-hidden="true" tabindex="-1"></a>coins <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;Heads&quot;</span>,<span class="st">&quot;Tails&quot;</span>), <span class="dv">501</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Now let’s take that data as given and analyze it in our standard way! The proportion of heads is:</p>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="simulation-in-r.html#cb618-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(coins<span class="sc">==</span><span class="st">&#39;Heads&#39;</span>)</span></code></pre></div>
+<pre><code>## [1] 0.5209581</code></pre>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="simulation-in-r.html#cb620-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(coins)), </span>
+<span id="cb620-2"><a href="simulation-in-r.html#cb620-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;lightskyblue3&quot;</span>,<span class="st">&quot;mistyrose3&quot;</span>),</span>
+<span id="cb620-3"><a href="simulation-in-r.html#cb620-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">cex.axis =</span> <span class="fl">0.8</span>, <span class="at">cex.names =</span> <span class="fl">0.8</span>)</span></code></pre></div>
+<p><img src="07-Sim_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>So what’s our conclusion? We came to the conclusion that the true model generates heads 0.493014 of the time. But it is NOT 0.50 , so pretty close, but not exact. Did this whole thing work or not? What if it always errs on the same side? In other words, what if it’s always bias towards <em>heads</em> in every sample with 501 flips? We will do our first simulation to answer it momentarily.</p>
+<p>One more useful application:</p>
+<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="simulation-in-r.html#cb621-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(letters, <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##  [1] &quot;p&quot; &quot;z&quot; &quot;o&quot; &quot;s&quot; &quot;c&quot; &quot;n&quot; &quot;a&quot; &quot;x&quot; &quot;a&quot; &quot;p&quot;</code></pre>
+</div>
+<div id="random-number-generating-with-probablity-distributions" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Random number generating with probablity distributions<a href="simulation-in-r.html#random-number-generating-with-probablity-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here are the common probability distributions in R. Search help in R for more detail.</p>
+<p><code>beta(shape1, shape2, ncp)</code>,<br />
+<code>binom(size, prob)</code>,<br />
+<code>chisq(df, ncp)</code>,<br />
+<code>exp(rate)</code>,<br />
+<code>gamma(shape, scale)</code>,<br />
+<code>logis(location, scale)</code>,<br />
+<code>norm(mean, sd)</code>,<br />
+<code>pois(lambda)</code>,<br />
+<code>t(df, ncp)</code>,<br />
+<code>unif(min, max)</code>,</p>
+<p><code>dnorm(x,)</code> returns the density or the value on the y-axis of a probability distribution for a discrete value of x,<br />
+<code>pnorm(q,)</code> returns the cumulative density function (CDF) or the area under the curve to the left of an x value on a probability distribution curve,
+<code>qnorm(p,)</code> returns the quantile value, i.e. the standardized z value for x,
+<strong><code>rnorm(n,)</code> returns a random simulation of size n</strong></p>
+<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="simulation-in-r.html#cb623-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">6</span>) <span class="co">#  6 std nrml distribution values</span></span></code></pre></div>
+<pre><code>## [1] -0.2645952 -0.9472983  0.7395213  0.8967787 -0.3460009 -1.7820571</code></pre>
+<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb625-1"><a href="simulation-in-r.html#cb625-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">19</span>) <span class="co"># set parameters</span></span></code></pre></div>
+<pre><code>##  [1] 58.83389 12.93042 40.19385 59.29253 67.13847 62.16690 68.07297 38.61666
+##  [9] 24.71680 38.74801</code></pre>
+<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb627-1"><a href="simulation-in-r.html#cb627-1" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>) <span class="co">#uniform distribution</span></span></code></pre></div>
+<pre><code>##  [1] 0.96415257 0.08146656 0.85436475 0.80223822 0.38517360 0.32759740
+##  [7] 0.20493870 0.56938266 0.88805519 0.52971409</code></pre>
+<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb629-1"><a href="simulation-in-r.html#cb629-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rpois</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">lambda =</span> <span class="dv">15</span>) <span class="co"># Poisson distribution</span></span></code></pre></div>
+<pre><code>##  [1] 15 15  6 17 16 13 15 15 15 21</code></pre>
+<div class="sourceCode" id="cb631"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb631-1"><a href="simulation-in-r.html#cb631-1" aria-hidden="true" tabindex="-1"></a><span class="co"># toss coin 8 times using binomial distribution</span></span>
+<span id="cb631-2"><a href="simulation-in-r.html#cb631-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">8</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">p =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<pre><code>## [1] 0 0 1 0 1 1 1 0</code></pre>
+<div class="sourceCode" id="cb633"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb633-1"><a href="simulation-in-r.html#cb633-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">8</span>,<span class="dv">1</span>,.<span class="dv">5</span>) <span class="co"># args correct order</span></span></code></pre></div>
+<pre><code>## [1] 1 0 0 1 1 1 1 0</code></pre>
+<div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb635-1"><a href="simulation-in-r.html#cb635-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 18 trials, sample size 10, prob success =.2</span></span>
+<span id="cb635-2"><a href="simulation-in-r.html#cb635-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">18</span>, <span class="dv">10</span>, <span class="fl">0.2</span>)</span></code></pre></div>
+<pre><code>##  [1] 5 1 0 4 2 1 4 0 1 3 1 1 1 3 1 3 1 1</code></pre>
+<p>Can we replicate our coin-flip example here with probability distributions? Yes, we can!</p>
+<div class="sourceCode" id="cb637"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb637-1"><a href="simulation-in-r.html#cb637-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb637-2"><a href="simulation-in-r.html#cb637-2" aria-hidden="true" tabindex="-1"></a>coins <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">501</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">p =</span> <span class="fl">0.5</span>)</span>
+<span id="cb637-3"><a href="simulation-in-r.html#cb637-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(coins<span class="sc">==</span><span class="dv">0</span>)</span></code></pre></div>
+<pre><code>## [1] 0.5309381</code></pre>
+<div class="sourceCode" id="cb639"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb639-1"><a href="simulation-in-r.html#cb639-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(coins)),</span>
+<span id="cb639-2"><a href="simulation-in-r.html#cb639-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;lightskyblue3&quot;</span>,<span class="st">&quot;mistyrose3&quot;</span>),</span>
+<span id="cb639-3"><a href="simulation-in-r.html#cb639-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">cex.axis =</span> <span class="fl">0.8</span>, <span class="at">cex.names =</span> <span class="fl">0.8</span>)</span></code></pre></div>
+<p><img src="07-Sim_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
+<div id="simulation-for-statistical-inference" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Simulation for statistical inference<a href="simulation-in-r.html#simulation-for-statistical-inference" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s predict number of girls in 400 births, where probability of female birth is 48.8%</p>
+<div class="sourceCode" id="cb640"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb640-1"><a href="simulation-in-r.html#cb640-1" aria-hidden="true" tabindex="-1"></a>n.girls <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">1</span>, <span class="dv">400</span>, <span class="fl">0.488</span>)</span>
+<span id="cb640-2"><a href="simulation-in-r.html#cb640-2" aria-hidden="true" tabindex="-1"></a>n.girls</span></code></pre></div>
+<pre><code>## [1] 201</code></pre>
+<div class="sourceCode" id="cb642"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb642-1"><a href="simulation-in-r.html#cb642-1" aria-hidden="true" tabindex="-1"></a>n.girls<span class="sc">/</span><span class="dv">400</span></span></code></pre></div>
+<pre><code>## [1] 0.5025</code></pre>
+<p>Now, to get distribution of the simulations, repeat the simulation many times.</p>
+<div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="simulation-in-r.html#cb644-1" aria-hidden="true" tabindex="-1"></a>n.sims <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb644-2"><a href="simulation-in-r.html#cb644-2" aria-hidden="true" tabindex="-1"></a>n.girls <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(n.sims, <span class="dv">400</span>, .<span class="dv">488</span>)</span>
+<span id="cb644-3"><a href="simulation-in-r.html#cb644-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(n.girls, <span class="at">col =</span> <span class="st">&quot;slategray3&quot;</span>,  <span class="at">cex.axis =</span> <span class="fl">0.75</span>)</span></code></pre></div>
+<p><img src="07-Sim_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<div class="sourceCode" id="cb645"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb645-1"><a href="simulation-in-r.html#cb645-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(n.girls)<span class="sc">/</span><span class="dv">400</span></span></code></pre></div>
+<pre><code>## [1] 0.4872775</code></pre>
+<p>This is called as <em>sampling distribution</em>. Can we do same thing with a loop?</p>
+<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb647-1"><a href="simulation-in-r.html#cb647-1" aria-hidden="true" tabindex="-1"></a>n.sims <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb647-2"><a href="simulation-in-r.html#cb647-2" aria-hidden="true" tabindex="-1"></a>n.girls <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, n.sims) <span class="co"># create vector to store simulations</span></span>
+<span id="cb647-3"><a href="simulation-in-r.html#cb647-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n.sims){</span>
+<span id="cb647-4"><a href="simulation-in-r.html#cb647-4" aria-hidden="true" tabindex="-1"></a>  n.girls[i] <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">1</span>, <span class="dv">400</span>, <span class="fl">0.488</span>)</span>
+<span id="cb647-5"><a href="simulation-in-r.html#cb647-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb647-6"><a href="simulation-in-r.html#cb647-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(n.girls, <span class="at">col =</span> <span class="st">&quot;lavender&quot;</span>, <span class="at">cex.axis =</span> <span class="fl">0.75</span>)</span></code></pre></div>
+<p><img src="07-Sim_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>Let’s apply a similar simulation to our coin flipping.</p>
+<div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb648-1"><a href="simulation-in-r.html#cb648-1" aria-hidden="true" tabindex="-1"></a>n.sims <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb648-2"><a href="simulation-in-r.html#cb648-2" aria-hidden="true" tabindex="-1"></a>n.heads <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, n.sims) <span class="co"># create vector to store simulations</span></span>
+<span id="cb648-3"><a href="simulation-in-r.html#cb648-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n.sims){</span>
+<span id="cb648-4"><a href="simulation-in-r.html#cb648-4" aria-hidden="true" tabindex="-1"></a>  n.heads[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">501</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">p =</span> <span class="fl">0.5</span>))</span>
+<span id="cb648-5"><a href="simulation-in-r.html#cb648-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb648-6"><a href="simulation-in-r.html#cb648-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(n.heads, <span class="at">col=</span><span class="st">&quot;aliceblue&quot;</span>, <span class="at">cex.axis =</span> <span class="fl">0.75</span>)</span></code></pre></div>
+<p><img src="07-Sim_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<div class="sourceCode" id="cb649"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb649-1"><a href="simulation-in-r.html#cb649-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(n.heads)</span></code></pre></div>
+<pre><code>## [1] 0.4997705</code></pre>
+<p>Here is another way for the same simulation:</p>
+<div class="sourceCode" id="cb651"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb651-1"><a href="simulation-in-r.html#cb651-1" aria-hidden="true" tabindex="-1"></a>n.heads <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, <span class="fu">mean</span>(<span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">501</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">p =</span> <span class="fl">0.5</span>)))</span>
+<span id="cb651-2"><a href="simulation-in-r.html#cb651-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(n.heads, <span class="at">col=</span><span class="st">&quot;lightpink&quot;</span>,<span class="at">cex.axis =</span> <span class="fl">0.75</span>)</span></code></pre></div>
+<p><img src="07-Sim_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<div class="sourceCode" id="cb652"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb652-1"><a href="simulation-in-r.html#cb652-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(n.heads)</span></code></pre></div>
+<pre><code>## [1] 0.4987265</code></pre>
+<p>What’s the 95% confidence interval for the mean?</p>
+<div class="sourceCode" id="cb654"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb654-1"><a href="simulation-in-r.html#cb654-1" aria-hidden="true" tabindex="-1"></a>sd <span class="ot">&lt;-</span> <span class="fu">sd</span>(n.heads)</span>
+<span id="cb654-2"><a href="simulation-in-r.html#cb654-2" aria-hidden="true" tabindex="-1"></a>CI95 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span><span class="sc">*</span>sd<span class="sc">+</span><span class="fu">mean</span>(n.heads), <span class="dv">2</span><span class="sc">*</span>sd<span class="sc">+</span><span class="fu">mean</span>(n.heads))</span>
+<span id="cb654-3"><a href="simulation-in-r.html#cb654-3" aria-hidden="true" tabindex="-1"></a>CI95</span></code></pre></div>
+<pre><code>## [1] 0.4538446 0.5436085</code></pre>
+<p>What happens if we use a “wrong” estimator for the mean, like sum(heads)/300?</p>
+<div class="sourceCode" id="cb656"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb656-1"><a href="simulation-in-r.html#cb656-1" aria-hidden="true" tabindex="-1"></a>n.sims <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb656-2"><a href="simulation-in-r.html#cb656-2" aria-hidden="true" tabindex="-1"></a>n.heads <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, n.sims) <span class="co"># create vector to store simulations</span></span>
+<span id="cb656-3"><a href="simulation-in-r.html#cb656-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n.sims){</span>
+<span id="cb656-4"><a href="simulation-in-r.html#cb656-4" aria-hidden="true" tabindex="-1"></a>  n.heads[i] <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">501</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">p =</span> <span class="fl">0.5</span>))<span class="sc">/</span><span class="dv">300</span></span>
+<span id="cb656-5"><a href="simulation-in-r.html#cb656-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb656-6"><a href="simulation-in-r.html#cb656-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(n.heads)</span></code></pre></div>
+<pre><code>## [1] 0.83496</code></pre>
+<p>Because we are working with a simulation, identifying that the result from this incorrect estimator is wrong becomes easy.</p>
+</div>
+<div id="creataing-data-with-a-data-generating-model-dgm" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Creataing data with a Data Generating Model (DGM)<a href="simulation-in-r.html#creataing-data-with-a-data-generating-model-dgm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>One of the major tasks of statistics is to obtain information about populations. In most of cases, the population is unknown and the only thing that is known for the researcher is a finite subset of observations drawn from the population. The main aim of the statistical analysis is to obtain information about the population through analysis of the sample. Since very little information is known about the population characteristics, one has to establish some assumptions about the behavior of this unknown population. For example, for a regression analysis, we can state that the whole population regression function (PRF) is a linear function of the different values of <span class="math inline">\(X\)</span>. One important issue related to the PRF is the error term (<span class="math inline">\(u_i\)</span>) in the regression equation. For a pair of realizations <span class="math inline">\((x_i,y_i)\)</span> from the random variables <span class="math inline">\((X,Y)\)</span>, we can write the following equalities:</p>
+<p><span class="math display">\[
+y_{i}=E\left(Y | X=x_{i}\right)+u_{i}=\alpha+\beta x_{i}+u_{i}
+\]</span>
+and</p>
+<p><span class="math display">\[
+E\left(u | X=x_{i}\right)=0
+\]</span></p>
+<p>This result implies that for <span class="math inline">\(X=x_i\)</span>, the divergences of all values of <span class="math inline">\(Y\)</span> with respect to the conditional expectation <span class="math inline">\(E(Y\vert X=x_i)\)</span> are averaged out. There are several reasons for the existence of the error term in the regression: (1) the error term is taking into account variables which are not in the model; (2) we do not have great confidence about the correctness of the model; and (3) we do not know if there are measurement errors in the variables.</p>
+<p>In a regression analysis, the PRF is a Data Generating Model for <span class="math inline">\(y_i\)</span>, which is unknown to us. Because it is unknown, we must try to learn about it from a sample since that is the only available data for us. If we assume that there is a specific PRF that generates the data, then given any estimator of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>, namely <span class="math inline">\(\hat{\beta}\)</span> and <span class="math inline">\(\hat{\alpha}\)</span>, we can estimate them from our sample with the sample regression function (SRF):</p>
+<p><span class="math display">\[
+\hat{y}_{i}=\hat{\alpha}+\hat{\beta} x_{i}, \quad i=1, \cdots, n
+\]</span></p>
+<p>The relationship between the PRF and SRF is:</p>
+<p><span class="math display">\[
+y_{i}=\hat{y}_{i}+\hat{u}_{i}, \quad i=1, \cdots, n
+\]</span></p>
+<p>where <span class="math inline">\(\hat{u_i}\)</span> is denoted the residuals from SRF.</p>
+<p>With a data generating process (DGP) at hand, it is possible to create new simulated data. With <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span> and the vector of exogenous variables <span class="math inline">\(X\)</span> (fixed), a sample of size <span class="math inline">\(n\)</span> can be used to obtain <span class="math inline">\(N\)</span> values of <span class="math inline">\(Y\)</span> with random variable <span class="math inline">\(u\)</span>. This yields one complete <strong>population</strong> of size <span class="math inline">\(N\)</span>. Note that this artificially generated set of data could be viewed as an example of real-world data that a researcher would be faced with when dealing with the kind of estimation problem this model represents. Note especially that the set of data obtained depends crucially on the particular set of error terms drawn. A different set of error terms would create a different data set of <span class="math inline">\(Y\)</span> for the same problem.</p>
+<p>With the artificial data we generated, DGM is now known and the whole population is accessible. That is, we can test many models on different samples drawn from this population in order to see whether their inferential properties are in line with DGM. We’ll have several examples below.</p>
+<p>Here is our DGM:<br />
+<span class="math display">\[
+Y_{i}=\beta_{1}+\beta_{2} X_{2 i}+\beta_{3} X_{3 i}+\beta_{4} X_{2 i} X_{3 i}+\beta_{5} X_{5 i},
+\]</span>
+with the following coefficient vector: <span class="math inline">\(\beta = (12, -0.7, 34, -0.17, 5.4)\)</span>. Moreover <span class="math inline">\(x_2\)</span> is binary variable with values of 0 and 1 and <span class="math inline">\(x_5\)</span> and <span class="math inline">\(x_3\)</span> are highly correlated with <span class="math inline">\(\rho = 0.65\)</span>. When we add the error term, <span class="math inline">\(u\)</span>, which is independently and identically (i.i.d) distributed with <span class="math inline">\(N(0,1)\)</span>, we can get the whole <em>population</em> of 10,000 observations. DGM plus the error term is called the data generating process (DGP)</p>
+<div class="sourceCode" id="cb658"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb658-1"><a href="simulation-in-r.html#cb658-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb658-2"><a href="simulation-in-r.html#cb658-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb658-3"><a href="simulation-in-r.html#cb658-3" aria-hidden="true" tabindex="-1"></a>x_2 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), N, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="co">#Dummy variable</span></span>
+<span id="cb658-4"><a href="simulation-in-r.html#cb658-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb658-5"><a href="simulation-in-r.html#cb658-5" aria-hidden="true" tabindex="-1"></a><span class="co">#mvrnorm() creates a matrix of correlated variables </span></span>
+<span id="cb658-6"><a href="simulation-in-r.html#cb658-6" aria-hidden="true" tabindex="-1"></a>X_corr <span class="ot">&lt;-</span> <span class="fu">mvrnorm</span>(N, <span class="at">mu =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="at">Sigma =</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="fl">0.65</span>,<span class="fl">0.65</span>,<span class="dv">1</span>), <span class="at">ncol =</span> <span class="dv">2</span>),</span>
+<span id="cb658-7"><a href="simulation-in-r.html#cb658-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">empirical =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb658-8"><a href="simulation-in-r.html#cb658-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb658-9"><a href="simulation-in-r.html#cb658-9" aria-hidden="true" tabindex="-1"></a><span class="co">#We can check their correlation</span></span>
+<span id="cb658-10"><a href="simulation-in-r.html#cb658-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(X_corr)</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,] 1.00 0.65
+## [2,] 0.65 1.00</code></pre>
+<div class="sourceCode" id="cb660"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb660-1"><a href="simulation-in-r.html#cb660-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Each column is one of our variables</span></span>
+<span id="cb660-2"><a href="simulation-in-r.html#cb660-2" aria-hidden="true" tabindex="-1"></a>x_3 <span class="ot">&lt;-</span> X_corr[,<span class="dv">1</span>]</span>
+<span id="cb660-3"><a href="simulation-in-r.html#cb660-3" aria-hidden="true" tabindex="-1"></a>x_5 <span class="ot">&lt;-</span> X_corr[,<span class="dv">2</span>]</span>
+<span id="cb660-4"><a href="simulation-in-r.html#cb660-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb660-5"><a href="simulation-in-r.html#cb660-5" aria-hidden="true" tabindex="-1"></a><span class="co">#interaction</span></span>
+<span id="cb660-6"><a href="simulation-in-r.html#cb660-6" aria-hidden="true" tabindex="-1"></a>x_23 <span class="ot">&lt;-</span> x_2<span class="sc">*</span>x_3</span>
+<span id="cb660-7"><a href="simulation-in-r.html#cb660-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb660-8"><a href="simulation-in-r.html#cb660-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Now DGM</span></span>
+<span id="cb660-9"><a href="simulation-in-r.html#cb660-9" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="sc">-</span><span class="fl">0.7</span>, <span class="dv">34</span>, <span class="sc">-</span><span class="fl">0.17</span>, <span class="fl">5.4</span>)</span>
+<span id="cb660-10"><a href="simulation-in-r.html#cb660-10" aria-hidden="true" tabindex="-1"></a>dgm <span class="ot">&lt;-</span> beta[<span class="dv">1</span>] <span class="sc">+</span> beta[<span class="dv">2</span>]<span class="sc">*</span>x_2 <span class="sc">+</span> beta[<span class="dv">3</span>]<span class="sc">*</span>x_3 <span class="sc">+</span> beta[<span class="dv">4</span>]<span class="sc">*</span>x_23 <span class="sc">+</span> beta[<span class="dv">5</span>]<span class="sc">*</span>x_5</span>
+<span id="cb660-11"><a href="simulation-in-r.html#cb660-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb660-12"><a href="simulation-in-r.html#cb660-12" aria-hidden="true" tabindex="-1"></a><span class="co">#And our Yi</span></span>
+<span id="cb660-13"><a href="simulation-in-r.html#cb660-13" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> dgm <span class="sc">+</span> <span class="fu">rnorm</span>(N,<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb660-14"><a href="simulation-in-r.html#cb660-14" aria-hidden="true" tabindex="-1"></a>pop <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(y, x_2, x_3, x_23, x_5)</span>
+<span id="cb660-15"><a href="simulation-in-r.html#cb660-15" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(pop)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    10000 obs. of  5 variables:
+##  $ y   : num  -37.09 8.41 12.84 44.55 31.87 ...
+##  $ x_2 : num  0 0 1 1 0 1 1 1 0 0 ...
+##  $ x_3 : num  -1.3163 -0.1002 0.0558 0.7737 0.6297 ...
+##  $ x_23: num  0 0 0.0558 0.7737 0 ...
+##  $ x_5 : num  -0.6134 -0.0465 -0.0857 1.5022 -0.3612 ...</code></pre>
+<div class="sourceCode" id="cb662"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb662-1"><a href="simulation-in-r.html#cb662-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Here is new thing/trick to learn</span></span>
+<span id="cb662-2"><a href="simulation-in-r.html#cb662-2" aria-hidden="true" tabindex="-1"></a><span class="co">#for better looking tables install.packages(&quot;stargazer&quot;)</span></span>
+<span id="cb662-3"><a href="simulation-in-r.html#cb662-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span>
+<span id="cb662-4"><a href="simulation-in-r.html#cb662-4" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(pop, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Descriptive Statistics&quot;</span>,</span>
+<span id="cb662-5"><a href="simulation-in-r.html#cb662-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">digits =</span> <span class="dv">1</span>, <span class="at">out =</span> <span class="st">&quot;table1.text&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## Descriptive Statistics
+## ============================================
+## Statistic   N    Mean  St. Dev.  Min    Max 
+## --------------------------------------------
+## y         10,000 11.7    37.7   -168.8 164.3
+## x_2       10,000  0.5    0.5      0      1  
+## x_3       10,000  0.0    1.0     -4.7   3.9 
+## x_23      10,000 0.004   0.7     -4.7   3.9 
+## x_5       10,000 -0.0    1.0     -4.4   3.8 
+## --------------------------------------------</code></pre>
+<div class="sourceCode" id="cb664"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb664-1"><a href="simulation-in-r.html#cb664-1" aria-hidden="true" tabindex="-1"></a><span class="co">#The table will be saved in the working directory</span></span>
+<span id="cb664-2"><a href="simulation-in-r.html#cb664-2" aria-hidden="true" tabindex="-1"></a><span class="co">#with whatever name you write in the out option.</span></span>
+<span id="cb664-3"><a href="simulation-in-r.html#cb664-3" aria-hidden="true" tabindex="-1"></a><span class="co">#You can open this file with any word processor</span></span></code></pre></div>
+<p>Now we are going to sample this population and run a SRF.</p>
+<div class="sourceCode" id="cb665"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb665-1"><a href="simulation-in-r.html#cb665-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span>
+<span id="cb665-2"><a href="simulation-in-r.html#cb665-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb665-3"><a href="simulation-in-r.html#cb665-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">500</span> <span class="co">#sample size</span></span>
+<span id="cb665-4"><a href="simulation-in-r.html#cb665-4" aria-hidden="true" tabindex="-1"></a>ind <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(pop), n, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb665-5"><a href="simulation-in-r.html#cb665-5" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> pop[ind, ]</span>
+<span id="cb665-6"><a href="simulation-in-r.html#cb665-6" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(sample)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    500 obs. of  5 variables:
+##  $ y   : num  10.7 44.7 -47.1 -30.6 24 ...
+##  $ x_2 : num  0 1 0 0 1 0 1 1 1 0 ...
+##  $ x_3 : num  -0.111 0.705 -1.62 -1.153 0.358 ...
+##  $ x_23: num  0 0.705 0 0 0.358 ...
+##  $ x_5 : num  0.627 1.528 -0.889 -0.722 0.281 ...</code></pre>
+<div class="sourceCode" id="cb667"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb667-1"><a href="simulation-in-r.html#cb667-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> sample)</span>
+<span id="cb667-2"><a href="simulation-in-r.html#cb667-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(model, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>, <span class="at">title =</span> <span class="st">&quot;G O O D -  M O D E L&quot;</span>,</span>
+<span id="cb667-3"><a href="simulation-in-r.html#cb667-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.labels =</span> <span class="st">&quot;Y&quot;</span>,</span>
+<span id="cb667-4"><a href="simulation-in-r.html#cb667-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## 
+## G O O D - M O D E L
+## ================================================
+##                         Dependent variable:     
+##                     ----------------------------
+##                                  Y              
+## ------------------------------------------------
+## x_2                          -0.718***          
+##                               (0.087)           
+##                                                 
+## x_3                          34.025***          
+##                               (0.068)           
+##                                                 
+## x_23                          -0.162*           
+##                               (0.085)           
+##                                                 
+## x_5                           5.357***          
+##                               (0.058)           
+##                                                 
+## Constant                     12.075***          
+##                               (0.060)           
+##                                                 
+## ------------------------------------------------
+## Observations                    500             
+## R2                             0.999            
+## Adjusted R2                    0.999            
+## Residual Std. Error       0.974 (df = 495)      
+## F Statistic         196,907.500*** (df = 4; 495)
+## ================================================
+## Note:                *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+<p>As you can see the coefficients are very close to our “true” coefficients specified in DGM. Now we can test what happens if we omit <span class="math inline">\(x_5\)</span> in our SRF and estimate it.</p>
+<div class="sourceCode" id="cb669"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb669-1"><a href="simulation-in-r.html#cb669-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span>
+<span id="cb669-2"><a href="simulation-in-r.html#cb669-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb669-3"><a href="simulation-in-r.html#cb669-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">500</span> <span class="co">#sample size</span></span>
+<span id="cb669-4"><a href="simulation-in-r.html#cb669-4" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> pop[<span class="fu">sample</span>(<span class="fu">nrow</span>(pop), n, <span class="at">replace =</span> <span class="cn">FALSE</span>), ]</span>
+<span id="cb669-5"><a href="simulation-in-r.html#cb669-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(sample)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    500 obs. of  5 variables:
+##  $ y   : num  -21.42 35.02 -2.79 -12.15 -10.37 ...
+##  $ x_2 : num  0 1 1 0 0 0 0 1 0 1 ...
+##  $ x_3 : num  -0.828 0.65 -0.387 -0.907 -0.423 ...
+##  $ x_23: num  0 0.65 -0.387 0 0 ...
+##  $ x_5 : num  -1.035 0.194 -0.298 1.311 -1.467 ...</code></pre>
+<div class="sourceCode" id="cb671"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb671-1"><a href="simulation-in-r.html#cb671-1" aria-hidden="true" tabindex="-1"></a>model_bad <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x_2 <span class="sc">+</span> x_3 <span class="sc">+</span> x_23, <span class="at">data =</span> sample)</span>
+<span id="cb671-2"><a href="simulation-in-r.html#cb671-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(model_bad, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>, <span class="at">title =</span> <span class="st">&quot;B A D - M O D E L&quot;</span>,</span>
+<span id="cb671-3"><a href="simulation-in-r.html#cb671-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.labels =</span> <span class="st">&quot;Y&quot;</span>,</span>
+<span id="cb671-4"><a href="simulation-in-r.html#cb671-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## 
+## B A D - M O D E L
+## ===============================================
+##                         Dependent variable:    
+##                     ---------------------------
+##                                  Y             
+## -----------------------------------------------
+## x_2                           -0.717*          
+##                               (0.379)          
+##                                                
+## x_3                          37.534***         
+##                               (0.275)          
+##                                                
+## x_23                          -0.581           
+##                               (0.406)          
+##                                                
+## Constant                     11.861***         
+##                               (0.266)          
+##                                                
+## -----------------------------------------------
+## Observations                    500            
+## R2                             0.986           
+## Adjusted R2                    0.986           
+## Residual Std. Error      4.231 (df = 496)      
+## F Statistic         11,326.660*** (df = 3; 496)
+## ===============================================
+## Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+<p>Now it seems that none of the coefficients are as good as before, except for the intercept. This is a so-called omitted variable bias (OVB) problem, also known as a model underfitting or specification error. Would be the case that that this is a problem for only one sample? We can simulate the results many times and see whether <strong>on average</strong> <span class="math inline">\(\hat{\beta_3}\)</span> is biased or not.</p>
+<div class="sourceCode" id="cb673"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb673-1"><a href="simulation-in-r.html#cb673-1" aria-hidden="true" tabindex="-1"></a>n.sims <span class="ot">&lt;-</span> <span class="dv">500</span></span>
+<span id="cb673-2"><a href="simulation-in-r.html#cb673-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">500</span> <span class="co">#sample size</span></span>
+<span id="cb673-3"><a href="simulation-in-r.html#cb673-3" aria-hidden="true" tabindex="-1"></a>beta_3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, n.sims)</span>
+<span id="cb673-4"><a href="simulation-in-r.html#cb673-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n.sims){</span>
+<span id="cb673-5"><a href="simulation-in-r.html#cb673-5" aria-hidden="true" tabindex="-1"></a>  sample <span class="ot">&lt;-</span> pop[<span class="fu">sample</span>(<span class="fu">nrow</span>(pop), n, <span class="at">replace =</span> <span class="cn">FALSE</span>), ]</span>
+<span id="cb673-6"><a href="simulation-in-r.html#cb673-6" aria-hidden="true" tabindex="-1"></a>  model_bad <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x_2 <span class="sc">+</span> x_3 <span class="sc">+</span> x_23, <span class="at">data =</span> sample)</span>
+<span id="cb673-7"><a href="simulation-in-r.html#cb673-7" aria-hidden="true" tabindex="-1"></a>  beta_3[i] <span class="ot">&lt;-</span> model_bad<span class="sc">$</span>coefficients[<span class="st">&quot;x_3&quot;</span>]</span>
+<span id="cb673-8"><a href="simulation-in-r.html#cb673-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb673-9"><a href="simulation-in-r.html#cb673-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(beta_3)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   36.56   37.33   37.49   37.50   37.68   38.19</code></pre>
+<p>As we can see the OVB problem is not a problem in one sample. We withdrew a sample and estimated the same underfitting model 500 times with a simulation. Therefore we collected 500 <span class="math inline">\(\hat{\beta_3}\)</span>. The average is 37.47. If we do the same simulation with a model that is correctly specified, you can see the results: the average of 500 <span class="math inline">\(\hat{\beta_3}\)</span> is 34, which is the “correct”true” coefficent in our DGM.</p>
+<div class="sourceCode" id="cb675"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb675-1"><a href="simulation-in-r.html#cb675-1" aria-hidden="true" tabindex="-1"></a>n.sims <span class="ot">&lt;-</span> <span class="dv">500</span></span>
+<span id="cb675-2"><a href="simulation-in-r.html#cb675-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">500</span> <span class="co">#sample size</span></span>
+<span id="cb675-3"><a href="simulation-in-r.html#cb675-3" aria-hidden="true" tabindex="-1"></a>beta_3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, n.sims)</span>
+<span id="cb675-4"><a href="simulation-in-r.html#cb675-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n.sims){</span>
+<span id="cb675-5"><a href="simulation-in-r.html#cb675-5" aria-hidden="true" tabindex="-1"></a>  sample <span class="ot">&lt;-</span> pop[<span class="fu">sample</span>(<span class="fu">nrow</span>(pop), n, <span class="at">replace =</span> <span class="cn">FALSE</span>), ]</span>
+<span id="cb675-6"><a href="simulation-in-r.html#cb675-6" aria-hidden="true" tabindex="-1"></a>  model_good <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x_2 <span class="sc">+</span> x_3 <span class="sc">+</span> x_23 <span class="sc">+</span> x_5, <span class="at">data =</span> sample)</span>
+<span id="cb675-7"><a href="simulation-in-r.html#cb675-7" aria-hidden="true" tabindex="-1"></a>  beta_3[i] <span class="ot">&lt;-</span> model_good<span class="sc">$</span>coefficients[<span class="st">&quot;x_3&quot;</span>]</span>
+<span id="cb675-8"><a href="simulation-in-r.html#cb675-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb675-9"><a href="simulation-in-r.html#cb675-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(beta_3)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   33.81   33.96   34.02   34.01   34.06   34.23</code></pre>
+</div>
+<div id="bootstrapping" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Bootstrapping<a href="simulation-in-r.html#bootstrapping" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Bootstrapping is the process of resampling with replacement (all values in the sample have an equal probability of being selected, including multiple times, so a value could have duplicates). Resample, calculate a statistic (e.g. the mean), repeat this hundreds or thousands of times and you are able to estimate a precise/accurate uncertainty of the mean (confidence interval) of the data’s distribution. There are less assumptions about the underlying distribution using bootstrap compared to calculating the standard error directly.</p>
+<p>Generally bootstrapping follows the same basic steps:</p>
+<ul>
+<li>Resample a given data set a specified number of times,<br />
+</li>
+<li>Calculate a specific statistic from each sample,<br />
+</li>
+<li>Find the standard deviation of the distribution of that statistic.</li>
+</ul>
+<p>In the following bootstrapping example we would like to obtain a standard error for the estimate of the mean. We will be using the <code>lapply()</code>, <code>sapply()</code> functions in combination with the sample function. (see <a href="https://stats.idre.ucla.edu/r/library/r-library-introduction-to-bootstrapping/" class="uri">https://stats.idre.ucla.edu/r/library/r-library-introduction-to-bootstrapping/</a>)<span class="citation">(<a href="#ref-UCLA_2021" role="doc-biblioref"><strong>UCLA_2021?</strong></a>)</span></p>
+<div class="sourceCode" id="cb677"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb677-1"><a href="simulation-in-r.html#cb677-1" aria-hidden="true" tabindex="-1"></a><span class="co">#creating the data set by taking 100 observations </span></span>
+<span id="cb677-2"><a href="simulation-in-r.html#cb677-2" aria-hidden="true" tabindex="-1"></a><span class="co">#from a normal distribution with mean 5 and stdev 3</span></span>
+<span id="cb677-3"><a href="simulation-in-r.html#cb677-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb677-4"><a href="simulation-in-r.html#cb677-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb677-5"><a href="simulation-in-r.html#cb677-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">5</span>, <span class="dv">3</span>) <span class="co">#rounding each observation to nearest integer</span></span>
+<span id="cb677-6"><a href="simulation-in-r.html#cb677-6" aria-hidden="true" tabindex="-1"></a>data[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
+<pre><code>##  [1]  3.318573  4.309468  9.676125  5.211525  5.387863 10.145195  6.382749
+##  [8]  1.204816  2.939441  3.663014</code></pre>
+<div class="sourceCode" id="cb679"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb679-1"><a href="simulation-in-r.html#cb679-1" aria-hidden="true" tabindex="-1"></a><span class="co">#obtaining 20 bootstrap samples and storing in a list</span></span>
+<span id="cb679-2"><a href="simulation-in-r.html#cb679-2" aria-hidden="true" tabindex="-1"></a>resamples <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="cf">function</span>(i) <span class="fu">sample</span>(data, <span class="at">replace =</span> T))</span>
+<span id="cb679-3"><a href="simulation-in-r.html#cb679-3" aria-hidden="true" tabindex="-1"></a><span class="co">#display the first of the bootstrap samples</span></span>
+<span id="cb679-4"><a href="simulation-in-r.html#cb679-4" aria-hidden="true" tabindex="-1"></a>resamples[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [[1]]
+##   [1]  8.76144476  3.11628177  4.02220524 10.36073941  6.30554447  9.10580685
+##   [7]  2.93597415  3.60003394  3.58162578  6.34462934  5.71619521  7.06592076
+##  [13]  4.91435973  4.34607526  7.33989536  4.37624817  5.37156273  6.93312965
+##  [19]  8.67224539  4.32268704  1.20481630  1.63067425  4.33854031  5.91058592
+##  [25]  4.14568098  1.63067425 11.15025406 -1.92750663 11.50686790  4.11478555
+##  [31]  7.06592076  8.62388599  5.33204815 10.36073941  8.29051704  7.68537698
+##  [37]  3.85858700  3.85858700  3.66301409  4.02220524 -1.92750663  6.15584120
+##  [43]  2.93944144  6.38274862  6.38274862  6.75384125  6.13891845  2.87239771
+##  [49]  2.81332631  4.00037785  9.10580685  1.92198666 -0.06007993  7.68537698
+##  [55]  0.35374159  1.58558919  3.66301409  4.87138863  9.10580685  4.14568098
+##  [61]  8.67224539  3.12488220  4.91435973 -0.06007993  6.38274862  3.12488220
+##  [67]  8.29051704  8.44642286  4.11478555  6.93312965  2.81332631  0.35374159
+##  [73]  8.01721557  1.92198666  5.33204815 10.14519496  7.98051157  3.31857306
+##  [79]  8.44642286  6.75384125  5.01729256  1.58558919 -0.06007993  7.51336113
+##  [85]  4.33854031  6.38274862  5.64782471 -0.06007993  2.91587906  6.93312965
+##  [91] 10.14519496  3.11628177  6.27939266  5.71619521  6.49355143  1.94427385
+##  [97]  6.66175296  0.35374159  3.58162578  7.46474324</code></pre>
+<p>Here is another way to do the same thing:</p>
+<div class="sourceCode" id="cb681"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb681-1"><a href="simulation-in-r.html#cb681-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb681-2"><a href="simulation-in-r.html#cb681-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">5</span>, <span class="dv">3</span>)</span>
+<span id="cb681-3"><a href="simulation-in-r.html#cb681-3" aria-hidden="true" tabindex="-1"></a>resamples_2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="cn">NA</span>, <span class="at">nrow =</span> <span class="dv">100</span>, <span class="at">ncol =</span> <span class="dv">20</span>)</span>
+<span id="cb681-4"><a href="simulation-in-r.html#cb681-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>) {</span>
+<span id="cb681-5"><a href="simulation-in-r.html#cb681-5" aria-hidden="true" tabindex="-1"></a>  resamples_2[,i] <span class="ot">&lt;-</span> <span class="fu">sample</span>(data, <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb681-6"><a href="simulation-in-r.html#cb681-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb681-7"><a href="simulation-in-r.html#cb681-7" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(resamples_2)</span></code></pre></div>
+<pre><code>##  num [1:100, 1:20] 8.76 3.12 4.02 10.36 6.31 ...</code></pre>
+<div class="sourceCode" id="cb683"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb683-1"><a href="simulation-in-r.html#cb683-1" aria-hidden="true" tabindex="-1"></a><span class="co">#display the first of the bootstrap samples</span></span>
+<span id="cb683-2"><a href="simulation-in-r.html#cb683-2" aria-hidden="true" tabindex="-1"></a>resamples_2[, <span class="dv">1</span>]</span></code></pre></div>
+<pre><code>##   [1]  8.76144476  3.11628177  4.02220524 10.36073941  6.30554447  9.10580685
+##   [7]  2.93597415  3.60003394  3.58162578  6.34462934  5.71619521  7.06592076
+##  [13]  4.91435973  4.34607526  7.33989536  4.37624817  5.37156273  6.93312965
+##  [19]  8.67224539  4.32268704  1.20481630  1.63067425  4.33854031  5.91058592
+##  [25]  4.14568098  1.63067425 11.15025406 -1.92750663 11.50686790  4.11478555
+##  [31]  7.06592076  8.62388599  5.33204815 10.36073941  8.29051704  7.68537698
+##  [37]  3.85858700  3.85858700  3.66301409  4.02220524 -1.92750663  6.15584120
+##  [43]  2.93944144  6.38274862  6.38274862  6.75384125  6.13891845  2.87239771
+##  [49]  2.81332631  4.00037785  9.10580685  1.92198666 -0.06007993  7.68537698
+##  [55]  0.35374159  1.58558919  3.66301409  4.87138863  9.10580685  4.14568098
+##  [61]  8.67224539  3.12488220  4.91435973 -0.06007993  6.38274862  3.12488220
+##  [67]  8.29051704  8.44642286  4.11478555  6.93312965  2.81332631  0.35374159
+##  [73]  8.01721557  1.92198666  5.33204815 10.14519496  7.98051157  3.31857306
+##  [79]  8.44642286  6.75384125  5.01729256  1.58558919 -0.06007993  7.51336113
+##  [85]  4.33854031  6.38274862  5.64782471 -0.06007993  2.91587906  6.93312965
+##  [91] 10.14519496  3.11628177  6.27939266  5.71619521  6.49355143  1.94427385
+##  [97]  6.66175296  0.35374159  3.58162578  7.46474324</code></pre>
+<p>Calculating the mean for each bootstrap sample:</p>
+<div class="sourceCode" id="cb685"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb685-1"><a href="simulation-in-r.html#cb685-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(resamples_2)</span></code></pre></div>
+<pre><code>##  [1] 5.095470 5.611315 5.283893 4.930731 4.804722 5.187125 4.946582 4.952693
+##  [9] 5.470162 5.058354 4.790996 5.357154 5.479364 5.366046 5.454458 5.474732
+## [17] 5.566421 5.229395 5.111966 5.262666</code></pre>
+<div class="sourceCode" id="cb687"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb687-1"><a href="simulation-in-r.html#cb687-1" aria-hidden="true" tabindex="-1"></a><span class="co">#and the mean of all means</span></span>
+<span id="cb687-2"><a href="simulation-in-r.html#cb687-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">colMeans</span>(resamples_2))</span></code></pre></div>
+<pre><code>## [1] 5.221712</code></pre>
+<p>Calculating the standard deviation of the distribution of means:</p>
+<div class="sourceCode" id="cb689"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb689-1"><a href="simulation-in-r.html#cb689-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(<span class="fu">colMeans</span>(resamples_2)))</span></code></pre></div>
+<pre><code>## [1] 0.2523254</code></pre>
+</div>
+<div id="monty-hall---fun-example" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> Monty Hall - Fun example<a href="simulation-in-r.html#monty-hall---fun-example" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The Monty Hall problem is a brain teaser, in the form of a probability puzzle, loosely based on the American television game show Let’s Make a Deal and named after its original host, Monty Hall. The problem was originally posed (and solved) in a letter by Steve Selvin to the American Statistician in 1975 (Selvin 1975a), (Selvin 1975b). It became famous as a question from a reader’s letter quoted in Marilyn vos Savant’s “Ask Marilyn” column in Parade magazine in 1990:</p>
+<p><strong>Suppose you’re on a game show, and you’re given the choice of three doors: Behind one door is a car; behind the others, goats. You pick a door, say No. 1, and the host, who knows what’s behind the doors, opens another door, say No. 3, which has a goat. He then says to you, “Do you want to pick door No. 2?” Is it to your advantage to switch your choice?</strong></p>
+<p>Vos Savant’s response was that the contestant should switch to the other door (vos Savant 1990a). Under the standard assumptions, contestants who switch have a 2/3 chance of winning the car, while contestants who stick to their initial choice have only a 1/3 chance.</p>
+<p>Many readers of vos Savant’s column refused to believe switching is beneficial despite her explanation. After the problem appeared in Parade, approximately 10,000 readers, <strong>including nearly 1,000 with PhDs</strong>, wrote to the magazine, most of them claiming vos Savant was wrong. Even when given explanations, simulations, and formal mathematical proofs, many people still do not accept that switching is the best strategy. <strong>Paul Erdős, one of the most prolific mathematicians in history, remained unconvinced until he was shown a computer simulation demonstrating the predicted result</strong>.</p>
+<p>The given probabilities depend on specific assumptions about how the host and contestant choose their doors. A key insight is that, under these standard conditions, there is more information about doors 2 and 3 that was not available at the beginning of the game, when door 1 was chosen by the player: the host’s deliberate action adds value to the door he did not choose to eliminate, but not to the one chosen by the contestant originally. Another insight is that switching doors is a different action than choosing between the two remaining doors at random, as the first action uses the previous information and the latter does not. Other possible behaviors than the one described can reveal different additional information, or none at all, and yield different probabilities.</p>
+<div id="here-is-the-simple-bayes-rule-prab-prbapraprb." class="section level4 unnumbered hasAnchor">
+<h4>Here is the simple Bayes rule: <span class="math inline">\(Pr(A|B) = Pr(B|A)Pr(A)/Pr(B)\)</span>.<a href="simulation-in-r.html#here-is-the-simple-bayes-rule-prab-prbapraprb." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let’s play it: The player picks Door 1, Monty Hall opens Door 3. My question is this:</p>
+<p><span class="math inline">\(Pr(CAR = 1|Open = 3) &lt; Pr(CAR = 2|Open = 3)\)</span>?</p>
+<p>If this is true the player should always switch. Here is the Bayesian answer:</p>
+<p><span class="math inline">\(Pr(Car=1|Open=3) = Pr(Open=3|Car=1)Pr(Car=1)/Pr(Open=3)\)</span> = 1/2 x (1/3) / (1/2) = 1/3</p>
+<p>Let’s see each number. Given that the player picks Door 1, if the car is behind Door 1, Monty should be indifferent between opening Doors 2 and 3. So the first term is 1/2. The second term is easy: Probability that the car is behind Door 1 is 1/3. The third term is also simple and usualy overlooked. This is not a conditional probability. If the car were behind Door 2, the probability that Monty opens Door 3 would be 1. And this explains why the second option is different, below:</p>
+<p><span class="math inline">\(Pr(Car=2|Open=3) = Pr(Open=3|Car=2)Pr(Car=2)/Pr(Open=3)\)</span> = 1 x (1/3) / (1/2) = 2/3</p>
+<p><img src="png/montyhall.jpg" width="345" /></p>
+<p>Image taken from <a href="http://media.graytvinc.com/images/690*388/mon+tyhall.jpg" class="uri">http://media.graytvinc.com/images/690*388/mon+tyhall.jpg</a></p>
+</div>
+<div id="simulation-to-prove-it" class="section level4 unnumbered hasAnchor">
+<h4>Simulation to prove it<a href="simulation-in-r.html#simulation-to-prove-it" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="step-1-decide-the-number-of-plays" class="section level4 unnumbered hasAnchor">
+<h4>Step 1: Decide the number of plays<a href="simulation-in-r.html#step-1-decide-the-number-of-plays" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb691"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb691-1"><a href="simulation-in-r.html#cb691-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100000</span></span></code></pre></div>
+</div>
+<div id="step-2-define-all-possible-door-combinations" class="section level4 unnumbered hasAnchor">
+<h4>Step 2: Define all possible door combinations<a href="simulation-in-r.html#step-2-define-all-possible-door-combinations" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>3 doors, the first one has the car. All possible outcomes for the game:</p>
+<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb692-1"><a href="simulation-in-r.html#cb692-1" aria-hidden="true" tabindex="-1"></a>outcomes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">123</span>,<span class="dv">132</span>,<span class="dv">213</span>,<span class="dv">231</span>,<span class="dv">312</span>,<span class="dv">321</span>)</span></code></pre></div>
+</div>
+<div id="step-3-create-empty-containers-where-you-store-the-outcomes-from-each-game" class="section level4 unnumbered hasAnchor">
+<h4>Step 3: Create empty containers where you store the outcomes from each game<a href="simulation-in-r.html#step-3-create-empty-containers-where-you-store-the-outcomes-from-each-game" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb693"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb693-1"><a href="simulation-in-r.html#cb693-1" aria-hidden="true" tabindex="-1"></a>car <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, n)</span>
+<span id="cb693-2"><a href="simulation-in-r.html#cb693-2" aria-hidden="true" tabindex="-1"></a>goat1 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, n)</span>
+<span id="cb693-3"><a href="simulation-in-r.html#cb693-3" aria-hidden="true" tabindex="-1"></a>goat2 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, n)</span>
+<span id="cb693-4"><a href="simulation-in-r.html#cb693-4" aria-hidden="true" tabindex="-1"></a>choice <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>,n)</span>
+<span id="cb693-5"><a href="simulation-in-r.html#cb693-5" aria-hidden="true" tabindex="-1"></a>monty <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, n)</span>
+<span id="cb693-6"><a href="simulation-in-r.html#cb693-6" aria-hidden="true" tabindex="-1"></a>winner <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, n)</span></code></pre></div>
+</div>
+<div id="step-4-loop" class="section level4 unnumbered hasAnchor">
+<h4>Step 4: Loop<a href="simulation-in-r.html#step-4-loop" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb694"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb694-1"><a href="simulation-in-r.html#cb694-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n){</span>
+<span id="cb694-2"><a href="simulation-in-r.html#cb694-2" aria-hidden="true" tabindex="-1"></a>  doors <span class="ot">&lt;-</span> <span class="fu">sample</span>(outcomes,<span class="dv">1</span>) <span class="co">#The game&#39;s door combination</span></span>
+<span id="cb694-3"><a href="simulation-in-r.html#cb694-3" aria-hidden="true" tabindex="-1"></a>  car[i] <span class="ot">&lt;-</span> <span class="fu">substring</span>(doors, <span class="at">first =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="at">last =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))[<span class="dv">1</span>] <span class="co">#the right door</span></span>
+<span id="cb694-4"><a href="simulation-in-r.html#cb694-4" aria-hidden="true" tabindex="-1"></a>  goat1[i] <span class="ot">&lt;-</span> <span class="fu">substring</span>(doors, <span class="at">first =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="at">last =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))[<span class="dv">2</span>] <span class="co">#The first wrong door</span></span>
+<span id="cb694-5"><a href="simulation-in-r.html#cb694-5" aria-hidden="true" tabindex="-1"></a>  goat2[i] <span class="ot">&lt;-</span> <span class="fu">substring</span>(doors, <span class="at">first =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="at">last =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))[<span class="dv">3</span>] <span class="co">#The second wrong door</span></span>
+<span id="cb694-6"><a href="simulation-in-r.html#cb694-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb694-7"><a href="simulation-in-r.html#cb694-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Person selects a random door</span></span>
+<span id="cb694-8"><a href="simulation-in-r.html#cb694-8" aria-hidden="true" tabindex="-1"></a>  choice[i] <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="dv">1</span>)</span>
+<span id="cb694-9"><a href="simulation-in-r.html#cb694-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb694-10"><a href="simulation-in-r.html#cb694-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Now Monty opens a door</span></span>
+<span id="cb694-11"><a href="simulation-in-r.html#cb694-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (choice[i] <span class="sc">==</span> car[i])</span>
+<span id="cb694-12"><a href="simulation-in-r.html#cb694-12" aria-hidden="true" tabindex="-1"></a>    {monty[i] <span class="ot">=</span> <span class="fu">sample</span>(<span class="fu">c</span>(goat1[i],goat2[i]),<span class="dv">1</span>)}</span>
+<span id="cb694-13"><a href="simulation-in-r.html#cb694-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> (choice[i] <span class="sc">==</span> goat1[i])</span>
+<span id="cb694-14"><a href="simulation-in-r.html#cb694-14" aria-hidden="true" tabindex="-1"></a>    {monty[i] <span class="ot">=</span> goat2[i]}</span>
+<span id="cb694-15"><a href="simulation-in-r.html#cb694-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span></span>
+<span id="cb694-16"><a href="simulation-in-r.html#cb694-16" aria-hidden="true" tabindex="-1"></a>    {monty[i] <span class="ot">=</span> goat1[i]}</span>
+<span id="cb694-17"><a href="simulation-in-r.html#cb694-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb694-18"><a href="simulation-in-r.html#cb694-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 1 represents the stayer who remains by her initial choice</span></span>
+<span id="cb694-19"><a href="simulation-in-r.html#cb694-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 2 represents the switcher who changes her initial choice</span></span>
+<span id="cb694-20"><a href="simulation-in-r.html#cb694-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (choice[i] <span class="sc">==</span> car[i]){winner[i] <span class="ot">=</span> <span class="dv">1</span>} <span class="cf">else</span> {winner[i] <span class="ot">=</span> <span class="dv">2</span>}</span>
+<span id="cb694-21"><a href="simulation-in-r.html#cb694-21" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div id="step-5-chart" class="section level4 unnumbered hasAnchor">
+<h4>Step 5: Chart<a href="simulation-in-r.html#step-5-chart" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb695"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb695-1"><a href="simulation-in-r.html#cb695-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(winner, <span class="at">breaks =</span> <span class="dv">2</span>, <span class="at">main =</span> <span class="st">&quot;Who would win the most?&quot;</span>,</span>
+<span id="cb695-2"><a href="simulation-in-r.html#cb695-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">70000</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Stayer&quot;</span>, <span class="st">&quot;Switcher&quot;</span>),</span>
+<span id="cb695-3"><a href="simulation-in-r.html#cb695-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;aliceblue&quot;</span>, <span class="st">&quot;pink&quot;</span>),</span>
+<span id="cb695-4"><a href="simulation-in-r.html#cb695-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex.axis =</span> <span class="fl">0.75</span>, <span class="at">cex.lab =</span> <span class="fl">0.75</span>, <span class="at">cex.main =</span> <span class="fl">0.85</span>)</span></code></pre></div>
+<p><img src="07-Sim_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p>The simulation is inspired by <a href="https://theressomethingaboutr.wordpress.com/2019/02/12/in-memory-of-monty-hall/" class="uri">https://theressomethingaboutr.wordpress.com/2019/02/12/in-memory-of-monty-hall/</a> <span class="citation">(<a href="#ref-Rajter_2019" role="doc-biblioref"><strong>Rajter_2019?</strong></a>)</span></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="programing-basics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="parts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/yaydede/Bootcamp_book/edit/main/07-Sim.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Book_for_RBootcamp.pdf", "Book_for_RBootcamp.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

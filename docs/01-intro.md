@@ -4,14 +4,6 @@ The following sections will serve as an introduction to the R basics that could 
 
 R is used both for software development and data analysis. We will not use it for software development but apply some concepts in that area.  Our main goal will be to analyze data, but we will also perform programming exercises that help illustrate certain algorithmic concepts.  
 
-What we will review in this Chapter:
-
-1. **R, RStudio, and R Packages**, 
-2. **Starting with RStudio**, 
-3. **Working Directory**, 
-4. **Data Types and Structures (Vectors and Matrices)**, 
-5. **R-Style Guide**
-
 ## Installation of R, RStudio and R Packages
 
 To get started, you will need to install two pieces of software:  
@@ -131,15 +123,27 @@ dir()
 ```
 
 ```
-##  [1] "_book"                  "_bookdown_files"        "_bookdown.yml"         
-##  [4] "_main_files"            "_output.yml"            "01-intro.Rmd"          
-##  [7] "02-cross-refs_files"    "02-cross-refs.Rmd"      "03-parts.Rmd"          
-## [10] "04-citations.Rmd"       "05-blocks.Rmd"          "06-share.Rmd"          
-## [13] "07-references.Rmd"      "Book_for_RBootcamp.log" "Book_for_RBootcamp.rds"
-## [16] "book.bib"               "Bootcamp_book.Rproj"    "docs"                  
-## [19] "index.md"               "index.Rmd"              "packages.bib"          
-## [22] "png"                    "preamble.tex"           "README.md"             
-## [25] "render1b211840bb5a.rds" "style.css"
+##  [1] "_book"                    "_bookdown_files"         
+##  [3] "_bookdown.yml"            "_main_files"             
+##  [5] "_output.yml"              "01-intro.Rmd"            
+##  [7] "02-cross-refs_files"      "02-Others_files"         
+##  [9] "02-Others.Rmd"            "03-ReadWrite.Rmd"        
+## [11] "04-visual_files"          "04-visual.Rmd"           
+## [13] "05-DataMan_files"         "05-DataMan.Rmd"          
+## [15] "06-Progrmamingbasics.Rmd" "07-Sim_cache"            
+## [17] "07-Sim_files"             "07-Sim.Rmd"              
+## [19] "08-cross-refs_files"      "09-parts.Rmd"            
+## [21] "10-citations.Rmd"         "11-blocks.Rmd"           
+## [23] "12-share.Rmd"             "13-references.Rmd"       
+## [25] "14-cross-refs_files"      "14-cross-refs.Rmd"       
+## [27] "Book_for_RBootcamp.log"   "Book_for_RBootcamp.rds"  
+## [29] "book.bib"                 "Bootcamp_book.Rproj"     
+## [31] "docs"                     "index.md"                
+## [33] "index.Rmd"                "packages.bib"            
+## [35] "png"                      "preamble.tex"            
+## [37] "README.md"                "render8563136e5687.rds"  
+## [39] "some_functions.R"         "style.css"               
+## [41] "table1.text"
 ```
 
 ```r
@@ -227,6 +231,10 @@ R also has a number of basic data structures. A data structure is either **homog
 **Data Frame**: 2 dimensions (column AND row) and heterogeneous. That is every element of the data frame doesn't have to be the same type.  This is the main difference between a matrix and a data frame. Data frames are the most common data structure in any data analysis.  
 **List**: 1 dimension and heterogeneous. Data can be multiple data structures.  
 **Array**: 3+ dimensions and homogeneous.  
+
+## R-Style Guide
+
+The idea is simple: your R code, or any other code in different languages, should be written in a readable and maintainable style.  Here is a [blog](https://rpahl.github.io/r-some-blog/r-style-guide/) by Roman Pahl that may help you develop a better styling in your codes. (You may find in some chapters and labs that my codes are not following the "good" styling practices.  I am trying to improve!)
   
 # Vectors
 Many operations in R make heavy use of vectors. Possibly the most common way to create a vector in R is using the `c()` function, which is short for “combine.” As the name suggests, it combines a list of elements separated by commas.  
@@ -1342,7 +1350,7 @@ mean(x, na.rm = TRUE)
 ## [1] 2
 ```
 
-So we may skip removing them from the data as many functions has built-in arguments
+So we may skip removing them from the data as many functions have built-in arguments to deal with NA's.
 
 
 ```r
@@ -1413,341 +1421,3 @@ levels(animf)
 ```
 
 
-# Matrices
-
-R stores matrices and arrays in a similar manner as vectors, but with the attribute called dimension. A matrix is an array that has two dimensions. Data in a matrix are organized into rows and columns. Matrices are commonly used while arrays are rare.  We will not see arrays in this book. Matrices are homogeneous data structures, just like atomic vectors, but they can have 2 dimensions, rows and columns, unlike vectors.  
-
-Matrices can be created using the **matrix** function.  
-
-
-```r
-#Let's create 5 x 4 numeric matrix containing numbers from 1 to 20
-mymatrix <- matrix(1:20, nrow = 5, ncol = 4)  #Here we order the number by columns
-mymatrix
-```
-
-```
-##      [,1] [,2] [,3] [,4]
-## [1,]    1    6   11   16
-## [2,]    2    7   12   17
-## [3,]    3    8   13   18
-## [4,]    4    9   14   19
-## [5,]    5   10   15   20
-```
-
-```r
-class(mymatrix)
-```
-
-```
-## [1] "matrix" "array"
-```
-
-```r
-dim(mymatrix)
-```
-
-```
-## [1] 5 4
-```
-
-```r
-mymatrix <- matrix(1:20, nrow = 5, ncol = 4, byrow = TRUE)
-mymatrix
-```
-
-```
-##      [,1] [,2] [,3] [,4]
-## [1,]    1    2    3    4
-## [2,]    5    6    7    8
-## [3,]    9   10   11   12
-## [4,]   13   14   15   16
-## [5,]   17   18   19   20
-```
-
-We will be using two different variables. Following the usual mathematical convention, lower-case x (or any other letter), which stores a vector and capital `X`, which stores a matrix. We can do this because R is case sensitive.  
-
-## Matrix Operations
-
-Now some key matrix operations:  
-
-
-```r
-X <- matrix(1:9, nrow = 3, ncol = 3)
-Y <- matrix(11:19, nrow = 3, ncol = 3)
-
-A <- X + Y
-A
-```
-
-```
-##      [,1] [,2] [,3]
-## [1,]   12   18   24
-## [2,]   14   20   26
-## [3,]   16   22   28
-```
-
-```r
-B <- X * Y
-B
-```
-
-```
-##      [,1] [,2] [,3]
-## [1,]   11   56  119
-## [2,]   24   75  144
-## [3,]   39   96  171
-```
-
-```r
-#The symbol %*% is called pipe operator.
-#And it carries out a matrix multiplication
-#different than a simple multiplication.
-
-C <- X%*%Y  
-C
-```
-
-```
-##      [,1] [,2] [,3]
-## [1,]  150  186  222
-## [2,]  186  231  276
-## [3,]  222  276  330
-```
-
-Note that X * Y is not a matrix multiplication. It is element by element multiplication. (Same for X / Y). Instead, matrix multiplication uses `%*%`. Other matrix functions include `t()` which gives the transpose of a matrix and `solve()` which returns the inverse of a square matrix if it is invertible.  
-
-`matrix()` function is not the only way to create a matrix. Matrices can also be created by combining vectors as columns, using `cbind()`, or combining vectors as rows, using `rbind()`.  Look at this:  
-
-
-```r
-#Let's create 2 vectors.
-x <- rev(c(1:9))  #this can be done by c(9:1). I wanted to show rev()
-x
-```
-
-```
-## [1] 9 8 7 6 5 4 3 2 1
-```
-
-```r
-y <- rep(2, 9)
-y
-```
-
-```
-## [1] 2 2 2 2 2 2 2 2 2
-```
-
-```r
-A <- rbind(x, y)
-A
-```
-
-```
-##   [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
-## x    9    8    7    6    5    4    3    2    1
-## y    2    2    2    2    2    2    2    2    2
-```
-
-```r
-B <- cbind(x, y)
-B
-```
-
-```
-##       x y
-##  [1,] 9 2
-##  [2,] 8 2
-##  [3,] 7 2
-##  [4,] 6 2
-##  [5,] 5 2
-##  [6,] 4 2
-##  [7,] 3 2
-##  [8,] 2 2
-##  [9,] 1 2
-```
-
-```r
-#You can label each column and row
-colnames(B) <- c("column1", "column2")
-B
-```
-
-```
-##       column1 column2
-##  [1,]       9       2
-##  [2,]       8       2
-##  [3,]       7       2
-##  [4,]       6       2
-##  [5,]       5       2
-##  [6,]       4       2
-##  [7,]       3       2
-##  [8,]       2       2
-##  [9,]       1       2
-```
-
-Here are some operations very useful when using matrices:  
-
-
-```r
-rowMeans(A)
-```
-
-```
-## x y 
-## 5 2
-```
-
-```r
-colMeans(B)
-```
-
-```
-## column1 column2 
-##       5       2
-```
-
-```r
-rowSums(B)
-```
-
-```
-## [1] 11 10  9  8  7  6  5  4  3
-```
-
-```r
-colSums(A)
-```
-
-```
-## [1] 11 10  9  8  7  6  5  4  3
-```
-
-Last thing: When vectors are coerced to become matrices, they are column vectors. So a vector of length n becomes an $n \times 1$ matrix after coercion.  
-
-
-```r
-x
-```
-
-```
-## [1] 9 8 7 6 5 4 3 2 1
-```
-
-```r
-X <- as.matrix(x)
-X
-```
-
-```
-##       [,1]
-##  [1,]    9
-##  [2,]    8
-##  [3,]    7
-##  [4,]    6
-##  [5,]    5
-##  [6,]    4
-##  [7,]    3
-##  [8,]    2
-##  [9,]    1
-```
-
-## Subsetting Matrix
-
-Like vectors, matrices can be subsetted using square brackets, `[ ]`. However, since matrices are two-dimensional, we need to specify both row and column indices when subsetting.  
-
-
-```r
-Y
-```
-
-```
-##      [,1] [,2] [,3]
-## [1,]   11   14   17
-## [2,]   12   15   18
-## [3,]   13   16   19
-```
-
-```r
-Y[1,3]
-```
-
-```
-## [1] 17
-```
-
-```r
-Y[,3]
-```
-
-```
-## [1] 17 18 19
-```
-
-```r
-Y[2,]
-```
-
-```
-## [1] 12 15 18
-```
-
-```r
-Y[2, c(1, 3)] # If we need more than a column (row), we use c()
-```
-
-```
-## [1] 12 18
-```
-
-Conditional subsetting is the same as before in vectors.  
-Let's solve this problem:  what's the number in column 1 in `Y` when the number in column 3 is 18?  
-
-
-```r
-Y
-```
-
-```
-##      [,1] [,2] [,3]
-## [1,]   11   14   17
-## [2,]   12   15   18
-## [3,]   13   16   19
-```
-
-```r
-Y[Y[,3]==18, 1]
-```
-
-```
-## [1] 12
-```
-
-```r
-#What are the numbers in a row when the number in column 3 is 18?
-Y[Y[,3]==19, ]
-```
-
-```
-## [1] 13 16 19
-```
-
-```r
-#Print the rows in Y when the number in column 3 is more than 17?
-Y[Y[,3] > 17, ]
-```
-
-```
-##      [,1] [,2] [,3]
-## [1,]   12   15   18
-## [2,]   13   16   19
-```
-
-We will see later how these conditional subsetting can be done much smoother with data frames.  
-
-## R-Style Guide
-
-The idea is simple: your R code, or any other code in different languages, should be written in a readable and maintainable style.  Here is a [blog](https://rpahl.github.io/r-some-blog/my-r-style-guide/) by Roman Pahl that may help you develop a better styling in your codes. (You may find in some chapters and labs that my codes are not following the "good" styling practices.  I am trying to improve!)  
-
-**Next: Lists and data frames**  

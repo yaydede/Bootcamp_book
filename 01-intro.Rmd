@@ -4,14 +4,6 @@ The following sections will serve as an introduction to the R basics that could 
 
 R is used both for software development and data analysis. We will not use it for software development but apply some concepts in that area.  Our main goal will be to analyze data, but we will also perform programming exercises that help illustrate certain algorithmic concepts.  
 
-What we will review in this Chapter:
-
-1. **R, RStudio, and R Packages**, 
-2. **Starting with RStudio**, 
-3. **Working Directory**, 
-4. **Data Types and Structures (Vectors and Matrices)**, 
-5. **R-Style Guide**
-
 ## Installation of R, RStudio and R Packages
 
 To get started, you will need to install two pieces of software:  
@@ -190,6 +182,10 @@ R also has a number of basic data structures. A data structure is either **homog
 **Data Frame**: 2 dimensions (column AND row) and heterogeneous. That is every element of the data frame doesn't have to be the same type.  This is the main difference between a matrix and a data frame. Data frames are the most common data structure in any data analysis.  
 **List**: 1 dimension and heterogeneous. Data can be multiple data structures.  
 **Array**: 3+ dimensions and homogeneous.  
+
+## R-Style Guide
+
+The idea is simple: your R code, or any other code in different languages, should be written in a readable and maintainable style.  Here is a [blog](https://rpahl.github.io/r-some-blog/r-style-guide/) by Roman Pahl that may help you develop a better styling in your codes. (You may find in some chapters and labs that my codes are not following the "good" styling practices.  I am trying to improve!)
   
 # Vectors
 Many operations in R make heavy use of vectors. Possibly the most common way to create a vector in R is using the `c()` function, which is short for “combine.” As the name suggests, it combines a list of elements separated by commas.  
@@ -677,7 +673,7 @@ How to remove?  But before removing them:
 mean(x, na.rm = TRUE)
 ```
 
-So we may skip removing them from the data as many functions has built-in arguments
+So we may skip removing them from the data as many functions have built-in arguments to deal with NA's.
 
 ```{r}
 x2 <- x[!is.na(x)]
@@ -708,119 +704,3 @@ levels(animf)
 ```
 
 
-# Matrices
-
-R stores matrices and arrays in a similar manner as vectors, but with the attribute called dimension. A matrix is an array that has two dimensions. Data in a matrix are organized into rows and columns. Matrices are commonly used while arrays are rare.  We will not see arrays in this book. Matrices are homogeneous data structures, just like atomic vectors, but they can have 2 dimensions, rows and columns, unlike vectors.  
-
-Matrices can be created using the **matrix** function.  
-
-```{r}
-#Let's create 5 x 4 numeric matrix containing numbers from 1 to 20
-mymatrix <- matrix(1:20, nrow = 5, ncol = 4)  #Here we order the number by columns
-mymatrix
-
-class(mymatrix)
-dim(mymatrix)
-
-mymatrix <- matrix(1:20, nrow = 5, ncol = 4, byrow = TRUE)
-mymatrix
-```
-
-We will be using two different variables. Following the usual mathematical convention, lower-case x (or any other letter), which stores a vector and capital `X`, which stores a matrix. We can do this because R is case sensitive.  
-
-## Matrix Operations
-
-Now some key matrix operations:  
-
-```{r}
-
-X <- matrix(1:9, nrow = 3, ncol = 3)
-Y <- matrix(11:19, nrow = 3, ncol = 3)
-
-A <- X + Y
-A
-
-B <- X * Y
-B
-
-#The symbol %*% is called pipe operator.
-#And it carries out a matrix multiplication
-#different than a simple multiplication.
-
-C <- X%*%Y  
-C
-```
-
-Note that X * Y is not a matrix multiplication. It is element by element multiplication. (Same for X / Y). Instead, matrix multiplication uses `%*%`. Other matrix functions include `t()` which gives the transpose of a matrix and `solve()` which returns the inverse of a square matrix if it is invertible.  
-
-`matrix()` function is not the only way to create a matrix. Matrices can also be created by combining vectors as columns, using `cbind()`, or combining vectors as rows, using `rbind()`.  Look at this:  
-
-```{r}
-#Let's create 2 vectors.
-x <- rev(c(1:9))  #this can be done by c(9:1). I wanted to show rev()
-x
-
-y <- rep(2, 9)
-y
-
-A <- rbind(x, y)
-A
-
-B <- cbind(x, y)
-B
-
-#You can label each column and row
-colnames(B) <- c("column1", "column2")
-B
-```
-
-Here are some operations very useful when using matrices:  
-
-```{r}
-rowMeans(A)
-colMeans(B)
-rowSums(B)
-colSums(A)
-```
-
-Last thing: When vectors are coerced to become matrices, they are column vectors. So a vector of length n becomes an $n \times 1$ matrix after coercion.  
-
-```{r}
-x
-X <- as.matrix(x)
-X
-```
-
-## Subsetting Matrix
-
-Like vectors, matrices can be subsetted using square brackets, `[ ]`. However, since matrices are two-dimensional, we need to specify both row and column indices when subsetting.  
-
-```{r}
-Y
-Y[1,3]
-Y[,3]
-Y[2,]
-Y[2, c(1, 3)] # If we need more than a column (row), we use c()
-```
-
-Conditional subsetting is the same as before in vectors.  
-Let's solve this problem:  what's the number in column 1 in `Y` when the number in column 3 is 18?  
-
-```{r}
-Y
-Y[Y[,3]==18, 1]
-
-#What are the numbers in a row when the number in column 3 is 18?
-Y[Y[,3]==19, ]
-
-#Print the rows in Y when the number in column 3 is more than 17?
-Y[Y[,3] > 17, ]
-```
-
-We will see later how these conditional subsetting can be done much smoother with data frames.  
-
-## R-Style Guide
-
-The idea is simple: your R code, or any other code in different languages, should be written in a readable and maintainable style.  Here is a [blog](https://rpahl.github.io/r-some-blog/my-r-style-guide/) by Roman Pahl that may help you develop a better styling in your codes. (You may find in some chapters and labs that my codes are not following the "good" styling practices.  I am trying to improve!)  
-
-**Next: Lists and data frames**  

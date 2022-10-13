@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Data Management | R Bootcamp - How to use R for Data Science</title>
+  <meta name="description" content="This book is companion fro RBootcamp package." />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Data Management | R Bootcamp - How to use R for Data Science" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://yaydede.github.io/Bootcamp_book//Users/yigitaydede/Dropbox/Documents/Courses/MBAN/RBootcamps/Bootcamp_book/png/cover.png" />
+  <meta property="og:description" content="This book is companion fro RBootcamp package." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Data Management | R Bootcamp - How to use R for Data Science" />
+  
+  <meta name="twitter:description" content="This book is companion fro RBootcamp package." />
+  <meta name="twitter:image" content="https://yaydede.github.io/Bootcamp_book//Users/yigitaydede/Dropbox/Documents/Courses/MBAN/RBootcamps/Bootcamp_book/png/cover.png" />
+
+<meta name="author" content="Yigit Aydede" />
+
+
+<meta name="date" content="2022-10-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-visualisation-with-r.html"/>
+<link rel="next" href="programing-basics.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R Bootcamp</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-r"><i class="fa fa-check"></i>Why R?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#installation-of-r-rstudio-and-r-packages"><i class="fa fa-check"></i><b>1.1</b> Installation of R, RStudio and R Packages</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#rstudio"><i class="fa fa-check"></i><b>1.2</b> RStudio</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#packages"><i class="fa fa-check"></i><b>1.3</b> Packages</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#working-directory"><i class="fa fa-check"></i><b>1.4</b> Working directory</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#hints"><i class="fa fa-check"></i><b>1.5</b> Hints</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#console-or-script"><i class="fa fa-check"></i><b>1.6</b> Console or Script?</a></li>
+<li class="chapter" data-level="1.7" data-path="introduction.html"><a href="introduction.html#r-as-a-calculator"><i class="fa fa-check"></i><b>1.7</b> R as a calculator</a></li>
+<li class="chapter" data-level="1.8" data-path="introduction.html"><a href="introduction.html#data-object-types"><i class="fa fa-check"></i><b>1.8</b> Data &amp; Object Types</a></li>
+<li class="chapter" data-level="1.9" data-path="introduction.html"><a href="introduction.html#r-style-guide"><i class="fa fa-check"></i><b>1.9</b> R-Style Guide</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="vectors.html"><a href="vectors.html"><i class="fa fa-check"></i><b>2</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="vectors.html"><a href="vectors.html#one-type-same-type"><i class="fa fa-check"></i><b>2.1</b> One type, same type</a></li>
+<li class="chapter" data-level="2.2" data-path="vectors.html"><a href="vectors.html#patterns"><i class="fa fa-check"></i><b>2.2</b> Patterns</a></li>
+<li class="chapter" data-level="2.3" data-path="vectors.html"><a href="vectors.html#attributes"><i class="fa fa-check"></i><b>2.3</b> Attributes</a></li>
+<li class="chapter" data-level="2.4" data-path="vectors.html"><a href="vectors.html#character-operators"><i class="fa fa-check"></i><b>2.4</b> Character operators</a></li>
+<li class="chapter" data-level="2.5" data-path="vectors.html"><a href="vectors.html#sort-rank-and-order"><i class="fa fa-check"></i><b>2.5</b> Sort, rank, and order</a></li>
+<li class="chapter" data-level="2.6" data-path="vectors.html"><a href="vectors.html#simple-descriptive-measures"><i class="fa fa-check"></i><b>2.6</b> Simple descriptive measures</a></li>
+<li class="chapter" data-level="2.7" data-path="vectors.html"><a href="vectors.html#subsetting-vectors"><i class="fa fa-check"></i><b>2.7</b> Subsetting Vectors</a></li>
+<li class="chapter" data-level="2.8" data-path="vectors.html"><a href="vectors.html#vectorization-or-vector-operations"><i class="fa fa-check"></i><b>2.8</b> Vectorization or vector operations</a></li>
+<li class="chapter" data-level="2.9" data-path="vectors.html"><a href="vectors.html#set-operations"><i class="fa fa-check"></i><b>2.9</b> Set operations</a></li>
+<li class="chapter" data-level="2.10" data-path="vectors.html"><a href="vectors.html#missing-values"><i class="fa fa-check"></i><b>2.10</b> Missing values</a></li>
+<li class="chapter" data-level="2.11" data-path="vectors.html"><a href="vectors.html#factors"><i class="fa fa-check"></i><b>2.11</b> Factors</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="other-r-objects.html"><a href="other-r-objects.html"><i class="fa fa-check"></i><b>3</b> Other R Objects</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="other-r-objects.html"><a href="other-r-objects.html#matrices"><i class="fa fa-check"></i><b>3.1</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="other-r-objects.html"><a href="other-r-objects.html#matrix-operations"><i class="fa fa-check"></i><b>3.1.1</b> Matrix Operations</a></li>
+<li class="chapter" data-level="3.1.2" data-path="other-r-objects.html"><a href="other-r-objects.html#combine-vectors-or-matrices-into-a-matrix"><i class="fa fa-check"></i><b>3.1.2</b> Combine vectors or matrices into a matrix</a></li>
+<li class="chapter" data-level="3.1.3" data-path="other-r-objects.html"><a href="other-r-objects.html#subsetting-matrix"><i class="fa fa-check"></i><b>3.1.3</b> Subsetting Matrix</a></li>
+<li class="chapter" data-level="3.1.4" data-path="other-r-objects.html"><a href="other-r-objects.html#apply-function"><i class="fa fa-check"></i><b>3.1.4</b> <code>apply()</code> function</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="other-r-objects.html"><a href="other-r-objects.html#data-frames"><i class="fa fa-check"></i><b>3.2</b> Data Frames</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="other-r-objects.html"><a href="other-r-objects.html#subsetting-data-frames"><i class="fa fa-check"></i><b>3.2.1</b> Subsetting Data Frames</a></li>
+<li class="chapter" data-level="3.2.2" data-path="other-r-objects.html"><a href="other-r-objects.html#tibble"><i class="fa fa-check"></i><b>3.2.2</b> Tibble</a></li>
+<li class="chapter" data-level="3.2.3" data-path="other-r-objects.html"><a href="other-r-objects.html#plotting-from-data-frame"><i class="fa fa-check"></i><b>3.2.3</b> Plotting from data frame</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="other-r-objects.html"><a href="other-r-objects.html#lists"><i class="fa fa-check"></i><b>3.3</b> Lists</a></li>
+<li class="chapter" data-level="3.4" data-path="other-r-objects.html"><a href="other-r-objects.html#array"><i class="fa fa-check"></i><b>3.4</b> Array</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="reading-and-writting-data-files.html"><a href="reading-and-writting-data-files.html"><i class="fa fa-check"></i><b>4</b> Reading and writting data files</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="reading-and-writting-data-files.html"><a href="reading-and-writting-data-files.html#reading-importing"><i class="fa fa-check"></i><b>4.1</b> Reading (importing)</a></li>
+<li class="chapter" data-level="4.2" data-path="reading-and-writting-data-files.html"><a href="reading-and-writting-data-files.html#writing-exporting"><i class="fa fa-check"></i><b>4.2</b> Writing (exporting)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html"><i class="fa fa-check"></i><b>5</b> Data visualisation with R</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html#scatterplots"><i class="fa fa-check"></i><b>5.1</b> Scatterplots</a></li>
+<li class="chapter" data-level="5.2" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html#smootlines"><i class="fa fa-check"></i><b>5.2</b> Smootlines</a></li>
+<li class="chapter" data-level="5.3" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html#histograms-density"><i class="fa fa-check"></i><b>5.3</b> Histograms &amp; Density</a></li>
+<li class="chapter" data-level="5.4" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html#multiple-plots"><i class="fa fa-check"></i><b>5.4</b> Multiple plots</a></li>
+<li class="chapter" data-level="5.5" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html#add-lines"><i class="fa fa-check"></i><b>5.5</b> Add lines</a></li>
+<li class="chapter" data-level="5.6" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html#pairwise-relationship"><i class="fa fa-check"></i><b>5.6</b> Pairwise relationship</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-management.html"><a href="data-management.html"><i class="fa fa-check"></i><b>6</b> Data Management</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="data-management.html"><a href="data-management.html#filter"><i class="fa fa-check"></i><b>6.1</b> Filter</a></li>
+<li class="chapter" data-level="6.2" data-path="data-management.html"><a href="data-management.html#arrange"><i class="fa fa-check"></i><b>6.2</b> Arrange</a></li>
+<li class="chapter" data-level="6.3" data-path="data-management.html"><a href="data-management.html#pipe"><i class="fa fa-check"></i><b>6.3</b> Pipe</a></li>
+<li class="chapter" data-level="6.4" data-path="data-management.html"><a href="data-management.html#select"><i class="fa fa-check"></i><b>6.4</b> Select</a></li>
+<li class="chapter" data-level="6.5" data-path="data-management.html"><a href="data-management.html#create-group_by"><i class="fa fa-check"></i><b>6.5</b> Create &amp; <code>group_by()</code></a></li>
+<li class="chapter" data-level="6.6" data-path="data-management.html"><a href="data-management.html#more-tools"><i class="fa fa-check"></i><b>6.6</b> More tools</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="data-management.html"><a href="data-management.html#subset"><i class="fa fa-check"></i><b>6.6.1</b> <code>subset()</code></a></li>
+<li class="chapter" data-level="6.6.2" data-path="data-management.html"><a href="data-management.html#within-with"><i class="fa fa-check"></i><b>6.6.2</b> <code>within()</code> &amp; <code>with()</code></a></li>
+<li class="chapter" data-level="6.6.3" data-path="data-management.html"><a href="data-management.html#aggregate"><i class="fa fa-check"></i><b>6.6.3</b> <code>aggregate()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="programing-basics.html"><a href="programing-basics.html"><i class="fa fa-check"></i><b>7</b> Programing basics</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="programing-basics.html"><a href="programing-basics.html#conditional-flows"><i class="fa fa-check"></i><b>7.1</b> Conditional flows</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="programing-basics.html"><a href="programing-basics.html#ifelse"><i class="fa fa-check"></i><b>7.1.1</b> if/Else</a></li>
+<li class="chapter" data-level="7.1.2" data-path="programing-basics.html"><a href="programing-basics.html#nested-conditions"><i class="fa fa-check"></i><b>7.1.2</b> Nested conditions</a></li>
+<li class="chapter" data-level="7.1.3" data-path="programing-basics.html"><a href="programing-basics.html#simpler-ifelse"><i class="fa fa-check"></i><b>7.1.3</b> Simpler <code>ifelse</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="programing-basics.html"><a href="programing-basics.html#loops"><i class="fa fa-check"></i><b>7.2</b> Loops</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="programing-basics.html"><a href="programing-basics.html#conditional-loops"><i class="fa fa-check"></i><b>7.2.1</b> Conditional loops</a></li>
+<li class="chapter" data-level="7.2.2" data-path="programing-basics.html"><a href="programing-basics.html#while-and-repeat"><i class="fa fa-check"></i><b>7.2.2</b> <code>while()</code> and <code>repeat()</code></a></li>
+<li class="chapter" data-level="7.2.3" data-path="programing-basics.html"><a href="programing-basics.html#nested-loops"><i class="fa fa-check"></i><b>7.2.3</b> Nested loops</a></li>
+<li class="chapter" data-level="7.2.4" data-path="programing-basics.html"><a href="programing-basics.html#outer"><i class="fa fa-check"></i><b>7.2.4</b> <code>outer()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="programing-basics.html"><a href="programing-basics.html#the-apply-family"><i class="fa fa-check"></i><b>7.3</b> The <code>apply()</code> family</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="programing-basics.html"><a href="programing-basics.html#apply"><i class="fa fa-check"></i><b>7.3.1</b> <code>apply()</code></a></li>
+<li class="chapter" data-level="7.3.2" data-path="programing-basics.html"><a href="programing-basics.html#lapply"><i class="fa fa-check"></i><b>7.3.2</b> <code>lapply()</code></a></li>
+<li class="chapter" data-level="7.3.3" data-path="programing-basics.html"><a href="programing-basics.html#sapply"><i class="fa fa-check"></i><b>7.3.3</b> <code>sapply()</code></a></li>
+<li class="chapter" data-level="7.3.4" data-path="programing-basics.html"><a href="programing-basics.html#tapply"><i class="fa fa-check"></i><b>7.3.4</b> <code>tapply()</code></a></li>
+<li class="chapter" data-level="7.3.5" data-path="programing-basics.html"><a href="programing-basics.html#mapply"><i class="fa fa-check"></i><b>7.3.5</b> <code>mapply()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="programing-basics.html"><a href="programing-basics.html#functions"><i class="fa fa-check"></i><b>7.4</b> Functions</a></li>
+<li class="chapter" data-level="7.5" data-path="programing-basics.html"><a href="programing-basics.html#source"><i class="fa fa-check"></i><b>7.5</b> <code>source()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="simulation-in-r.html"><a href="simulation-in-r.html"><i class="fa fa-check"></i><b>8</b> Simulation in R</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="simulation-in-r.html"><a href="simulation-in-r.html#sampling-in-r-sample"><i class="fa fa-check"></i><b>8.1</b> Sampling in R: <code>sample()</code></a></li>
+<li class="chapter" data-level="8.2" data-path="simulation-in-r.html"><a href="simulation-in-r.html#random-number-generating-with-probablity-distributions"><i class="fa fa-check"></i><b>8.2</b> Random number generating with probablity distributions</a></li>
+<li class="chapter" data-level="8.3" data-path="simulation-in-r.html"><a href="simulation-in-r.html#simulation-for-statistical-inference"><i class="fa fa-check"></i><b>8.3</b> Simulation for statistical inference</a></li>
+<li class="chapter" data-level="8.4" data-path="simulation-in-r.html"><a href="simulation-in-r.html#creataing-data-with-a-data-generating-model-dgm"><i class="fa fa-check"></i><b>8.4</b> Creataing data with a Data Generating Model (DGM)</a></li>
+<li class="chapter" data-level="8.5" data-path="simulation-in-r.html"><a href="simulation-in-r.html#bootstrapping"><i class="fa fa-check"></i><b>8.5</b> Bootstrapping</a></li>
+<li class="chapter" data-level="8.6" data-path="simulation-in-r.html"><a href="simulation-in-r.html#monty-hall---fun-example"><i class="fa fa-check"></i><b>8.6</b> Monty Hall - Fun example</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>9</b> Parts</a></li>
+<li class="chapter" data-level="10" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>10</b> Footnotes and citations</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>10.1</b> Footnotes</a></li>
+<li class="chapter" data-level="10.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>10.2</b> Citations</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>11</b> Blocks</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>11.1</b> Equations</a></li>
+<li class="chapter" data-level="11.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>11.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="11.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>11.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>12</b> Sharing your book</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>12.1</b> Publishing</a></li>
+<li class="chapter" data-level="12.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>12.2</b> 404 pages</a></li>
+<li class="chapter" data-level="12.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>12.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="13" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>13</b> Cross-references</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>13.1</b> Chapters and sub-chapters</a></li>
+<li class="chapter" data-level="13.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>13.2</b> Captioned figures and tables</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Bootcamp - How to use R for Data Science</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-management" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Data Management<a href="data-management.html#data-management" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>We will use the same data set, Ames Housing Price data, containing 165 observations and 12 features including the sale date and price. Suppose we want to find the houses that are sold in Jan 2010. You can use the function <code>filter()</code> in the <code>dplyr</code> package, a member of the tidyverse package.</p>
+<p>See more about <code>dplyr</code> <a href="https://dplyr.tidyverse.org/articles/dplyr.html">here</a></p>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="data-management.html#cb457-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(AmesHousing)</span>
+<span id="cb457-2"><a href="data-management.html#cb457-2" aria-hidden="true" tabindex="-1"></a>amesdata <span class="ot">&lt;-</span> <span class="fu">make_ames</span>()</span></code></pre></div>
+<div id="filter" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Filter<a href="data-management.html#filter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We can use subsetting operations</p>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="data-management.html#cb458-1" aria-hidden="true" tabindex="-1"></a>amesdata[amesdata<span class="sc">$</span>Year_Sold <span class="sc">==</span> <span class="dv">2010</span> <span class="sc">&amp;</span> amesdata<span class="sc">$</span>Mo_Sold <span class="sc">==</span> <span class="dv">1</span>, ] </span></code></pre></div>
+<pre><code>## # A tibble: 26 × 81
+##    MS_Sub…¹ MS_Zo…² Lot_F…³ Lot_A…⁴ Street Alley Lot_S…⁵ Land_…⁶ Utili…⁷ Lot_C…⁸
+##    &lt;fct&gt;    &lt;fct&gt;     &lt;dbl&gt;   &lt;int&gt; &lt;fct&gt;  &lt;fct&gt; &lt;fct&gt;   &lt;fct&gt;   &lt;fct&gt;   &lt;fct&gt;  
+##  1 One_Sto… Reside…      43    5005 Pave   No_A… Slight… HLS     AllPub  Inside 
+##  2 One_Sto… Reside…     105   11751 Pave   No_A… Slight… Lvl     AllPub  Inside 
+##  3 Split_F… Reside…      85   10625 Pave   No_A… Regular Lvl     AllPub  Inside 
+##  4 Two_Sto… Floati…       0    7500 Pave   No_A… Regular Lvl     AllPub  Inside 
+##  5 Two_Sto… Reside…     102   12858 Pave   No_A… Slight… Lvl     AllPub  Inside 
+##  6 One_Sto… Reside…     100   18494 Pave   No_A… Slight… Lvl     AllPub  Corner 
+##  7 One_Sto… Reside…      43    3203 Pave   No_A… Regular Lvl     AllPub  Inside 
+##  8 Two_Sto… Reside…      60   17433 Pave   No_A… Modera… Lvl     AllPub  CulDSac
+##  9 Two_Sto… Reside…      76   10142 Pave   No_A… Slight… Lvl     AllPub  Inside 
+## 10 Two_Sto… Floati…      39    3515 Pave   Paved Regular Lvl     AllPub  Inside 
+## # … with 16 more rows, 71 more variables: Land_Slope &lt;fct&gt;, Neighborhood &lt;fct&gt;,
+## #   Condition_1 &lt;fct&gt;, Condition_2 &lt;fct&gt;, Bldg_Type &lt;fct&gt;, House_Style &lt;fct&gt;,
+## #   Overall_Qual &lt;fct&gt;, Overall_Cond &lt;fct&gt;, Year_Built &lt;int&gt;,
+## #   Year_Remod_Add &lt;int&gt;, Roof_Style &lt;fct&gt;, Roof_Matl &lt;fct&gt;,
+## #   Exterior_1st &lt;fct&gt;, Exterior_2nd &lt;fct&gt;, Mas_Vnr_Type &lt;fct&gt;,
+## #   Mas_Vnr_Area &lt;dbl&gt;, Exter_Qual &lt;fct&gt;, Exter_Cond &lt;fct&gt;, Foundation &lt;fct&gt;,
+## #   Bsmt_Qual &lt;fct&gt;, Bsmt_Cond &lt;fct&gt;, Bsmt_Exposure &lt;fct&gt;, …</code></pre>
+<p>Or we can use <code>filter()</code>:</p>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="data-management.html#cb460-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="data-management.html#cb464-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">filter</span>(amesdata, Year_Sold <span class="sc">==</span> <span class="dv">2010</span>, Mo_Sold <span class="sc">==</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 26 × 81
+##    MS_Sub…¹ MS_Zo…² Lot_F…³ Lot_A…⁴ Street Alley Lot_S…⁵ Land_…⁶ Utili…⁷ Lot_C…⁸
+##    &lt;fct&gt;    &lt;fct&gt;     &lt;dbl&gt;   &lt;int&gt; &lt;fct&gt;  &lt;fct&gt; &lt;fct&gt;   &lt;fct&gt;   &lt;fct&gt;   &lt;fct&gt;  
+##  1 One_Sto… Reside…      43    5005 Pave   No_A… Slight… HLS     AllPub  Inside 
+##  2 One_Sto… Reside…     105   11751 Pave   No_A… Slight… Lvl     AllPub  Inside 
+##  3 Split_F… Reside…      85   10625 Pave   No_A… Regular Lvl     AllPub  Inside 
+##  4 Two_Sto… Floati…       0    7500 Pave   No_A… Regular Lvl     AllPub  Inside 
+##  5 Two_Sto… Reside…     102   12858 Pave   No_A… Slight… Lvl     AllPub  Inside 
+##  6 One_Sto… Reside…     100   18494 Pave   No_A… Slight… Lvl     AllPub  Corner 
+##  7 One_Sto… Reside…      43    3203 Pave   No_A… Regular Lvl     AllPub  Inside 
+##  8 Two_Sto… Reside…      60   17433 Pave   No_A… Modera… Lvl     AllPub  CulDSac
+##  9 Two_Sto… Reside…      76   10142 Pave   No_A… Slight… Lvl     AllPub  Inside 
+## 10 Two_Sto… Floati…      39    3515 Pave   Paved Regular Lvl     AllPub  Inside 
+## # … with 16 more rows, 71 more variables: Land_Slope &lt;fct&gt;, Neighborhood &lt;fct&gt;,
+## #   Condition_1 &lt;fct&gt;, Condition_2 &lt;fct&gt;, Bldg_Type &lt;fct&gt;, House_Style &lt;fct&gt;,
+## #   Overall_Qual &lt;fct&gt;, Overall_Cond &lt;fct&gt;, Year_Built &lt;int&gt;,
+## #   Year_Remod_Add &lt;int&gt;, Roof_Style &lt;fct&gt;, Roof_Matl &lt;fct&gt;,
+## #   Exterior_1st &lt;fct&gt;, Exterior_2nd &lt;fct&gt;, Mas_Vnr_Type &lt;fct&gt;,
+## #   Mas_Vnr_Area &lt;dbl&gt;, Exter_Qual &lt;fct&gt;, Exter_Cond &lt;fct&gt;, Foundation &lt;fct&gt;,
+## #   Bsmt_Qual &lt;fct&gt;, Bsmt_Cond &lt;fct&gt;, Bsmt_Exposure &lt;fct&gt;, …</code></pre>
+</div>
+<div id="arrange" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Arrange<a href="data-management.html#arrange" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s find the 10 houses with the highest sale prices by year</p>
+<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="data-management.html#cb466-1" aria-hidden="true" tabindex="-1"></a>ar <span class="ot">&lt;-</span> <span class="fu">arrange</span>(amesdata, Year_Sold, <span class="fu">desc</span>(Sale_Price))</span>
+<span id="cb466-2"><a href="data-management.html#cb466-2" aria-hidden="true" tabindex="-1"></a>ar</span></code></pre></div>
+<pre><code>## # A tibble: 2,930 × 81
+##    MS_Sub…¹ MS_Zo…² Lot_F…³ Lot_A…⁴ Street Alley Lot_S…⁵ Land_…⁶ Utili…⁷ Lot_C…⁸
+##    &lt;fct&gt;    &lt;fct&gt;     &lt;dbl&gt;   &lt;int&gt; &lt;fct&gt;  &lt;fct&gt; &lt;fct&gt;   &lt;fct&gt;   &lt;fct&gt;   &lt;fct&gt;  
+##  1 Two_Sto… Reside…     118   35760 Pave   No_A… Slight… Lvl     AllPub  CulDSac
+##  2 Two_Sto… Reside…     114   17242 Pave   No_A… Slight… Lvl     AllPub  Inside 
+##  3 Two_Sto… Reside…      85   16056 Pave   No_A… Slight… Lvl     AllPub  Inside 
+##  4 Two_Sto… Reside…      60   18062 Pave   No_A… Slight… HLS     AllPub  CulDSac
+##  5 Two_Sto… Reside…      82   16052 Pave   No_A… Slight… Lvl     AllPub  CulDSac
+##  6 Two_and… Reside…      90   22950 Pave   No_A… Modera… Lvl     AllPub  Inside 
+##  7 One_Sto… Reside…      90   18261 Pave   No_A… Slight… HLS     AllPub  Inside 
+##  8 One_Sto… Reside…     107   13891 Pave   No_A… Regular Lvl     AllPub  Inside 
+##  9 Two_Sto… Reside…      59   16023 Pave   No_A… Slight… HLS     AllPub  CulDSac
+## 10 Two_Sto… Reside…      66   13682 Pave   No_A… Modera… HLS     AllPub  CulDSac
+## # … with 2,920 more rows, 71 more variables: Land_Slope &lt;fct&gt;,
+## #   Neighborhood &lt;fct&gt;, Condition_1 &lt;fct&gt;, Condition_2 &lt;fct&gt;, Bldg_Type &lt;fct&gt;,
+## #   House_Style &lt;fct&gt;, Overall_Qual &lt;fct&gt;, Overall_Cond &lt;fct&gt;,
+## #   Year_Built &lt;int&gt;, Year_Remod_Add &lt;int&gt;, Roof_Style &lt;fct&gt;, Roof_Matl &lt;fct&gt;,
+## #   Exterior_1st &lt;fct&gt;, Exterior_2nd &lt;fct&gt;, Mas_Vnr_Type &lt;fct&gt;,
+## #   Mas_Vnr_Area &lt;dbl&gt;, Exter_Qual &lt;fct&gt;, Exter_Cond &lt;fct&gt;, Foundation &lt;fct&gt;,
+## #   Bsmt_Qual &lt;fct&gt;, Bsmt_Cond &lt;fct&gt;, Bsmt_Exposure &lt;fct&gt;, …</code></pre>
+<p>Or</p>
+<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="data-management.html#cb468-1" aria-hidden="true" tabindex="-1"></a>arr <span class="ot">&lt;-</span> amesdata[<span class="fu">order</span>(amesdata<span class="sc">$</span>Year_Sold, <span class="fu">desc</span>(amesdata<span class="sc">$</span>Sale_Price)), ]</span>
+<span id="cb468-2"><a href="data-management.html#cb468-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(arr)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 81
+##   MS_SubC…¹ MS_Zo…² Lot_F…³ Lot_A…⁴ Street Alley Lot_S…⁵ Land_…⁶ Utili…⁷ Lot_C…⁸
+##   &lt;fct&gt;     &lt;fct&gt;     &lt;dbl&gt;   &lt;int&gt; &lt;fct&gt;  &lt;fct&gt; &lt;fct&gt;   &lt;fct&gt;   &lt;fct&gt;   &lt;fct&gt;  
+## 1 Two_Stor… Reside…     118   35760 Pave   No_A… Slight… Lvl     AllPub  CulDSac
+## 2 Two_Stor… Reside…     114   17242 Pave   No_A… Slight… Lvl     AllPub  Inside 
+## 3 Two_Stor… Reside…      85   16056 Pave   No_A… Slight… Lvl     AllPub  Inside 
+## 4 Two_Stor… Reside…      60   18062 Pave   No_A… Slight… HLS     AllPub  CulDSac
+## 5 Two_Stor… Reside…      82   16052 Pave   No_A… Slight… Lvl     AllPub  CulDSac
+## 6 Two_and_… Reside…      90   22950 Pave   No_A… Modera… Lvl     AllPub  Inside 
+## # … with 71 more variables: Land_Slope &lt;fct&gt;, Neighborhood &lt;fct&gt;,
+## #   Condition_1 &lt;fct&gt;, Condition_2 &lt;fct&gt;, Bldg_Type &lt;fct&gt;, House_Style &lt;fct&gt;,
+## #   Overall_Qual &lt;fct&gt;, Overall_Cond &lt;fct&gt;, Year_Built &lt;int&gt;,
+## #   Year_Remod_Add &lt;int&gt;, Roof_Style &lt;fct&gt;, Roof_Matl &lt;fct&gt;,
+## #   Exterior_1st &lt;fct&gt;, Exterior_2nd &lt;fct&gt;, Mas_Vnr_Type &lt;fct&gt;,
+## #   Mas_Vnr_Area &lt;dbl&gt;, Exter_Qual &lt;fct&gt;, Exter_Cond &lt;fct&gt;, Foundation &lt;fct&gt;,
+## #   Bsmt_Qual &lt;fct&gt;, Bsmt_Cond &lt;fct&gt;, Bsmt_Exposure &lt;fct&gt;, …</code></pre>
+</div>
+<div id="pipe" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Pipe<a href="data-management.html#pipe" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Pipes help us apply multiple operations sequentially on a given data.</p>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="data-management.html#cb470-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb470-2"><a href="data-management.html#cb470-2" aria-hidden="true" tabindex="-1"></a>amesdata <span class="sc">%&gt;%</span> </span>
+<span id="cb470-3"><a href="data-management.html#cb470-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year_Sold <span class="sc">==</span> <span class="dv">2009</span>, Mo_Sold <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb470-4"><a href="data-management.html#cb470-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Year_Built) <span class="sc">%&gt;%</span></span>
+<span id="cb470-5"><a href="data-management.html#cb470-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Lot_Area, <span class="at">y =</span> Sale_Price)) <span class="sc">+</span> </span>
+<span id="cb470-6"><a href="data-management.html#cb470-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="05-DataMan_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+<div id="select" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Select<a href="data-management.html#select" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>How do we select variables based on some characteristics</p>
+<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="data-management.html#cb471-1" aria-hidden="true" tabindex="-1"></a>amesdata <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;Year&quot;</span>), Sale_Price)</span></code></pre></div>
+<pre><code>## # A tibble: 2,930 × 4
+##    Year_Built Year_Remod_Add Year_Sold Sale_Price
+##         &lt;int&gt;          &lt;int&gt;     &lt;int&gt;      &lt;int&gt;
+##  1       1960           1960      2010     215000
+##  2       1961           1961      2010     105000
+##  3       1958           1958      2010     172000
+##  4       1968           1968      2010     244000
+##  5       1997           1998      2010     189900
+##  6       1998           1998      2010     195500
+##  7       2001           2001      2010     213500
+##  8       1992           1992      2010     191500
+##  9       1995           1996      2010     236500
+## 10       1999           1999      2010     189000
+## # … with 2,920 more rows</code></pre>
+<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="data-management.html#cb473-1" aria-hidden="true" tabindex="-1"></a>amesdata <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">&quot;Mo&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 2,930 × 2
+##    Year_Remod_Add Mo_Sold
+##             &lt;int&gt;   &lt;int&gt;
+##  1           1960       5
+##  2           1961       6
+##  3           1958       6
+##  4           1968       4
+##  5           1998       3
+##  6           1998       6
+##  7           2001       4
+##  8           1992       1
+##  9           1996       3
+## 10           1999       6
+## # … with 2,920 more rows</code></pre>
+</div>
+<div id="create-group_by" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Create &amp; <code>group_by()</code><a href="data-management.html#create-group_by" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We may want to create new variables as functions of the existing ones by <code>mutate()</code>:</p>
+<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="data-management.html#cb475-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(r02pro)</span>
+<span id="cb475-2"><a href="data-management.html#cb475-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb475-3"><a href="data-management.html#cb475-3" aria-hidden="true" tabindex="-1"></a>amesdata <span class="sc">%&gt;%</span> </span>
+<span id="cb475-4"><a href="data-management.html#cb475-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Overall_Qual, Lot_Area, Sale_Price) <span class="sc">%&gt;%</span></span>
+<span id="cb475-5"><a href="data-management.html#cb475-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ave_price =</span> Sale_Price<span class="sc">/</span>Lot_Area) </span></code></pre></div>
+<pre><code>## # A tibble: 2,930 × 4
+##    Overall_Qual  Lot_Area Sale_Price ave_price
+##    &lt;fct&gt;            &lt;int&gt;      &lt;int&gt;     &lt;dbl&gt;
+##  1 Above_Average    31770     215000      6.77
+##  2 Average          11622     105000      9.03
+##  3 Above_Average    14267     172000     12.1 
+##  4 Good             11160     244000     21.9 
+##  5 Average          13830     189900     13.7 
+##  6 Above_Average     9978     195500     19.6 
+##  7 Very_Good         4920     213500     43.4 
+##  8 Very_Good         5005     191500     38.3 
+##  9 Very_Good         5389     236500     43.9 
+## 10 Good              7500     189000     25.2 
+## # … with 2,920 more rows</code></pre>
+<p>Can we summarize by groups? First let’s see an example for <code>summarize</code>:</p>
+<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="data-management.html#cb477-1" aria-hidden="true" tabindex="-1"></a>amesdata <span class="sc">%&gt;%</span> </span>
+<span id="cb477-2"><a href="data-management.html#cb477-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n_houses =</span> <span class="fu">n</span>(),</span>
+<span id="cb477-3"><a href="data-management.html#cb477-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">ave_liv_area =</span> <span class="fu">mean</span>(Lot_Area),</span>
+<span id="cb477-4"><a href="data-management.html#cb477-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.75</span>),</span>
+<span id="cb477-5"><a href="data-management.html#cb477-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">q_price =</span> <span class="fu">quantile</span>(Sale_Price, <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.75</span>),</span>
+<span id="cb477-6"><a href="data-management.html#cb477-6" aria-hidden="true" tabindex="-1"></a>                               <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 4
+##   n_houses ave_liv_area  prob q_price
+##      &lt;int&gt;        &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+## 1     2930       10148.  0.25  129500
+## 2     2930       10148.  0.75  213500</code></pre>
+<p>Another</p>
+<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="data-management.html#cb479-1" aria-hidden="true" tabindex="-1"></a>amesdata <span class="sc">%&gt;%</span> </span>
+<span id="cb479-2"><a href="data-management.html#cb479-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Overall_Qual) <span class="sc">%&gt;%</span> </span>
+<span id="cb479-3"><a href="data-management.html#cb479-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n_houses =</span> <span class="fu">n</span>(),</span>
+<span id="cb479-4"><a href="data-management.html#cb479-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">ave_liv_area =</span> <span class="fu">mean</span>(Lot_Area),</span>
+<span id="cb479-5"><a href="data-management.html#cb479-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">ave_price =</span> <span class="fu">mean</span>(Sale_Price),</span>
+<span id="cb479-6"><a href="data-management.html#cb479-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 5
+##    Overall_Qual   n_houses ave_liv_area ave_price na.rm
+##    &lt;fct&gt;             &lt;int&gt;        &lt;dbl&gt;     &lt;dbl&gt; &lt;lgl&gt;
+##  1 Very_Poor             4       15214.    48725  TRUE 
+##  2 Poor                 13        9326.    52325. TRUE 
+##  3 Fair                 40        9439.    83186. TRUE 
+##  4 Below_Average       226        8464.   106485. TRUE 
+##  5 Average             825        9996.   134753. TRUE 
+##  6 Above_Average       732        9788.   162130. TRUE 
+##  7 Good                602       10309.   205026. TRUE 
+##  8 Very_Good           350       10618.   270914. TRUE 
+##  9 Excellent           107       12777.   368337. TRUE 
+## 10 Very_Excellent       31       18071.   450217. TRUE</code></pre>
+</div>
+<div id="more-tools" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> More tools<a href="data-management.html#more-tools" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="subset" class="section level3 hasAnchor" number="6.6.1">
+<h3><span class="header-section-number">6.6.1</span> <code>subset()</code><a href="data-management.html#subset" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="data-management.html#cb481-1" aria-hidden="true" tabindex="-1"></a><span class="fu">any</span>(<span class="fu">is.na</span>(amesdata))</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="data-management.html#cb483-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Pay attention to subset().  This will be a time-saver</span></span>
+<span id="cb483-2"><a href="data-management.html#cb483-2" aria-hidden="true" tabindex="-1"></a>sub <span class="ot">&lt;-</span> <span class="fu">subset</span>(amesdata, amesdata<span class="sc">$</span>Overall_Qual <span class="sc">!=</span> <span class="st">&quot;Fair&quot;</span>)</span>
+<span id="cb483-3"><a href="data-management.html#cb483-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(sub)</span></code></pre></div>
+<pre><code>## [1] 2890   81</code></pre>
+<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="data-management.html#cb485-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(amesdata)</span></code></pre></div>
+<pre><code>## [1] 2930   81</code></pre>
+<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="data-management.html#cb487-1" aria-hidden="true" tabindex="-1"></a><span class="co">#You can drop columns (variables) as well</span></span>
+<span id="cb487-2"><a href="data-management.html#cb487-2" aria-hidden="true" tabindex="-1"></a>amesless <span class="ot">=</span> <span class="fu">subset</span>(amesdata, <span class="at">select =</span> <span class="fu">c</span>(<span class="st">&quot;Sale_Type&quot;</span>, <span class="st">&quot;Mo_Sold&quot;</span>))</span>
+<span id="cb487-3"><a href="data-management.html#cb487-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(amesless)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 2
+##   Sale_Type Mo_Sold
+##   &lt;fct&gt;       &lt;int&gt;
+## 1 &quot;WD &quot;           5
+## 2 &quot;WD &quot;           6
+## 3 &quot;WD &quot;           6
+## 4 &quot;WD &quot;           4
+## 5 &quot;WD &quot;           3
+## 6 &quot;WD &quot;           6</code></pre>
+<p>However, look at the <code>help(subset)</code>: “This is a convenience function intended for use interactively. <em>For programming it is better to use the standard subsetting functions like []</em>, and in particular the non-standard evaluation of argument subset can have unanticipated consequences”.</p>
+</div>
+<div id="within-with" class="section level3 hasAnchor" number="6.6.2">
+<h3><span class="header-section-number">6.6.2</span> <code>within()</code> &amp; <code>with()</code><a href="data-management.html#within-with" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Here is an example to use <code>within()</code>:</p>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="data-management.html#cb489-1" aria-hidden="true" tabindex="-1"></a>ana <span class="ot">&lt;-</span> <span class="fu">within</span>(amesdata, Sale_Price[Fence <span class="sc">!=</span> <span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="dv">0</span>) </span>
+<span id="cb489-2"><a href="data-management.html#cb489-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb489-3"><a href="data-management.html#cb489-3" aria-hidden="true" tabindex="-1"></a><span class="co">#which is a short cut of</span></span>
+<span id="cb489-4"><a href="data-management.html#cb489-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb489-5"><a href="data-management.html#cb489-5" aria-hidden="true" tabindex="-1"></a>amesdata<span class="sc">$</span>Sale_Price[amesdata<span class="sc">$</span>Fence <span class="sc">!=</span> <span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="dv">0</span></span></code></pre></div>
+<p>And <code>with()</code></p>
+<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="data-management.html#cb490-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">with</span>(amesdata, Sale_Price[Mo_Sold <span class="sc">==</span> <span class="dv">5</span>  <span class="sc">&amp;</span>  Overall_Qual <span class="sc">==</span><span class="st">&quot;Good&quot;</span>]))</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+</div>
+<div id="aggregate" class="section level3 hasAnchor" number="6.6.3">
+<h3><span class="header-section-number">6.6.3</span> <code>aggregate()</code><a href="data-management.html#aggregate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>aggregate()</code> function in R can be used to calculate summary statistics for a dataset.</p>
+<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="data-management.html#cb492-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create data frame</span></span>
+<span id="cb492-2"><a href="data-management.html#cb492-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">team=</span><span class="fu">c</span>(<span class="st">&#39;A&#39;</span>, <span class="st">&#39;A&#39;</span>, <span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>, <span class="st">&#39;B&#39;</span>, <span class="st">&#39;B&#39;</span>),</span>
+<span id="cb492-3"><a href="data-management.html#cb492-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">position=</span><span class="fu">c</span>(<span class="st">&#39;G&#39;</span>, <span class="st">&#39;G&#39;</span>, <span class="st">&#39;F&#39;</span>, <span class="st">&#39;G&#39;</span>, <span class="st">&#39;F&#39;</span>, <span class="st">&#39;F&#39;</span>),</span>
+<span id="cb492-4"><a href="data-management.html#cb492-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">points=</span><span class="fu">c</span>(<span class="dv">99</span>, <span class="dv">90</span>, <span class="dv">86</span>, <span class="dv">88</span>, <span class="dv">95</span>, <span class="dv">99</span>),</span>
+<span id="cb492-5"><a href="data-management.html#cb492-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">assists=</span><span class="fu">c</span>(<span class="dv">33</span>, <span class="dv">28</span>, <span class="dv">31</span>, <span class="dv">39</span>, <span class="dv">34</span>, <span class="dv">23</span>),</span>
+<span id="cb492-6"><a href="data-management.html#cb492-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">rebounds=</span><span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">28</span>, <span class="dv">24</span>, <span class="dv">24</span>, <span class="dv">28</span>, <span class="dv">33</span>))</span>
+<span id="cb492-7"><a href="data-management.html#cb492-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb492-8"><a href="data-management.html#cb492-8" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
+<pre><code>##   team position points assists rebounds
+## 1    A        G     99      33       30
+## 2    A        G     90      28       28
+## 3    A        F     86      31       24
+## 4    B        G     88      39       24
+## 5    B        F     95      34       28
+## 6    B        F     99      23       33</code></pre>
+<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="data-management.html#cb494-1" aria-hidden="true" tabindex="-1"></a><span class="co">#find mean points by team</span></span>
+<span id="cb494-2"><a href="data-management.html#cb494-2" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(df<span class="sc">$</span>points, <span class="at">by=</span><span class="fu">list</span>(df<span class="sc">$</span>team), <span class="at">FUN=</span>mean)</span></code></pre></div>
+<pre><code>##   Group.1        x
+## 1       A 91.66667
+## 2       B 94.00000</code></pre>
+<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="data-management.html#cb496-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(df<span class="sc">$</span>points, <span class="at">by=</span><span class="fu">list</span>(df<span class="sc">$</span>team, df<span class="sc">$</span>position), <span class="at">FUN=</span>mean)</span></code></pre></div>
+<pre><code>##   Group.1 Group.2    x
+## 1       A       F 86.0
+## 2       B       F 97.0
+## 3       A       G 94.5
+## 4       B       G 88.0</code></pre>
+<p>We can also define our own functions</p>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="data-management.html#cb498-1" aria-hidden="true" tabindex="-1"></a>mine <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb498-2"><a href="data-management.html#cb498-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">sort</span>(x))</span>
+<span id="cb498-3"><a href="data-management.html#cb498-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb498-4"><a href="data-management.html#cb498-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb498-5"><a href="data-management.html#cb498-5" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(df<span class="sc">$</span>points, <span class="at">by=</span><span class="fu">list</span>(df<span class="sc">$</span>assists), <span class="at">FUN=</span>mine)</span></code></pre></div>
+<pre><code>##   Group.1  x
+## 1      23 99
+## 2      28 90
+## 3      31 86
+## 4      33 99
+## 5      34 95
+## 6      39 88</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-visualisation-with-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="programing-basics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/yaydede/Bootcamp_book/edit/main/05-DataMan.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Book_for_RBootcamp.pdf", "Book_for_RBootcamp.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+# Data Management
+
+We will use the same data set, Ames Housing Price data, containing 165 observations and 12 features including the sale date and price. Suppose we want to find the houses that are sold in Jan 2010. You can use the function `filter()` in the `dplyr` package, a member of the tidyverse package. 
+
+See more about `dplyr` [here](https://dplyr.tidyverse.org/articles/dplyr.html)
+
+```{r }
+library(AmesHousing)
+amesdata <- make_ames()
+```
+
+## Filter
+
+We can use subsetting operations
+
+```{r}
+amesdata[amesdata$Year_Sold == 2010 & amesdata$Mo_Sold == 1, ] 
+```
+  
+Or we can use `filter()`:  
+
+```{r}
+library(dplyr)
+dplyr::filter(amesdata, Year_Sold == 2010, Mo_Sold == 1)
+```
+
+## Arrange
+
+Let's find the 10 houses with the highest sale prices by year
+
+```{r}
+ar <- arrange(amesdata, Year_Sold, desc(Sale_Price))
+ar
+```
+
+Or
+
+```{r}
+arr <- amesdata[order(amesdata$Year_Sold, desc(amesdata$Sale_Price)), ]
+head(arr)
+```
+
+## Pipe
+
+Pipes help us apply multiple operations sequentially on a given data.
+
+```{r}
+library(ggplot2)
+amesdata %>% 
+  filter(Year_Sold == 2009, Mo_Sold == 1) %>% 
+  arrange(Year_Built) %>%
+  ggplot(mapping = aes(x = Lot_Area, y = Sale_Price)) + 
+  geom_point()
+```
+
+## Select
+
+How do we select variables based on some characteristics
+
+```{r}
+amesdata %>% select(starts_with("Year"), Sale_Price)
+amesdata %>% select(contains("Mo"))
+
+```
+
+## Create & `group_by()`
+
+We may want to create new variables as functions of the existing ones by `mutate()`:
+
+```{r, warning=FALSE, message=FALSE}
+library(r02pro)
+library(tidyverse)
+amesdata %>% 
+  select(Overall_Qual, Lot_Area, Sale_Price) %>%
+  mutate(ave_price = Sale_Price/Lot_Area) 
+```
+Can we summarize by groups?  First let's see an example for `summarize`:
+
+```{r}
+amesdata %>% 
+  summarize(n_houses = n(),
+            ave_liv_area = mean(Lot_Area),
+            prob = c(0.25, 0.75),
+            q_price = quantile(Sale_Price, c(0.25, 0.75),
+                               na.rm = TRUE))
+```
+
+Another
+
+```{r}
+amesdata %>% 
+  group_by(Overall_Qual) %>% 
+  summarize(n_houses = n(),
+            ave_liv_area = mean(Lot_Area),
+            ave_price = mean(Sale_Price),
+            na.rm = TRUE)
+  
+```
+
+## More tools
+
+### `subset()`
+
+```{r, warning=FALSE, message=FALSE}
+any(is.na(amesdata))
+
+#Pay attention to subset().  This will be a time-saver
+sub <- subset(amesdata, amesdata$Overall_Qual != "Fair")
+dim(sub)
+dim(amesdata)
+
+#You can drop columns (variables) as well
+amesless = subset(amesdata, select = c("Sale_Type", "Mo_Sold"))
+head(amesless)
+```
+
+However, look at the `help(subset)`: "This is a convenience function intended for use interactively. *For programming it is better to use the standard subsetting functions like []*, and in particular the non-standard evaluation of argument subset can have unanticipated consequences".
+
+### `within()` & `with()`
+
+Here is an example to use `within()`:
+  
+```{r}
+ana <- within(amesdata, Sale_Price[Fence != 2] <- 0) 
+
+#which is a short cut of
+
+amesdata$Sale_Price[amesdata$Fence != 2] <- 0
+```
+
+
+And `with()`
+
+```{r}
+mean(with(amesdata, Sale_Price[Mo_Sold == 5  &  Overall_Qual =="Good"]))
+```
+
+### `aggregate()`
+
+The `aggregate()` function in R can be used to calculate summary statistics for a dataset.
+
+```{r}
+#create data frame
+df <- data.frame(team=c('A', 'A', 'A', 'B', 'B', 'B'),
+                 position=c('G', 'G', 'F', 'G', 'F', 'F'),
+                 points=c(99, 90, 86, 88, 95, 99),
+                 assists=c(33, 28, 31, 39, 34, 23),
+                 rebounds=c(30, 28, 24, 24, 28, 33))
+
+df
+```
+
+```{r}
+#find mean points by team
+aggregate(df$points, by=list(df$team), FUN=mean)
+aggregate(df$points, by=list(df$team, df$position), FUN=mean)
+```
+
+We can also define our own functions
+
+```{r}
+mine <- function(x){
+  return(sort(x))
+}
+
+aggregate(df$points, by=list(df$assists), FUN=mine)
+```
+

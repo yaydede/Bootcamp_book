@@ -1,7 +1,7 @@
 --- 
 title: "R Bootcamp - How to use R for Data Science"
 author: "[Yigit Aydede](https://yaydede.github.io/)"
-date: "2022-10-12"
+date: "2022-10-13"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]

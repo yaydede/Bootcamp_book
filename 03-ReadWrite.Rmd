@@ -1,0 +1,51 @@
+# Reading and writting data files
+
+## Reading (importing) 
+For any data analysis, we need data. Data come in all different formats. The data could be readable, sometimes called ascii format. Or the data could be unreadable without the original program, like an Excel workbook (.xlsx) or other statistical software formats like Stata (.dta) or SAS (.sas7bdat).
+
+There are many ways of bringing data into your workspace.  A more flexible way to import data is to use `Import Dataset` on the Environment tab in the upper right window of RStudio . Multiple file type options are shown, such as text, Excel, SPSS, SAS, and Stata.
+
+```{r, echo=FALSE}
+knitr::include_graphics("png/Import.png")
+```  
+
+When you read a data in other formats, they may also be imported as a data frame.  
+
+If the data is a .csv file, for example, we would also use the `read_csv()` function from the `readr` package. Note that R has a built in function `read.csv()` that operates very similarly. The `readr` function `read_csv()` has a number of advantages. For example, it is much faster reading larger data. It also uses the tibble package to read the data as a tibble.  
+
+```{r, warning=FALSE, message=FALSE}
+library(readr)
+library(RCurl)
+x <- getURL("https://raw.githubusercontent.com/tidyverse/readr/main/inst/extdata/mtcars.csv")
+example_csv = read_csv(x, show_col_types = FALSE)
+head(example_csv)
+str(example_csv)
+```
+
+A tibble is simply a data frame that prints with sanity. Notice in the output above that we are given additional information such as dimension and variable type.  
+  
+To understand more about the data set, we use the `?` operator to pull up the documentation for the data. (You can use `??` to search the Internet for more info)  
+
+```{r, warning=FALSE, message=FALSE}
+?mtcars
+??mtcars
+#View(mpg)
+head(mtcars)
+tail(mtcars)
+```
+
+After importing our data, a quick glance at the dataset can often tell us if the data were read in correctly.  Use `head()` and `tail()` to look at a specified number of rows at the beginning or end of a dataset, respectively.  Use `View()` on a dataset to open a spreadsheet-style view of a dataset. In RStuido, clicking on a dataset in the Environment pane will `View()` it.  
+
+## Writing (exporting)
+
+We can export our data in a number of formats, including text, Excel .xlsx, and in other statistical software formats like Stata .dta, using `write_functions` that reverse the operations of the `read_functions`.  
+
+Multiple objects can be stored in an R binary file (usally extension “.Rdata”) with `save()` and then later loaded with `load()`.  
+
+I did not specify realistic path names below.  
+  
+- Excel .csv file: `write_csv(dat_csv, file = "path/to/save/filename.csv")` 
+- Stata .dta file: `write_dta(dat_csv, file = "path/to/save/filename.dta")` 
+- save these objects to an .Rdata file:  `save(dat_csv, mydata, file="path/to/save/filename.Rdata")` 
+
+One last thing: if you want to save the entire workspace, `save.image()` is just a short-cut for "save my current workspace", i.e., `save(list = ls(all.names = TRUE), file = ".RData", envir = .GlobalEnv)`. It is also what happens with `q("yes")`.  
