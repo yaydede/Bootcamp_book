@@ -141,7 +141,7 @@ dir()
 ## [31] "docs"                     "index.md"                
 ## [33] "index.Rmd"                "packages.bib"            
 ## [35] "png"                      "preamble.tex"            
-## [37] "README.md"                "render8a8652986d74.rds"  
+## [37] "README.md"                "render927a3573d9f2.rds"  
 ## [39] "some_functions.R"         "style.css"               
 ## [41] "table1.text"
 ```
@@ -234,7 +234,7 @@ R also has a number of basic data structures. A data structure is either **homog
 
 ## R-Style Guide
 
-The idea is simple: your R code, or any other code in different languages, should be written in a readable and maintainable style.  Here is a [blog](https://rpahl.github.io/r-some-blog/r-style-guide/) by Roman Pahl that may help you develop a better styling in your codes. (You may find in some chapters and labs that my codes are not following the "good" styling practices.  I am trying to improve!)
+The idea is simple: your R code, or any other code in different languages, should be written in a readable and maintainable style.  Here is a [blog](https://rpahl.github.io/r-some-blog/posts/r-style-guide/) by Roman Pahl that may help you develop a better styling in your codes. (You may find in some chapters and labs that my codes are not following the "good" styling practices.  I am trying to improve!)
   
 # Vectors
 Many operations in R make heavy use of vectors. Possibly the most common way to create a vector in R is using the `c()` function, which is short for “combine.” As the name suggests, it combines a list of elements separated by commas.  

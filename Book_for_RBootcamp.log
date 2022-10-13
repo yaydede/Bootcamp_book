@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.4.7)  13 OCT 2022 17:36
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.4.7)  13 OCT 2022 17:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1222,7 +1222,7 @@ Overfull \hbox (22.5pt too wide) in paragraph at lines 2921--2921
 
 Overfull \hbox (143.25pt too wide) in paragraph at lines 2921--2921
 []\TU/lmtt/m/n/10 ##   .. ..- attr(*, "srcfile")=Classes []srcfilecopy[], []src
-file[] <environment: 0x7f8620c2a208>[] 
+file[] <environment: 0x7fc600a2f6f0>[] 
  []
 
 [55] [56] [57] [58] [59] [60]
@@ -2854,9 +2854,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 4778--4780
  []
 
 [104] [105] [106] [107] [108]
-Overfull \hbox (33.0pt too wide) in paragraph at lines 5127--5127
-[]\TU/lmtt/m/n/10 ## [1] -0.2552373 -2.4902370  0.7013269 -0.6444717  0.3103598
- -2.4285529[] 
+Overfull \hbox (64.5pt too wide) in paragraph at lines 5127--5127
+[]\TU/lmtt/m/n/10 ## [1]  4.41583613  1.46256501  3.03243663 -1.07443991  3.415
+65355  0.03466287[] 
  []
 
 [109] [110] [111]

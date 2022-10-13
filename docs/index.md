@@ -15,7 +15,7 @@ urlcolor: cyan
 
 # About {.unnumbered}
 
-This book covers basics to learn R for Data Science. It is designed for MBAN students.
+This book covers basics to learn R for Data Science. It is designed for [MBAN](https://www.smu.ca/mban/index.html) students.
 
 We also have a companion R package named `RBootcamp`, containing the data sets used as well as interactive exercises for each part.
 
