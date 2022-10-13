@@ -575,20 +575,20 @@ div.csl-indent {
 <p>It becomes very handy when we build a polynomial model:</p>
 <div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="programing-basics.html#cb550-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">20</span>, <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb550-2"><a href="programing-basics.html#cb550-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
-<pre><code>##  [1] 14  2  4 18  9  9 15  5  4 12</code></pre>
+<pre><code>##  [1]  9 19 13  6  2  4 15  9 19 16</code></pre>
 <div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="programing-basics.html#cb552-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">outer</span>(x, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="st">&quot;^&quot;</span>)</span>
 <span id="cb552-2"><a href="programing-basics.html#cb552-2" aria-hidden="true" tabindex="-1"></a>m</span></code></pre></div>
 <pre><code>##       [,1] [,2] [,3]   [,4]
-##  [1,]   14  196 2744  38416
-##  [2,]    2    4    8     16
-##  [3,]    4   16   64    256
-##  [4,]   18  324 5832 104976
-##  [5,]    9   81  729   6561
-##  [6,]    9   81  729   6561
+##  [1,]    9   81  729   6561
+##  [2,]   19  361 6859 130321
+##  [3,]   13  169 2197  28561
+##  [4,]    6   36  216   1296
+##  [5,]    2    4    8     16
+##  [6,]    4   16   64    256
 ##  [7,]   15  225 3375  50625
-##  [8,]    5   25  125    625
-##  [9,]    4   16   64    256
-## [10,]   12  144 1728  20736</code></pre>
+##  [8,]    9   81  729   6561
+##  [9,]   19  361 6859 130321
+## [10,]   16  256 4096  65536</code></pre>
 <p>We can also use <code>outer()</code> for this example</p>
 <div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="programing-basics.html#cb554-1" aria-hidden="true" tabindex="-1"></a><span class="fu">outer</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="st">&quot;+&quot;</span>)</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5]
@@ -618,7 +618,7 @@ div.csl-indent {
 <span id="cb558-3"><a href="programing-basics.html#cb558-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb558-4"><a href="programing-basics.html#cb558-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum the values of each column with `apply()`</span></span>
 <span id="cb558-5"><a href="programing-basics.html#cb558-5" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(X, <span class="dv">2</span>, sum)</span></code></pre></div>
-<pre><code>## [1] 0.6119467 0.5547059 5.2032793 3.3787016 0.5431877 2.4084681</code></pre>
+<pre><code>## [1]  3.2732168 -3.3472614  2.0709206 -0.3612150 -0.6758029  4.6496974</code></pre>
 <div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="programing-basics.html#cb560-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(X, <span class="dv">2</span>, length)</span></code></pre></div>
 <pre><code>## [1] 5 5 5 5 5 5</code></pre>
 <div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="programing-basics.html#cb562-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(X, <span class="dv">1</span>, length)</span></code></pre></div>
@@ -634,13 +634,13 @@ div.csl-indent {
 <div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="programing-basics.html#cb568-1" aria-hidden="true" tabindex="-1"></a><span class="co">#It can also be used to repeat a function on cells within a matrix</span></span>
 <span id="cb568-2"><a href="programing-basics.html#cb568-2" aria-hidden="true" tabindex="-1"></a>X_new <span class="ot">&lt;-</span> <span class="fu">apply</span>(X[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,], <span class="dv">1</span>, <span class="cf">function</span>(x) x<span class="sc">+</span><span class="dv">1</span>)</span>
 <span id="cb568-3"><a href="programing-basics.html#cb568-3" aria-hidden="true" tabindex="-1"></a>X_new</span></code></pre></div>
-<pre><code>##           [,1]      [,2]
-## [1,] 0.6433165 1.4286731
-## [2,] 1.9854933 0.5690186
-## [3,] 0.7784161 1.7768329
-## [4,] 1.1961836 2.8538337
-## [5,] 1.2639224 0.5577531
-## [6,] 1.7173065 2.9555428</code></pre>
+<pre><code>##           [,1]       [,2]
+## [1,] 1.0782470 2.41496346
+## [2,] 0.4480263 0.63043435
+## [3,] 2.3722851 0.62087820
+## [4,] 1.3575941 0.03596772
+## [5,] 2.6321860 0.39665267
+## [6,] 1.7150459 2.17403054</code></pre>
 <p>Since <code>apply()</code> is used only for matrices, if you apply <code>apply()</code> to a data frame, it first coerces your data.frame to an array which means all the columns must have the same type. Depending on your context, this could have unintended consequences. For a safer practice in data frames, we can use <code>lappy()</code> and <code>sapply()</code>:</p>
 </div>
 <div id="lapply" class="section level3 hasAnchor" number="7.3.2">

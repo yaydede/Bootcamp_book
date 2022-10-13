@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.4.7)  13 OCT 2022 17:22
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.4.7)  13 OCT 2022 17:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -847,8 +847,8 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 [5] [6
 
 ]
-File: png/cover.png Graphic file (type bmp)
-<png/cover.png>
+File: png/cover2.png Graphic file (type bmp)
+<png/cover2.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1222,7 +1222,7 @@ Overfull \hbox (22.5pt too wide) in paragraph at lines 2921--2921
 
 Overfull \hbox (143.25pt too wide) in paragraph at lines 2921--2921
 []\TU/lmtt/m/n/10 ##   .. ..- attr(*, "srcfile")=Classes []srcfilecopy[], []src
-file[] <environment: 0x7fa2883fe248>[] 
+file[] <environment: 0x7f8620c2a208>[] 
  []
 
 [55] [56] [57] [58] [59] [60]
@@ -2855,8 +2855,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 4778--4780
 
 [104] [105] [106] [107] [108]
 Overfull \hbox (33.0pt too wide) in paragraph at lines 5127--5127
-[]\TU/lmtt/m/n/10 ## [1] -1.4530773  0.3055281 -1.2713307 -1.7703674  0.7358674
-  0.7410579[] 
+[]\TU/lmtt/m/n/10 ## [1] -0.2552373 -2.4902370  0.7013269 -0.6444717  0.3103598
+ -2.4285529[] 
  []
 
 [109] [110] [111]
@@ -3252,7 +3252,7 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 6653.
  ) 
 Here is how much of TeX's memory you used:
  20224 strings out of 479418
- 361735 string characters out of 5884586
+ 361741 string characters out of 5884586
  820264 words of memory out of 5000000
  37384 multiletter control sequences out of 15000+600000
  538869 words of font info for 87 fonts, out of 8000000 for 9000

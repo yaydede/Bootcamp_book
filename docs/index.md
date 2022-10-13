@@ -19,7 +19,7 @@ This book covers basics to learn R for Data Science. It is designed for MBAN stu
 
 We also have a companion R package named `RBootcamp`, containing the data sets used as well as interactive exercises for each part.
 
-![](png/cover.png){width=400px height=550px}
+![](png/cover2.png){width=400px height=550px}
 
 ## Why R? {.unnumbered} 
 
