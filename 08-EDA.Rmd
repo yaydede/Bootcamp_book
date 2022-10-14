@@ -1,0 +1,85 @@
+# Exploratory Data Analysis (EDA)
+
+EDA is an informal process to have an inital investigation of the data.  EDA is an important part of any data analysis.  For example, data cleaning is just one application of EDA: you ask questions about whether your data meets your expectations or not. To do data cleaning, you’ll need to deploy all the tools of EDA: **visualisation, transformation, and modelling**.
+
+The main steps in exploratory data analysis are:
+
+- Getting the data
+- Dataset Overview
+- Visualization
+- Identifying missing values
+- Distibution of data: variations
+- Correlated variables
+
+## Getting the data
+
+We will use the same data set, Ames Housing Price data from the `AmesHousing` package, containing 2930 observations and 81 features including the sale date and price.
+
+```{r }
+library(AmesHousing)
+library(dplyr)
+library(DataExplorer)
+amesdata <- make_ames()
+introduce(amesdata)
+```
+```{r}
+glimpse(amesdata)
+```
+## Visualization
+
+### Looking into
+  
+```{r}
+amesdata %>% plot_intro()
+amesdata %>% plot_missing()
+```
+Yes, our data is "clean" but how about this:
+
+```{r}
+library(forcats)
+gss_cat %>% glimpse()
+gss_cat %>% plot_missing()
+gss_cat %>% profile_missing()
+```
+
+See the data source here: <https://forcats.tidyverse.org/reference/gss_cat.html>
+
+### Plots
+
+```{r}
+amesdata  %>% plot_density()
+```
+
+```{r}
+gss_cat  %>% plot_correlation()
+```
+## Variation
+
+The “near-zero-variance” predictors may need to be identified and eliminated prior to modeling.  We use the package `caret` to identify ["near-zero-variance" variables](https://topepo.github.io/caret/pre-processing.html):
+
+> To identify these types of predictors, the following two metrics can be calculated:
+
+> the frequency of the most prevalent value over the second most frequent value (called the “frequency ratio’’), which would be near one for well-behaved predictors and very large for highly-unbalanced data and
+> the “percent of unique values’’ is the number of unique values divided by the total number of samples (times 100) that approaches zero as the granularity of the data increases
+
+> If the frequency ratio is greater than a pre-specified threshold and the unique value percentage is less than a threshold, we might consider a predictor to be near zero-variance.
+
+```{r}
+caret::nearZeroVar(amesdata, saveMetrics= TRUE)
+```
+### Correlated Predictors
+
+Again, using the package `caret`:
+
+>While there are some models that thrive on correlated predictors (such as pls), other models may benefit from reducing the level of correlation between the predictors.
+
+>Given a correlation matrix, the `findCorrelation` function uses the following algorithm to flag predictors for removal:
+
+```{r}
+#descrCor <-  cor(gss_cat)
+#highCorr <- sum(abs(descrCor[upper.tri(descrCor)]) > .999)
+```
+
+## Examples
+
+<https://raw.githack.com/yaydede/Blog_posts/main/EDA.html>

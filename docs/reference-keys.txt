@@ -55,6 +55,12 @@ more-tools
 subset
 within-with
 aggregate
+tables
+from-data-with-table
+datatable
+with-describr
+table-with-manual-entry
+tools-for-tables
 programing-basics
 conditional-flows
 ifelse
@@ -80,6 +86,13 @@ simulation-for-statistical-inference
 creataing-data-with-a-data-generating-model-dgm
 bootstrapping
 monty-hall---fun-example
+exploratory-data-analysis-eda
+getting-the-data
+visualization
+looking-into
+plots
+correlated-predictors
+examples
 parts
 footnotes-and-citations
 footnotes

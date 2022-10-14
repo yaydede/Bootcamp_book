@@ -1,7 +1,7 @@
 --- 
 title: "R Bootcamp - How to use R for Data Science"
 author: "[Yigit Aydede](https://yaydede.github.io/)"
-date: "2022-10-13"
+date: "2022-10-14"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -35,6 +35,12 @@ With ever increasing availability of large amounts of data, it is critical to ha
 
 Here is a very good article about R and Programming that everybody should read: [7 Reasons for policy professionals to get into R programming in 2019](http://gilesd-j.com/2019/01/07/7-reasons-for-policy-professionals-to-get-pumped-about-r-programming-in-2019/) [@Jones_2019].
 
+## Sources {.unnumbered}
+
+There are many sources for learning R.  But there is one source that compiles all possible sources in R: [Big Book of R](https://www.bigbookofr.com/index.html)
+  
+The other source is [LOST](https://lost-stats.github.io), Library of Statistical Techniques.  It provides all possible data analytics tools in multiple languages including Python, R, SAS, Stata etc ...
+  
 ## License {.unnumbered}
 
 ![This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).](png/cc.png)

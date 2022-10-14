@@ -1,17 +1,17 @@
 # Data Management
 
-We will use the same data set, Ames Housing Price data, containing 165 observations and 12 features including the sale date and price. Suppose we want to find the houses that are sold in Jan 2010. You can use the function `filter()` in the `dplyr` package, a member of the tidyverse package. 
-
-See more about `dplyr` [here](https://dplyr.tidyverse.org/articles/dplyr.html)
+We will use the same data set, Ames Housing Price data from the `AmesHousing` package, containing 2930 observations and 81 features including the sale date and price. And we will introduce the `dplyr` package in many applications.  See more about `dplyr` [here](https://dplyr.tidyverse.org/articles/dplyr.html)
 
 ```{r }
 library(AmesHousing)
+library(dplyr)
 amesdata <- make_ames()
+glimpse(amesdata)
 ```
 
 ## Filter
 
-We can use subsetting operations
+Suppose we want to find the houses that are sold in Jan 2010. You can use the function `filter()` in the `dplyr` package, a member of the tidyverse package. We can use subsetting operations
 
 ```{r}
 amesdata[amesdata$Year_Sold == 2010 & amesdata$Mo_Sold == 1, ] 
@@ -164,5 +164,82 @@ mine <- function(x){
 }
 
 aggregate(df$points, by=list(df$assists), FUN=mine)
+```
+
+## Tables
+
+Here, we'll look at two-way tables.  
+
+### From Data with `table()`
+
+Most data tables use categorical variables.  Here is definition of input from `table()`: 
+
+> One or more objects which can be interpreted as factors (including numbers or character strings), or a list (such as a data frame) whose components can be so interpreted. 
+
+```{r}
+tb1 <- table(amesdata$Lot_Shape, amesdata$House_Style)
+tb1
+```
+  
+```{r}
+tb2 <- table(amesdata$Lot_Shape, amesdata$House_Style, amesdata$Street)
+tb2
+```
+
+See what happens if you a continuous variable `amesdata$Lot_Area`: 
+  
+```{r}
+#tb2 <- table(amesdata$Lot_Shape, amesdata$Lot_Area, amesdata$Street)
+#tb2
+```    
+
+### `datatable()`
+
+If we have more columns:
+
+```{r}
+DT::datatable(amesdata, rownames = FALSE, filter="top", options = list(pageLength = 10, scrollX=T) )
+```
+
+
+
+### With `describr`
+
+The package [`describr`](https://cran.r-project.org/web/packages/descriptr/descriptr.pdf) has several good functions
+
+```{r}
+library(descriptr)
+ds_screener(mtcars)
+```
+
+One continuous one factor:
+
+```{r}
+mtcars$cyl <- as.factor(mtcars$cyl)
+ds_group_summary(mtcars, cyl, mpg)
+```
+
+### Table with manual entry
+
+```{r}
+smoke <- matrix(c(51,43,22,92,28,21,68,22,9),ncol=3,byrow=TRUE)
+colnames(smoke) <- c("High","Low","Middle")
+rownames(smoke) <- c("current","former","never")
+smoke <- as.table(smoke)
+smoke
+```
+
+### Tools for tables
+
+```{r}
+margin.table(smoke, 1)
+margin.table(smoke, 2)
+smoke/margin.table(smoke)
+prop.table(smoke)
+```
+
+```{r}
+mosaicplot(smoke,main="Smokers",xlab="Status",ylab="Economic Class")
+
 ```
 

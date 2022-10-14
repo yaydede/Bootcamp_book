@@ -122,7 +122,7 @@
 
 \title{R Bootcamp - How to use R for Data Science}
 \author{\href{https://yaydede.github.io/}{Yigit Aydede}}
-\date{2022-10-13}
+\date{2022-10-14}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -178,6 +178,14 @@ With ever increasing availability of large amounts of data, it is critical to ha
 \end{enumerate}
 
 Here is a very good article about R and Programming that everybody should read: \href{http://gilesd-j.com/2019/01/07/7-reasons-for-policy-professionals-to-get-pumped-about-r-programming-in-2019/}{7 Reasons for policy professionals to get into R programming in 2019} \citep{Jones_2019}.
+
+\hypertarget{sources}{%
+\section*{Sources}\label{sources}}
+\addcontentsline{toc}{section}{Sources}
+
+There are many sources for learning R. But there is one source that compiles all possible sources in R: \href{https://www.bigbookofr.com/index.html}{Big Book of R}
+
+The other source is \href{https://lost-stats.github.io}{LOST}, Library of Statistical Techniques. It provides all possible data analytics tools in multiple languages including Python, R, SAS, Stata etc \ldots{}
 
 \hypertarget{license}{%
 \section*{License}\label{license}}
@@ -333,18 +341,19 @@ Without further specification, files will be loaded from and saved to the workin
 ## [13] "05-DataMan_files"         "05-DataMan.Rmd"          
 ## [15] "06-Progrmamingbasics.Rmd" "07-Sim_cache"            
 ## [17] "07-Sim_files"             "07-Sim.Rmd"              
-## [19] "08-cross-refs_files"      "09-parts.Rmd"            
-## [21] "10-citations.Rmd"         "11-blocks.Rmd"           
-## [23] "12-share.Rmd"             "13-references.Rmd"       
-## [25] "14-cross-refs_files"      "14-cross-refs.Rmd"       
-## [27] "Book_for_RBootcamp.log"   "Book_for_RBootcamp.rds"  
-## [29] "book.bib"                 "Bootcamp_book.Rproj"     
-## [31] "docs"                     "index.md"                
-## [33] "index.Rmd"                "packages.bib"            
-## [35] "png"                      "preamble.tex"            
-## [37] "README.md"                "render90743f443d9f.rds"  
-## [39] "some_functions.R"         "style.css"               
-## [41] "table1.text"
+## [19] "08-cross-refs_files"      "08-EDA_files"            
+## [21] "08-EDA.Rmd"               "09-parts.Rmd"            
+## [23] "10-citations.Rmd"         "11-blocks.Rmd"           
+## [25] "12-share.Rmd"             "13-references.Rmd"       
+## [27] "14-cross-refs_files"      "14-cross-refs.Rmd"       
+## [29] "Book_for_RBootcamp.log"   "Book_for_RBootcamp.rds"  
+## [31] "book.bib"                 "Bootcamp_book.Rproj"     
+## [33] "docs"                     "index.md"                
+## [35] "index.Rmd"                "packages.bib"            
+## [37] "png"                      "preamble.tex"            
+## [39] "README.md"                "renderc95728d6961b.rds"  
+## [41] "some_functions.R"         "style.css"               
+## [43] "table1.text"
 \end{verbatim}
 
 \begin{Shaded}
@@ -2916,7 +2925,7 @@ Lets look at some examples of working with them:
 ##  $ c: chr "Hello!"
 ##  $ d:function (arg = 1)  
 ##   ..- attr(*, "srcref")= 'srcref' int [1:8] 12 15 12 55 15 55 12 12
-##   .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x7fc600a2f6f0> 
+##   .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x7fbd1a2d2b90> 
 ##  $ X: num [1:4, 1:4] 0 0 0 0 0 0 0 0 0 0 ...
 \end{verbatim}
 
@@ -4069,21 +4078,129 @@ R package \texttt{corrplot} provides a visual exploratory tool on correlation ma
 \hypertarget{data-management}{%
 \chapter{Data Management}\label{data-management}}
 
-We will use the same data set, Ames Housing Price data, containing 165 observations and 12 features including the sale date and price. Suppose we want to find the houses that are sold in Jan 2010. You can use the function \texttt{filter()} in the \texttt{dplyr} package, a member of the tidyverse package.
-
-See more about \texttt{dplyr} \href{https://dplyr.tidyverse.org/articles/dplyr.html}{here}
+We will use the same data set, Ames Housing Price data from the \texttt{AmesHousing} package, containing 2930 observations and 81 features including the sale date and price. And we will introduce the \texttt{dplyr} package in many applications. See more about \texttt{dplyr} \href{https://dplyr.tidyverse.org/articles/dplyr.html}{here}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(AmesHousing)}
-\NormalTok{amesdata }\OtherTok{\textless{}{-}} \FunctionTok{make\_ames}\NormalTok{()}
+\FunctionTok{library}\NormalTok{(dplyr)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{amesdata }\OtherTok{\textless{}{-}} \FunctionTok{make\_ames}\NormalTok{()}
+\FunctionTok{glimpse}\NormalTok{(amesdata)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 2,930
+## Columns: 81
+## $ MS_SubClass        <fct> One_Story_1946_and_Newer_All_Styles, One_Story_1946~
+## $ MS_Zoning          <fct> Residential_Low_Density, Residential_High_Density, ~
+## $ Lot_Frontage       <dbl> 141, 80, 81, 93, 74, 78, 41, 43, 39, 60, 75, 0, 63,~
+## $ Lot_Area           <int> 31770, 11622, 14267, 11160, 13830, 9978, 4920, 5005~
+## $ Street             <fct> Pave, Pave, Pave, Pave, Pave, Pave, Pave, Pave, Pav~
+## $ Alley              <fct> No_Alley_Access, No_Alley_Access, No_Alley_Access, ~
+## $ Lot_Shape          <fct> Slightly_Irregular, Regular, Slightly_Irregular, Re~
+## $ Land_Contour       <fct> Lvl, Lvl, Lvl, Lvl, Lvl, Lvl, Lvl, HLS, Lvl, Lvl, L~
+## $ Utilities          <fct> AllPub, AllPub, AllPub, AllPub, AllPub, AllPub, All~
+## $ Lot_Config         <fct> Corner, Inside, Corner, Corner, Inside, Inside, Ins~
+## $ Land_Slope         <fct> Gtl, Gtl, Gtl, Gtl, Gtl, Gtl, Gtl, Gtl, Gtl, Gtl, G~
+## $ Neighborhood       <fct> North_Ames, North_Ames, North_Ames, North_Ames, Gil~
+## $ Condition_1        <fct> Norm, Feedr, Norm, Norm, Norm, Norm, Norm, Norm, No~
+## $ Condition_2        <fct> Norm, Norm, Norm, Norm, Norm, Norm, Norm, Norm, Nor~
+## $ Bldg_Type          <fct> OneFam, OneFam, OneFam, OneFam, OneFam, OneFam, Twn~
+## $ House_Style        <fct> One_Story, One_Story, One_Story, One_Story, Two_Sto~
+## $ Overall_Qual       <fct> Above_Average, Average, Above_Average, Good, Averag~
+## $ Overall_Cond       <fct> Average, Above_Average, Above_Average, Average, Ave~
+## $ Year_Built         <int> 1960, 1961, 1958, 1968, 1997, 1998, 2001, 1992, 199~
+## $ Year_Remod_Add     <int> 1960, 1961, 1958, 1968, 1998, 1998, 2001, 1992, 199~
+## $ Roof_Style         <fct> Hip, Gable, Hip, Hip, Gable, Gable, Gable, Gable, G~
+## $ Roof_Matl          <fct> CompShg, CompShg, CompShg, CompShg, CompShg, CompSh~
+## $ Exterior_1st       <fct> BrkFace, VinylSd, Wd Sdng, BrkFace, VinylSd, VinylS~
+## $ Exterior_2nd       <fct> Plywood, VinylSd, Wd Sdng, BrkFace, VinylSd, VinylS~
+## $ Mas_Vnr_Type       <fct> Stone, None, BrkFace, None, None, BrkFace, None, No~
+## $ Mas_Vnr_Area       <dbl> 112, 0, 108, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6~
+## $ Exter_Qual         <fct> Typical, Typical, Typical, Good, Typical, Typical, ~
+## $ Exter_Cond         <fct> Typical, Typical, Typical, Typical, Typical, Typica~
+## $ Foundation         <fct> CBlock, CBlock, CBlock, CBlock, PConc, PConc, PConc~
+## $ Bsmt_Qual          <fct> Typical, Typical, Typical, Typical, Good, Typical, ~
+## $ Bsmt_Cond          <fct> Good, Typical, Typical, Typical, Typical, Typical, ~
+## $ Bsmt_Exposure      <fct> Gd, No, No, No, No, No, Mn, No, No, No, No, No, No,~
+## $ BsmtFin_Type_1     <fct> BLQ, Rec, ALQ, ALQ, GLQ, GLQ, GLQ, ALQ, GLQ, Unf, U~
+## $ BsmtFin_SF_1       <dbl> 2, 6, 1, 1, 3, 3, 3, 1, 3, 7, 7, 1, 7, 3, 3, 1, 3, ~
+## $ BsmtFin_Type_2     <fct> Unf, LwQ, Unf, Unf, Unf, Unf, Unf, Unf, Unf, Unf, U~
+## $ BsmtFin_SF_2       <dbl> 0, 144, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1120, 0~
+## $ Bsmt_Unf_SF        <dbl> 441, 270, 406, 1045, 137, 324, 722, 1017, 415, 994,~
+## $ Total_Bsmt_SF      <dbl> 1080, 882, 1329, 2110, 928, 926, 1338, 1280, 1595, ~
+## $ Heating            <fct> GasA, GasA, GasA, GasA, GasA, GasA, GasA, GasA, Gas~
+## $ Heating_QC         <fct> Fair, Typical, Typical, Excellent, Good, Excellent,~
+## $ Central_Air        <fct> Y, Y, Y, Y, Y, Y, Y, Y, Y, Y, Y, Y, Y, Y, Y, Y, Y, ~
+## $ Electrical         <fct> SBrkr, SBrkr, SBrkr, SBrkr, SBrkr, SBrkr, SBrkr, SB~
+## $ First_Flr_SF       <int> 1656, 896, 1329, 2110, 928, 926, 1338, 1280, 1616, ~
+## $ Second_Flr_SF      <int> 0, 0, 0, 0, 701, 678, 0, 0, 0, 776, 892, 0, 676, 0,~
+## $ Low_Qual_Fin_SF    <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~
+## $ Gr_Liv_Area        <int> 1656, 896, 1329, 2110, 1629, 1604, 1338, 1280, 1616~
+## $ Bsmt_Full_Bath     <dbl> 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, ~
+## $ Bsmt_Half_Bath     <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~
+## $ Full_Bath          <int> 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 3, 2, ~
+## $ Half_Bath          <int> 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, ~
+## $ Bedroom_AbvGr      <int> 3, 2, 3, 3, 3, 3, 2, 2, 2, 3, 3, 3, 3, 2, 1, 4, 4, ~
+## $ Kitchen_AbvGr      <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ~
+## $ Kitchen_Qual       <fct> Typical, Typical, Good, Excellent, Typical, Good, G~
+## $ TotRms_AbvGrd      <int> 7, 5, 6, 8, 6, 7, 6, 5, 5, 7, 7, 6, 7, 5, 4, 12, 8,~
+## $ Functional         <fct> Typ, Typ, Typ, Typ, Typ, Typ, Typ, Typ, Typ, Typ, T~
+## $ Fireplaces         <int> 2, 0, 0, 2, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, ~
+## $ Fireplace_Qu       <fct> Good, No_Fireplace, No_Fireplace, Typical, Typical,~
+## $ Garage_Type        <fct> Attchd, Attchd, Attchd, Attchd, Attchd, Attchd, Att~
+## $ Garage_Finish      <fct> Fin, Unf, Unf, Fin, Fin, Fin, Fin, RFn, RFn, Fin, F~
+## $ Garage_Cars        <dbl> 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, ~
+## $ Garage_Area        <dbl> 528, 730, 312, 522, 482, 470, 582, 506, 608, 442, 4~
+## $ Garage_Qual        <fct> Typical, Typical, Typical, Typical, Typical, Typica~
+## $ Garage_Cond        <fct> Typical, Typical, Typical, Typical, Typical, Typica~
+## $ Paved_Drive        <fct> Partial_Pavement, Paved, Paved, Paved, Paved, Paved~
+## $ Wood_Deck_SF       <int> 210, 140, 393, 0, 212, 360, 0, 0, 237, 140, 157, 48~
+## $ Open_Porch_SF      <int> 62, 0, 36, 0, 34, 36, 0, 82, 152, 60, 84, 21, 75, 0~
+## $ Enclosed_Porch     <int> 0, 0, 0, 0, 0, 0, 170, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0~
+## $ Three_season_porch <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~
+## $ Screen_Porch       <int> 0, 120, 0, 0, 0, 0, 0, 144, 0, 0, 0, 0, 0, 0, 140, ~
+## $ Pool_Area          <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~
+## $ Pool_QC            <fct> No_Pool, No_Pool, No_Pool, No_Pool, No_Pool, No_Poo~
+## $ Fence              <fct> No_Fence, Minimum_Privacy, No_Fence, No_Fence, Mini~
+## $ Misc_Feature       <fct> None, None, Gar2, None, None, None, None, None, Non~
+## $ Misc_Val           <int> 0, 0, 12500, 0, 0, 0, 0, 0, 0, 0, 0, 500, 0, 0, 0, ~
+## $ Mo_Sold            <int> 5, 6, 6, 4, 3, 6, 4, 1, 3, 6, 4, 3, 5, 2, 6, 6, 6, ~
+## $ Year_Sold          <int> 2010, 2010, 2010, 2010, 2010, 2010, 2010, 2010, 201~
+## $ Sale_Type          <fct> WD , WD , WD , WD , WD , WD , WD , WD , WD , WD , W~
+## $ Sale_Condition     <fct> Normal, Normal, Normal, Normal, Normal, Normal, Nor~
+## $ Sale_Price         <int> 215000, 105000, 172000, 244000, 189900, 195500, 213~
+## $ Longitude          <dbl> -93.61975, -93.61976, -93.61939, -93.61732, -93.638~
+## $ Latitude           <dbl> 42.05403, 42.05301, 42.05266, 42.05125, 42.06090, 4~
+\end{verbatim}
 
 \hypertarget{filter}{%
 \section{Filter}\label{filter}}
 
-We can use subsetting operations
+Suppose we want to find the houses that are sold in Jan 2010. You can use the function \texttt{filter()} in the \texttt{dplyr} package, a member of the tidyverse package. We can use subsetting operations
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4119,28 +4236,6 @@ Or we can use \texttt{filter()}:
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(dplyr)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-## Attaching package: 'dplyr'
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{dplyr}\SpecialCharTok{::}\FunctionTok{filter}\NormalTok{(amesdata, Year\_Sold }\SpecialCharTok{==} \DecValTok{2010}\NormalTok{, Mo\_Sold }\SpecialCharTok{==} \DecValTok{1}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -4545,6 +4640,250 @@ We can also define our own functions
 ## 5      34 95
 ## 6      39 88
 \end{verbatim}
+
+\hypertarget{tables}{%
+\section{Tables}\label{tables}}
+
+Here, we'll look at two-way tables.
+
+\hypertarget{from-data-with-table}{%
+\subsection{\texorpdfstring{From Data with \texttt{table()}}{From Data with table()}}\label{from-data-with-table}}
+
+Most data tables use categorical variables. Here is definition of input from \texttt{table()}:
+
+\begin{quote}
+One or more objects which can be interpreted as factors (including numbers or character strings), or a list (such as a data frame) whose components can be so interpreted.
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tb1 }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(amesdata}\SpecialCharTok{$}\NormalTok{Lot\_Shape, amesdata}\SpecialCharTok{$}\NormalTok{House\_Style)}
+\NormalTok{tb1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                       
+##                        One_and_Half_Fin One_and_Half_Unf One_Story SFoyer SLvl
+##   Regular                           266               18       926     54   65
+##   Slightly_Irregular                 44                1       514     29   61
+##   Moderately_Irregular                3                0        35      0    2
+##   Irregular                           1                0         6      0    0
+##                       
+##                        Two_and_Half_Fin Two_and_Half_Unf Two_Story
+##   Regular                             6               17       507
+##   Slightly_Irregular                  1                6       323
+##   Moderately_Irregular                1                0        35
+##   Irregular                           0                1         8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tb2 }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(amesdata}\SpecialCharTok{$}\NormalTok{Lot\_Shape, amesdata}\SpecialCharTok{$}\NormalTok{House\_Style, amesdata}\SpecialCharTok{$}\NormalTok{Street)}
+\NormalTok{tb2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## , ,  = Grvl
+## 
+##                       
+##                        One_and_Half_Fin One_and_Half_Unf One_Story SFoyer SLvl
+##   Regular                             1                0         6      1    0
+##   Slightly_Irregular                  1                0         1      0    0
+##   Moderately_Irregular                0                0         1      0    0
+##   Irregular                           0                0         0      0    0
+##                       
+##                        Two_and_Half_Fin Two_and_Half_Unf Two_Story
+##   Regular                             0                0         1
+##   Slightly_Irregular                  0                0         0
+##   Moderately_Irregular                0                0         0
+##   Irregular                           0                0         0
+## 
+## , ,  = Pave
+## 
+##                       
+##                        One_and_Half_Fin One_and_Half_Unf One_Story SFoyer SLvl
+##   Regular                           265               18       920     53   65
+##   Slightly_Irregular                 43                1       513     29   61
+##   Moderately_Irregular                3                0        34      0    2
+##   Irregular                           1                0         6      0    0
+##                       
+##                        Two_and_Half_Fin Two_and_Half_Unf Two_Story
+##   Regular                             6               17       506
+##   Slightly_Irregular                  1                6       323
+##   Moderately_Irregular                1                0        35
+##   Irregular                           0                1         8
+\end{verbatim}
+
+See what happens if you a continuous variable \texttt{amesdata\$Lot\_Area}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#tb2 \textless{}{-} table(amesdata$Lot\_Shape, amesdata$Lot\_Area, amesdata$Street)}
+\CommentTok{\#tb2}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{datatable}{%
+\subsection{\texorpdfstring{\texttt{datatable()}}{datatable()}}\label{datatable}}
+
+If we have more columns:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{DT}\SpecialCharTok{::}\FunctionTok{datatable}\NormalTok{(amesdata, }\AttributeTok{rownames =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{filter=}\StringTok{"top"}\NormalTok{, }\AttributeTok{options =} \FunctionTok{list}\NormalTok{(}\AttributeTok{pageLength =} \DecValTok{10}\NormalTok{, }\AttributeTok{scrollX=}\NormalTok{T) )}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{05-DataMan_files/figure-latex/unnamed-chunk-20-1.pdf}
+
+\hypertarget{with-describr}{%
+\subsection{\texorpdfstring{With \texttt{describr}}{With describr}}\label{with-describr}}
+
+The package \href{https://cran.r-project.org/web/packages/descriptr/descriptr.pdf}{\texttt{describr}} has several good functions
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(descriptr)}
+\FunctionTok{ds\_screener}\NormalTok{(mtcars)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## ----------------------------------------------------------------------
+## |  Column Name  |  Data Type  |  Levels  |  Missing  |  Missing (%)  |
+## ----------------------------------------------------------------------
+## |      mpg      |   numeric   |    NA    |     0     |       0       |
+## |      cyl      |   numeric   |    NA    |     0     |       0       |
+## |     disp      |   numeric   |    NA    |     0     |       0       |
+## |      hp       |   numeric   |    NA    |     0     |       0       |
+## |     drat      |   numeric   |    NA    |     0     |       0       |
+## |      wt       |   numeric   |    NA    |     0     |       0       |
+## |     qsec      |   numeric   |    NA    |     0     |       0       |
+## |      vs       |   numeric   |    NA    |     0     |       0       |
+## |      am       |   numeric   |    NA    |     0     |       0       |
+## |     gear      |   numeric   |    NA    |     0     |       0       |
+## |     carb      |   numeric   |    NA    |     0     |       0       |
+## ----------------------------------------------------------------------
+## 
+##  Overall Missing Values           0 
+##  Percentage of Missing Values     0 %
+##  Rows with Missing Values         0 
+##  Columns With Missing Values      0
+\end{verbatim}
+
+One continuous one factor:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars}\SpecialCharTok{$}\NormalTok{cyl }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(mtcars}\SpecialCharTok{$}\NormalTok{cyl)}
+\FunctionTok{ds\_group\_summary}\NormalTok{(mtcars, cyl, mpg)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                                        mpg by cyl                                         
+## -----------------------------------------------------------------------------------------
+## |     Statistic/Levels|                    4|                    6|                    8|
+## -----------------------------------------------------------------------------------------
+## |                  Obs|                   11|                    7|                   14|
+## |              Minimum|                 21.4|                 17.8|                 10.4|
+## |              Maximum|                 33.9|                 21.4|                 19.2|
+## |                 Mean|                26.66|                19.74|                 15.1|
+## |               Median|                   26|                 19.7|                 15.2|
+## |                 Mode|                 22.8|                   21|                 10.4|
+## |       Std. Deviation|                 4.51|                 1.45|                 2.56|
+## |             Variance|                20.34|                 2.11|                 6.55|
+## |             Skewness|                 0.35|                -0.26|                -0.46|
+## |             Kurtosis|                -1.43|                -1.83|                 0.33|
+## |       Uncorrected SS|              8023.83|              2741.14|              3277.34|
+## |         Corrected SS|               203.39|                12.68|                 85.2|
+## |      Coeff Variation|                16.91|                 7.36|                16.95|
+## |      Std. Error Mean|                 1.36|                 0.55|                 0.68|
+## |                Range|                 12.5|                  3.6|                  8.8|
+## |  Interquartile Range|                  7.6|                 2.35|                 1.85|
+## -----------------------------------------------------------------------------------------
+\end{verbatim}
+
+\hypertarget{table-with-manual-entry}{%
+\subsection{Table with manual entry}\label{table-with-manual-entry}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{smoke }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{51}\NormalTok{,}\DecValTok{43}\NormalTok{,}\DecValTok{22}\NormalTok{,}\DecValTok{92}\NormalTok{,}\DecValTok{28}\NormalTok{,}\DecValTok{21}\NormalTok{,}\DecValTok{68}\NormalTok{,}\DecValTok{22}\NormalTok{,}\DecValTok{9}\NormalTok{),}\AttributeTok{ncol=}\DecValTok{3}\NormalTok{,}\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(smoke) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"High"}\NormalTok{,}\StringTok{"Low"}\NormalTok{,}\StringTok{"Middle"}\NormalTok{)}
+\FunctionTok{rownames}\NormalTok{(smoke) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"current"}\NormalTok{,}\StringTok{"former"}\NormalTok{,}\StringTok{"never"}\NormalTok{)}
+\NormalTok{smoke }\OtherTok{\textless{}{-}} \FunctionTok{as.table}\NormalTok{(smoke)}
+\NormalTok{smoke}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         High Low Middle
+## current   51  43     22
+## former    92  28     21
+## never     68  22      9
+\end{verbatim}
+
+\hypertarget{tools-for-tables}{%
+\subsection{Tools for tables}\label{tools-for-tables}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{margin.table}\NormalTok{(smoke, }\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## current  former   never 
+##     116     141      99
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{margin.table}\NormalTok{(smoke, }\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   High    Low Middle 
+##    211     93     52
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{smoke}\SpecialCharTok{/}\FunctionTok{margin.table}\NormalTok{(smoke)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##               High        Low     Middle
+## current 0.14325843 0.12078652 0.06179775
+## former  0.25842697 0.07865169 0.05898876
+## never   0.19101124 0.06179775 0.02528090
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{prop.table}\NormalTok{(smoke)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##               High        Low     Middle
+## current 0.14325843 0.12078652 0.06179775
+## former  0.25842697 0.07865169 0.05898876
+## never   0.19101124 0.06179775 0.02528090
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mosaicplot}\NormalTok{(smoke,}\AttributeTok{main=}\StringTok{"Smokers"}\NormalTok{,}\AttributeTok{xlab=}\StringTok{"Status"}\NormalTok{,}\AttributeTok{ylab=}\StringTok{"Economic Class"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{05-DataMan_files/figure-latex/unnamed-chunk-25-1.pdf}
 
 \hypertarget{programing-basics}{%
 \chapter{Programing basics}\label{programing-basics}}
@@ -5045,7 +5384,7 @@ It becomes very handy when we build a polynomial model:
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]  9  2  2 19 18 13 20 15 13 17
+##  [1]  7 15 11 10  5 12 20 19  8 20
 \end{verbatim}
 
 \begin{Shaded}
@@ -5057,16 +5396,16 @@ It becomes very handy when we build a polynomial model:
 
 \begin{verbatim}
 ##       [,1] [,2] [,3]   [,4]
-##  [1,]    9   81  729   6561
-##  [2,]    2    4    8     16
-##  [3,]    2    4    8     16
-##  [4,]   19  361 6859 130321
-##  [5,]   18  324 5832 104976
-##  [6,]   13  169 2197  28561
+##  [1,]    7   49  343   2401
+##  [2,]   15  225 3375  50625
+##  [3,]   11  121 1331  14641
+##  [4,]   10  100 1000  10000
+##  [5,]    5   25  125    625
+##  [6,]   12  144 1728  20736
 ##  [7,]   20  400 8000 160000
-##  [8,]   15  225 3375  50625
-##  [9,]   13  169 2197  28561
-## [10,]   17  289 4913  83521
+##  [8,]   19  361 6859 130321
+##  [9,]    8   64  512   4096
+## [10,]   20  400 8000 160000
 \end{verbatim}
 
 We can also use \texttt{outer()} for this example
@@ -5123,7 +5462,7 @@ The R base manual tells you that it's called as follows: \texttt{apply(X,\ MARGI
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  4.41583613  1.46256501  3.03243663 -1.07443991  3.41565355  0.03466287
+## [1]  1.1394520 -1.8619772  3.7290616  2.8945299  4.9072062  0.2982662
 \end{verbatim}
 
 \begin{Shaded}
@@ -5180,12 +5519,12 @@ The R base manual tells you that it's called as follows: \texttt{apply(X,\ MARGI
 
 \begin{verbatim}
 ##            [,1]      [,2]
-## [1,]  0.9708105 3.4961407
-## [2,] -0.7187839 0.6041204
-## [3,]  0.5415293 2.8434816
-## [4,]  0.6270170 0.3778906
-## [5,]  1.2804291 1.7016149
-## [6,]  0.8706977 0.9655152
+## [1,]  3.2372087 1.7056918
+## [2,] -0.2223420 1.4992836
+## [3,]  1.6007575 1.7923869
+## [4,]  1.0541677 2.6206589
+## [5,]  3.7224087 2.1732550
+## [6,]  0.6266779 0.4041313
 \end{verbatim}
 
 Since \texttt{apply()} is used only for matrices, if you apply \texttt{apply()} to a data frame, it first coerces your data.frame to an array which means all the columns must have the same type. Depending on your context, this could have unintended consequences. For a safer practice in data frames, we can use \texttt{lappy()} and \texttt{sapply()}:
@@ -5452,7 +5791,7 @@ Let's play with sample() for simple random sampling. We will see the arguments o
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "T" "H" "T" "T" "H" "H" "H" "T"
+## [1] "H" "T" "T" "H" "T" "H" "T" "H"
 \end{verbatim}
 
 \begin{Shaded}
@@ -5462,7 +5801,7 @@ Let's play with sample() for simple random sampling. We will see the arguments o
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 5 6
+## [1] 1 6
 \end{verbatim}
 
 \begin{Shaded}
@@ -5473,7 +5812,7 @@ Let's play with sample() for simple random sampling. We will see the arguments o
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "H" "T" "T" "T" "H" "H" "H" "H"
+## [1] "T" "T" "T" "T" "T" "T" "H" "H"
 \end{verbatim}
 
 \begin{Shaded}
@@ -5483,7 +5822,7 @@ Let's play with sample() for simple random sampling. We will see the arguments o
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 6 5
+## [1] 4 5
 \end{verbatim}
 
 The results are different. If we use \texttt{set.seed()} then we can get the same results each time. Lets try now:
@@ -6461,6 +6800,399 @@ Image taken from \url{http://media.graytvinc.com/images/690*388/mon+tyhall.jpg}
 \includegraphics{07-Sim_files/figure-latex/unnamed-chunk-31-1.pdf}
 
 The simulation is inspired by \url{https://theressomethingaboutr.wordpress.com/2019/02/12/in-memory-of-monty-hall/} \citep{Rajter_2019}
+
+\hypertarget{exploratory-data-analysis-eda}{%
+\chapter{Exploratory Data Analysis (EDA)}\label{exploratory-data-analysis-eda}}
+
+EDA is an informal process to have an inital investigation of the data. EDA is an important part of any data analysis. For example, data cleaning is just one application of EDA: you ask questions about whether your data meets your expectations or not. To do data cleaning, you'll need to deploy all the tools of EDA: \textbf{visualisation, transformation, and modelling}.
+
+The main steps in exploratory data analysis are:
+
+\begin{itemize}
+\tightlist
+\item
+  Getting the data
+\item
+  Dataset Overview
+\item
+  Visualization
+\item
+  Identifying missing values
+\item
+  Distibution of data: variations
+\item
+  Correlated variables
+\end{itemize}
+
+\hypertarget{getting-the-data}{%
+\section{Getting the data}\label{getting-the-data}}
+
+We will use the same data set, Ames Housing Price data from the \texttt{AmesHousing} package, containing 2930 observations and 81 features including the sale date and price.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(AmesHousing)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(DataExplorer)}
+\NormalTok{amesdata }\OtherTok{\textless{}{-}} \FunctionTok{make\_ames}\NormalTok{()}
+\FunctionTok{introduce}\NormalTok{(amesdata)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 9
+##    rows columns discrete_columns conti~1 all_m~2 total~3 compl~4 total~5 memor~6
+##   <int>   <int>            <int>   <int>   <int>   <int>   <int>   <int>   <dbl>
+## 1  2930      81               46      35       0       0    2930  237330 1146920
+## # ... with abbreviated variable names 1: continuous_columns,
+## #   2: all_missing_columns, 3: total_missing_values, 4: complete_rows,
+## #   5: total_observations, 6: memory_usage
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{glimpse}\NormalTok{(amesdata)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 2,930
+## Columns: 81
+## $ MS_SubClass        <fct> One_Story_1946_and_Newer_All_Styles, One_Story_1946~
+## $ MS_Zoning          <fct> Residential_Low_Density, Residential_High_Density, ~
+## $ Lot_Frontage       <dbl> 141, 80, 81, 93, 74, 78, 41, 43, 39, 60, 75, 0, 63,~
+## $ Lot_Area           <int> 31770, 11622, 14267, 11160, 13830, 9978, 4920, 5005~
+## $ Street             <fct> Pave, Pave, Pave, Pave, Pave, Pave, Pave, Pave, Pav~
+## $ Alley              <fct> No_Alley_Access, No_Alley_Access, No_Alley_Access, ~
+## $ Lot_Shape          <fct> Slightly_Irregular, Regular, Slightly_Irregular, Re~
+## $ Land_Contour       <fct> Lvl, Lvl, Lvl, Lvl, Lvl, Lvl, Lvl, HLS, Lvl, Lvl, L~
+## $ Utilities          <fct> AllPub, AllPub, AllPub, AllPub, AllPub, AllPub, All~
+## $ Lot_Config         <fct> Corner, Inside, Corner, Corner, Inside, Inside, Ins~
+## $ Land_Slope         <fct> Gtl, Gtl, Gtl, Gtl, Gtl, Gtl, Gtl, Gtl, Gtl, Gtl, G~
+## $ Neighborhood       <fct> North_Ames, North_Ames, North_Ames, North_Ames, Gil~
+## $ Condition_1        <fct> Norm, Feedr, Norm, Norm, Norm, Norm, Norm, Norm, No~
+## $ Condition_2        <fct> Norm, Norm, Norm, Norm, Norm, Norm, Norm, Norm, Nor~
+## $ Bldg_Type          <fct> OneFam, OneFam, OneFam, OneFam, OneFam, OneFam, Twn~
+## $ House_Style        <fct> One_Story, One_Story, One_Story, One_Story, Two_Sto~
+## $ Overall_Qual       <fct> Above_Average, Average, Above_Average, Good, Averag~
+## $ Overall_Cond       <fct> Average, Above_Average, Above_Average, Average, Ave~
+## $ Year_Built         <int> 1960, 1961, 1958, 1968, 1997, 1998, 2001, 1992, 199~
+## $ Year_Remod_Add     <int> 1960, 1961, 1958, 1968, 1998, 1998, 2001, 1992, 199~
+## $ Roof_Style         <fct> Hip, Gable, Hip, Hip, Gable, Gable, Gable, Gable, G~
+## $ Roof_Matl          <fct> CompShg, CompShg, CompShg, CompShg, CompShg, CompSh~
+## $ Exterior_1st       <fct> BrkFace, VinylSd, Wd Sdng, BrkFace, VinylSd, VinylS~
+## $ Exterior_2nd       <fct> Plywood, VinylSd, Wd Sdng, BrkFace, VinylSd, VinylS~
+## $ Mas_Vnr_Type       <fct> Stone, None, BrkFace, None, None, BrkFace, None, No~
+## $ Mas_Vnr_Area       <dbl> 112, 0, 108, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6~
+## $ Exter_Qual         <fct> Typical, Typical, Typical, Good, Typical, Typical, ~
+## $ Exter_Cond         <fct> Typical, Typical, Typical, Typical, Typical, Typica~
+## $ Foundation         <fct> CBlock, CBlock, CBlock, CBlock, PConc, PConc, PConc~
+## $ Bsmt_Qual          <fct> Typical, Typical, Typical, Typical, Good, Typical, ~
+## $ Bsmt_Cond          <fct> Good, Typical, Typical, Typical, Typical, Typical, ~
+## $ Bsmt_Exposure      <fct> Gd, No, No, No, No, No, Mn, No, No, No, No, No, No,~
+## $ BsmtFin_Type_1     <fct> BLQ, Rec, ALQ, ALQ, GLQ, GLQ, GLQ, ALQ, GLQ, Unf, U~
+## $ BsmtFin_SF_1       <dbl> 2, 6, 1, 1, 3, 3, 3, 1, 3, 7, 7, 1, 7, 3, 3, 1, 3, ~
+## $ BsmtFin_Type_2     <fct> Unf, LwQ, Unf, Unf, Unf, Unf, Unf, Unf, Unf, Unf, U~
+## $ BsmtFin_SF_2       <dbl> 0, 144, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1120, 0~
+## $ Bsmt_Unf_SF        <dbl> 441, 270, 406, 1045, 137, 324, 722, 1017, 415, 994,~
+## $ Total_Bsmt_SF      <dbl> 1080, 882, 1329, 2110, 928, 926, 1338, 1280, 1595, ~
+## $ Heating            <fct> GasA, GasA, GasA, GasA, GasA, GasA, GasA, GasA, Gas~
+## $ Heating_QC         <fct> Fair, Typical, Typical, Excellent, Good, Excellent,~
+## $ Central_Air        <fct> Y, Y, Y, Y, Y, Y, Y, Y, Y, Y, Y, Y, Y, Y, Y, Y, Y, ~
+## $ Electrical         <fct> SBrkr, SBrkr, SBrkr, SBrkr, SBrkr, SBrkr, SBrkr, SB~
+## $ First_Flr_SF       <int> 1656, 896, 1329, 2110, 928, 926, 1338, 1280, 1616, ~
+## $ Second_Flr_SF      <int> 0, 0, 0, 0, 701, 678, 0, 0, 0, 776, 892, 0, 676, 0,~
+## $ Low_Qual_Fin_SF    <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~
+## $ Gr_Liv_Area        <int> 1656, 896, 1329, 2110, 1629, 1604, 1338, 1280, 1616~
+## $ Bsmt_Full_Bath     <dbl> 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, ~
+## $ Bsmt_Half_Bath     <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~
+## $ Full_Bath          <int> 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 3, 2, ~
+## $ Half_Bath          <int> 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, ~
+## $ Bedroom_AbvGr      <int> 3, 2, 3, 3, 3, 3, 2, 2, 2, 3, 3, 3, 3, 2, 1, 4, 4, ~
+## $ Kitchen_AbvGr      <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ~
+## $ Kitchen_Qual       <fct> Typical, Typical, Good, Excellent, Typical, Good, G~
+## $ TotRms_AbvGrd      <int> 7, 5, 6, 8, 6, 7, 6, 5, 5, 7, 7, 6, 7, 5, 4, 12, 8,~
+## $ Functional         <fct> Typ, Typ, Typ, Typ, Typ, Typ, Typ, Typ, Typ, Typ, T~
+## $ Fireplaces         <int> 2, 0, 0, 2, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, ~
+## $ Fireplace_Qu       <fct> Good, No_Fireplace, No_Fireplace, Typical, Typical,~
+## $ Garage_Type        <fct> Attchd, Attchd, Attchd, Attchd, Attchd, Attchd, Att~
+## $ Garage_Finish      <fct> Fin, Unf, Unf, Fin, Fin, Fin, Fin, RFn, RFn, Fin, F~
+## $ Garage_Cars        <dbl> 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, ~
+## $ Garage_Area        <dbl> 528, 730, 312, 522, 482, 470, 582, 506, 608, 442, 4~
+## $ Garage_Qual        <fct> Typical, Typical, Typical, Typical, Typical, Typica~
+## $ Garage_Cond        <fct> Typical, Typical, Typical, Typical, Typical, Typica~
+## $ Paved_Drive        <fct> Partial_Pavement, Paved, Paved, Paved, Paved, Paved~
+## $ Wood_Deck_SF       <int> 210, 140, 393, 0, 212, 360, 0, 0, 237, 140, 157, 48~
+## $ Open_Porch_SF      <int> 62, 0, 36, 0, 34, 36, 0, 82, 152, 60, 84, 21, 75, 0~
+## $ Enclosed_Porch     <int> 0, 0, 0, 0, 0, 0, 170, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0~
+## $ Three_season_porch <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~
+## $ Screen_Porch       <int> 0, 120, 0, 0, 0, 0, 0, 144, 0, 0, 0, 0, 0, 0, 140, ~
+## $ Pool_Area          <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~
+## $ Pool_QC            <fct> No_Pool, No_Pool, No_Pool, No_Pool, No_Pool, No_Poo~
+## $ Fence              <fct> No_Fence, Minimum_Privacy, No_Fence, No_Fence, Mini~
+## $ Misc_Feature       <fct> None, None, Gar2, None, None, None, None, None, Non~
+## $ Misc_Val           <int> 0, 0, 12500, 0, 0, 0, 0, 0, 0, 0, 0, 500, 0, 0, 0, ~
+## $ Mo_Sold            <int> 5, 6, 6, 4, 3, 6, 4, 1, 3, 6, 4, 3, 5, 2, 6, 6, 6, ~
+## $ Year_Sold          <int> 2010, 2010, 2010, 2010, 2010, 2010, 2010, 2010, 201~
+## $ Sale_Type          <fct> WD , WD , WD , WD , WD , WD , WD , WD , WD , WD , W~
+## $ Sale_Condition     <fct> Normal, Normal, Normal, Normal, Normal, Normal, Nor~
+## $ Sale_Price         <int> 215000, 105000, 172000, 244000, 189900, 195500, 213~
+## $ Longitude          <dbl> -93.61975, -93.61976, -93.61939, -93.61732, -93.638~
+## $ Latitude           <dbl> 42.05403, 42.05301, 42.05266, 42.05125, 42.06090, 4~
+\end{verbatim}
+
+\hypertarget{visualization}{%
+\section{Visualization}\label{visualization}}
+
+\hypertarget{looking-into}{%
+\subsection{Looking into}\label{looking-into}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{amesdata }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{plot\_intro}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{08-EDA_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{amesdata }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{plot\_missing}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{08-EDA_files/figure-latex/unnamed-chunk-3-2.pdf}
+Yes, our data is ``clean'' but how about this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(forcats)}
+\NormalTok{gss\_cat }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{glimpse}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 21,483
+## Columns: 9
+## $ year    <int> 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 20~
+## $ marital <fct> Never married, Divorced, Widowed, Never married, Divorced, Mar~
+## $ age     <int> 26, 48, 67, 39, 25, 25, 36, 44, 44, 47, 53, 52, 52, 51, 52, 40~
+## $ race    <fct> White, White, White, White, White, White, White, White, White,~
+## $ rincome <fct> $8000 to 9999, $8000 to 9999, Not applicable, Not applicable, ~
+## $ partyid <fct> "Ind,near rep", "Not str republican", "Independent", "Ind,near~
+## $ relig   <fct> Protestant, Protestant, Protestant, Orthodox-christian, None, ~
+## $ denom   <fct> "Southern baptist", "Baptist-dk which", "No denomination", "No~
+## $ tvhours <int> 12, NA, 2, 4, 1, NA, 3, NA, 0, 3, 2, NA, 1, NA, 1, 7, NA, 3, 3~
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gss\_cat }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{plot\_missing}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{08-EDA_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gss\_cat }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{profile\_missing}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 9 x 3
+##   feature num_missing pct_missing
+##   <fct>         <int>       <dbl>
+## 1 year              0     0      
+## 2 marital           0     0      
+## 3 age              76     0.00354
+## 4 race              0     0      
+## 5 rincome           0     0      
+## 6 partyid           0     0      
+## 7 relig             0     0      
+## 8 denom             0     0      
+## 9 tvhours       10146     0.472
+\end{verbatim}
+
+See the data source here: \url{https://forcats.tidyverse.org/reference/gss_cat.html}
+
+\hypertarget{plots}{%
+\subsection{Plots}\label{plots}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{amesdata  }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{plot\_density}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{08-EDA_files/figure-latex/unnamed-chunk-5-1.pdf} \includegraphics{08-EDA_files/figure-latex/unnamed-chunk-5-2.pdf} \includegraphics{08-EDA_files/figure-latex/unnamed-chunk-5-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gss\_cat  }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{plot\_correlation}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 1 features with more than 20 categories ignored!
+## denom: 30 categories
+\end{verbatim}
+
+\includegraphics{08-EDA_files/figure-latex/unnamed-chunk-6-1.pdf}
+\#\# Variation
+
+The ``near-zero-variance'' predictors may need to be identified and eliminated prior to modeling. We use the package \texttt{caret} to identify \href{https://topepo.github.io/caret/pre-processing.html}{``near-zero-variance'' variables}:
+
+\begin{quote}
+To identify these types of predictors, the following two metrics can be calculated:
+\end{quote}
+
+\begin{quote}
+the frequency of the most prevalent value over the second most frequent value (called the ``frequency ratio'\,'), which would be near one for well-behaved predictors and very large for highly-unbalanced data and
+the ``percent of unique values'\,' is the number of unique values divided by the total number of samples (times 100) that approaches zero as the granularity of the data increases
+\end{quote}
+
+\begin{quote}
+If the frequency ratio is greater than a pre-specified threshold and the unique value percentage is less than a threshold, we might consider a predictor to be near zero-variance.
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{caret}\SpecialCharTok{::}\FunctionTok{nearZeroVar}\NormalTok{(amesdata, }\AttributeTok{saveMetrics=} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                      freqRatio percentUnique zeroVar   nzv
+## MS_SubClass           1.876522    0.54607509   FALSE FALSE
+## MS_Zoning             4.919913    0.23890785   FALSE FALSE
+## Lot_Frontage          1.775362    4.40273038   FALSE FALSE
+## Lot_Area              1.023256   66.89419795   FALSE FALSE
+## Street              243.166667    0.06825939   FALSE  TRUE
+## Alley                22.766667    0.10238908   FALSE  TRUE
+## Lot_Shape             1.898876    0.13651877   FALSE FALSE
+## Land_Contour         21.941667    0.13651877   FALSE  TRUE
+## Utilities          1463.500000    0.10238908   FALSE  TRUE
+## Lot_Config            4.187867    0.17064846   FALSE FALSE
+## Land_Slope           22.312000    0.10238908   FALSE  TRUE
+## Neighborhood          1.659176    0.95563140   FALSE FALSE
+## Condition_1          15.378049    0.30716724   FALSE FALSE
+## Condition_2         223.076923    0.27303754   FALSE  TRUE
+## Bldg_Type            10.407725    0.17064846   FALSE FALSE
+## House_Style           1.696449    0.27303754   FALSE FALSE
+## Overall_Qual          1.127049    0.34129693   FALSE FALSE
+## Overall_Cond          3.103189    0.30716724   FALSE FALSE
+## Year_Built            1.028986    4.02730375   FALSE FALSE
+## Year_Remod_Add        1.787129    2.08191126   FALSE FALSE
+## Roof_Style            4.212341    0.20477816   FALSE FALSE
+## Roof_Matl           125.521739    0.27303754   FALSE  TRUE
+## Exterior_1st          2.280000    0.54607509   FALSE FALSE
+## Exterior_2nd          2.270694    0.58020478   FALSE FALSE
+## Mas_Vnr_Type          2.017045    0.17064846   FALSE FALSE
+## Mas_Vnr_Area        118.066667   15.18771331   FALSE FALSE
+## Exter_Qual            1.819009    0.13651877   FALSE FALSE
+## Exter_Cond            8.525084    0.17064846   FALSE FALSE
+## Foundation            1.053055    0.20477816   FALSE FALSE
+## Bsmt_Qual             1.052502    0.20477816   FALSE FALSE
+## Bsmt_Cond            21.442623    0.20477816   FALSE  TRUE
+## Bsmt_Exposure         4.559809    0.17064846   FALSE FALSE
+## BsmtFin_Type_1        1.009401    0.23890785   FALSE FALSE
+## BsmtFin_SF_1          1.009401    0.27303754   FALSE FALSE
+## BsmtFin_Type_2       23.575472    0.23890785   FALSE  TRUE
+## BsmtFin_SF_2        515.800000    9.35153584   FALSE  TRUE
+## Bsmt_Unf_SF          12.894737   38.80546075   FALSE FALSE
+## Total_Bsmt_SF         1.081081   36.10921502   FALSE FALSE
+## Heating             106.851852    0.20477816   FALSE  TRUE
+## Heating_QC            1.730324    0.17064846   FALSE FALSE
+## Central_Air          13.948980    0.06825939   FALSE FALSE
+## Electrical           14.265957    0.20477816   FALSE FALSE
+## First_Flr_SF          1.642857   36.96245734   FALSE FALSE
+## Second_Flr_SF        72.956522   21.67235495   FALSE FALSE
+## Low_Qual_Fin_SF     722.500000    1.22866894   FALSE  TRUE
+## Gr_Liv_Area           1.576923   44.09556314   FALSE FALSE
+## Bsmt_Full_Bath        1.447079    0.13651877   FALSE FALSE
+## Bsmt_Half_Bath       16.111111    0.10238908   FALSE FALSE
+## Full_Bath             1.162367    0.17064846   FALSE FALSE
+## Half_Bath             1.735405    0.10238908   FALSE FALSE
+## Bedroom_AbvGr         2.149394    0.27303754   FALSE FALSE
+## Kitchen_AbvGr        21.674419    0.13651877   FALSE  TRUE
+## Kitchen_Qual          1.287931    0.17064846   FALSE FALSE
+## TotRms_AbvGrd         1.300462    0.47781570   FALSE FALSE
+## Functional           38.971429    0.27303754   FALSE  TRUE
+## Fireplaces            1.116170    0.17064846   FALSE FALSE
+## Fireplace_Qu          1.911290    0.20477816   FALSE FALSE
+## Garage_Type           2.213555    0.23890785   FALSE FALSE
+## Garage_Finish         1.516010    0.13651877   FALSE FALSE
+## Garage_Cars           2.060411    0.20477816   FALSE FALSE
+## Garage_Area           1.628866   20.58020478   FALSE FALSE
+## Garage_Qual          16.446541    0.20477816   FALSE FALSE
+## Garage_Cond          16.761006    0.20477816   FALSE FALSE
+## Paved_Drive          12.277778    0.10238908   FALSE FALSE
+## Wood_Deck_SF         20.621622   12.96928328   FALSE FALSE
+## Open_Porch_SF        25.000000    8.60068259   FALSE  TRUE
+## Enclosed_Porch      112.318182    6.24573379   FALSE  TRUE
+## Three_season_porch  964.333333    1.05802048   FALSE  TRUE
+## Screen_Porch        205.692308    4.12969283   FALSE  TRUE
+## Pool_Area          2917.000000    0.47781570   FALSE  TRUE
+## Pool_QC             729.250000    0.17064846   FALSE  TRUE
+## Fence                 7.145455    0.17064846   FALSE FALSE
+## Misc_Feature         29.726316    0.20477816   FALSE  TRUE
+## Misc_Val            157.055556    1.29692833   FALSE  TRUE
+## Mo_Sold               1.124722    0.40955631   FALSE FALSE
+## Year_Sold             1.070988    0.17064846   FALSE FALSE
+## Sale_Type            10.610879    0.34129693   FALSE FALSE
+## Sale_Condition        9.848980    0.20477816   FALSE FALSE
+## Sale_Price            1.030303   35.22184300   FALSE FALSE
+## Longitude             1.000000   74.12969283   FALSE FALSE
+## Latitude              1.111111   67.57679181   FALSE FALSE
+\end{verbatim}
+
+\hypertarget{correlated-predictors}{%
+\subsection{Correlated Predictors}\label{correlated-predictors}}
+
+Again, using the package \texttt{caret}:
+
+\begin{quote}
+While there are some models that thrive on correlated predictors (such as pls), other models may benefit from reducing the level of correlation between the predictors.
+\end{quote}
+
+\begin{quote}
+Given a correlation matrix, the \texttt{findCorrelation} function uses the following algorithm to flag predictors for removal:
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#descrCor \textless{}{-}  cor(gss\_cat)}
+\CommentTok{\#highCorr \textless{}{-} sum(abs(descrCor[upper.tri(descrCor)]) \textgreater{} .999)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{examples}{%
+\section{Examples}\label{examples}}
+
+\url{https://raw.githack.com/yaydede/Blog_posts/main/EDA.html}
 
 \hypertarget{parts}{%
 \chapter{Parts}\label{parts}}
