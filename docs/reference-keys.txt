@@ -91,7 +91,6 @@ getting-the-data
 visualization
 looking-into
 plots
-correlated-predictors
 examples
 parts
 footnotes-and-citations

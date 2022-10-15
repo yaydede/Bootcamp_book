@@ -1,5 +1,5 @@
 --- 
-title: "R Bootcamp - How to use R for Data Science"
+title: "R Bootcamp for Data Analytics"
 author: "[Yigit Aydede](https://yaydede.github.io/)"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site

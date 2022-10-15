@@ -21,7 +21,7 @@ sample(c("H","T"), size = 8, replace = TRUE)  # fair coin
 ```
 
 ```
-## [1] "H" "T" "T" "H" "H" "H" "T" "T"
+## [1] "H" "T" "T" "T" "H" "T" "H" "T"
 ```
 
 ```r
@@ -29,7 +29,7 @@ sample(1:6, size = 2, replace = TRUE, prob=c(3,3,3,4,4,4))
 ```
 
 ```
-## [1] 4 5
+## [1] 6 5
 ```
 
 ```r
@@ -38,7 +38,7 @@ sample(c("H","T"), size = 8, replace = TRUE)  # fair coin
 ```
 
 ```
-## [1] "T" "H" "H" "H" "H" "T" "H" "T"
+## [1] "T" "T" "T" "H" "H" "T" "H" "H"
 ```
 
 ```r

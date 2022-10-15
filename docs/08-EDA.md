@@ -227,7 +227,7 @@ gss_cat  %>% plot_correlation()
 ```
 
 ![](08-EDA_files/figure-epub3/unnamed-chunk-6-1.png)<!-- -->
-## Variation
+## Variation & Correlation
 
 The “near-zero-variance” predictors may need to be identified and eliminated prior to modeling.  We use the package `caret` to identify ["near-zero-variance" variables](https://topepo.github.io/caret/pre-processing.html):
 
@@ -327,8 +327,7 @@ caret::nearZeroVar(amesdata, saveMetrics= TRUE)
 ## Longitude             1.000000   74.12969283   FALSE FALSE
 ## Latitude              1.111111   67.57679181   FALSE FALSE
 ```
-### Correlated Predictors
-
+  
 Again, using the package `caret`:
 
 >While there are some models that thrive on correlated predictors (such as pls), other models may benefit from reducing the level of correlation between the predictors.

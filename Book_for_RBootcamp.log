@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.4.7)  14 OCT 2022 13:30
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.4.7)  15 OCT 2022 13:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -869,7 +869,7 @@ Chapter 1.
 File: png/Rstudio.png Graphic file (type bmp)
 <png/Rstudio.png>
 
-Overfull \hbox (410.76422pt too wide) in paragraph at lines 220--221
+Overfull \hbox (410.76422pt too wide) in paragraph at lines 219--220
 [] 
  []
 
@@ -886,7 +886,7 @@ Overfull \vbox (21.16148pt too high) has occurred while \output is active []
 File: png/Rstudio2.png Graphic file (type bmp)
 <png/Rstudio2.png>
 
-Overfull \hbox (250.26772pt too wide) in paragraph at lines 226--227
+Overfull \hbox (250.26772pt too wide) in paragraph at lines 225--226
 [][] 
  []
 
@@ -897,7 +897,7 @@ File: png/Rstudio5.png Graphic file (type bmp)
 File: png/Rstudio3.png Graphic file (type bmp)
 <png/Rstudio3.png>
 
-Overfull \hbox (241.8339pt too wide) in paragraph at lines 250--251
+Overfull \hbox (241.8339pt too wide) in paragraph at lines 249--250
 [][] 
  []
 
@@ -905,12 +905,12 @@ Overfull \hbox (241.8339pt too wide) in paragraph at lines 250--251
 File: png/Rstudio4.png Graphic file (type bmp)
 <png/Rstudio4.png>
 
-Overfull \hbox (241.8339pt too wide) in paragraph at lines 280--281
+Overfull \hbox (241.8339pt too wide) in paragraph at lines 279--280
 [][] 
  []
 
 [17]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 312--312
+Overfull \hbox (90.75pt too wide) in paragraph at lines 311--311
 []\TU/lmtt/m/n/10 ## [1] "/Users/yigitaydede/Dropbox/Documents/Courses/MBAN/RBo
 otcamps/Bootcamp_book"[] 
  []
@@ -1222,7 +1222,7 @@ Overfull \hbox (22.5pt too wide) in paragraph at lines 2930--2930
 
 Overfull \hbox (143.25pt too wide) in paragraph at lines 2930--2930
 []\TU/lmtt/m/n/10 ##   .. ..- attr(*, "srcfile")=Classes []srcfilecopy[], []src
-file[] <environment: 0x7fbd1a2d2b90>[] 
+file[] <environment: 0x7f78969291a0>[] 
  []
 
 [55] [56] [57] [58] [59] [60]
@@ -3744,8 +3744,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 5117--5119
 
 [112] [113] [114] [115] [116]
 Overfull \hbox (33.0pt too wide) in paragraph at lines 5466--5466
-[]\TU/lmtt/m/n/10 ## [1]  1.1394520 -1.8619772  3.7290616  2.8945299  4.9072062
-  0.2982662[] 
+[]\TU/lmtt/m/n/10 ## [1]  3.0801636 -2.7244948 -0.4154269  1.6100851  3.0667612
+  3.0134688[] 
  []
 
 [117] [118] [119]
@@ -4690,7 +4690,7 @@ Underfull \vbox (badness 1527) has occurred while \output is active []
 ]
 Chapter 10.
 
-Underfull \hbox (badness 1924) in paragraph at lines 7204--7205
+Underfull \hbox (badness 1924) in paragraph at lines 7201--7202
 []\TU/lmr/m/n/10 Add an unnumbered part: \TU/lmtt/m/n/10 # (PART\*) Act one {-}
  \TU/lmr/m/n/10 (followed by \TU/lmtt/m/n/10 # A
  []
@@ -4710,13 +4710,13 @@ Chapter 13.
 [165] [166]
 Chapter 14.
 
-Overfull \hbox (17.937pt too wide) in paragraph at lines 7314--7315
+Overfull \hbox (17.937pt too wide) in paragraph at lines 7311--7312
 []\TU/lmr/m/n/10 To label an un-numbered heading, use: \TU/lmtt/m/n/10 # Hello 
 world {-#nice-label}
  []
 
 
-Underfull \hbox (badness 2512) in paragraph at lines 7317--7318
+Underfull \hbox (badness 2512) in paragraph at lines 7314--7315
 []\TU/lmr/m/n/10 Next, reference the labeled heading anywhere in the text using
 
  []
@@ -4731,18 +4731,18 @@ File: 14-cross-refs_files/figure-latex/nice-fig-1.pdf Graphic file (type pdf)
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 7385.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 7382.
 [171]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 7385.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 7382.
 (./Book_for_RBootcamp.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 7385.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 7385.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 7382.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 7382.
  ) 
 Here is how much of TeX's memory you used:
- 20298 strings out of 479418
- 364656 string characters out of 5884586
- 826006 words of memory out of 5000000
- 37451 multiletter control sequences out of 15000+600000
+ 20297 strings out of 479418
+ 364633 string characters out of 5884586
+ 825869 words of memory out of 5000000
+ 37450 multiletter control sequences out of 15000+600000
  538877 words of font info for 88 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  58i,8n,118p,916b,487s stack positions out of 5000i,500n,10000p,200000b,80000s

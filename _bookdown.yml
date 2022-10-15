@@ -5,3 +5,10 @@ language:
   ui:
     chapter_name: 'Chapter '
 new_session: true
+split_by: section
+config:
+  toc:
+    collapse: section
+    scroll_highlight: true
+    before: null
+    after: null

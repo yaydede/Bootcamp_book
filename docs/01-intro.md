@@ -1,33 +1,32 @@
-# Introduction 
+# Introduction
 
-The following sections will serve as an introduction to the R basics that could be used in data analytics. At the beginning, these introductory R subjects may feel like an overwhelming amount of information. The leaning curve will be steeper as practice more.  You should try all of the codes from these examples and solve the practice exercises.  
+The following sections will serve as an introduction to the R basics that could be used in data analytics. At the beginning, these introductory R subjects may feel like an overwhelming amount of information. The leaning curve will be steeper as practice more. You should try all of the codes from these examples and solve the practice exercises.
 
-R is used both for software development and data analysis. We will not use it for software development but apply some concepts in that area.  Our main goal will be to analyze data, but we will also perform programming exercises that help illustrate certain algorithmic concepts.  
+R is used both for software development and data analysis. We will not use it for software development but apply some concepts in that area. Our main goal will be to analyze data, but we will also perform programming exercises that help illustrate certain algorithmic concepts.
 
 ## Installation of R, RStudio and R Packages
 
-To get started, you will need to install two pieces of software:  
+To get started, you will need to install two pieces of software:
 
-**R**, the actual programming language: [**Download it from here.**](https://cran.r-project.org)
-– Chose your operating system, and select the most recent version.  
+**R**, the actual programming language: [**Download it from here.**](https://cran.r-project.org) -- Chose your operating system, and select the most recent version.
 
-**RStudio**, an excellent integrated development environment (IDE) for working with R, an interface used to interact with R: [**Download it from here.**](https://www.rstudio.com)  Throughout this book, you will use RStudio instead of R to learn R programming.
- 
+**RStudio**, an excellent integrated development environment (IDE) for working with R, an interface used to interact with R: [**Download it from here.**](https://www.rstudio.com) Throughout this book, you will use RStudio instead of R to learn R programming.
+
 ## RStudio
-  
+
 <img src="png/Rstudio.png" width="1091" />
 
-Source Pane, click on the plus sign  in the top left corner. From the drop-down menu, select **R Script**  . As shown in that dropdown menu, you can also open an R Script by pressing **Ctrl+Shift+N**. You should now see the screen above.  
+Source Pane, click on the plus sign in the top left corner. From the drop-down menu, select **R Script** . As shown in that dropdown menu, you can also open an R Script by pressing **Ctrl+Shift+N**. You should now see the screen above.
 
-The **Console Pane** is the interface to R. If you opened R directly instead of opening RStudio, you would see just this console. You can type commands directly in the console. The console displays the results of any command you run. For example, type 2+4 in the command line and press enter. You should see the command you typed, the result of the command, and a new command line.  
+The **Console Pane** is the interface to R. If you opened R directly instead of opening RStudio, you would see just this console. You can type commands directly in the console. The console displays the results of any command you run. For example, type 2+4 in the command line and press enter. You should see the command you typed, the result of the command, and a new command line.
 
 <img src="png/Rstudio2.png" width="593" />
 
-To clear the console, you press **Ctrl+L** or type **cat("\014")** in the command line.  
+To clear the console, you press **Ctrl+L** or type **cat("\\014")** in the command line.
 
-R code can be entered into the command line directly (in Console Pane) or saved to a script (Source Pane).  
+R code can be entered into the command line directly (in Console Pane) or saved to a script (Source Pane).
 
-Let's try some coding.  
+Let's try some coding.
 
 
 ```r
@@ -38,20 +37,19 @@ Let's try some coding.
 ## [1] 5
 ```
 
-Now write the same line into the script in Source Pane and **run** it  
+Now write the same line into the script in Source Pane and **run** it
 
 <img src="png/Rstudio5.png" width="342" />
-  
-The **Source Pane** is a text editor where you can type your code before running it. You can save your code in a text file called a script. Scripts have typically file names with the extension **.R**.  Any text shown in green is a comment in the script. You write a comment by adding a **#** to an RScript.  Anything to the right of a `#` is considered a comment and is thus ignored by R when running code.  Place your cursor anywhere on the first few lines of code and click **Run**. You can also run code by pressing **Ctrl+Enter**.  
+
+The **Source Pane** is a text editor where you can type your code before running it. You can save your code in a text file called a script. Scripts have typically file names with the extension **.R**. Any text shown in green is a comment in the script. You write a comment by adding a **\#** to an RScript. Anything to the right of a `#` is considered a comment and is thus ignored by R when running code. Place your cursor anywhere on the first few lines of code and click **Run**. You can also run code by pressing **Ctrl+Enter**.
 
 <img src="png/Rstudio3.png" width="585" />
 
+The **Environment Pane** includes an Environment, a History tab, and a Connections tab. The Connections tab makes it easy to connect to any data source on your system.
 
-The **Environment Pane** includes an Environment, a History tab, and a Connections tab. The Connections tab makes it easy to connect to any data source on your system.  
+The Environment tab displays any objects that you have created during your R session. For example, if we create three variables: $x$, $y$, and $z$, R stored those variables as objects so that you can see them in the Environment pane.
 
-The Environment tab displays any objects that you have created during your R session. For example, if we create three variables: $x$, $y$, and $z$, R stored those variables as objects so that you can see them in the Environment pane. 
-
-To do object assignments, you need to assign value(s) to a name via the assignment operator, which will create a new object with a name. 
+To do object assignments, you need to assign value(s) to a name via the assignment operator, which will create a new object with a name.
 
 
 ```r
@@ -65,21 +63,19 @@ ls()
 ## [1] "x" "y" "z"
 ```
 
+We will discuss R objects in more detail later. If you want to see a list of all objects in the current session, type `ls()` in the command line. You can remove an individual object from the environment with the `rm()` command. For example, remove $x$ by typing `rm(x)` in the command line. You can remove all objects from the environment by clicking or typing `rm(list=ls())` in the command line. The History tab keeps a record of all the commands you have run. To copy a command from the history into the console, select the command and press Enter.
 
-  
-We will discuss R objects in more detail later. If you want to see a list of all objects in the current session, type `ls()` in the command line. You can remove an individual object from the environment with the `rm()` command. For example, remove $x$ by typing `rm(x)` in the command line. You can remove all objects from the environment by clicking or typing `rm(list=ls())` in the command line.  The History tab keeps a record of all the commands you have run. To copy a command from the history into the console, select the command and press Enter.  
-
-The **Files Pane** includes several tabs that provide useful information.  The Files tab displays the contents of your working directory.  The Plot tab shows all graphs that you have created. The Packages tab displays the R packages that you have installed in your System Library.  
+The **Files Pane** includes several tabs that provide useful information. The Files tab displays the contents of your working directory. The Plot tab shows all graphs that you have created. The Packages tab displays the R packages that you have installed in your System Library.
 
 ## Packages
 
-An R package typically includes code, data, documentation for the package and functions inside, and tests to check everything works as it should.  Check to see if the package `moments` has been installed. If you cannot find it, you need to install it by using the command `install.packages("moments")`. Once you have installed the package, you need to load it using the command `library(moments)`.  Or you can use install tab and follow the instructions and the go to package to check it to activate as shown below.  
+An R package typically includes code, data, documentation for the package and functions inside, and tests to check everything works as it should. Check to see if the package `moments` has been installed. If you cannot find it, you need to install it by using the command `install.packages("moments")`. Once you have installed the package, you need to load it using the command `library(moments)`. Or you can use install tab and follow the instructions and the go to package to check it to activate as shown below.
 
 <img src="png/Rstudio4.png" width="585" />
 
 The help tab has built-in documentation for packages and functions in R. The help is automatically available for any loaded packages. You can access that file by typing `help(mean)` or `?mean` in the command line. You can also use the search bar in the help tab.
-  
-The packages can be installed from sources other than CRAN.  For example, in this book we will use `RBootcamp` which is not located on CRAN
+
+The packages can be installed from sources other than CRAN. For example, in this book we will use `RBootcamp` which is not located on CRAN
 
 
 ```r
@@ -87,15 +83,15 @@ The packages can be installed from sources other than CRAN.  For example, in thi
 #remotes::install_github("yaydede/RBootcamp")
 ```
 
-One of the most difficult things to do when learning R is to know how to find help. Your very first helper should be **Google** where you post your error message or a short description of your issue. The ability to solve problems using this method is quickly becoming an extremely valuable skill.   
+One of the most difficult things to do when learning R is to know how to find help. Your very first helper should be **Google** where you post your error message or a short description of your issue. The ability to solve problems using this method is quickly becoming an extremely valuable skill.
 
-**Do not be discouraged by running into errors and difficulties when learning R. It is simply part of the learning process.**  
+**Do not be discouraged by running into errors and difficulties when learning R. It is simply part of the learning process.**
 
-The Viewer tab displays HTML output. R packages such as R Markdown and Shiny create HTML outputs that you can view in the Viewer tab.  We'll see it later.  
+The Viewer tab displays HTML output. R packages such as R Markdown and Shiny create HTML outputs that you can view in the Viewer tab. We'll see it later.
 
 ## Working directory
 
-Without further specification, files will be loaded from and saved to the working directory. The functions `getwd()` and `setwd()` will get and set the working directory, respectively.  
+Without further specification, files will be loaded from and saved to the working directory. The functions `getwd()` and `setwd()` will get and set the working directory, respectively.
 
 
 ```r
@@ -142,7 +138,7 @@ dir()
 ## [33] "docs"                     "index.md"                
 ## [35] "index.Rmd"                "packages.bib"            
 ## [37] "png"                      "preamble.tex"            
-## [39] "README.md"                "rendercbae32c4ba34.rds"  
+## [39] "README.md"                "render1106c6664b827.rds" 
 ## [41] "some_functions.R"         "style.css"               
 ## [43] "table1.text"
 ```
@@ -166,31 +162,32 @@ args(list.files)
 ##     no.. = FALSE) 
 ## NULL
 ```
+
 For this bootcamp, I would suggest to create a RStudio Project in your local driver. RStudio projects make it straightforward to divide your work into multiple contexts, each with their own working directory, workspace, history, and source documents.
 
 RStudio projects are associated with R working directories. You can create an RStudio project:
 
-- In a brand new directory
-- In an existing directory where you already have R code and data
-- By cloning a version control (Git or Subversion) repository
+-   In a brand new directory
+-   In an existing directory where you already have R code and data
+-   By cloning a version control (Git or Subversion) repository
 
 To create a new project in the RStudio, use the Create Project command (available on the Projects menu and on the global toolbar)
 
 ## Hints
-  
-- R distinguishes upper case from lower case letters. Thus a variable named `X` differs from another variable named `x`. 
-- The way to learn programming is through practice. The learning curve to R is not bad.  You may struggle a bit in the process, but the skills learned will be invaluable for you in the future. 
-- There are many ways to write a code to solve the same thing.  You can develop your own style.  But, if you see nother and better code, try to learn from others! 
-- There are many option that you can customize R Studio.  Check out Tools > Global Options > General tab in the menu bar of RStudio. 
-- Before you start coding, draft a plan to address the question at hand. 
-- There is convention in writing codes. Try to adhere these accepted styles. 
-- Comment your code properly (using a # sign at the beginning of each line). Good documentation is a great reminder what you have done.  Believe me you will forget later the lines in the your own script. 
-- The character `>` in the R Console indicates that R is ready for you to enter a command.  
-- Do not overwrite the original data set and variables. Create new data sets just to be sure, especially when taking a subset from that data set.
+
+-   R distinguishes upper case from lower case letters. Thus a variable named `X` differs from another variable named `x`.
+-   The way to learn programming is through practice. The learning curve to R is not bad. You may struggle a bit in the process, but the skills learned will be invaluable for you in the future.
+-   There are many ways to write a code to solve the same thing. You can develop your own style. But, if you see nother and better code, try to learn from others!
+-   There are many option that you can customize R Studio. Check out Tools \> Global Options \> General tab in the menu bar of RStudio.
+-   Before you start coding, draft a plan to address the question at hand.
+-   There is convention in writing codes. Try to adhere these accepted styles.
+-   Comment your code properly (using a \# sign at the beginning of each line). Good documentation is a great reminder what you have done. Believe me you will forget later the lines in the your own script.
+-   The character `>` in the R Console indicates that R is ready for you to enter a command.\
+-   Do not overwrite the original data set and variables. Create new data sets just to be sure, especially when taking a subset from that data set.
 
 ## Console or Script?
 
-The Script Window is the place to enter and run your code so that it is easily edited and saved for future use. You create new R Script by clicking on File > New File > R Script in the RStudio menu bar.
+The Script Window is the place to enter and run your code so that it is easily edited and saved for future use. You create new R Script by clicking on File \> New File \> R Script in the RStudio menu bar.
 
 To execute your code in the R script, you can either highlight the code and click on Run, or you can highlight the code and press CTRL + Enter on your keyboard.
 
@@ -216,29 +213,29 @@ library(RBootcamp)
 
 ## Data & Object Types
 
-R has a number of basic data types.  
+R has a number of basic data types.
 
-**Numeric**: Also known as Double. The default type when dealing with numbers. 1,1.0,42.5  
-**Integer**: 1L,2L,42L  
-**Complex**: 4 + 2i  
-**Logical**: Two possible values: TRUE and FALSE. NA is also considered logical.  
-**Character**:"a","Statistics","1plus2."  
+**Numeric**: Also known as Double. The default type when dealing with numbers. 1,1.0,42.5\
+**Integer**: 1L,2L,42L\
+**Complex**: 4 + 2i\
+**Logical**: Two possible values: TRUE and FALSE. NA is also considered logical.\
+**Character**:"a","Statistics","1plus2."
 
-R also has a number of basic data structures. A data structure is either **homogeneous** (all elements are of the same data type) or **heterogeneous** (elements can be of more than one data type):  You can think each data structure as **data container** (object types) where you data is stored.  Here are the main "container" or data structures.  Think it as Stata or Excel spread-sheets.  
-  
-    
-**Vector**: 1 dimension (column OR row) and homogeneous. That is every element of the vector has to be the same type. Each vector can be thought of as a variable.  
-**Matrix**: 2 dimensions (column AND row) and homogeneous. That is every element of the matrix has to be the same type.  
-**Data Frame**: 2 dimensions (column AND row) and heterogeneous. That is every element of the data frame doesn't have to be the same type.  This is the main difference between a matrix and a data frame. Data frames are the most common data structure in any data analysis.  
-**List**: 1 dimension and heterogeneous. Data can be multiple data structures.  
-**Array**: 3+ dimensions and homogeneous.  
+R also has a number of basic data structures. A data structure is either **homogeneous** (all elements are of the same data type) or **heterogeneous** (elements can be of more than one data type): You can think each data structure as **data container** (object types) where you data is stored. Here are the main "container" or data structures. Think it as Stata or Excel spread-sheets.
+
+**Vector**: 1 dimension (column OR row) and homogeneous. That is every element of the vector has to be the same type. Each vector can be thought of as a variable.\
+**Matrix**: 2 dimensions (column AND row) and homogeneous. That is every element of the matrix has to be the same type.\
+**Data Frame**: 2 dimensions (column AND row) and heterogeneous. That is every element of the data frame doesn't have to be the same type. This is the main difference between a matrix and a data frame. Data frames are the most common data structure in any data analysis.\
+**List**: 1 dimension and heterogeneous. Data can be multiple data structures.\
+**Array**: 3+ dimensions and homogeneous.
 
 ## R-Style Guide
 
-The idea is simple: your R code, or any other code in different languages, should be written in a readable and maintainable style.  Here is a [blog](https://rpahl.github.io/r-some-blog/posts/r-style-guide/) by Roman Pahl that may help you develop a better styling in your codes. (You may find in some chapters and labs that my codes are not following the "good" styling practices.  I am trying to improve!)
-  
+The idea is simple: your R code, or any other code in different languages, should be written in a readable and maintainable style. Here is a [blog](https://rpahl.github.io/r-some-blog/posts/r-style-guide/) by Roman Pahl that may help you develop a better styling in your codes. (You may find in some chapters and labs that my codes are not following the "good" styling practices. I am trying to improve!)
+
 # Vectors
-Many operations in R make heavy use of vectors. Possibly the most common way to create a vector in R is using the `c()` function, which is short for “combine.” As the name suggests, it combines a list of elements separated by commas.  
+
+Many operations in R make heavy use of vectors. Possibly the most common way to create a vector in R is using the `c()` function, which is short for "combine." As the name suggests, it combines a list of elements separated by commas.
 
 
 ```r
@@ -249,7 +246,7 @@ c(1, 5, 0, -1)
 ## [1]  1  5  0 -1
 ```
 
-If we would like to store this vector in a **variable** we can do so with the assignment operator `<-` or `=`.  But the convention is `<-`  
+If we would like to store this vector in a **variable** we can do so with the assignment operator `<-` or `=`. But the convention is `<-`
 
 
 ```r
@@ -270,7 +267,7 @@ z
 ## [1]  1  5  0 -1
 ```
 
-Note that scalars do not exists in R. They are simply vectors of length 1.  
+Note that scalars do not exists in R. They are simply vectors of length 1.
 
 
 ```r
@@ -279,7 +276,7 @@ y <- 24  #this a vector with 1 element, 24
 
 ## One type, same type
 
-Because vectors must contain elements that are all the same type, R will automatically coerce to a single type when attempting to create a vector that combines multiple types.  
+Because vectors must contain elements that are all the same type, R will automatically coerce to a single type when attempting to create a vector that combines multiple types.
 
 
 ```r
@@ -305,7 +302,7 @@ c(10, TRUE)
 ```
 ## [1] 10  1
 ```
-  
+
 
 ```r
 x <- c(10, "Machine Learning", FALSE) 
@@ -323,7 +320,7 @@ class(x)
 ```
 ## [1] "character"
 ```
-  
+
 
 ```r
 y <- c(10, FALSE)
@@ -342,7 +339,7 @@ class(y)
 ## [1] "numeric"
 ```
 
-We know that vectors are objects that have values of the same type. If you combine them into a vector, R will unify all values into the most complex one, which is usually called the coercion rule. 
+We know that vectors are objects that have values of the same type. If you combine them into a vector, R will unify all values into the most complex one, which is usually called the coercion rule.
 
 
 ```r
@@ -382,7 +379,7 @@ class(m_2)
 ## [1] "character"
 ```
 
-You can also manually convert the vectors 
+You can also manually convert the vectors
 
 
 ```r
@@ -428,10 +425,9 @@ as.numeric(m_2)
 ## [1]  8 NA 21 NA
 ```
 
-
 ## Patterns
 
-If you want to create a vector based on a sequence of numbers, you can do it easily with an operator, which creates a sequence of integers between two specified integers.  
+If you want to create a vector based on a sequence of numbers, you can do it easily with an operator, which creates a sequence of integers between two specified integers.
 
 
 ```r
@@ -453,7 +449,7 @@ y
 ##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15
 ```
 
-If you want to create a vector based on a specific sequence of numbers increasing or decreasing, you can use `seq()`  
+If you want to create a vector based on a specific sequence of numbers increasing or decreasing, you can use `seq()`
 
 
 ```r
@@ -475,7 +471,7 @@ y
 ## [13]  -9.3 -10.2 -11.1 -12.0 -12.9
 ```
 
-The other useful tool is `rep()`  
+The other useful tool is `rep()`
 
 
 ```r
@@ -510,7 +506,7 @@ wow
 ## [26]  4
 ```
 
-Another one, which can be used to create equal intervals.  
+Another one, which can be used to create equal intervals.
 
 
 ```r
@@ -535,7 +531,7 @@ unique(wow)
 
 ## Attributes
 
-We can calculate the number of elements in a vector:  
+We can calculate the number of elements in a vector:
 
 
 ```r
@@ -546,7 +542,7 @@ length(wow)
 ## [1] 26
 ```
 
-There is set of functions starting with `is.***()`.  For example: `is.numeric()`, which checks whether a vector is of numeric type,
+There is set of functions starting with `is.***()`. For example: `is.numeric()`, which checks whether a vector is of numeric type,
 
 
 ```r
@@ -565,7 +561,7 @@ is.character(g)
 ## [1] FALSE
 ```
 
-In addition to storing the values of a vector, you can also create named vectors. 
+In addition to storing the values of a vector, you can also create named vectors.
 
 
 ```r
@@ -700,7 +696,6 @@ You can see that the smallest value of `x` is 0, which corresponds to the fourth
 As for the `order()` function, it is confusing and a very different function from `sort()`.
 
 
-
 ```r
 order(x)
 ```
@@ -714,7 +709,7 @@ We can see that the `order()` function returns indices for the elements in the a
 ## Simple descriptive measures
 
 Let's have a numeric vector:
-  
+
 
 ```r
 h <- c(x, rep(seq(1, 9, 2), 3), c(1, 2, 3), 42, 2:4)
@@ -735,8 +730,6 @@ summary(h)
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   0.000   2.000   3.000   5.357   7.000  42.000
 ```
-
-
 
 The set of statistical measures:
 
@@ -830,6 +823,7 @@ IQR(h) #interquartile range
 ```
 ## [1] 5
 ```
+
 We can also find the index number of maximum and minimum numbers
 
 
@@ -851,12 +845,12 @@ which.min(h)
 
 ## Subsetting Vectors
 
-One of the most confusing subjects in R is subsetting the data containers.  It's an important part in data management and if it is done in 2 steps, the whole operation becomes quite easy:  
+One of the most confusing subjects in R is subsetting the data containers. It's an important part in data management and if it is done in 2 steps, the whole operation becomes quite easy:
 
-1. Identifying the index of the element that satisfies the required condition,
-2. Calling the index to subset the vector.  
+1.  Identifying the index of the element that satisfies the required condition,
+2.  Calling the index to subset the vector.
 
-But before we start, lets see a simple subsetting. (Note the square brackets)  
+But before we start, lets see a simple subsetting. (Note the square brackets)
 
 
 ```r
@@ -893,7 +887,6 @@ Okay, let's see commonly used operators for doing comparisons:
 ```r
 x <- 3
 ```
-
 
 
 ```r
@@ -993,7 +986,7 @@ newvector
 ## [1] 1 2 3 4 4
 ```
 
-This is good as it shows those 2 steps.  Perhaps, we can combine these 2 steps as follows:  
+This is good as it shows those 2 steps. Perhaps, we can combine these 2 steps as follows:
 
 
 ```r
@@ -1005,7 +998,7 @@ newvector
 ## [1] 1 2 3 4 4
 ```
 
-Another way to do this is to use of `which()`, which gives us the index of each element that satisfies the condition.  
+Another way to do this is to use of `which()`, which gives us the index of each element that satisfies the condition.
 
 
 ```r
@@ -1026,7 +1019,7 @@ newvector
 ## [1] 1 2 3 4 4
 ```
 
-Or we can combine these 2 steps:  
+Or we can combine these 2 steps:
 
 
 ```r
@@ -1038,7 +1031,7 @@ newvector
 ## [1] 1 2 3 4 4
 ```
 
-Last one: find the 4's in `myvector` make them 8 (I know hard, but after a couple of tries it will seem easier):  
+Last one: find the 4's in `myvector` make them 8 (I know hard, but after a couple of tries it will seem easier):
 
 
 ```r
@@ -1076,7 +1069,7 @@ myvector
 ## [1]  1  2  3  8  5  8  8 10 12
 ```
 
-What happens if the vector is a character vector?  How can we subset it?  We can use `grep()` as shown below:  
+What happens if the vector is a character vector? How can we subset it? We can use `grep()` as shown below:
 
 
 ```r
@@ -1104,7 +1097,7 @@ newvector
 
 ## Vectorization or vector operations
 
-One of the biggest strengths of R is its use of vectorized operations.  Lets see it in action!  
+One of the biggest strengths of R is its use of vectorized operations. Lets see it in action!
 
 
 ```r
@@ -1166,7 +1159,7 @@ log(x)
 ##  [8] 2.0794415 2.1972246 2.3025851
 ```
 
-Its like a calculator!  
+Its like a calculator!
 
 
 ```r
@@ -1186,7 +1179,7 @@ x + y
 ##  [1]  2  4  6  8 10 12 14 16 18 20
 ```
 
-How about this:  
+How about this:
 
 
 ```r
@@ -1203,8 +1196,8 @@ x + y
 ##  [1]  2  4  6  8 10 12 14 16 18 20 12
 ```
 
-OK, the warning is self-explanatory.  But what's "12" at the end?  
-It's the sum of the first element of `x`, which is 1 and the last element of `y`, which is 11.  
+OK, the warning is self-explanatory. But what's "12" at the end?\
+It's the sum of the first element of `x`, which is 1 and the last element of `y`, which is 11.
 
 ## Set operations
 
@@ -1278,7 +1271,7 @@ x %in% y
 
 ## Missing values
 
-R uses `NA` to represent missing values indicating they are not available. In a data file, NA's are very common and have to be dealt with properly.  Why?
+R uses `NA` to represent missing values indicating they are not available. In a data file, NA's are very common and have to be dealt with properly. Why?
 
 
 ```r
@@ -1340,7 +1333,7 @@ which(is.na(x))
 ## [1] 2 4
 ```
 
-How to remove?  But before removing them:
+How to remove? But before removing them:
 
 
 ```r
@@ -1374,7 +1367,7 @@ x[complete.cases(x)]
 
 ## Factors
 
-Factor type is known as an "indicator" variable.  
+Factor type is known as an "indicator" variable.
 
 
 ```r
@@ -1399,6 +1392,7 @@ anim
 ##  [97] "cat"    "dog"    "donkey" "donkey"
 ```
 
+
 ```r
 table(anim)
 ```
@@ -1420,5 +1414,3 @@ levels(animf)
 ```
 ## [1] "cat"    "dog"    "donkey"
 ```
-
-

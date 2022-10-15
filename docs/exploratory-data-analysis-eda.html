@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 9 Exploratory Data Analysis (EDA) | R Bootcamp - How to use R for Data Science</title>
+  <title>Chapter 9 Exploratory Data Analysis (EDA) | R Bootcamp for Data Analytics</title>
   <meta name="description" content="This book is companion fro RBootcamp package." />
   <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 9 Exploratory Data Analysis (EDA) | R Bootcamp - How to use R for Data Science" />
+  <meta property="og:title" content="Chapter 9 Exploratory Data Analysis (EDA) | R Bootcamp for Data Analytics" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://yaydede.github.io/Bootcamp_book//Users/yigitaydede/Dropbox/Documents/Courses/MBAN/RBootcamps/Bootcamp_book/png/cover.png" />
   <meta property="og:description" content="This book is companion fro RBootcamp package." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 Exploratory Data Analysis (EDA) | R Bootcamp - How to use R for Data Science" />
+  <meta name="twitter:title" content="Chapter 9 Exploratory Data Analysis (EDA) | R Bootcamp for Data Analytics" />
   
   <meta name="twitter:description" content="This book is companion fro RBootcamp package." />
   <meta name="twitter:image" content="https://yaydede.github.io/Bootcamp_book//Users/yigitaydede/Dropbox/Documents/Courses/MBAN/RBootcamps/Bootcamp_book/png/cover.png" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Yigit Aydede" />
 
 
-<meta name="date" content="2022-10-14" />
+<meta name="date" content="2022-10-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -298,7 +298,6 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="9.2.1" data-path="exploratory-data-analysis-eda.html"><a href="exploratory-data-analysis-eda.html#looking-into"><i class="fa fa-check"></i><b>9.2.1</b> Looking into</a></li>
 <li class="chapter" data-level="9.2.2" data-path="exploratory-data-analysis-eda.html"><a href="exploratory-data-analysis-eda.html#plots"><i class="fa fa-check"></i><b>9.2.2</b> Plots</a></li>
-<li class="chapter" data-level="9.2.3" data-path="exploratory-data-analysis-eda.html"><a href="exploratory-data-analysis-eda.html#correlated-predictors"><i class="fa fa-check"></i><b>9.2.3</b> Correlated Predictors</a></li>
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="exploratory-data-analysis-eda.html"><a href="exploratory-data-analysis-eda.html#examples"><i class="fa fa-check"></i><b>9.3</b> Examples</a></li>
 </ul></li>
@@ -327,7 +326,7 @@ div.csl-indent {
 <li class="chapter" data-level="14.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>14.2</b> Captioned figures and tables</a></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://yaydede.github.io" target="blank">2022 Yigit Aydede</a></li>
 
 </ul>
 
@@ -338,7 +337,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Bootcamp - How to use R for Data Science</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Bootcamp for Data Analytics</a>
           </h1>
         </div>
 
@@ -512,7 +511,7 @@ Yes, our data is “clean” but how about this:</p>
 <pre><code>## 1 features with more than 20 categories ignored!
 ## denom: 30 categories</code></pre>
 <p><img src="08-EDA_files/figure-html/unnamed-chunk-6-1.png" width="672" />
-## Variation</p>
+## Variation &amp; Correlation</p>
 <p>The “near-zero-variance” predictors may need to be identified and eliminated prior to modeling. We use the package <code>caret</code> to identify <a href="https://topepo.github.io/caret/pre-processing.html">“near-zero-variance” variables</a>:</p>
 <blockquote>
 <p>To identify these types of predictors, the following two metrics can be calculated:</p>
@@ -607,9 +606,6 @@ the “percent of unique values’’ is the number of unique values divided by 
 ## Sale_Price            1.030303   35.22184300   FALSE FALSE
 ## Longitude             1.000000   74.12969283   FALSE FALSE
 ## Latitude              1.111111   67.57679181   FALSE FALSE</code></pre>
-</div>
-<div id="correlated-predictors" class="section level3 hasAnchor" number="9.2.3">
-<h3><span class="header-section-number">9.2.3</span> Correlated Predictors<a href="exploratory-data-analysis-eda.html#correlated-predictors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Again, using the package <code>caret</code>:</p>
 <blockquote>
 <p>While there are some models that thrive on correlated predictors (such as pls), other models may benefit from reducing the level of correlation between the predictors.</p>
@@ -664,7 +660,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/yaydede/Bootcamp_book/edit/main/08-EDA.Rmd",
+"link": "https://github.com/yaydede/Bootcamp_book/edit/master/08-EDA.Rmd",
 "text": "Edit"
 },
 "history": {

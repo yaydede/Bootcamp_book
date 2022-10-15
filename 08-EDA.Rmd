@@ -53,7 +53,7 @@ amesdata  %>% plot_density()
 ```{r}
 gss_cat  %>% plot_correlation()
 ```
-## Variation
+## Variation & Correlation
 
 The “near-zero-variance” predictors may need to be identified and eliminated prior to modeling.  We use the package `caret` to identify ["near-zero-variance" variables](https://topepo.github.io/caret/pre-processing.html):
 
@@ -67,8 +67,7 @@ The “near-zero-variance” predictors may need to be identified and eliminated
 ```{r}
 caret::nearZeroVar(amesdata, saveMetrics= TRUE)
 ```
-### Correlated Predictors
-
+  
 Again, using the package `caret`:
 
 >While there are some models that thrive on correlated predictors (such as pls), other models may benefit from reducing the level of correlation between the predictors.
