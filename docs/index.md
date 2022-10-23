@@ -17,8 +17,14 @@ urlcolor: cyan
 
 This book covers basics to learn R for Data Science. It is designed for [MBAN](https://www.smu.ca/mban/index.html) students.
 
-We also have a companion R package named `RBootcamp`, containing the data sets used as well as interactive exercises for each part.
+We also have a companion R package named `RBootcamp`, containing the data sets used as well as interactive exercises for each chapter.  Install `RBootcamp` by running the following lines on your console:   
 
+
+```r
+#install.packages("remotes")
+#remotes::install_github("yaydede/RBootcamp")
+```
+  
 ![](png/cover2.png){width=400px height=550px}
 
 ## Why R? {.unnumbered} 

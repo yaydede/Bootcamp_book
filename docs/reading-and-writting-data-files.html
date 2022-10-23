@@ -317,11 +317,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="png/Import.png" width="276" /></p>
 <p>When you read a data in other formats, they may also be imported as a data frame.</p>
 <p>If the data is a .csv file, for example, we would also use the <code>read_csv()</code> function from the <code>readr</code> package. Note that R has a built in function <code>read.csv()</code> that operates very similarly. The <code>readr</code> function <code>read_csv()</code> has a number of advantages. For example, it is much faster reading larger data. It also uses the tibble package to read the data as a tibble.</p>
-<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="reading-and-writting-data-files.html#cb415-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb415-2"><a href="reading-and-writting-data-files.html#cb415-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RCurl)</span>
-<span id="cb415-3"><a href="reading-and-writting-data-files.html#cb415-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">getURL</span>(<span class="st">&quot;https://raw.githubusercontent.com/tidyverse/readr/main/inst/extdata/mtcars.csv&quot;</span>)</span>
-<span id="cb415-4"><a href="reading-and-writting-data-files.html#cb415-4" aria-hidden="true" tabindex="-1"></a>example_csv <span class="ot">=</span> <span class="fu">read_csv</span>(x, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb415-5"><a href="reading-and-writting-data-files.html#cb415-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(example_csv)</span></code></pre></div>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="reading-and-writting-data-files.html#cb416-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb416-2"><a href="reading-and-writting-data-files.html#cb416-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RCurl)</span>
+<span id="cb416-3"><a href="reading-and-writting-data-files.html#cb416-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">getURL</span>(<span class="st">&quot;https://raw.githubusercontent.com/tidyverse/readr/main/inst/extdata/mtcars.csv&quot;</span>)</span>
+<span id="cb416-4"><a href="reading-and-writting-data-files.html#cb416-4" aria-hidden="true" tabindex="-1"></a>example_csv <span class="ot">=</span> <span class="fu">read_csv</span>(x, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb416-5"><a href="reading-and-writting-data-files.html#cb416-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(example_csv)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 11
 ##     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -331,7 +331,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4  21.4     6   258   110  3.08  3.22  19.4     1     0     3     1
 ## 5  18.7     8   360   175  3.15  3.44  17.0     0     0     3     2
 ## 6  18.1     6   225   105  2.76  3.46  20.2     1     0     3     1</code></pre>
-<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="reading-and-writting-data-files.html#cb417-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(example_csv)</span></code></pre></div>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="reading-and-writting-data-files.html#cb418-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(example_csv)</span></code></pre></div>
 <pre><code>## spc_tbl_ [32 × 11] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ##  $ mpg : num [1:32] 21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
 ##  $ cyl : num [1:32] 6 6 4 6 8 6 8 4 4 6 ...
@@ -361,10 +361,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  - attr(*, &quot;problems&quot;)=&lt;externalptr&gt;</code></pre>
 <p>A tibble is simply a data frame that prints with sanity. Notice in the output above that we are given additional information such as dimension and variable type.</p>
 <p>To understand more about the data set, we use the <code>?</code> operator to pull up the documentation for the data. (You can use <code>??</code> to search the Internet for more info)</p>
-<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="reading-and-writting-data-files.html#cb419-1" aria-hidden="true" tabindex="-1"></a>?mtcars</span>
-<span id="cb419-2"><a href="reading-and-writting-data-files.html#cb419-2" aria-hidden="true" tabindex="-1"></a>??mtcars</span>
-<span id="cb419-3"><a href="reading-and-writting-data-files.html#cb419-3" aria-hidden="true" tabindex="-1"></a><span class="co">#View(mpg)</span></span>
-<span id="cb419-4"><a href="reading-and-writting-data-files.html#cb419-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code></pre></div>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="reading-and-writting-data-files.html#cb420-1" aria-hidden="true" tabindex="-1"></a>?mtcars</span>
+<span id="cb420-2"><a href="reading-and-writting-data-files.html#cb420-2" aria-hidden="true" tabindex="-1"></a>??mtcars</span>
+<span id="cb420-3"><a href="reading-and-writting-data-files.html#cb420-3" aria-hidden="true" tabindex="-1"></a><span class="co">#View(mpg)</span></span>
+<span id="cb420-4"><a href="reading-and-writting-data-files.html#cb420-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code></pre></div>
 <pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
 ## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
 ## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
@@ -372,7 +372,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
 ## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
 ## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
-<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="reading-and-writting-data-files.html#cb421-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(mtcars)</span></code></pre></div>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="reading-and-writting-data-files.html#cb422-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(mtcars)</span></code></pre></div>
 <pre><code>##                 mpg cyl  disp  hp drat    wt qsec vs am gear carb
 ## Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.7  0  1    5    2
 ## Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.9  1  1    5    2

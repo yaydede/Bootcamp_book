@@ -327,7 +327,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To clear the console, you press <strong>Ctrl+L</strong> or type <strong>cat(“\014”)</strong> in the command line.</p>
 <p>R code can be entered into the command line directly (in Console Pane) or saved to a script (Source Pane).</p>
 <p>Let’s try some coding.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="introduction.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span> <span class="co">#write this on the command line and hit Enter</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="introduction.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span> <span class="co">#write this on the command line and hit Enter</span></span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
 <p>Now write the same line into the script in Source Pane and <strong>run</strong> it</p>
 <p><img src="png/RStudio5.png" width="171" /></p>
@@ -336,10 +336,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The <strong>Environment Pane</strong> includes an Environment, a History tab, and a Connections tab. The Connections tab makes it easy to connect to any data source on your system.</p>
 <p>The Environment tab displays any objects that you have created during your R session. For example, if we create three variables: <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>, and <span class="math inline">\(z\)</span>, R stored those variables as objects so that you can see them in the Environment pane.</p>
 <p>To do object assignments, you need to assign value(s) to a name via the assignment operator, which will create a new object with a name.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="introduction.html#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb3-2"><a href="introduction.html#cb3-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">*</span><span class="fl">1.5</span></span>
-<span id="cb3-3"><a href="introduction.html#cb3-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> x <span class="sc">-</span> y<span class="sc">*</span><span class="dv">3</span></span>
-<span id="cb3-4"><a href="introduction.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="introduction.html#cb4-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb4-2"><a href="introduction.html#cb4-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">*</span><span class="fl">1.5</span></span>
+<span id="cb4-3"><a href="introduction.html#cb4-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> x <span class="sc">-</span> y<span class="sc">*</span><span class="dv">3</span></span>
+<span id="cb4-4"><a href="introduction.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
 <p>We will discuss R objects in more detail later. If you want to see a list of all objects in the current session, type <code>ls()</code> in the command line. You can remove an individual object from the environment with the <code>rm()</code> command. For example, remove <span class="math inline">\(x\)</span> by typing <code>rm(x)</code> in the command line. You can remove all objects from the environment by clicking or typing <code>rm(list=ls())</code> in the command line. The History tab keeps a record of all the commands you have run. To copy a command from the history into the console, select the command and press Enter.</p>
 <p>The <strong>Files Pane</strong> includes several tabs that provide useful information. The Files tab displays the contents of your working directory. The Plot tab shows all graphs that you have created. The Packages tab displays the R packages that you have installed in your System Library.</p>
@@ -350,8 +350,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="png/RStudio4.png" width="292" /></p>
 <p>The help tab has built-in documentation for packages and functions in R. The help is automatically available for any loaded packages. You can access that file by typing <code>help(mean)</code> or <code>?mean</code> in the command line. You can also use the search bar in the help tab.</p>
 <p>The packages can be installed from sources other than CRAN. For example, in this book we will use <code>RBootcamp</code> which is not located on CRAN</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="introduction.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;remotes&quot;)</span></span>
-<span id="cb5-2"><a href="introduction.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#remotes::install_github(&quot;yaydede/RBootcamp&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="introduction.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;remotes&quot;)</span></span>
+<span id="cb6-2"><a href="introduction.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#remotes::install_github(&quot;yaydede/RBootcamp&quot;)</span></span></code></pre></div>
 <p>One of the most difficult things to do when learning R is to know how to find help. Your very first helper should be <strong>Google</strong> where you post your error message or a short description of your issue. The ability to solve problems using this method is quickly becoming an extremely valuable skill.</p>
 <p><strong>Do not be discouraged by running into errors and difficulties when learning R. It is simply part of the learning process.</strong></p>
 <p>The Viewer tab displays HTML output. R packages such as R Markdown and Shiny create HTML outputs that you can view in the Viewer tab. We’ll see it later.</p>
@@ -359,47 +359,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="working-directory" class="section level2 hasAnchor" number="1.4">
 <h2><span class="header-section-number">1.4</span> Working directory<a href="introduction.html#working-directory" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Without further specification, files will be loaded from and saved to the working directory. The functions <code>getwd()</code> and <code>setwd()</code> will get and set the working directory, respectively.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="introduction.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="introduction.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;/Users/yigitaydede/Dropbox/Documents/Courses/MBAN/RBootcamps/Bootcamp_book&quot;</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="introduction.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#setwd(&quot;Book2022&quot;)</span></span>
-<span id="cb8-2"><a href="introduction.html#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="introduction.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#List all the objects in your local workspace using</span></span>
-<span id="cb8-4"><a href="introduction.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="introduction.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#setwd(&quot;Book2022&quot;)</span></span>
+<span id="cb9-2"><a href="introduction.html#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="introduction.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#List all the objects in your local workspace using</span></span>
+<span id="cb9-4"><a href="introduction.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="introduction.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#List all the files in your working directory using list.files() or </span></span>
-<span id="cb10-2"><a href="introduction.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="introduction.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#List all the files in your working directory using list.files() or </span></span>
+<span id="cb11-2"><a href="introduction.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>()</span></code></pre></div>
 <pre><code>##  [1] &quot;_book&quot;                    &quot;_bookdown_files&quot;         
 ##  [3] &quot;_bookdown.yml&quot;            &quot;_main_files&quot;             
-##  [5] &quot;_output.yml&quot;              &quot;01-intro.md&quot;             
-##  [7] &quot;01-intro.Rmd&quot;             &quot;02-Others_files&quot;         
-##  [9] &quot;02-Others.md&quot;             &quot;02-Others.Rmd&quot;           
-## [11] &quot;03-ReadWrite.md&quot;          &quot;03-ReadWrite.Rmd&quot;        
-## [13] &quot;04-visual_files&quot;          &quot;04-visual.md&quot;            
-## [15] &quot;04-visual.Rmd&quot;            &quot;05-DataMan_files&quot;        
-## [17] &quot;05-DataMan.md&quot;            &quot;05-DataMan.Rmd&quot;          
-## [19] &quot;06-Progrmamingbasics.md&quot;  &quot;06-Progrmamingbasics.Rmd&quot;
-## [21] &quot;07-Sim_cache&quot;             &quot;07-Sim_files&quot;            
-## [23] &quot;07-Sim.knit.md&quot;           &quot;07-Sim.Rmd&quot;              
-## [25] &quot;08-cross-refs_files&quot;      &quot;08-EDA_files&quot;            
-## [27] &quot;08-EDA.Rmd&quot;               &quot;09-Lessons.Rmd&quot;          
-## [29] &quot;Book_for_RBootcamp.log&quot;   &quot;Book_for_RBootcamp.rds&quot;  
-## [31] &quot;book.bib&quot;                 &quot;Bootcamp_book.Rproj&quot;     
-## [33] &quot;docs&quot;                     &quot;index.md&quot;                
-## [35] &quot;index.Rmd&quot;                &quot;packages.bib&quot;            
-## [37] &quot;png&quot;                      &quot;preamble.tex&quot;            
-## [39] &quot;README.md&quot;                &quot;render233553653a6d.rds&quot;  
-## [41] &quot;some_functions.R&quot;         &quot;style.css&quot;               
-## [43] &quot;table1.text&quot;</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="introduction.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#As we go through this lesson, you should be examining the help page </span></span>
-<span id="cb12-2"><a href="introduction.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#for each new function. Check out the help page for list.files with the</span></span>
-<span id="cb12-3"><a href="introduction.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#command</span></span>
-<span id="cb12-4"><a href="introduction.html#cb12-4" aria-hidden="true" tabindex="-1"></a>?list.files</span>
-<span id="cb12-5"><a href="introduction.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#or</span></span>
-<span id="cb12-6"><a href="introduction.html#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">&quot;list.files&quot;</span>)</span>
-<span id="cb12-7"><a href="introduction.html#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-8"><a href="introduction.html#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Using the args() function on a function name is also a handy way to </span></span>
-<span id="cb12-9"><a href="introduction.html#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#see what arguments a function can take.</span></span>
-<span id="cb12-10"><a href="introduction.html#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">args</span>(list.files)</span></code></pre></div>
+##  [5] &quot;_output.yml&quot;              &quot;01-intro.Rmd&quot;            
+##  [7] &quot;02-Others_files&quot;          &quot;02-Others.Rmd&quot;           
+##  [9] &quot;03-ReadWrite.Rmd&quot;         &quot;04-visual_files&quot;         
+## [11] &quot;04-visual.Rmd&quot;            &quot;05-DataMan_files&quot;        
+## [13] &quot;05-DataMan.Rmd&quot;           &quot;06-Progrmamingbasics.Rmd&quot;
+## [15] &quot;07-Sim_cache&quot;             &quot;07-Sim_files&quot;            
+## [17] &quot;07-Sim.Rmd&quot;               &quot;08-cross-refs_files&quot;     
+## [19] &quot;08-EDA_files&quot;             &quot;08-EDA.Rmd&quot;              
+## [21] &quot;09-Lessons.Rmd&quot;           &quot;Book_for_RBootcamp.log&quot;  
+## [23] &quot;Book_for_RBootcamp.rds&quot;   &quot;book.bib&quot;                
+## [25] &quot;Bootcamp_book.Rproj&quot;      &quot;docs&quot;                    
+## [27] &quot;index.md&quot;                 &quot;index.Rmd&quot;               
+## [29] &quot;packages.bib&quot;             &quot;png&quot;                     
+## [31] &quot;preamble.tex&quot;             &quot;README.md&quot;               
+## [33] &quot;render2af3793653e.rds&quot;    &quot;some_functions.R&quot;        
+## [35] &quot;style.css&quot;                &quot;table1.text&quot;</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="introduction.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#As we go through this lesson, you should be examining the help page </span></span>
+<span id="cb13-2"><a href="introduction.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#for each new function. Check out the help page for list.files with the</span></span>
+<span id="cb13-3"><a href="introduction.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#command</span></span>
+<span id="cb13-4"><a href="introduction.html#cb13-4" aria-hidden="true" tabindex="-1"></a>?list.files</span>
+<span id="cb13-5"><a href="introduction.html#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">#or</span></span>
+<span id="cb13-6"><a href="introduction.html#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">&quot;list.files&quot;</span>)</span>
+<span id="cb13-7"><a href="introduction.html#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="introduction.html#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Using the args() function on a function name is also a handy way to </span></span>
+<span id="cb13-9"><a href="introduction.html#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">#see what arguments a function can take.</span></span>
+<span id="cb13-10"><a href="introduction.html#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="fu">args</span>(list.files)</span></code></pre></div>
 <pre><code>## function (path = &quot;.&quot;, pattern = NULL, all.files = FALSE, full.names = FALSE, 
 ##     recursive = FALSE, ignore.case = FALSE, include.dirs = FALSE, 
 ##     no.. = FALSE) 
@@ -441,8 +437,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">1.7</span> R as a calculator<a href="introduction.html#r-as-a-calculator" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>At a very basic level, we can use R as a calculator.</p>
 <p>See <code>Lesson1</code> in our package <code>Rbootcamp</code>:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="introduction.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RBootcamp)</span>
-<span id="cb14-2"><a href="introduction.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#learnr::run_tutorial(&quot;Lesson1&quot;, &quot;RBootcamp&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="introduction.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RBootcamp)</span>
+<span id="cb15-2"><a href="introduction.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#learnr::run_tutorial(&quot;Lesson1&quot;, &quot;RBootcamp&quot;)</span></span></code></pre></div>
 </div>
 <div id="data-object-types" class="section level2 hasAnchor" number="1.8">
 <h2><span class="header-section-number">1.8</span> Data &amp; Object Types<a href="introduction.html#data-object-types" class="anchor-section" aria-label="Anchor link to header"></a></h2>

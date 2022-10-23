@@ -322,94 +322,94 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <strong>more R code</strong><br />
 <code>}</code></p>
 <p>Here is a simple example:</p>
-<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="programing-basics.html#cb532-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;what&quot;</span>,<span class="st">&quot;is&quot;</span>,<span class="st">&quot;truth&quot;</span>)</span>
-<span id="cb532-2"><a href="programing-basics.html#cb532-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb532-3"><a href="programing-basics.html#cb532-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="st">&quot;Truth&quot;</span> <span class="sc">%in%</span> x) {</span>
-<span id="cb532-4"><a href="programing-basics.html#cb532-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">print</span>(<span class="st">&quot;Truth is found&quot;</span>)</span>
-<span id="cb532-5"><a href="programing-basics.html#cb532-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb532-6"><a href="programing-basics.html#cb532-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">print</span>(<span class="st">&quot;Truth is not found&quot;</span>)</span>
-<span id="cb532-7"><a href="programing-basics.html#cb532-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="programing-basics.html#cb533-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;what&quot;</span>,<span class="st">&quot;is&quot;</span>,<span class="st">&quot;truth&quot;</span>)</span>
+<span id="cb533-2"><a href="programing-basics.html#cb533-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb533-3"><a href="programing-basics.html#cb533-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="st">&quot;Truth&quot;</span> <span class="sc">%in%</span> x) {</span>
+<span id="cb533-4"><a href="programing-basics.html#cb533-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">print</span>(<span class="st">&quot;Truth is found&quot;</span>)</span>
+<span id="cb533-5"><a href="programing-basics.html#cb533-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb533-6"><a href="programing-basics.html#cb533-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">print</span>(<span class="st">&quot;Truth is not found&quot;</span>)</span>
+<span id="cb533-7"><a href="programing-basics.html#cb533-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;Truth is not found&quot;</code></pre>
 <p>How about this:</p>
-<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="programing-basics.html#cb534-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">4</span>)</span>
-<span id="cb534-2"><a href="programing-basics.html#cb534-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb534-3"><a href="programing-basics.html#cb534-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb534-4"><a href="programing-basics.html#cb534-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Here is a nice if/Else</span></span>
-<span id="cb534-5"><a href="programing-basics.html#cb534-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">length</span>(x[x <span class="sc">==</span> a]) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb534-6"><a href="programing-basics.html#cb534-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;x has&quot;</span>, <span class="fu">length</span>(x[x<span class="sc">==</span>a]), a))</span>
-<span id="cb534-7"><a href="programing-basics.html#cb534-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb534-8"><a href="programing-basics.html#cb534-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;x doesn&#39;t have any&quot;</span>, a))</span>
-<span id="cb534-9"><a href="programing-basics.html#cb534-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="programing-basics.html#cb535-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">4</span>)</span>
+<span id="cb535-2"><a href="programing-basics.html#cb535-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb535-3"><a href="programing-basics.html#cb535-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb535-4"><a href="programing-basics.html#cb535-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Here is a nice if/Else</span></span>
+<span id="cb535-5"><a href="programing-basics.html#cb535-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">length</span>(x[x <span class="sc">==</span> a]) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb535-6"><a href="programing-basics.html#cb535-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;x has&quot;</span>, <span class="fu">length</span>(x[x<span class="sc">==</span>a]), a))</span>
+<span id="cb535-7"><a href="programing-basics.html#cb535-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb535-8"><a href="programing-basics.html#cb535-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;x doesn&#39;t have any&quot;</span>, a))</span>
+<span id="cb535-9"><a href="programing-basics.html#cb535-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;x doesn&#39;t have any 3&quot;</code></pre>
-<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="programing-basics.html#cb536-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Another one with pipping</span></span>
-<span id="cb536-2"><a href="programing-basics.html#cb536-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb536-3"><a href="programing-basics.html#cb536-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(a <span class="sc">%in%</span> x) {</span>
-<span id="cb536-4"><a href="programing-basics.html#cb536-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;x has&quot;</span>, <span class="fu">length</span>(x[x<span class="sc">==</span>a]), a))</span>
-<span id="cb536-5"><a href="programing-basics.html#cb536-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb536-6"><a href="programing-basics.html#cb536-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;x doesn&#39;t have any&quot;</span>, a))</span>
-<span id="cb536-7"><a href="programing-basics.html#cb536-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="programing-basics.html#cb537-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Another one with pipping</span></span>
+<span id="cb537-2"><a href="programing-basics.html#cb537-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb537-3"><a href="programing-basics.html#cb537-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(a <span class="sc">%in%</span> x) {</span>
+<span id="cb537-4"><a href="programing-basics.html#cb537-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;x has&quot;</span>, <span class="fu">length</span>(x[x<span class="sc">==</span>a]), a))</span>
+<span id="cb537-5"><a href="programing-basics.html#cb537-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb537-6"><a href="programing-basics.html#cb537-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;x doesn&#39;t have any&quot;</span>, a))</span>
+<span id="cb537-7"><a href="programing-basics.html#cb537-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;x has 2 4&quot;</code></pre>
 </div>
 <div id="nested-conditions" class="section level3 hasAnchor" number="7.1.2">
 <h3><span class="header-section-number">7.1.2</span> Nested conditions<a href="programing-basics.html#nested-conditions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="programing-basics.html#cb538-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Change the numbers to see all conditions</span></span>
-<span id="cb538-2"><a href="programing-basics.html#cb538-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb538-3"><a href="programing-basics.html#cb538-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb538-4"><a href="programing-basics.html#cb538-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> y<span class="sc">!=</span> <span class="dv">0</span>) {</span>
-<span id="cb538-5"><a href="programing-basics.html#cb538-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;a number cannot be divided by zero&quot;</span>)</span>
-<span id="cb538-6"><a href="programing-basics.html#cb538-6" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (x <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> y <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb538-7"><a href="programing-basics.html#cb538-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;a zero cannot be divided by zero&quot;</span>)</span>
-<span id="cb538-8"><a href="programing-basics.html#cb538-8" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb538-9"><a href="programing-basics.html#cb538-9" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> y<span class="sc">/</span>x </span>
-<span id="cb538-10"><a href="programing-basics.html#cb538-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;y/x = &quot;</span>, a))</span>
-<span id="cb538-11"><a href="programing-basics.html#cb538-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="programing-basics.html#cb539-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Change the numbers to see all conditions</span></span>
+<span id="cb539-2"><a href="programing-basics.html#cb539-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb539-3"><a href="programing-basics.html#cb539-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb539-4"><a href="programing-basics.html#cb539-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> y<span class="sc">!=</span> <span class="dv">0</span>) {</span>
+<span id="cb539-5"><a href="programing-basics.html#cb539-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;a number cannot be divided by zero&quot;</span>)</span>
+<span id="cb539-6"><a href="programing-basics.html#cb539-6" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (x <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> y <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb539-7"><a href="programing-basics.html#cb539-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;a zero cannot be divided by zero&quot;</span>)</span>
+<span id="cb539-8"><a href="programing-basics.html#cb539-8" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb539-9"><a href="programing-basics.html#cb539-9" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> y<span class="sc">/</span>x </span>
+<span id="cb539-10"><a href="programing-basics.html#cb539-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;y/x = &quot;</span>, a))</span>
+<span id="cb539-11"><a href="programing-basics.html#cb539-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;a number cannot be divided by zero&quot;</code></pre>
 <p>Building multiple conditions without else (it’s a silly example!):</p>
-<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="programing-basics.html#cb540-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb540-2"><a href="programing-basics.html#cb540-2" aria-hidden="true" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb540-3"><a href="programing-basics.html#cb540-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb540-4"><a href="programing-basics.html#cb540-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb540-5"><a href="programing-basics.html#cb540-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(z <span class="sc">&gt;</span> w) <span class="fu">print</span>(<span class="st">&quot;z is bigger than w&quot;</span>)</span>
-<span id="cb540-6"><a href="programing-basics.html#cb540-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(w <span class="sc">&gt;</span> z) <span class="fu">print</span>(<span class="st">&quot;w is bigger than z&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="programing-basics.html#cb541-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb541-2"><a href="programing-basics.html#cb541-2" aria-hidden="true" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb541-3"><a href="programing-basics.html#cb541-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb541-4"><a href="programing-basics.html#cb541-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb541-5"><a href="programing-basics.html#cb541-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(z <span class="sc">&gt;</span> w) <span class="fu">print</span>(<span class="st">&quot;z is bigger than w&quot;</span>)</span>
+<span id="cb541-6"><a href="programing-basics.html#cb541-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(w <span class="sc">&gt;</span> z) <span class="fu">print</span>(<span class="st">&quot;w is bigger than z&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;w is bigger than z&quot;</code></pre>
-<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="programing-basics.html#cb542-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&gt;</span> y) <span class="fu">print</span>(<span class="st">&quot;x is bigger than y&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="programing-basics.html#cb543-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&gt;</span> y) <span class="fu">print</span>(<span class="st">&quot;x is bigger than y&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;x is bigger than y&quot;</code></pre>
-<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="programing-basics.html#cb544-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(y <span class="sc">&gt;</span> x) <span class="fu">print</span>(<span class="st">&quot;y is bigger than x&quot;</span>)</span>
-<span id="cb544-2"><a href="programing-basics.html#cb544-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(z <span class="sc">&gt;</span> x) <span class="fu">print</span>(<span class="st">&quot;z is bigger than x&quot;</span>)</span>
-<span id="cb544-3"><a href="programing-basics.html#cb544-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&gt;</span> z) <span class="fu">print</span>(<span class="st">&quot;x is bigger than z&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="programing-basics.html#cb545-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(y <span class="sc">&gt;</span> x) <span class="fu">print</span>(<span class="st">&quot;y is bigger than x&quot;</span>)</span>
+<span id="cb545-2"><a href="programing-basics.html#cb545-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(z <span class="sc">&gt;</span> x) <span class="fu">print</span>(<span class="st">&quot;z is bigger than x&quot;</span>)</span>
+<span id="cb545-3"><a href="programing-basics.html#cb545-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&gt;</span> z) <span class="fu">print</span>(<span class="st">&quot;x is bigger than z&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;x is bigger than z&quot;</code></pre>
-<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="programing-basics.html#cb546-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(w <span class="sc">&gt;</span> y) <span class="fu">print</span>(<span class="st">&quot;w is bigger than y&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="programing-basics.html#cb547-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(w <span class="sc">&gt;</span> y) <span class="fu">print</span>(<span class="st">&quot;w is bigger than y&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;w is bigger than y&quot;</code></pre>
-<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="programing-basics.html#cb548-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(y <span class="sc">&gt;</span> w) <span class="fu">print</span>(<span class="st">&quot;y is bigger than w&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="programing-basics.html#cb549-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(y <span class="sc">&gt;</span> w) <span class="fu">print</span>(<span class="st">&quot;y is bigger than w&quot;</span>)</span></code></pre></div>
 </div>
 <div id="simpler-ifelse" class="section level3 hasAnchor" number="7.1.3">
 <h3><span class="header-section-number">7.1.3</span> Simpler <code>ifelse</code><a href="programing-basics.html#simpler-ifelse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A simpler, one-line <code>ifelse</code>:</p>
-<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="programing-basics.html#cb549-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Change the numbers</span></span>
-<span id="cb549-2"><a href="programing-basics.html#cb549-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb549-3"><a href="programing-basics.html#cb549-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb549-4"><a href="programing-basics.html#cb549-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span> (x <span class="sc">&gt;</span> y, <span class="st">&quot;x is bigger than y&quot;</span>, <span class="st">&quot;y is bigger than x&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="programing-basics.html#cb550-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Change the numbers</span></span>
+<span id="cb550-2"><a href="programing-basics.html#cb550-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb550-3"><a href="programing-basics.html#cb550-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb550-4"><a href="programing-basics.html#cb550-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span> (x <span class="sc">&gt;</span> y, <span class="st">&quot;x is bigger than y&quot;</span>, <span class="st">&quot;y is bigger than x&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;y is bigger than x&quot;</code></pre>
-<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="programing-basics.html#cb551-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Better (ifelse will fail if x = y.  Try it!)</span></span>
-<span id="cb551-2"><a href="programing-basics.html#cb551-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span> (x <span class="sc">==</span> y, <span class="st">&quot;x is the same as y&quot;</span>,</span>
-<span id="cb551-3"><a href="programing-basics.html#cb551-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">ifelse</span>(x <span class="sc">&gt;</span> y, <span class="st">&quot;x is bigger than y&quot;</span>, <span class="st">&quot;y is bigger than x&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="programing-basics.html#cb552-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Better (ifelse will fail if x = y.  Try it!)</span></span>
+<span id="cb552-2"><a href="programing-basics.html#cb552-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span> (x <span class="sc">==</span> y, <span class="st">&quot;x is the same as y&quot;</span>,</span>
+<span id="cb552-3"><a href="programing-basics.html#cb552-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">ifelse</span>(x <span class="sc">&gt;</span> y, <span class="st">&quot;x is bigger than y&quot;</span>, <span class="st">&quot;y is bigger than x&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;y is bigger than x&quot;</code></pre>
 <p>A simpler, without else!</p>
-<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="programing-basics.html#cb553-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb553-2"><a href="programing-basics.html#cb553-2" aria-hidden="true" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb553-3"><a href="programing-basics.html#cb553-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(z <span class="sc">&gt;</span> w) <span class="fu">print</span>(<span class="st">&quot;w is bigger than z&quot;</span>)</span>
-<span id="cb553-4"><a href="programing-basics.html#cb553-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb553-5"><a href="programing-basics.html#cb553-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Change the numbers</span></span>
-<span id="cb553-6"><a href="programing-basics.html#cb553-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb553-7"><a href="programing-basics.html#cb553-7" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb553-8"><a href="programing-basics.html#cb553-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&gt;</span> y) <span class="fu">print</span>(<span class="st">&quot;x is bigger than y&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="programing-basics.html#cb554-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb554-2"><a href="programing-basics.html#cb554-2" aria-hidden="true" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb554-3"><a href="programing-basics.html#cb554-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(z <span class="sc">&gt;</span> w) <span class="fu">print</span>(<span class="st">&quot;w is bigger than z&quot;</span>)</span>
+<span id="cb554-4"><a href="programing-basics.html#cb554-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb554-5"><a href="programing-basics.html#cb554-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Change the numbers</span></span>
+<span id="cb554-6"><a href="programing-basics.html#cb554-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb554-7"><a href="programing-basics.html#cb554-7" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb554-8"><a href="programing-basics.html#cb554-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&gt;</span> y) <span class="fu">print</span>(<span class="st">&quot;x is bigger than y&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;x is bigger than y&quot;</code></pre>
-<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="programing-basics.html#cb555-1" aria-hidden="true" tabindex="-1"></a><span class="co">#See that both of them moves to the next line.</span></span></code></pre></div>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="programing-basics.html#cb556-1" aria-hidden="true" tabindex="-1"></a><span class="co">#See that both of them moves to the next line.</span></span></code></pre></div>
 <p>The <code>ifelse()</code> function only allows for one “if” statement, two cases. You could add nested “if” statements, but that’s just a pain, especially if the 3+ conditions you want to use are all on the same level, conceptually. Is there a way to specify multiple conditions at the same time?</p>
-<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="programing-basics.html#cb556-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Let&#39;s create a data frame:</span></span>
-<span id="cb556-2"><a href="programing-basics.html#cb556-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">&quot;name&quot;</span><span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Kaija&quot;</span>, <span class="st">&quot;Ella&quot;</span>, <span class="st">&quot;Andis&quot;</span>), <span class="st">&quot;test1&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>),</span>
-<span id="cb556-3"><a href="programing-basics.html#cb556-3" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;test2&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>))</span>
-<span id="cb556-4"><a href="programing-basics.html#cb556-4" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="programing-basics.html#cb557-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Let&#39;s create a data frame:</span></span>
+<span id="cb557-2"><a href="programing-basics.html#cb557-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">&quot;name&quot;</span><span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Kaija&quot;</span>, <span class="st">&quot;Ella&quot;</span>, <span class="st">&quot;Andis&quot;</span>), <span class="st">&quot;test1&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>),</span>
+<span id="cb557-3"><a href="programing-basics.html#cb557-3" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;test2&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>))</span>
+<span id="cb557-4"><a href="programing-basics.html#cb557-4" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
 <pre><code>##    name test1 test2
 ## 1 Kaija FALSE FALSE
 ## 2  Ella  TRUE FALSE
@@ -422,13 +422,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>People who passed neither test: Group C</li>
 </ul>
 <p><code>dplyr</code> has a function for exactly this purpose: <code>case_when()</code>.</p>
-<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="programing-basics.html#cb558-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb558-2"><a href="programing-basics.html#cb558-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
-<span id="cb558-3"><a href="programing-basics.html#cb558-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">case_when</span>(test1 <span class="sc">&amp;</span> test2 <span class="sc">~</span> <span class="st">&quot;A&quot;</span>, <span class="co"># both tests: group A</span></span>
-<span id="cb558-4"><a href="programing-basics.html#cb558-4" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">xor</span>(test1, test2) <span class="sc">~</span> <span class="st">&quot;B&quot;</span>, <span class="co"># one test: group B</span></span>
-<span id="cb558-5"><a href="programing-basics.html#cb558-5" aria-hidden="true" tabindex="-1"></a>                         <span class="sc">!</span>test1 <span class="sc">&amp;</span> <span class="sc">!</span>test2 <span class="sc">~</span> <span class="st">&quot;C&quot;</span> <span class="co"># neither test: group C</span></span>
-<span id="cb558-6"><a href="programing-basics.html#cb558-6" aria-hidden="true" tabindex="-1"></a>))</span>
-<span id="cb558-7"><a href="programing-basics.html#cb558-7" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="programing-basics.html#cb559-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb559-2"><a href="programing-basics.html#cb559-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb559-3"><a href="programing-basics.html#cb559-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">case_when</span>(test1 <span class="sc">&amp;</span> test2 <span class="sc">~</span> <span class="st">&quot;A&quot;</span>, <span class="co"># both tests: group A</span></span>
+<span id="cb559-4"><a href="programing-basics.html#cb559-4" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">xor</span>(test1, test2) <span class="sc">~</span> <span class="st">&quot;B&quot;</span>, <span class="co"># one test: group B</span></span>
+<span id="cb559-5"><a href="programing-basics.html#cb559-5" aria-hidden="true" tabindex="-1"></a>                         <span class="sc">!</span>test1 <span class="sc">&amp;</span> <span class="sc">!</span>test2 <span class="sc">~</span> <span class="st">&quot;C&quot;</span> <span class="co"># neither test: group C</span></span>
+<span id="cb559-6"><a href="programing-basics.html#cb559-6" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb559-7"><a href="programing-basics.html#cb559-7" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
 <pre><code>##    name test1 test2 group
 ## 1 Kaija FALSE FALSE     C
 ## 2  Ella  TRUE FALSE     B
@@ -439,99 +439,99 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">7.2</span> Loops<a href="programing-basics.html#loops" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>What would you do if you needed to execute a block of code multiple times? In general, statements are executed sequentially. A loop statement allows us to execute a statement or group of statements multiple times and the following is the general form of a loop statement in most programming languages. There are 3 main loop types: <code>while()</code>, <code>for()</code>, <code>repeat()</code>.</p>
 <p>Here are some examples for <code>for()</code> loop:</p>
-<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="programing-basics.html#cb560-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">5</span>)</span>
-<span id="cb560-2"><a href="programing-basics.html#cb560-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb560-3"><a href="programing-basics.html#cb560-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)) {</span>
-<span id="cb560-4"><a href="programing-basics.html#cb560-4" aria-hidden="true" tabindex="-1"></a>  x[i] <span class="ot">&lt;-</span> x[i] <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb560-5"><a href="programing-basics.html#cb560-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb560-6"><a href="programing-basics.html#cb560-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb560-7"><a href="programing-basics.html#cb560-7" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="programing-basics.html#cb561-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">5</span>)</span>
+<span id="cb561-2"><a href="programing-basics.html#cb561-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb561-3"><a href="programing-basics.html#cb561-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)) {</span>
+<span id="cb561-4"><a href="programing-basics.html#cb561-4" aria-hidden="true" tabindex="-1"></a>  x[i] <span class="ot">&lt;-</span> x[i] <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb561-5"><a href="programing-basics.html#cb561-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb561-6"><a href="programing-basics.html#cb561-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb561-7"><a href="programing-basics.html#cb561-7" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1]  6 -2  8  4 20 10</code></pre>
 <p>Note that this just for an example. If we want to multiply each element of a vector by 2, a loop isn’t the best way. Although it is very normal in many programming languages, we would simply use a vectorized operation in R.</p>
-<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="programing-basics.html#cb562-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">5</span>)</span>
-<span id="cb562-2"><a href="programing-basics.html#cb562-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb562-3"><a href="programing-basics.html#cb562-3" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="programing-basics.html#cb563-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">5</span>)</span>
+<span id="cb563-2"><a href="programing-basics.html#cb563-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb563-3"><a href="programing-basics.html#cb563-3" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1]  6 -2  8  4 20 10</code></pre>
 <div id="conditional-loops" class="section level3 hasAnchor" number="7.2.1">
 <h3><span class="header-section-number">7.2.1</span> Conditional loops<a href="programing-basics.html#conditional-loops" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>But some times it would be very handy. If the element in <span class="math inline">\(x &gt; 3\)</span>, multiply it with the subsequent element:</p>
-<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="programing-basics.html#cb564-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">5</span>)</span>
-<span id="cb564-2"><a href="programing-basics.html#cb564-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb564-3"><a href="programing-basics.html#cb564-3" aria-hidden="true" tabindex="-1"></a>x_new <span class="ot">&lt;-</span> <span class="fu">c</span>() <span class="co">#empty container</span></span>
-<span id="cb564-4"><a href="programing-basics.html#cb564-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(<span class="fu">length</span>(x)<span class="sc">-</span><span class="dv">1</span>)) {</span>
-<span id="cb564-5"><a href="programing-basics.html#cb564-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(x[i] <span class="sc">&gt;</span> <span class="dv">3</span>,  x_new[i] <span class="ot">&lt;-</span> x[i] <span class="sc">*</span> x[i <span class="sc">+</span> <span class="dv">1</span>], x_new[i] <span class="ot">&lt;-</span> <span class="dv">0</span>)  </span>
-<span id="cb564-6"><a href="programing-basics.html#cb564-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb564-7"><a href="programing-basics.html#cb564-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb564-8"><a href="programing-basics.html#cb564-8" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="programing-basics.html#cb565-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">5</span>)</span>
+<span id="cb565-2"><a href="programing-basics.html#cb565-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb565-3"><a href="programing-basics.html#cb565-3" aria-hidden="true" tabindex="-1"></a>x_new <span class="ot">&lt;-</span> <span class="fu">c</span>() <span class="co">#empty container</span></span>
+<span id="cb565-4"><a href="programing-basics.html#cb565-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(<span class="fu">length</span>(x)<span class="sc">-</span><span class="dv">1</span>)) {</span>
+<span id="cb565-5"><a href="programing-basics.html#cb565-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(x[i] <span class="sc">&gt;</span> <span class="dv">3</span>,  x_new[i] <span class="ot">&lt;-</span> x[i] <span class="sc">*</span> x[i <span class="sc">+</span> <span class="dv">1</span>], x_new[i] <span class="ot">&lt;-</span> <span class="dv">0</span>)  </span>
+<span id="cb565-6"><a href="programing-basics.html#cb565-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb565-7"><a href="programing-basics.html#cb565-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb565-8"><a href="programing-basics.html#cb565-8" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1]  3 -1  0  2 10  5</code></pre>
-<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="programing-basics.html#cb566-1" aria-hidden="true" tabindex="-1"></a>x_new</span></code></pre></div>
+<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="programing-basics.html#cb567-1" aria-hidden="true" tabindex="-1"></a>x_new</span></code></pre></div>
 <pre><code>## [1]  0  0  0  0 50</code></pre>
 <p>Inside the <code>if</code> and <code>else</code> clause, you can use <code>next</code> and <code>break</code> to further control the flow. The <code>next</code> function goes directly to the next loop cycle, while <code>break</code> jumped out of the current loop.</p>
-<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="programing-basics.html#cb568-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">5</span>, <span class="sc">-</span><span class="dv">7</span>, <span class="dv">16</span>, <span class="dv">22</span>)</span>
-<span id="cb568-2"><a href="programing-basics.html#cb568-2" aria-hidden="true" tabindex="-1"></a>zn <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
-<span id="cb568-3"><a href="programing-basics.html#cb568-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb568-4"><a href="programing-basics.html#cb568-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)){ </span>
-<span id="cb568-5"><a href="programing-basics.html#cb568-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(x[i] <span class="sc">&lt;</span> <span class="dv">0</span>){ </span>
-<span id="cb568-6"><a href="programing-basics.html#cb568-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">next</span></span>
-<span id="cb568-7"><a href="programing-basics.html#cb568-7" aria-hidden="true" tabindex="-1"></a>  } </span>
-<span id="cb568-8"><a href="programing-basics.html#cb568-8" aria-hidden="true" tabindex="-1"></a>  zn <span class="ot">&lt;-</span> <span class="fu">c</span>(zn,  <span class="fu">sqrt</span>(x[i]))</span>
-<span id="cb568-9"><a href="programing-basics.html#cb568-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb568-10"><a href="programing-basics.html#cb568-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb568-11"><a href="programing-basics.html#cb568-11" aria-hidden="true" tabindex="-1"></a>zn</span></code></pre></div>
+<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="programing-basics.html#cb569-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">5</span>, <span class="sc">-</span><span class="dv">7</span>, <span class="dv">16</span>, <span class="dv">22</span>)</span>
+<span id="cb569-2"><a href="programing-basics.html#cb569-2" aria-hidden="true" tabindex="-1"></a>zn <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb569-3"><a href="programing-basics.html#cb569-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb569-4"><a href="programing-basics.html#cb569-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)){ </span>
+<span id="cb569-5"><a href="programing-basics.html#cb569-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(x[i] <span class="sc">&lt;</span> <span class="dv">0</span>){ </span>
+<span id="cb569-6"><a href="programing-basics.html#cb569-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">next</span></span>
+<span id="cb569-7"><a href="programing-basics.html#cb569-7" aria-hidden="true" tabindex="-1"></a>  } </span>
+<span id="cb569-8"><a href="programing-basics.html#cb569-8" aria-hidden="true" tabindex="-1"></a>  zn <span class="ot">&lt;-</span> <span class="fu">c</span>(zn,  <span class="fu">sqrt</span>(x[i]))</span>
+<span id="cb569-9"><a href="programing-basics.html#cb569-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb569-10"><a href="programing-basics.html#cb569-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb569-11"><a href="programing-basics.html#cb569-11" aria-hidden="true" tabindex="-1"></a>zn</span></code></pre></div>
 <pre><code>## [1] 3.000000 0.000000 2.236068 4.000000 4.690416</code></pre>
 <p>Inside the <code>if</code> and <code>else</code> clause, you can use <code>next</code> and <code>break</code> to further control the flow. The <code>next</code> function goes directly to the next loop cycle, while <code>break</code> jumped out of the current loop.</p>
-<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="programing-basics.html#cb570-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">16</span>, <span class="dv">22</span>)</span>
-<span id="cb570-2"><a href="programing-basics.html#cb570-2" aria-hidden="true" tabindex="-1"></a>bn <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
-<span id="cb570-3"><a href="programing-basics.html#cb570-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb570-4"><a href="programing-basics.html#cb570-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)){ </span>
-<span id="cb570-5"><a href="programing-basics.html#cb570-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(x[i] <span class="sc">&gt;</span> <span class="dv">10</span>){ </span>
-<span id="cb570-6"><a href="programing-basics.html#cb570-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span>
-<span id="cb570-7"><a href="programing-basics.html#cb570-7" aria-hidden="true" tabindex="-1"></a>  } </span>
-<span id="cb570-8"><a href="programing-basics.html#cb570-8" aria-hidden="true" tabindex="-1"></a>  bn <span class="ot">&lt;-</span> <span class="fu">c</span>(bn,  <span class="fu">sqrt</span>(x[i]))</span>
-<span id="cb570-9"><a href="programing-basics.html#cb570-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb570-10"><a href="programing-basics.html#cb570-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb570-11"><a href="programing-basics.html#cb570-11" aria-hidden="true" tabindex="-1"></a>bn</span></code></pre></div>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="programing-basics.html#cb571-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">16</span>, <span class="dv">22</span>)</span>
+<span id="cb571-2"><a href="programing-basics.html#cb571-2" aria-hidden="true" tabindex="-1"></a>bn <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb571-3"><a href="programing-basics.html#cb571-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb571-4"><a href="programing-basics.html#cb571-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)){ </span>
+<span id="cb571-5"><a href="programing-basics.html#cb571-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(x[i] <span class="sc">&gt;</span> <span class="dv">10</span>){ </span>
+<span id="cb571-6"><a href="programing-basics.html#cb571-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span>
+<span id="cb571-7"><a href="programing-basics.html#cb571-7" aria-hidden="true" tabindex="-1"></a>  } </span>
+<span id="cb571-8"><a href="programing-basics.html#cb571-8" aria-hidden="true" tabindex="-1"></a>  bn <span class="ot">&lt;-</span> <span class="fu">c</span>(bn,  <span class="fu">sqrt</span>(x[i]))</span>
+<span id="cb571-9"><a href="programing-basics.html#cb571-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb571-10"><a href="programing-basics.html#cb571-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb571-11"><a href="programing-basics.html#cb571-11" aria-hidden="true" tabindex="-1"></a>bn</span></code></pre></div>
 <pre><code>## [1] 3.000000 1.000000 0.000000 2.236068 2.645751</code></pre>
 </div>
 <div id="while-and-repeat" class="section level3 hasAnchor" number="7.2.2">
 <h3><span class="header-section-number">7.2.2</span> <code>while()</code> and <code>repeat()</code><a href="programing-basics.html#while-and-repeat" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Here are some examples for <code>while()</code> loop:</p>
-<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="programing-basics.html#cb572-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let&#39;s use our first example</span></span>
-<span id="cb572-2"><a href="programing-basics.html#cb572-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb572-3"><a href="programing-basics.html#cb572-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb572-4"><a href="programing-basics.html#cb572-4" aria-hidden="true" tabindex="-1"></a>cnt <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb572-5"><a href="programing-basics.html#cb572-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb572-6"><a href="programing-basics.html#cb572-6" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (cnt <span class="sc">&lt;</span> <span class="dv">11</span>) {</span>
-<span id="cb572-7"><a href="programing-basics.html#cb572-7" aria-hidden="true" tabindex="-1"></a>   x <span class="ot">=</span> x <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb572-8"><a href="programing-basics.html#cb572-8" aria-hidden="true" tabindex="-1"></a>   cnt <span class="ot">=</span> cnt <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb572-9"><a href="programing-basics.html#cb572-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb572-10"><a href="programing-basics.html#cb572-10" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="programing-basics.html#cb573-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let&#39;s use our first example</span></span>
+<span id="cb573-2"><a href="programing-basics.html#cb573-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-3"><a href="programing-basics.html#cb573-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb573-4"><a href="programing-basics.html#cb573-4" aria-hidden="true" tabindex="-1"></a>cnt <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb573-5"><a href="programing-basics.html#cb573-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-6"><a href="programing-basics.html#cb573-6" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (cnt <span class="sc">&lt;</span> <span class="dv">11</span>) {</span>
+<span id="cb573-7"><a href="programing-basics.html#cb573-7" aria-hidden="true" tabindex="-1"></a>   x <span class="ot">=</span> x <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb573-8"><a href="programing-basics.html#cb573-8" aria-hidden="true" tabindex="-1"></a>   cnt <span class="ot">=</span> cnt <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb573-9"><a href="programing-basics.html#cb573-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb573-10"><a href="programing-basics.html#cb573-10" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1] 3072</code></pre>
 <p>Here are some examples for <code>repeat()</code> loop:</p>
-<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="programing-basics.html#cb574-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let&#39;s use our first example</span></span>
-<span id="cb574-2"><a href="programing-basics.html#cb574-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb574-3"><a href="programing-basics.html#cb574-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb574-4"><a href="programing-basics.html#cb574-4" aria-hidden="true" tabindex="-1"></a>cnt <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb574-5"><a href="programing-basics.html#cb574-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb574-6"><a href="programing-basics.html#cb574-6" aria-hidden="true" tabindex="-1"></a><span class="cf">repeat</span> {</span>
-<span id="cb574-7"><a href="programing-basics.html#cb574-7" aria-hidden="true" tabindex="-1"></a>   x <span class="ot">=</span> x <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb574-8"><a href="programing-basics.html#cb574-8" aria-hidden="true" tabindex="-1"></a>   cnt <span class="ot">=</span> cnt <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb574-9"><a href="programing-basics.html#cb574-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb574-10"><a href="programing-basics.html#cb574-10" aria-hidden="true" tabindex="-1"></a>   <span class="cf">if</span>(cnt <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="cf">break</span></span>
-<span id="cb574-11"><a href="programing-basics.html#cb574-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb574-12"><a href="programing-basics.html#cb574-12" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="programing-basics.html#cb575-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let&#39;s use our first example</span></span>
+<span id="cb575-2"><a href="programing-basics.html#cb575-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb575-3"><a href="programing-basics.html#cb575-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb575-4"><a href="programing-basics.html#cb575-4" aria-hidden="true" tabindex="-1"></a>cnt <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb575-5"><a href="programing-basics.html#cb575-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb575-6"><a href="programing-basics.html#cb575-6" aria-hidden="true" tabindex="-1"></a><span class="cf">repeat</span> {</span>
+<span id="cb575-7"><a href="programing-basics.html#cb575-7" aria-hidden="true" tabindex="-1"></a>   x <span class="ot">=</span> x <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb575-8"><a href="programing-basics.html#cb575-8" aria-hidden="true" tabindex="-1"></a>   cnt <span class="ot">=</span> cnt <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb575-9"><a href="programing-basics.html#cb575-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb575-10"><a href="programing-basics.html#cb575-10" aria-hidden="true" tabindex="-1"></a>   <span class="cf">if</span>(cnt <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="cf">break</span></span>
+<span id="cb575-11"><a href="programing-basics.html#cb575-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb575-12"><a href="programing-basics.html#cb575-12" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1] 3072</code></pre>
 </div>
 <div id="nested-loops" class="section level3 hasAnchor" number="7.2.3">
 <h3><span class="header-section-number">7.2.3</span> Nested loops<a href="programing-basics.html#nested-loops" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>It is also common to put one loop inside another one. Let’s say we want to create a 5x5 matrix where each element <span class="math inline">\(A_{i j}=i+j\)</span></p>
-<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="programing-basics.html#cb576-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">5</span>) <span class="co">#initialize the matrix A</span></span>
-<span id="cb576-2"><a href="programing-basics.html#cb576-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb576-3"><a href="programing-basics.html#cb576-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)       <span class="co">#loop over index i</span></span>
-<span id="cb576-4"><a href="programing-basics.html#cb576-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>){    <span class="co">#loop over index j</span></span>
-<span id="cb576-5"><a href="programing-basics.html#cb576-5" aria-hidden="true" tabindex="-1"></a>    A[i, j] <span class="ot">&lt;-</span> i <span class="sc">+</span> j <span class="co">#set the (i, j)-th element of A</span></span>
-<span id="cb576-6"><a href="programing-basics.html#cb576-6" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb576-7"><a href="programing-basics.html#cb576-7" aria-hidden="true" tabindex="-1"></a>A</span></code></pre></div>
+<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="programing-basics.html#cb577-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">5</span>) <span class="co">#initialize the matrix A</span></span>
+<span id="cb577-2"><a href="programing-basics.html#cb577-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb577-3"><a href="programing-basics.html#cb577-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)       <span class="co">#loop over index i</span></span>
+<span id="cb577-4"><a href="programing-basics.html#cb577-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>){    <span class="co">#loop over index j</span></span>
+<span id="cb577-5"><a href="programing-basics.html#cb577-5" aria-hidden="true" tabindex="-1"></a>    A[i, j] <span class="ot">&lt;-</span> i <span class="sc">+</span> j <span class="co">#set the (i, j)-th element of A</span></span>
+<span id="cb577-6"><a href="programing-basics.html#cb577-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb577-7"><a href="programing-basics.html#cb577-7" aria-hidden="true" tabindex="-1"></a>A</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5]
 ## [1,]    2    3    4    5    6
 ## [2,]    3    4    5    6    7
@@ -542,16 +542,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="outer" class="section level3 hasAnchor" number="7.2.4">
 <h3><span class="header-section-number">7.2.4</span> <code>outer()</code><a href="programing-basics.html#outer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>outer()</code> takes two vectors and a function (that itself takes two arguments) and builds a <strong>matrix</strong> by calling the given function for each combination of the elements in the two vectors.</p>
-<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="programing-basics.html#cb578-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>)</span>
-<span id="cb578-2"><a href="programing-basics.html#cb578-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
-<span id="cb578-3"><a href="programing-basics.html#cb578-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb578-4"><a href="programing-basics.html#cb578-4" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">outer</span> (</span>
-<span id="cb578-5"><a href="programing-basics.html#cb578-5" aria-hidden="true" tabindex="-1"></a>   y,     <span class="co"># First dimension:  the columns (y)</span></span>
-<span id="cb578-6"><a href="programing-basics.html#cb578-6" aria-hidden="true" tabindex="-1"></a>   x,     <span class="co"># Second dimension: the rows    (x)</span></span>
-<span id="cb578-7"><a href="programing-basics.html#cb578-7" aria-hidden="true" tabindex="-1"></a>   <span class="cf">function</span> (x, y)   x<span class="sc">+</span><span class="dv">2</span><span class="sc">*</span>y</span>
-<span id="cb578-8"><a href="programing-basics.html#cb578-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb578-9"><a href="programing-basics.html#cb578-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb578-10"><a href="programing-basics.html#cb578-10" aria-hidden="true" tabindex="-1"></a>m</span></code></pre></div>
+<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="programing-basics.html#cb579-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb579-2"><a href="programing-basics.html#cb579-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb579-3"><a href="programing-basics.html#cb579-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb579-4"><a href="programing-basics.html#cb579-4" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">outer</span> (</span>
+<span id="cb579-5"><a href="programing-basics.html#cb579-5" aria-hidden="true" tabindex="-1"></a>   y,     <span class="co"># First dimension:  the columns (y)</span></span>
+<span id="cb579-6"><a href="programing-basics.html#cb579-6" aria-hidden="true" tabindex="-1"></a>   x,     <span class="co"># Second dimension: the rows    (x)</span></span>
+<span id="cb579-7"><a href="programing-basics.html#cb579-7" aria-hidden="true" tabindex="-1"></a>   <span class="cf">function</span> (x, y)   x<span class="sc">+</span><span class="dv">2</span><span class="sc">*</span>y</span>
+<span id="cb579-8"><a href="programing-basics.html#cb579-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb579-9"><a href="programing-basics.html#cb579-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb579-10"><a href="programing-basics.html#cb579-10" aria-hidden="true" tabindex="-1"></a>m</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    0    2    4
 ## [2,]    1    3    5
@@ -559,41 +559,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [4,]    3    5    7
 ## [5,]    4    6    8</code></pre>
 <p>In place of the function, an operator can be given, which makes it easy to create a matrix with simple calculations (such as multiplying):</p>
-<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="programing-basics.html#cb580-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">outer</span>(<span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>), <span class="st">&quot;*&quot;</span>)</span>
-<span id="cb580-2"><a href="programing-basics.html#cb580-2" aria-hidden="true" tabindex="-1"></a>m</span></code></pre></div>
+<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="programing-basics.html#cb581-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">outer</span>(<span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>), <span class="st">&quot;*&quot;</span>)</span>
+<span id="cb581-2"><a href="programing-basics.html#cb581-2" aria-hidden="true" tabindex="-1"></a>m</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]   20   40   60
 ## [2,]   40   80  120
 ## [3,]   60  120  180
 ## [4,]   80  160  240</code></pre>
 <p>It becomes very handy when we build a polynomial model:</p>
-<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="programing-basics.html#cb582-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">20</span>, <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb582-2"><a href="programing-basics.html#cb582-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
-<pre><code>##  [1] 19 11 11  9 11  2 15  1 18  4</code></pre>
-<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="programing-basics.html#cb584-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">outer</span>(x, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="st">&quot;^&quot;</span>)</span>
-<span id="cb584-2"><a href="programing-basics.html#cb584-2" aria-hidden="true" tabindex="-1"></a>m</span></code></pre></div>
+<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="programing-basics.html#cb583-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">20</span>, <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb583-2"><a href="programing-basics.html#cb583-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1] 15 20  0 17 18 13 16 13 10 15</code></pre>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="programing-basics.html#cb585-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">outer</span>(x, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="st">&quot;^&quot;</span>)</span>
+<span id="cb585-2"><a href="programing-basics.html#cb585-2" aria-hidden="true" tabindex="-1"></a>m</span></code></pre></div>
 <pre><code>##       [,1] [,2] [,3]   [,4]
-##  [1,]   19  361 6859 130321
-##  [2,]   11  121 1331  14641
-##  [3,]   11  121 1331  14641
-##  [4,]    9   81  729   6561
-##  [5,]   11  121 1331  14641
-##  [6,]    2    4    8     16
-##  [7,]   15  225 3375  50625
-##  [8,]    1    1    1      1
-##  [9,]   18  324 5832 104976
-## [10,]    4   16   64    256</code></pre>
+##  [1,]   15  225 3375  50625
+##  [2,]   20  400 8000 160000
+##  [3,]    0    0    0      0
+##  [4,]   17  289 4913  83521
+##  [5,]   18  324 5832 104976
+##  [6,]   13  169 2197  28561
+##  [7,]   16  256 4096  65536
+##  [8,]   13  169 2197  28561
+##  [9,]   10  100 1000  10000
+## [10,]   15  225 3375  50625</code></pre>
 <p>We can also use <code>outer()</code> for this example</p>
-<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="programing-basics.html#cb586-1" aria-hidden="true" tabindex="-1"></a><span class="fu">outer</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="st">&quot;+&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="programing-basics.html#cb587-1" aria-hidden="true" tabindex="-1"></a><span class="fu">outer</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="st">&quot;+&quot;</span>)</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5]
 ## [1,]    2    3    4    5    6
 ## [2,]    3    4    5    6    7
 ## [3,]    4    5    6    7    8
 ## [4,]    5    6    7    8    9
 ## [5,]    6    7    8    9   10</code></pre>
-<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="programing-basics.html#cb588-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Or</span></span>
-<span id="cb588-2"><a href="programing-basics.html#cb588-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb588-3"><a href="programing-basics.html#cb588-3" aria-hidden="true" tabindex="-1"></a><span class="fu">outer</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="cf">function</span>(i, j){<span class="fl">0.5</span><span class="sc">^</span>{<span class="fu">abs</span>(i<span class="sc">-</span>j)}})</span></code></pre></div>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="programing-basics.html#cb589-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Or</span></span>
+<span id="cb589-2"><a href="programing-basics.html#cb589-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb589-3"><a href="programing-basics.html#cb589-3" aria-hidden="true" tabindex="-1"></a><span class="fu">outer</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="cf">function</span>(i, j){<span class="fl">0.5</span><span class="sc">^</span>{<span class="fu">abs</span>(i<span class="sc">-</span>j)}})</span></code></pre></div>
 <pre><code>##       [,1] [,2] [,3]  [,4]
 ## [1,] 1.000 0.50 0.25 0.125
 ## [2,] 0.500 1.00 0.50 0.250
@@ -607,44 +607,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="apply" class="section level3 hasAnchor" number="7.3.1">
 <h3><span class="header-section-number">7.3.1</span> <code>apply()</code><a href="programing-basics.html#apply" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The R base manual tells you that it’s called as follows: <code>apply(X, MARGIN, FUN, ...)</code>, where, X is an array or a matrix if the dimension of the array is 2; MARGIN is a variable defining how the function is applied: when <code>MARGIN=1</code>, it applies over rows, whereas with <code>MARGIN=2</code>, it works over columns. Note that when you use the construct <code>MARGIN=c(1,2)</code>, it applies to both rows and columns; and FUN, which is the function that you want to apply to the data. It can be any R function, including a User Defined Function (UDF).</p>
-<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="programing-basics.html#cb590-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct a 5x6 matrix</span></span>
-<span id="cb590-2"><a href="programing-basics.html#cb590-2" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">30</span>), <span class="at">nrow=</span><span class="dv">5</span>, <span class="at">ncol=</span><span class="dv">6</span>)</span>
-<span id="cb590-3"><a href="programing-basics.html#cb590-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb590-4"><a href="programing-basics.html#cb590-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum the values of each column with `apply()`</span></span>
-<span id="cb590-5"><a href="programing-basics.html#cb590-5" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(X, <span class="dv">2</span>, sum)</span></code></pre></div>
-<pre><code>## [1] -1.5376961  0.6306459 -3.1555412 -1.1269122  0.3827104  2.8013379</code></pre>
-<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="programing-basics.html#cb592-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(X, <span class="dv">2</span>, length)</span></code></pre></div>
+<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="programing-basics.html#cb591-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct a 5x6 matrix</span></span>
+<span id="cb591-2"><a href="programing-basics.html#cb591-2" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">30</span>), <span class="at">nrow=</span><span class="dv">5</span>, <span class="at">ncol=</span><span class="dv">6</span>)</span>
+<span id="cb591-3"><a href="programing-basics.html#cb591-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb591-4"><a href="programing-basics.html#cb591-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum the values of each column with `apply()`</span></span>
+<span id="cb591-5"><a href="programing-basics.html#cb591-5" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(X, <span class="dv">2</span>, sum)</span></code></pre></div>
+<pre><code>## [1]  0.06014627  4.31263896 -0.48809158 -1.18552946  0.27757546  2.37823301</code></pre>
+<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="programing-basics.html#cb593-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(X, <span class="dv">2</span>, length)</span></code></pre></div>
 <pre><code>## [1] 5 5 5 5 5 5</code></pre>
-<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="programing-basics.html#cb594-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(X, <span class="dv">1</span>, length)</span></code></pre></div>
+<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="programing-basics.html#cb595-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(X, <span class="dv">1</span>, length)</span></code></pre></div>
 <pre><code>## [1] 6 6 6 6 6</code></pre>
-<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="programing-basics.html#cb596-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(X, <span class="dv">2</span>, <span class="cf">function</span> (x) <span class="fu">length</span>(x)<span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="programing-basics.html#cb597-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(X, <span class="dv">2</span>, <span class="cf">function</span> (x) <span class="fu">length</span>(x)<span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] 4 4 4 4 4 4</code></pre>
-<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="programing-basics.html#cb598-1" aria-hidden="true" tabindex="-1"></a><span class="co">#If you don’t want to write a function inside of the arguments</span></span>
-<span id="cb598-2"><a href="programing-basics.html#cb598-2" aria-hidden="true" tabindex="-1"></a>len <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
-<span id="cb598-3"><a href="programing-basics.html#cb598-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">length</span>(x)<span class="sc">-</span><span class="dv">1</span></span>
-<span id="cb598-4"><a href="programing-basics.html#cb598-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb598-5"><a href="programing-basics.html#cb598-5" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(X,<span class="dv">2</span>, len)</span></code></pre></div>
+<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="programing-basics.html#cb599-1" aria-hidden="true" tabindex="-1"></a><span class="co">#If you don’t want to write a function inside of the arguments</span></span>
+<span id="cb599-2"><a href="programing-basics.html#cb599-2" aria-hidden="true" tabindex="-1"></a>len <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb599-3"><a href="programing-basics.html#cb599-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">length</span>(x)<span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb599-4"><a href="programing-basics.html#cb599-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb599-5"><a href="programing-basics.html#cb599-5" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(X,<span class="dv">2</span>, len)</span></code></pre></div>
 <pre><code>## [1] 4 4 4 4 4 4</code></pre>
-<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="programing-basics.html#cb600-1" aria-hidden="true" tabindex="-1"></a><span class="co">#It can also be used to repeat a function on cells within a matrix</span></span>
-<span id="cb600-2"><a href="programing-basics.html#cb600-2" aria-hidden="true" tabindex="-1"></a>X_new <span class="ot">&lt;-</span> <span class="fu">apply</span>(X[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,], <span class="dv">1</span>, <span class="cf">function</span>(x) x<span class="sc">+</span><span class="dv">1</span>)</span>
-<span id="cb600-3"><a href="programing-basics.html#cb600-3" aria-hidden="true" tabindex="-1"></a>X_new</span></code></pre></div>
-<pre><code>##            [,1]       [,2]
-## [1,]  0.3381992  0.6719277
-## [2,]  1.2002423 -0.3968121
-## [3,] -0.3293303  1.8315186
-## [4,]  0.9558739  0.6204537
-## [5,]  0.5952802  3.4360211
-## [6,]  0.9221347  2.5534216</code></pre>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="programing-basics.html#cb601-1" aria-hidden="true" tabindex="-1"></a><span class="co">#It can also be used to repeat a function on cells within a matrix</span></span>
+<span id="cb601-2"><a href="programing-basics.html#cb601-2" aria-hidden="true" tabindex="-1"></a>X_new <span class="ot">&lt;-</span> <span class="fu">apply</span>(X[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,], <span class="dv">1</span>, <span class="cf">function</span>(x) x<span class="sc">+</span><span class="dv">1</span>)</span>
+<span id="cb601-3"><a href="programing-basics.html#cb601-3" aria-hidden="true" tabindex="-1"></a>X_new</span></code></pre></div>
+<pre><code>##           [,1]     [,2]
+## [1,] 0.3719303 1.175758
+## [2,] 1.0629151 1.888140
+## [3,] 1.4391378 2.594429
+## [4,] 0.8474431 1.797595
+## [5,] 1.3438676 1.071798
+## [6,] 1.0353195 2.718377</code></pre>
 <p>Since <code>apply()</code> is used only for matrices, if you apply <code>apply()</code> to a data frame, it first coerces your data.frame to an array which means all the columns must have the same type. Depending on your context, this could have unintended consequences. For a safer practice in data frames, we can use <code>lappy()</code> and <code>sapply()</code>:</p>
 </div>
 <div id="lapply" class="section level3 hasAnchor" number="7.3.2">
 <h3><span class="header-section-number">7.3.2</span> <code>lapply()</code><a href="programing-basics.html#lapply" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You want to apply a given function to every element of a list and obtain a list as a result. When you execute <code>?lapply</code>, you see that the syntax looks like the <code>apply()</code> function. The difference is that it can be used for other objects like data frames, lists or vectors. And the output returned is a list (which explains the “l” in the function name), which has the same number of elements as the object passed to it. <code>lapply()</code> function does not need MARGIN.</p>
-<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="programing-basics.html#cb602-1" aria-hidden="true" tabindex="-1"></a>A<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>)</span>
-<span id="cb602-2"><a href="programing-basics.html#cb602-2" aria-hidden="true" tabindex="-1"></a>B<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>)</span>
-<span id="cb602-3"><a href="programing-basics.html#cb602-3" aria-hidden="true" tabindex="-1"></a>C<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>)</span>
-<span id="cb602-4"><a href="programing-basics.html#cb602-4" aria-hidden="true" tabindex="-1"></a>my.lst<span class="ot">&lt;-</span><span class="fu">list</span>(A,B,C)</span>
-<span id="cb602-5"><a href="programing-basics.html#cb602-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(my.lst, sum)</span></code></pre></div>
+<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="programing-basics.html#cb603-1" aria-hidden="true" tabindex="-1"></a>A<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>)</span>
+<span id="cb603-2"><a href="programing-basics.html#cb603-2" aria-hidden="true" tabindex="-1"></a>B<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb603-3"><a href="programing-basics.html#cb603-3" aria-hidden="true" tabindex="-1"></a>C<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>)</span>
+<span id="cb603-4"><a href="programing-basics.html#cb603-4" aria-hidden="true" tabindex="-1"></a>my.lst<span class="ot">&lt;-</span><span class="fu">list</span>(A,B,C)</span>
+<span id="cb603-5"><a href="programing-basics.html#cb603-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(my.lst, sum)</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 45
 ## 
@@ -657,19 +657,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="sapply" class="section level3 hasAnchor" number="7.3.3">
 <h3><span class="header-section-number">7.3.3</span> <code>sapply()</code><a href="programing-basics.html#sapply" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>sapply</code> works just like <code>lapply</code>, but will simplify the output if possible. This means that instead of returning a list like <code>lapply</code>, it will return a vector instead if the data is simplifiable.</p>
-<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="programing-basics.html#cb604-1" aria-hidden="true" tabindex="-1"></a>A<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>)</span>
-<span id="cb604-2"><a href="programing-basics.html#cb604-2" aria-hidden="true" tabindex="-1"></a>B<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>)</span>
-<span id="cb604-3"><a href="programing-basics.html#cb604-3" aria-hidden="true" tabindex="-1"></a>C<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>)</span>
-<span id="cb604-4"><a href="programing-basics.html#cb604-4" aria-hidden="true" tabindex="-1"></a>my.lst<span class="ot">&lt;-</span><span class="fu">list</span>(A,B,C)</span>
-<span id="cb604-5"><a href="programing-basics.html#cb604-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(my.lst, sum)</span></code></pre></div>
+<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="programing-basics.html#cb605-1" aria-hidden="true" tabindex="-1"></a>A<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>)</span>
+<span id="cb605-2"><a href="programing-basics.html#cb605-2" aria-hidden="true" tabindex="-1"></a>B<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb605-3"><a href="programing-basics.html#cb605-3" aria-hidden="true" tabindex="-1"></a>C<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>)</span>
+<span id="cb605-4"><a href="programing-basics.html#cb605-4" aria-hidden="true" tabindex="-1"></a>my.lst<span class="ot">&lt;-</span><span class="fu">list</span>(A,B,C)</span>
+<span id="cb605-5"><a href="programing-basics.html#cb605-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(my.lst, sum)</span></code></pre></div>
 <pre><code>## [1]  45  78 120</code></pre>
 </div>
 <div id="tapply" class="section level3 hasAnchor" number="7.3.4">
 <h3><span class="header-section-number">7.3.4</span> <code>tapply()</code><a href="programing-basics.html#tapply" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Sometimes you may want to perform the apply function on some data, but have it separated by factor. In that case, you should use <code>tapply</code>. Let’s take a look at the information for <code>tapply</code>.</p>
-<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="programing-basics.html#cb606-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">11</span><span class="sc">:</span><span class="dv">20</span>, <span class="dv">21</span><span class="sc">:</span><span class="dv">30</span>), <span class="at">nrow =</span> <span class="dv">10</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
-<span id="cb606-2"><a href="programing-basics.html#cb606-2" aria-hidden="true" tabindex="-1"></a>tdata <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">cbind</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>), X))</span>
-<span id="cb606-3"><a href="programing-basics.html#cb606-3" aria-hidden="true" tabindex="-1"></a>tdata</span></code></pre></div>
+<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="programing-basics.html#cb607-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">11</span><span class="sc">:</span><span class="dv">20</span>, <span class="dv">21</span><span class="sc">:</span><span class="dv">30</span>), <span class="at">nrow =</span> <span class="dv">10</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb607-2"><a href="programing-basics.html#cb607-2" aria-hidden="true" tabindex="-1"></a>tdata <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">cbind</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>), X))</span>
+<span id="cb607-3"><a href="programing-basics.html#cb607-3" aria-hidden="true" tabindex="-1"></a>tdata</span></code></pre></div>
 <pre><code>##    V1 V2 V3 V4
 ## 1   1  1 11 21
 ## 2   1  2 12 22
@@ -681,12 +681,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 8   2  8 18 28
 ## 9   2  9 19 29
 ## 10  2 10 20 30</code></pre>
-<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="programing-basics.html#cb608-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(tdata<span class="sc">$</span>V2, tdata<span class="sc">$</span>V1, mean)</span></code></pre></div>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="programing-basics.html#cb609-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(tdata<span class="sc">$</span>V2, tdata<span class="sc">$</span>V1, mean)</span></code></pre></div>
 <pre><code>## 1 2 
 ## 3 8</code></pre>
 <p>What we have here is an important tool: We have a conditional mean of column 2 (V2) with respect to column 1 (V1). You can use <code>tapply</code> to do some quick summary statistics on a variable split by condition.</p>
-<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="programing-basics.html#cb610-1" aria-hidden="true" tabindex="-1"></a>summary <span class="ot">&lt;-</span> <span class="fu">tapply</span>(tdata<span class="sc">$</span>V2, tdata<span class="sc">$</span>V1, <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="fu">mean</span>(x), <span class="fu">sd</span>(x)))</span>
-<span id="cb610-2"><a href="programing-basics.html#cb610-2" aria-hidden="true" tabindex="-1"></a>summary</span></code></pre></div>
+<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="programing-basics.html#cb611-1" aria-hidden="true" tabindex="-1"></a>summary <span class="ot">&lt;-</span> <span class="fu">tapply</span>(tdata<span class="sc">$</span>V2, tdata<span class="sc">$</span>V1, <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="fu">mean</span>(x), <span class="fu">sd</span>(x)))</span>
+<span id="cb611-2"><a href="programing-basics.html#cb611-2" aria-hidden="true" tabindex="-1"></a>summary</span></code></pre></div>
 <pre><code>## $`1`
 ## [1] 3.000000 1.581139
 ## 
@@ -696,8 +696,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="mapply" class="section level3 hasAnchor" number="7.3.5">
 <h3><span class="header-section-number">7.3.5</span> <code>mapply()</code><a href="programing-basics.html#mapply" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>mapply()</code> would be used to create a new variable. For example, using dataset <code>tdata</code>, we could divide one column by another column to create a new value. This would be useful for creating a ratio of two variables as shown in the example below.</p>
-<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="programing-basics.html#cb612-1" aria-hidden="true" tabindex="-1"></a>tdata<span class="sc">$</span>V5 <span class="ot">&lt;-</span> <span class="fu">mapply</span>(<span class="cf">function</span>(x, y) x<span class="sc">/</span>y, tdata<span class="sc">$</span>V2, tdata<span class="sc">$</span>V4)</span>
-<span id="cb612-2"><a href="programing-basics.html#cb612-2" aria-hidden="true" tabindex="-1"></a>tdata<span class="sc">$</span>V5</span></code></pre></div>
+<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="programing-basics.html#cb613-1" aria-hidden="true" tabindex="-1"></a>tdata<span class="sc">$</span>V5 <span class="ot">&lt;-</span> <span class="fu">mapply</span>(<span class="cf">function</span>(x, y) x<span class="sc">/</span>y, tdata<span class="sc">$</span>V2, tdata<span class="sc">$</span>V4)</span>
+<span id="cb613-2"><a href="programing-basics.html#cb613-2" aria-hidden="true" tabindex="-1"></a>tdata<span class="sc">$</span>V5</span></code></pre></div>
 <pre><code>##  [1] 0.04761905 0.09090909 0.13043478 0.16666667 0.20000000 0.23076923
 ##  [7] 0.25925926 0.28571429 0.31034483 0.33333333</code></pre>
 </div>
@@ -705,37 +705,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="functions" class="section level2 hasAnchor" number="7.4">
 <h2><span class="header-section-number">7.4</span> Functions<a href="programing-basics.html#functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>An R function is created by using the keyword function. Let’s write our first function:</p>
-<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="programing-basics.html#cb614-1" aria-hidden="true" tabindex="-1"></a>first <span class="ot">&lt;-</span> <span class="cf">function</span>(a){</span>
-<span id="cb614-2"><a href="programing-basics.html#cb614-2" aria-hidden="true" tabindex="-1"></a>  b <span class="ot">&lt;-</span> a <span class="sc">^</span> <span class="dv">2</span></span>
-<span id="cb614-3"><a href="programing-basics.html#cb614-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(b)</span>
-<span id="cb614-4"><a href="programing-basics.html#cb614-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb614-5"><a href="programing-basics.html#cb614-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb614-6"><a href="programing-basics.html#cb614-6" aria-hidden="true" tabindex="-1"></a><span class="fu">first</span>(<span class="dv">1675</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="programing-basics.html#cb615-1" aria-hidden="true" tabindex="-1"></a>first <span class="ot">&lt;-</span> <span class="cf">function</span>(a){</span>
+<span id="cb615-2"><a href="programing-basics.html#cb615-2" aria-hidden="true" tabindex="-1"></a>  b <span class="ot">&lt;-</span> a <span class="sc">^</span> <span class="dv">2</span></span>
+<span id="cb615-3"><a href="programing-basics.html#cb615-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(b)</span>
+<span id="cb615-4"><a href="programing-basics.html#cb615-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb615-5"><a href="programing-basics.html#cb615-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb615-6"><a href="programing-basics.html#cb615-6" aria-hidden="true" tabindex="-1"></a><span class="fu">first</span>(<span class="dv">1675</span>)</span></code></pre></div>
 <pre><code>## [1] 2805625</code></pre>
 <p>Let’s have a function that find the z-score (standardization). That’s subtracting the sample mean, and dividing by the sample standard deviation.</p>
 <p><span class="math display">\[
 \frac{x-\overline{x}}{s}
 \]</span></p>
-<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="programing-basics.html#cb616-1" aria-hidden="true" tabindex="-1"></a>z_score <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
-<span id="cb616-2"><a href="programing-basics.html#cb616-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>((x <span class="sc">-</span> <span class="fu">mean</span>(x))<span class="sc">/</span><span class="fu">sd</span>(x))</span>
-<span id="cb616-3"><a href="programing-basics.html#cb616-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb616-4"><a href="programing-basics.html#cb616-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb616-5"><a href="programing-basics.html#cb616-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb616-6"><a href="programing-basics.html#cb616-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="dv">3</span>, <span class="dv">30</span>)</span>
-<span id="cb616-7"><a href="programing-basics.html#cb616-7" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">z_score</span>(x)</span>
-<span id="cb616-8"><a href="programing-basics.html#cb616-8" aria-hidden="true" tabindex="-1"></a>z</span></code></pre></div>
+<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="programing-basics.html#cb617-1" aria-hidden="true" tabindex="-1"></a>z_score <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb617-2"><a href="programing-basics.html#cb617-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>((x <span class="sc">-</span> <span class="fu">mean</span>(x))<span class="sc">/</span><span class="fu">sd</span>(x))</span>
+<span id="cb617-3"><a href="programing-basics.html#cb617-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb617-4"><a href="programing-basics.html#cb617-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb617-5"><a href="programing-basics.html#cb617-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb617-6"><a href="programing-basics.html#cb617-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="dv">3</span>, <span class="dv">30</span>)</span>
+<span id="cb617-7"><a href="programing-basics.html#cb617-7" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">z_score</span>(x)</span>
+<span id="cb617-8"><a href="programing-basics.html#cb617-8" aria-hidden="true" tabindex="-1"></a>z</span></code></pre></div>
 <pre><code>##  [1] -0.97190653  0.06589991 -1.23987805  1.87433300  0.25276523 -1.22045645
 ##  [7]  0.45507643  0.77649606  0.56826358 -0.56059319</code></pre>
 <p>Lets create a function that prints the factorials:</p>
-<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="programing-basics.html#cb618-1" aria-hidden="true" tabindex="-1"></a>fact <span class="ot">&lt;-</span> <span class="cf">function</span>(a){</span>
-<span id="cb618-2"><a href="programing-basics.html#cb618-2" aria-hidden="true" tabindex="-1"></a>  b <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb618-3"><a href="programing-basics.html#cb618-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(a<span class="dv">-1</span>)) {</span>
-<span id="cb618-4"><a href="programing-basics.html#cb618-4" aria-hidden="true" tabindex="-1"></a>    b <span class="ot">&lt;-</span> b<span class="sc">*</span>(i<span class="sc">+</span><span class="dv">1</span>) </span>
-<span id="cb618-5"><a href="programing-basics.html#cb618-5" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb618-6"><a href="programing-basics.html#cb618-6" aria-hidden="true" tabindex="-1"></a>  b</span>
-<span id="cb618-7"><a href="programing-basics.html#cb618-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb618-8"><a href="programing-basics.html#cb618-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb618-9"><a href="programing-basics.html#cb618-9" aria-hidden="true" tabindex="-1"></a><span class="fu">fact</span>(<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="programing-basics.html#cb619-1" aria-hidden="true" tabindex="-1"></a>fact <span class="ot">&lt;-</span> <span class="cf">function</span>(a){</span>
+<span id="cb619-2"><a href="programing-basics.html#cb619-2" aria-hidden="true" tabindex="-1"></a>  b <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb619-3"><a href="programing-basics.html#cb619-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(a<span class="dv">-1</span>)) {</span>
+<span id="cb619-4"><a href="programing-basics.html#cb619-4" aria-hidden="true" tabindex="-1"></a>    b <span class="ot">&lt;-</span> b<span class="sc">*</span>(i<span class="sc">+</span><span class="dv">1</span>) </span>
+<span id="cb619-5"><a href="programing-basics.html#cb619-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb619-6"><a href="programing-basics.html#cb619-6" aria-hidden="true" tabindex="-1"></a>  b</span>
+<span id="cb619-7"><a href="programing-basics.html#cb619-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb619-8"><a href="programing-basics.html#cb619-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb619-9"><a href="programing-basics.html#cb619-9" aria-hidden="true" tabindex="-1"></a><span class="fu">fact</span>(<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] 120</code></pre>
 <p>Creating loops is an act of art and requires very careful thinking. The same loop can be done by many different structures. And it always takes more time to understand somebody else’s loop than your own!</p>
 </div>
@@ -750,15 +750,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <code>return(x*3)</code>
 <code>}</code></p>
 <p>Now suppose we’re currently working with some R script called <code>main_script.R</code>. Assuming <code>some_functions.R</code> and main_script.R are located within the same folder, we can use source at the top of our <code>main_script.R</code> to allow us to use the functions we defined in the <code>some_functions.R</code> script:</p>
-<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="programing-basics.html#cb620-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;some_functions.R&quot;</span>)</span>
-<span id="cb620-2"><a href="programing-basics.html#cb620-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb620-3"><a href="programing-basics.html#cb620-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">team=</span><span class="fu">c</span>(<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>, <span class="st">&#39;C&#39;</span>, <span class="st">&#39;D&#39;</span>, <span class="st">&#39;E&#39;</span>, <span class="st">&#39;F&#39;</span>),</span>
-<span id="cb620-4"><a href="programing-basics.html#cb620-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">points=</span><span class="fu">c</span>(<span class="dv">14</span>, <span class="dv">19</span>, <span class="dv">22</span>, <span class="dv">15</span>, <span class="dv">30</span>, <span class="dv">40</span>))</span>
-<span id="cb620-5"><a href="programing-basics.html#cb620-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb620-6"><a href="programing-basics.html#cb620-6" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>half_points <span class="ot">&lt;-</span> <span class="fu">divide_by_two</span>(df<span class="sc">$</span>points)</span>
-<span id="cb620-7"><a href="programing-basics.html#cb620-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb620-8"><a href="programing-basics.html#cb620-8" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>triple_points <span class="ot">&lt;-</span> <span class="fu">multiply_by_three</span>(df<span class="sc">$</span>points)</span>
-<span id="cb620-9"><a href="programing-basics.html#cb620-9" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
+<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="programing-basics.html#cb621-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;some_functions.R&quot;</span>)</span>
+<span id="cb621-2"><a href="programing-basics.html#cb621-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb621-3"><a href="programing-basics.html#cb621-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">team=</span><span class="fu">c</span>(<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>, <span class="st">&#39;C&#39;</span>, <span class="st">&#39;D&#39;</span>, <span class="st">&#39;E&#39;</span>, <span class="st">&#39;F&#39;</span>),</span>
+<span id="cb621-4"><a href="programing-basics.html#cb621-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">points=</span><span class="fu">c</span>(<span class="dv">14</span>, <span class="dv">19</span>, <span class="dv">22</span>, <span class="dv">15</span>, <span class="dv">30</span>, <span class="dv">40</span>))</span>
+<span id="cb621-5"><a href="programing-basics.html#cb621-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb621-6"><a href="programing-basics.html#cb621-6" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>half_points <span class="ot">&lt;-</span> <span class="fu">divide_by_two</span>(df<span class="sc">$</span>points)</span>
+<span id="cb621-7"><a href="programing-basics.html#cb621-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb621-8"><a href="programing-basics.html#cb621-8" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>triple_points <span class="ot">&lt;-</span> <span class="fu">multiply_by_three</span>(df<span class="sc">$</span>points)</span>
+<span id="cb621-9"><a href="programing-basics.html#cb621-9" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
 <pre><code>##   team points half_points triple_points
 ## 1    A     14         7.0            42
 ## 2    B     19         9.5            57
