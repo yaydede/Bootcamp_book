@@ -122,25 +122,8 @@
 
 \title{R Bootcamp for Data Analytics}
 \author{\href{https://yaydede.github.io/}{Yigit Aydede}}
-\date{2022-10-15}
+\date{2022-10-23}
 
-\usepackage{amsthm}
-\newtheorem{theorem}{Theorem}[chapter]
-\newtheorem{lemma}{Lemma}[chapter]
-\newtheorem{corollary}{Corollary}[chapter]
-\newtheorem{proposition}{Proposition}[chapter]
-\newtheorem{conjecture}{Conjecture}[chapter]
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[chapter]
-\theoremstyle{definition}
-\newtheorem{example}{Example}[chapter]
-\theoremstyle{definition}
-\newtheorem{exercise}{Exercise}[chapter]
-\theoremstyle{definition}
-\newtheorem{hypothesis}{Hypothesis}[chapter]
-\theoremstyle{remark}
-\newtheorem*{remark}{Remark}
-\newtheorem*{solution}{Solution}
 \begin{document}
 \maketitle
 
@@ -334,26 +317,21 @@ Without further specification, files will be loaded from and saved to the workin
 ##  [1] "_book"                    "_bookdown_files"         
 ##  [3] "_bookdown.yml"            "_main_files"             
 ##  [5] "_output.yml"              "01-intro.Rmd"            
-##  [7] "02-cross-refs_files"      "02-Others_files"         
-##  [9] "02-Others.Rmd"            "03-ReadWrite.Rmd"        
-## [11] "04-visual_files"          "04-visual.Rmd"           
-## [13] "05-DataMan_files"         "05-DataMan.Rmd"          
-## [15] "06-Progrmamingbasics.Rmd" "07-Sim_cache"            
-## [17] "07-Sim_files"             "07-Sim.Rmd"              
-## [19] "08-cross-refs_files"      "08-EDA_files"            
-## [21] "08-EDA.Rmd"               "09-parts.Rmd"            
-## [23] "10-citations.Rmd"         "11-blocks.Rmd"           
-## [25] "12-share.Rmd"             "13-references.Rmd"       
-## [27] "14-cross-refs_files"      "14-cross-refs.Rmd"       
-## [29] "Book_for_RBootcamp.log"   "Book_for_RBootcamp.pdf"  
-## [31] "Book_for_RBootcamp.rds"   "Book_for_RBootcamp.tex"  
-## [33] "book.bib"                 "Bootcamp_book.Rproj"     
-## [35] "docs"                     "index.md"                
-## [37] "index.Rmd"                "packages.bib"            
-## [39] "png"                      "preamble.tex"            
-## [41] "README.md"                "render10e1652fb1abe.rds" 
-## [43] "some_functions.R"         "style.css"               
-## [45] "table1.text"
+##  [7] "02-Others_files"          "02-Others.Rmd"           
+##  [9] "03-ReadWrite.Rmd"         "04-visual_files"         
+## [11] "04-visual.Rmd"            "05-DataMan_files"        
+## [13] "05-DataMan.Rmd"           "06-Progrmamingbasics.Rmd"
+## [15] "07-Sim_cache"             "07-Sim_files"            
+## [17] "07-Sim.Rmd"               "08-cross-refs_files"     
+## [19] "08-EDA_files"             "08-EDA.Rmd"              
+## [21] "09-Lessons.Rmd"           "Book_for_RBootcamp.log"  
+## [23] "Book_for_RBootcamp.rds"   "book.bib"                
+## [25] "Bootcamp_book.Rproj"      "docs"                    
+## [27] "index.md"                 "index.Rmd"               
+## [29] "packages.bib"             "png"                     
+## [31] "preamble.tex"             "README.md"               
+## [33] "render24ce2e392595.rds"   "some_functions.R"        
+## [35] "style.css"                "table1.text"
 \end{verbatim}
 
 \begin{Shaded}
@@ -2925,7 +2903,7 @@ Lets look at some examples of working with them:
 ##  $ c: chr "Hello!"
 ##  $ d:function (arg = 1)  
 ##   ..- attr(*, "srcref")= 'srcref' int [1:8] 12 15 12 55 15 55 12 12
-##   .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x7f78969291a0> 
+##   .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x7ff67f3fb3e0> 
 ##  $ X: num [1:4, 1:4] 0 0 0 0 0 0 0 0 0 0 ...
 \end{verbatim}
 
@@ -3348,7 +3326,7 @@ If the data is a .csv file, for example, we would also use the \texttt{read\_csv
 \end{Shaded}
 
 \begin{verbatim}
-## spec_tbl_df [32 x 11] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+## spc_tbl_ [32 x 11] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ##  $ mpg : num [1:32] 21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
 ##  $ cyl : num [1:32] 6 6 4 6 8 6 8 4 4 6 ...
 ##  $ disp: num [1:32] 160 160 108 258 360 ...
@@ -4075,6 +4053,33 @@ R package \texttt{corrplot} provides a visual exploratory tool on correlation ma
 
 \includegraphics{04-visual_files/figure-latex/unnamed-chunk-20-4.pdf}
 
+\hypertarget{conditional-scatterplot}{%
+\section{Conditional Scatterplot}\label{conditional-scatterplot}}
+
+To visualize the relationship between two continuous variables but for different levels of a factor variable you can create a conditional scatterplot with \texttt{coplot()}. Note that we haven't converted \texttt{maturity.stage} to a factor variable.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(RBootcamp)}
+\FunctionTok{coplot}\NormalTok{(weight }\SpecialCharTok{\textasciitilde{}}\NormalTok{ DML }\SpecialCharTok{|}\NormalTok{ maturity.stage, }\AttributeTok{data =}\NormalTok{ squid1)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-21-1.pdf}
+
+\hypertarget{panel}{%
+\section{\texorpdfstring{\texttt{panel()}}{panel()}}\label{panel}}
+
+To explore the relationships between multiple continuous variables we can have a pairs plot.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pairs}\NormalTok{(mtcars[, }\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{6}\NormalTok{)])}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-22-1.pdf}
+
 \hypertarget{data-management}{%
 \chapter{Data Management}\label{data-management}}
 
@@ -4535,7 +4540,7 @@ Another
 ## 6 "WD "           6
 \end{verbatim}
 
-However, look at the \texttt{help(subset)}: ``This is a convenience function intended for use interactively. \emph{For programming it is better to use the standard subsetting functions like {[}{]}}, and in particular the non-standard evaluation of argument subset can have unanticipated consequences''.
+However, look at the \texttt{help(subset)}: ``This is a convenience function intended for use interactively. \emph{For programming it is better to use the standard subsetting functions like \texttt{{[}\ {]}}}, and in particular the non-standard evaluation of argument subset can have unanticipated consequences''.
 
 \hypertarget{within-with}{%
 \subsection{\texorpdfstring{\texttt{within()} \& \texttt{with()}}{within() \& with()}}\label{within-with}}
@@ -4806,6 +4811,39 @@ One continuous one factor:
 ## -----------------------------------------------------------------------------------------
 \end{verbatim}
 
+\hypertarget{xtabs-ftabs}{%
+\subsection{\texorpdfstring{\texttt{xtabs()} \& \texttt{ftabs()}}{xtabs() \& ftabs()}}\label{xtabs-ftabs}}
+
+The \texttt{xtabs()} \& \texttt{ftabs()} functions allows you to quickly calculate frequencies for more factor variables.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(RBootcamp)}
+\FunctionTok{ftable}\NormalTok{(}\FunctionTok{xtabs}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{ year }\SpecialCharTok{+}\NormalTok{ maturity.stage }\SpecialCharTok{+}\NormalTok{ month, }\AttributeTok{data =}\NormalTok{ squid1))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+                month  1  2  3  4  5  6  7  8  9 10 11 12
+\end{verbatim}
+
+year maturity.stage\\
+1989 1 0 0 0 0 0 0 0 0 0 0 0 2
+2 0 0 0 0 0 0 0 0 0 0 0 3
+3 0 0 0 0 0 0 0 0 0 0 0 5
+4 0 0 0 0 0 0 0 0 0 0 0 2
+5 0 0 0 0 0 0 0 0 0 0 0 0
+1990 1 0 0 0 0 0 0 8 0 1 1 1 2
+2 0 0 0 0 0 0 22 21 76 17 31 4
+3 0 0 0 0 0 0 0 5 5 1 31 6
+4 2 0 15 7 0 0 4 3 0 0 10 13
+5 1 0 25 3 1 0 8 0 0 0 3 6
+1991 1 0 0 0 2 0 4 0 0 0 0 0 0
+2 1 1 0 1 0 6 0 0 0 0 0 0
+3 2 0 0 1 1 0 0 0 0 0 0 0
+4 16 8 6 13 6 1 1 0 0 0 0 0
+5 18 21 23 16 23 3 0 0 0 0 0 0
+
 \hypertarget{table-with-manual-entry}{%
 \subsection{Table with manual entry}\label{table-with-manual-entry}}
 
@@ -4883,7 +4921,68 @@ One continuous one factor:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{05-DataMan_files/figure-latex/unnamed-chunk-25-1.pdf}
+\includegraphics{05-DataMan_files/figure-latex/unnamed-chunk-26-1.pdf}
+
+\hypertarget{merge}{%
+\section{\texorpdfstring{\texttt{merge()}}{merge()}}\label{merge}}
+
+The \texttt{merge()} function merges two data frames by common columns or row names, or do other versions of database join operations. Here is an example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df1 }\OtherTok{=} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{StudentId =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{), }
+                 \AttributeTok{Marks =} \FunctionTok{c}\NormalTok{(}\StringTok{"70"}\NormalTok{, }\StringTok{"84"}\NormalTok{, }\StringTok{"90"}\NormalTok{, }\StringTok{"93"}\NormalTok{, }\StringTok{"80"}\NormalTok{, }\StringTok{"76"}\NormalTok{))}
+
+\NormalTok{df2 }\OtherTok{=} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{StudentId =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{8}\NormalTok{), }
+                 \AttributeTok{city =} \FunctionTok{c}\NormalTok{(}\StringTok{"Lahore"}\NormalTok{, }\StringTok{"Karachi"}\NormalTok{, }\StringTok{"Peshawar"}\NormalTok{, }\StringTok{"Quetta"}\NormalTok{, }\StringTok{"Multan"}\NormalTok{)) }
+
+\NormalTok{df3 }\OtherTok{=} \FunctionTok{merge}\NormalTok{(df1, df2, }\AttributeTok{by =} \StringTok{"StudentId"}\NormalTok{)}
+\NormalTok{df3}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   StudentId Marks     city
+## 1         2    84   Lahore
+## 2         4    93  Karachi
+## 3         6    76 Peshawar
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df4 }\OtherTok{=} \FunctionTok{merge}\NormalTok{(df1, df2, }\AttributeTok{by =} \StringTok{"StudentId"}\NormalTok{, }\AttributeTok{all =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{df4}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   StudentId Marks     city
+## 1         1    70     <NA>
+## 2         2    84   Lahore
+## 3         3    90     <NA>
+## 4         4    93  Karachi
+## 5         5    80     <NA>
+## 6         6    76 Peshawar
+## 7         7  <NA>   Quetta
+## 8         8  <NA>   Multan
+\end{verbatim}
+
+See the options of \texttt{merge()} by \texttt{?merge}. We can do the same operation in \texttt{dplyr}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+\NormalTok{df3}\OtherTok{=}\NormalTok{ df1 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{inner\_join}\NormalTok{(df2,}\AttributeTok{by=}\StringTok{"StudentId"}\NormalTok{)}
+\NormalTok{df3}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   StudentId Marks     city
+## 1         2    84   Lahore
+## 2         4    93  Karachi
+## 3         6    76 Peshawar
+\end{verbatim}
 
 \hypertarget{programing-basics}{%
 \chapter{Programing basics}\label{programing-basics}}
@@ -4894,7 +4993,7 @@ In this section we see three main applications: conditional flows, loops, and fu
 \section{Conditional flows}\label{conditional-flows}}
 
 \hypertarget{ifelse}{%
-\subsection{if/Else}\label{ifelse}}
+\subsection{if/else}\label{ifelse}}
 
 The main syntax is as follows
 
@@ -5384,7 +5483,7 @@ It becomes very handy when we build a polynomial model:
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]  1 14 12 12  5 10  8  0  6 12
+##  [1] 10 15 18 20 20  0  5 19  4  5
 \end{verbatim}
 
 \begin{Shaded}
@@ -5395,17 +5494,17 @@ It becomes very handy when we build a polynomial model:
 \end{Shaded}
 
 \begin{verbatim}
-##       [,1] [,2] [,3]  [,4]
-##  [1,]    1    1    1     1
-##  [2,]   14  196 2744 38416
-##  [3,]   12  144 1728 20736
-##  [4,]   12  144 1728 20736
-##  [5,]    5   25  125   625
-##  [6,]   10  100 1000 10000
-##  [7,]    8   64  512  4096
-##  [8,]    0    0    0     0
-##  [9,]    6   36  216  1296
-## [10,]   12  144 1728 20736
+##       [,1] [,2] [,3]   [,4]
+##  [1,]   10  100 1000  10000
+##  [2,]   15  225 3375  50625
+##  [3,]   18  324 5832 104976
+##  [4,]   20  400 8000 160000
+##  [5,]   20  400 8000 160000
+##  [6,]    0    0    0      0
+##  [7,]    5   25  125    625
+##  [8,]   19  361 6859 130321
+##  [9,]    4   16   64    256
+## [10,]    5   25  125    625
 \end{verbatim}
 
 We can also use \texttt{outer()} for this example
@@ -5462,7 +5561,7 @@ The R base manual tells you that it's called as follows: \texttt{apply(X,\ MARGI
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  3.0801636 -2.7244948 -0.4154269  1.6100851  3.0667612  3.0134688
+## [1] -0.4314115 -1.5089246 -1.6517033 -0.4071503 -1.7488176 -1.5095180
 \end{verbatim}
 
 \begin{Shaded}
@@ -5518,13 +5617,13 @@ The R base manual tells you that it's called as follows: \texttt{apply(X,\ MARGI
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]       [,2]
-## [1,]  1.6529382  2.8968400
-## [2,] -0.9729881  1.5530665
-## [3,]  1.2293339 -0.1023414
-## [4,]  0.5416258  2.3977264
-## [5,]  1.3707903  1.2698713
-## [6,]  2.6707706  0.8876512
+##             [,1]         [,2]
+## [1,] -0.09406719  0.018968524
+## [2,]  1.11415889  1.263199503
+## [3,]  0.56175975  0.310995974
+## [4,]  1.70945878  1.108065694
+## [5,]  1.46151312  0.002025545
+## [6,]  2.13881400 -0.908243539
 \end{verbatim}
 
 Since \texttt{apply()} is used only for matrices, if you apply \texttt{apply()} to a data frame, it first coerces your data.frame to an array which means all the columns must have the same type. Depending on your context, this could have unintended consequences. For a safer practice in data frames, we can use \texttt{lappy()} and \texttt{sapply()}:
@@ -5777,12 +5876,12 @@ In this chapter, we will learn how to simulate data and illustrate their use in 
   \textbf{Power of simulation - A fun example.}
 \end{enumerate}
 
-Why would we want to simulate data? Why not just use real data? Because with real data, we don't know what the right answer is. Suppose we use real data and we apply a method to extract information, how do we know that we applied the method correctly? Now suppose we create artificial data by simulating a ``Data Generating Model''. Since we can know the correct answer, we can check whether or not our methods work to extract the information we wish to have. If our method is correct, than we can apply it to real data.
+Why would we want to simulate data? Why not just use real data? Because with real data, we don't know what the right answer is. Suppose we use real data and we apply a method to extract information, how do we know that we applied the method correctly? Now suppose we create artificial data by simulating a ``Data Generating Model''. Since we can know the correct answer, we can check whether or not our methods work to extract the information we wish to have. If our method is correct, then we can apply it to the real data.
 
 \hypertarget{sampling-in-r-sample}{%
 \section{\texorpdfstring{Sampling in R: \texttt{sample()}}{Sampling in R: sample()}}\label{sampling-in-r-sample}}
 
-Let's play with sample() for simple random sampling. We will see the arguments of sample() function.
+Let's play with \texttt{sample()} for simple random sampling. We will see the arguments of \texttt{sample()} function.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5791,38 +5890,38 @@ Let's play with sample() for simple random sampling. We will see the arguments o
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "T" "H" "T" "T" "H" "H" "T" "T"
+## [1] "H" "T" "H" "H" "H" "H" "T" "T"
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{sample}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{, }\AttributeTok{size =} \DecValTok{2}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{prob=}\FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{4}\NormalTok{))}
+\FunctionTok{sample}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{, }\AttributeTok{size =} \DecValTok{2}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{prob=}\FunctionTok{c}\NormalTok{(}\FloatTok{0.3}\NormalTok{, }\FloatTok{0.1}\NormalTok{, }\FloatTok{0.1}\NormalTok{, }\FloatTok{0.2}\NormalTok{, }\FloatTok{0.3}\NormalTok{, }\FloatTok{0.1}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 4 2
+## [1] 1 1
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\#let\textquotesingle{}s do it again}
-\FunctionTok{sample}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"H"}\NormalTok{,}\StringTok{"T"}\NormalTok{), }\AttributeTok{size =} \DecValTok{8}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{)  }\CommentTok{\# fair coin}
+\FunctionTok{sample}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"H"}\NormalTok{,}\StringTok{"T"}\NormalTok{), }\AttributeTok{size =} \DecValTok{8}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{)  }
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "T" "H" "H" "T" "T" "H" "T" "T"
+## [1] "H" "H" "T" "H" "H" "T" "T" "T"
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{sample}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{, }\AttributeTok{size =} \DecValTok{2}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{prob=}\FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{4}\NormalTok{))}
+\FunctionTok{sample}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{, }\AttributeTok{size =} \DecValTok{2}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{prob=}\FunctionTok{c}\NormalTok{(}\FloatTok{0.3}\NormalTok{, }\FloatTok{0.1}\NormalTok{, }\FloatTok{0.1}\NormalTok{, }\FloatTok{0.2}\NormalTok{, }\FloatTok{0.3}\NormalTok{, }\FloatTok{0.1}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 4 5
+## [1] 6 4
 \end{verbatim}
 
 The results are different. If we use \texttt{set.seed()} then we can get the same results each time. Lets try now:
@@ -5830,7 +5929,7 @@ The results are different. If we use \texttt{set.seed()} then we can get the sam
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
-\FunctionTok{sample}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"H"}\NormalTok{,}\StringTok{"T"}\NormalTok{), }\AttributeTok{size =} \DecValTok{8}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{)  }\CommentTok{\# fair coin}
+\FunctionTok{sample}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"H"}\NormalTok{,}\StringTok{"T"}\NormalTok{), }\AttributeTok{size =} \DecValTok{8}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{)  }
 \end{Highlighting}
 \end{Shaded}
 
@@ -5840,12 +5939,12 @@ The results are different. If we use \texttt{set.seed()} then we can get the sam
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{sample}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{, }\AttributeTok{size =} \DecValTok{2}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{prob=}\FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{4}\NormalTok{))}
+\FunctionTok{sample}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{, }\AttributeTok{size =} \DecValTok{2}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{prob=}\FunctionTok{c}\NormalTok{(}\FloatTok{0.3}\NormalTok{, }\FloatTok{0.1}\NormalTok{, }\FloatTok{0.1}\NormalTok{, }\FloatTok{0.2}\NormalTok{, }\FloatTok{0.3}\NormalTok{, }\FloatTok{0.1}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 4 4
+## [1] 4 5
 \end{verbatim}
 
 \begin{Shaded}
@@ -5853,7 +5952,7 @@ The results are different. If we use \texttt{set.seed()} then we can get the sam
 \CommentTok{\#let\textquotesingle{}s do it again}
 
 \FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
-\FunctionTok{sample}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"H"}\NormalTok{,}\StringTok{"T"}\NormalTok{), }\AttributeTok{size =} \DecValTok{8}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{)  }\CommentTok{\# fair coin}
+\FunctionTok{sample}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"H"}\NormalTok{,}\StringTok{"T"}\NormalTok{), }\AttributeTok{size =} \DecValTok{8}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{) }
 \end{Highlighting}
 \end{Shaded}
 
@@ -5863,21 +5962,21 @@ The results are different. If we use \texttt{set.seed()} then we can get the sam
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{sample}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{, }\AttributeTok{size =} \DecValTok{2}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{prob=}\FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{4}\NormalTok{))}
+\FunctionTok{sample}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{, }\AttributeTok{size =} \DecValTok{2}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{prob=}\FunctionTok{c}\NormalTok{(}\FloatTok{0.3}\NormalTok{, }\FloatTok{0.1}\NormalTok{, }\FloatTok{0.1}\NormalTok{, }\FloatTok{0.2}\NormalTok{, }\FloatTok{0.3}\NormalTok{, }\FloatTok{0.1}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 4 4
+## [1] 4 5
 \end{verbatim}
 
-We use \texttt{replace=TRUE} to override the default sample without replacement. This means the same thing can get selected from the population multiple times. And, \texttt{prob=} to sample elements with different probabilities, e.g.~over sample based on some factor. The \texttt{set.seed()} function allow you to make a reproducible set of random numbers. Let's see the difference.
+We use \texttt{replace=TRUE} to override the default sample without replacement. This means the same thing can get selected from the population multiple times. And, \texttt{prob=} to sample elements with different probabilities.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{:}\DecValTok{12}
-\CommentTok{\# a random permutation}
 
+\CommentTok{\# Shuffles}
 \FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
 \FunctionTok{sample}\NormalTok{(x)}
 \end{Highlighting}
@@ -5889,7 +5988,6 @@ We use \texttt{replace=TRUE} to override the default sample without replacement.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# This shuffles the numbers}
 \FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
 \FunctionTok{sample}\NormalTok{(x, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
@@ -5899,47 +5997,7 @@ We use \texttt{replace=TRUE} to override the default sample without replacement.
 ##  [1]  3  3 10  2  6 11  5  4  6  9 10 11
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# This shuffles the numbers and replacing them}
-\end{Highlighting}
-\end{Shaded}
-
-More\ldots{}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# sample()\textquotesingle{}s surprise {-}{-} example}
-\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{:}\DecValTok{10}
-    \FunctionTok{sample}\NormalTok{(x[x }\SpecialCharTok{\textgreater{}}  \DecValTok{3}\NormalTok{]) }\CommentTok{\# length 2}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1]  8  6  9  4  7 10  5
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-    \FunctionTok{sample}\NormalTok{(x[x }\SpecialCharTok{\textgreater{}}  \DecValTok{9}\NormalTok{]) }\CommentTok{\# oops {-}{-} length 10!  So this doesn\textquotesingle{}t work}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##  [1]  3  8  2  7  9  1  6 10  4  5
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-    \FunctionTok{sample}\NormalTok{(x[x }\SpecialCharTok{\textgreater{}} \DecValTok{10}\NormalTok{]) }\CommentTok{\# length 0}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## integer(0)
-\end{verbatim}
-
-Here is an example: let's generate 501 coin flips. In the true model, this should generate heads half of the time, and tails half of the time.
+Let's generate 501 coin flips. In the true model, this should generate heads half of the time, and tails half of the time.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5948,7 +6006,7 @@ Here is an example: let's generate 501 coin flips. In the true model, this shoul
 \end{Highlighting}
 \end{Shaded}
 
-Now let's take that data as given and analyze it in our standard way! The proportion of heads is:
+The proportion of heads:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5968,9 +6026,9 @@ Now let's take that data as given and analyze it in our standard way! The propor
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{07-Sim_files/figure-latex/unnamed-chunk-6-1.pdf}
+\includegraphics{07-Sim_files/figure-latex/unnamed-chunk-5-1.pdf}
 
-So what's our conclusion? We came to the conclusion that the true model generates heads 0.493014 of the time. But it is NOT 0.50 , so pretty close, but not exact. Did this whole thing work or not? What if it always errs on the same side? In other words, what if it's always bias towards \emph{heads} in every sample with 501 flips? We will do our first simulation to answer it momentarily.
+The true model generates heads 0.521 of the time. What if it always errs on the same side? In other words, what if it's always bias towards \emph{heads} in every sample with 501 flips? We will do our first simulation to answer it momentarily.
 
 One more useful application:
 
@@ -5984,8 +6042,8 @@ One more useful application:
 ##  [1] "p" "z" "o" "s" "c" "n" "a" "x" "a" "p"
 \end{verbatim}
 
-\hypertarget{random-number-generating-with-probablity-distributions}{%
-\section{Random number generating with probablity distributions}\label{random-number-generating-with-probablity-distributions}}
+\hypertarget{pdfs-in-r}{%
+\section{PDF's in R}\label{pdfs-in-r}}
 
 Here are the common probability distributions in R. Search help in R for more detail.
 
@@ -6003,11 +6061,11 @@ Here are the common probability distributions in R. Search help in R for more de
 \texttt{dnorm(x,)} returns the density or the value on the y-axis of a probability distribution for a discrete value of x,\\
 \texttt{pnorm(q,)} returns the cumulative density function (CDF) or the area under the curve to the left of an x value on a probability distribution curve,
 \texttt{qnorm(p,)} returns the quantile value, i.e.~the standardized z value for x,
-\textbf{\texttt{rnorm(n,)} returns a random simulation of size n}
+\texttt{rnorm(n,)} returns a random simulation of size n
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{rnorm}\NormalTok{(}\DecValTok{6}\NormalTok{) }\CommentTok{\#  6 std nrml distribution values}
+\FunctionTok{rnorm}\NormalTok{(}\DecValTok{6}\NormalTok{) }\CommentTok{\#  6 values from a standard normal distribution}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6017,7 +6075,7 @@ Here are the common probability distributions in R. Search help in R for more de
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{rnorm}\NormalTok{(}\DecValTok{10}\NormalTok{, }\AttributeTok{mean =} \DecValTok{50}\NormalTok{, }\AttributeTok{sd =} \DecValTok{19}\NormalTok{) }\CommentTok{\# set parameters}
+\FunctionTok{rnorm}\NormalTok{(}\DecValTok{10}\NormalTok{, }\AttributeTok{mean =} \DecValTok{50}\NormalTok{, }\AttributeTok{sd =} \DecValTok{19}\NormalTok{) }\CommentTok{\# 10 values from a normal distribution}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6026,58 +6084,55 @@ Here are the common probability distributions in R. Search help in R for more de
 ##  [9] 24.71680 38.74801
 \end{verbatim}
 
+The binomial distribution is the distribution of the number of successes in n independent Bernoulli trials where a Bernoulli trial results in success or failure, with the probability of success = p
+
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{runif}\NormalTok{(}\AttributeTok{n =} \DecValTok{10}\NormalTok{, }\AttributeTok{min =} \DecValTok{0}\NormalTok{, }\AttributeTok{max =} \DecValTok{1}\NormalTok{) }\CommentTok{\#uniform distribution}
+\CommentTok{\# A single Bernoulli trial (e.g. a coin flip) is given with size = 1.}
+\FunctionTok{rbinom}\NormalTok{(}\AttributeTok{n =} \DecValTok{1}\NormalTok{, }\AttributeTok{size =} \DecValTok{1}\NormalTok{, }\AttributeTok{prob =} \FloatTok{0.5}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 0.96415257 0.08146656 0.85436475 0.80223822 0.38517360 0.32759740
-##  [7] 0.20493870 0.56938266 0.88805519 0.52971409
+## [1] 1
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{rpois}\NormalTok{(}\AttributeTok{n =} \DecValTok{10}\NormalTok{, }\AttributeTok{lambda =} \DecValTok{15}\NormalTok{) }\CommentTok{\# Poisson distribution}
+\CommentTok{\# 10 trials for one flip (size = 1)}
+\FunctionTok{rbinom}\NormalTok{(}\AttributeTok{n =} \DecValTok{10}\NormalTok{, }\AttributeTok{size =} \DecValTok{1}\NormalTok{, }\AttributeTok{prob =} \FloatTok{0.5}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 15 15  6 17 16 13 15 15 15 21
+##  [1] 0 1 1 0 0 0 1 1 1 1
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# toss coin 8 times using binomial distribution}
-\FunctionTok{rbinom}\NormalTok{(}\AttributeTok{n =} \DecValTok{8}\NormalTok{, }\AttributeTok{size =} \DecValTok{1}\NormalTok{, }\AttributeTok{p =} \FloatTok{0.5}\NormalTok{)}
+\CommentTok{\# how many successes in 10 trials}
+\FunctionTok{rbinom}\NormalTok{(}\AttributeTok{n =} \DecValTok{1}\NormalTok{, }\AttributeTok{size =} \DecValTok{10}\NormalTok{, }\AttributeTok{p =} \FloatTok{0.5}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0 0 1 0 1 1 1 0
+## [1] 6
 \end{verbatim}
+
+So, a binomially distributed number is the same as the number of 1's in n such Bernoulli numbers.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{rbinom}\NormalTok{(}\DecValTok{8}\NormalTok{,}\DecValTok{1}\NormalTok{,.}\DecValTok{5}\NormalTok{) }\CommentTok{\# args correct order}
+\CommentTok{\# 5 separate series of 10 trials}
+\FunctionTok{rbinom}\NormalTok{(}\AttributeTok{n =} \DecValTok{5}\NormalTok{, }\AttributeTok{size =} \DecValTok{10}\NormalTok{, }\AttributeTok{p =} \FloatTok{0.5}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1 0 0 1 1 1 1 0
+## [1] 5 5 2 2 7
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# 18 trials, sample size 10, prob success =.2}
-\FunctionTok{rbinom}\NormalTok{(}\DecValTok{18}\NormalTok{, }\DecValTok{10}\NormalTok{, }\FloatTok{0.2}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##  [1] 5 1 0 4 2 1 4 0 1 3 1 1 1 3 1 3 1 1
-\end{verbatim}
+These numbers shows how many 1's we have out of 10 trials in each of 5 observations
 
 Can we replicate our coin-flip example here with probability distributions? Yes, we can!
 
@@ -6095,108 +6150,86 @@ Can we replicate our coin-flip example here with probability distributions? Yes,
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(coins)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.4690619
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \FunctionTok{barplot}\NormalTok{(}\FunctionTok{prop.table}\NormalTok{(}\FunctionTok{table}\NormalTok{(coins)),}
         \AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"lightskyblue3"}\NormalTok{,}\StringTok{"mistyrose3"}\NormalTok{),}
         \AttributeTok{cex.axis =} \FloatTok{0.8}\NormalTok{, }\AttributeTok{cex.names =} \FloatTok{0.8}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{07-Sim_files/figure-latex/unnamed-chunk-9-1.pdf}
+\includegraphics{07-Sim_files/figure-latex/unnamed-chunk-10-1.pdf}
+
+Uniform numbers are ones that are ``equally likely'' to be in the specified range. We use \texttt{runif()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{runif}\NormalTok{(}\AttributeTok{n =} \DecValTok{10}\NormalTok{, }\AttributeTok{min =} \DecValTok{0}\NormalTok{, }\AttributeTok{max =} \DecValTok{2}\NormalTok{) }\CommentTok{\# Uniform distribution}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 0.7328829 0.5742003 0.1599458 0.7309085 0.3560276 1.0721074 1.0078974
+##  [8] 1.8900702 0.6826426 0.9294275
+\end{verbatim}
+
+Poisson distribution gives the likelihood of a certain number of events occurring in a given period of space or time. It can be used to estimate how likely it is that something will happen \texttt{x} number of times. For example, if the average number of people who buy cheeseburgers from a fast-food chain on a Friday night at a single restaurant location is 200, a Poisson distribution can answer questions such as, \emph{What is the probability that more than 300 people will buy burgers?} The application of the Poisson distribution thereby enables managers to introduce optimal scheduling systems that would not work with, say, a normal distribution.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Lambda = Average number of events}
+\FunctionTok{rpois}\NormalTok{(}\AttributeTok{n =} \DecValTok{10}\NormalTok{, }\AttributeTok{lambda =} \DecValTok{15}\NormalTok{) }\CommentTok{\# Poisson distribution}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]  9 17 14  9 13  8 20 23 20 14
+\end{verbatim}
 
 \hypertarget{simulation-for-statistical-inference}{%
 \section{Simulation for statistical inference}\label{simulation-for-statistical-inference}}
 
-Let's predict number of girls in 400 births, where probability of female birth is 48.8\%
+Let's apply a simulation to our coin flipping.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{n.girls }\OtherTok{\textless{}{-}} \FunctionTok{rbinom}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{400}\NormalTok{, }\FloatTok{0.488}\NormalTok{)}
-\NormalTok{n.girls}
-\end{Highlighting}
-\end{Shaded}
+\NormalTok{nsims }\OtherTok{\textless{}{-}} \DecValTok{10000}
+\NormalTok{nheads }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{() }
 
-\begin{verbatim}
-## [1] 201
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{n.girls}\SpecialCharTok{/}\DecValTok{400}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 0.5025
-\end{verbatim}
-
-Now, to get distribution of the simulations, repeat the simulation many times.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{n.sims }\OtherTok{\textless{}{-}} \DecValTok{1000}
-\NormalTok{n.girls }\OtherTok{\textless{}{-}} \FunctionTok{rbinom}\NormalTok{(n.sims, }\DecValTok{400}\NormalTok{, .}\DecValTok{488}\NormalTok{)}
-\FunctionTok{hist}\NormalTok{(n.girls, }\AttributeTok{col =} \StringTok{"slategray3"}\NormalTok{,  }\AttributeTok{cex.axis =} \FloatTok{0.75}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{07-Sim_files/figure-latex/unnamed-chunk-11-1.pdf}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{mean}\NormalTok{(n.girls)}\SpecialCharTok{/}\DecValTok{400}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 0.4872775
-\end{verbatim}
-
-This is called as \emph{sampling distribution}. Can we do same thing with a loop?
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{n.sims }\OtherTok{\textless{}{-}} \DecValTok{1000}
-\NormalTok{n.girls }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, n.sims) }\CommentTok{\# create vector to store simulations}
-\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{n.sims)\{}
-\NormalTok{  n.girls[i] }\OtherTok{\textless{}{-}} \FunctionTok{rbinom}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{400}\NormalTok{, }\FloatTok{0.488}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{nsims)\{}
+\NormalTok{  nheads[i] }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(}\FunctionTok{rbinom}\NormalTok{(}\AttributeTok{n =} \DecValTok{501}\NormalTok{, }\AttributeTok{size =} \DecValTok{1}\NormalTok{, }\AttributeTok{p =} \FloatTok{0.5}\NormalTok{))}
 \NormalTok{\}}
-\FunctionTok{hist}\NormalTok{(n.girls, }\AttributeTok{col =} \StringTok{"lavender"}\NormalTok{, }\AttributeTok{cex.axis =} \FloatTok{0.75}\NormalTok{)}
+
+\FunctionTok{mean}\NormalTok{(nheads)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{07-Sim_files/figure-latex/unnamed-chunk-12-1.pdf}
-
-Let's apply a similar simulation to our coin flipping.
+\begin{verbatim}
+## [1] 0.4999669
+\end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{n.sims }\OtherTok{\textless{}{-}} \DecValTok{1000}
-\NormalTok{n.heads }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, n.sims) }\CommentTok{\# create vector to store simulations}
-\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{n.sims)\{}
-\NormalTok{  n.heads[i] }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(}\FunctionTok{rbinom}\NormalTok{(}\AttributeTok{n =} \DecValTok{501}\NormalTok{, }\AttributeTok{size =} \DecValTok{1}\NormalTok{, }\AttributeTok{p =} \FloatTok{0.5}\NormalTok{))}
-\NormalTok{\}}
-\FunctionTok{hist}\NormalTok{(n.heads, }\AttributeTok{col=}\StringTok{"aliceblue"}\NormalTok{, }\AttributeTok{cex.axis =} \FloatTok{0.75}\NormalTok{)}
+\FunctionTok{hist}\NormalTok{(nheads, }\AttributeTok{col=}\StringTok{"blue"}\NormalTok{, }\AttributeTok{cex.axis =} \FloatTok{0.75}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \includegraphics{07-Sim_files/figure-latex/unnamed-chunk-13-1.pdf}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{mean}\NormalTok{(n.heads)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 0.4997705
-\end{verbatim}
-
 Here is another way for the same simulation:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{n.heads }\OtherTok{\textless{}{-}} \FunctionTok{replicate}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\FunctionTok{mean}\NormalTok{(}\FunctionTok{rbinom}\NormalTok{(}\AttributeTok{n =} \DecValTok{501}\NormalTok{, }\AttributeTok{size =} \DecValTok{1}\NormalTok{, }\AttributeTok{p =} \FloatTok{0.5}\NormalTok{)))}
-\FunctionTok{hist}\NormalTok{(n.heads, }\AttributeTok{col=}\StringTok{"lightpink"}\NormalTok{,}\AttributeTok{cex.axis =} \FloatTok{0.75}\NormalTok{)}
+\NormalTok{nheads }\OtherTok{\textless{}{-}} \FunctionTok{replicate}\NormalTok{(}\DecValTok{10000}\NormalTok{, }\FunctionTok{mean}\NormalTok{(}\FunctionTok{rbinom}\NormalTok{(}\AttributeTok{n =} \DecValTok{501}\NormalTok{, }\AttributeTok{size =} \DecValTok{1}\NormalTok{, }\AttributeTok{p =} \FloatTok{0.5}\NormalTok{)))}
+\FunctionTok{hist}\NormalTok{(nheads, }\AttributeTok{col=}\StringTok{"pink"}\NormalTok{,}\AttributeTok{cex.axis =} \FloatTok{0.75}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6204,33 +6237,33 @@ Here is another way for the same simulation:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{mean}\NormalTok{(n.heads)}
+\FunctionTok{mean}\NormalTok{(nheads)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.4987265
+## [1] 0.4999421
 \end{verbatim}
 
-What's the 95\% confidence interval for the mean?
+What's the 95\% confidence interval for the mean? In other words, what's the 95\% CI for the mean of a randomly selected sample?
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{sd }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(n.heads)}
-\NormalTok{CI95 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{2}\SpecialCharTok{*}\NormalTok{sd}\SpecialCharTok{+}\FunctionTok{mean}\NormalTok{(n.heads), }\DecValTok{2}\SpecialCharTok{*}\NormalTok{sd}\SpecialCharTok{+}\FunctionTok{mean}\NormalTok{(n.heads))}
+\NormalTok{sd }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(nheads)}
+\NormalTok{CI95 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\FloatTok{1.96}\SpecialCharTok{*}\NormalTok{sd}\SpecialCharTok{+}\FunctionTok{mean}\NormalTok{(nheads), }\FloatTok{1.96}\SpecialCharTok{*}\NormalTok{sd}\SpecialCharTok{+}\FunctionTok{mean}\NormalTok{(nheads))}
 \NormalTok{CI95}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.4538446 0.5436085
+## [1] 0.4563052 0.5435791
 \end{verbatim}
 
 What happens if we use a ``wrong'' estimator for the mean, like sum(heads)/300?
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{n.sims }\OtherTok{\textless{}{-}} \DecValTok{1000}
+\NormalTok{n.sims }\OtherTok{\textless{}{-}} \DecValTok{10000}
 \NormalTok{n.heads }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, n.sims) }\CommentTok{\# create vector to store simulations}
 \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{n.sims)\{}
 \NormalTok{  n.heads[i] }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(}\FunctionTok{rbinom}\NormalTok{(}\AttributeTok{n =} \DecValTok{501}\NormalTok{, }\AttributeTok{size =} \DecValTok{1}\NormalTok{, }\AttributeTok{p =} \FloatTok{0.5}\NormalTok{))}\SpecialCharTok{/}\DecValTok{300}
@@ -6240,34 +6273,35 @@ What happens if we use a ``wrong'' estimator for the mean, like sum(heads)/300?
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.83496
+## [1] 0.834594
 \end{verbatim}
 
-Because we are working with a simulation, identifying that the result from this incorrect estimator is wrong becomes easy.
+Because we are working with a simulation, it would be easy to show the result from this incorrect estimator.
 
-\hypertarget{creataing-data-with-a-data-generating-model-dgm}{%
-\section{Creataing data with a Data Generating Model (DGM)}\label{creataing-data-with-a-data-generating-model-dgm}}
+\hypertarget{data-generating-model-dgm}{%
+\section{Data Generating Model (DGM)}\label{data-generating-model-dgm}}
 
-One of the major tasks of statistics is to obtain information about populations. In most of cases, the population is unknown and the only thing that is known for the researcher is a finite subset of observations drawn from the population. The main aim of the statistical analysis is to obtain information about the population through analysis of the sample. Since very little information is known about the population characteristics, one has to establish some assumptions about the behavior of this unknown population. For example, for a regression analysis, we can state that the whole population regression function (PRF) is a linear function of the different values of \(X\). One important issue related to the PRF is the error term (\(u_i\)) in the regression equation. For a pair of realizations \((x_i,y_i)\) from the random variables \((X,Y)\), we can write the following equalities:
+One of the major tasks of statistics is to obtain information about populations. In most of cases, the population is unknown and the only thing that is known for the researcher is a finite subset of observations drawn from the population. The main aim of the statistical analysis is to obtain information about the population through analysis of the sample. Since very little information is known about the population characteristics, one has to establish some assumptions about the behavior of this unknown population. For example, we can state the population regression function (PRF) as a data generating process (DGP). DGP can be expressed as the some of DGM plus the error term (\(u_i\)). For a pair of realizations \((x_i,y_i)\) from the random variables \((X,Y)\), we can write the following equalities:
 
 \[
-y_{i}=E\left(Y | X=x_{i}\right)+u_{i}=\alpha+\beta x_{i}+u_{i}
+y_{i}=E\left(Y | X=x_{i}\right)+u_{i}=\text{DGM} + u_{i} = \alpha+\beta x_{i}+u_{i} =\text{DGP}
 \]
+
 and
 
 \[
 E\left(u | X=x_{i}\right)=0
 \]
 
-This result implies that for \(X=x_i\), the divergences of all values of \(Y\) with respect to the conditional expectation \(E(Y\vert X=x_i)\) are averaged out. There are several reasons for the existence of the error term in the regression: (1) the error term is taking into account variables which are not in the model; (2) we do not have great confidence about the correctness of the model; and (3) we do not know if there are measurement errors in the variables.
+This result implies that for \(X=x_i\), if the DGM is correctly specified, the divergences of all values of \(Y\) from the its conditional expectation \(E(Y\vert X=x_i)\) are averaged out. Hence, if DGM is not correctly specified, the error picks up those omitted variables and \(E\left(u | X=x_{i}\right)\neq0\).
 
-In a regression analysis, the PRF is a Data Generating Model for \(y_i\), which is unknown to us. Because it is unknown, we must try to learn about it from a sample since that is the only available data for us. If we assume that there is a specific PRF that generates the data, then given any estimator of \(\alpha\) and \(\beta\), namely \(\hat{\beta}\) and \(\hat{\alpha}\), we can estimate them from our sample with the sample regression function (SRF):
+In a regression analysis, the PRF includes DGM for \(y_i\), which is unknown to us. Because it is unknown, we must try to learn about it from a sample which is the only available data for us. If we assume that there is a specific PRF that generates the data, then given any estimator of \(\alpha\) and \(\beta\), namely \(\hat{\beta}\) and \(\hat{\alpha}\), we can estimate them from our sample with the sample regression function (SRF):
 
 \[
-\hat{y}_{i}=\hat{\alpha}+\hat{\beta} x_{i}, \quad i=1, \cdots, n
+\widehat{E\left(Y | X=x_{i}\right)}=\hat{y}_{i}=\hat{\alpha}+\hat{\beta} x_{i}, \quad i=1, \cdots, n
 \]
 
-The relationship between the PRF and SRF is:
+Hence,
 
 \[
 y_{i}=\hat{y}_{i}+\hat{u}_{i}, \quad i=1, \cdots, n
@@ -6275,15 +6309,15 @@ y_{i}=\hat{y}_{i}+\hat{u}_{i}, \quad i=1, \cdots, n
 
 where \(\hat{u_i}\) is denoted the residuals from SRF.
 
-With a data generating process (DGP) at hand, it is possible to create new simulated data. With \(\alpha\), \(\beta\) and the vector of exogenous variables \(X\) (fixed), a sample of size \(n\) can be used to obtain \(N\) values of \(Y\) with random variable \(u\). This yields one complete \textbf{population} of size \(N\). Note that this artificially generated set of data could be viewed as an example of real-world data that a researcher would be faced with when dealing with the kind of estimation problem this model represents. Note especially that the set of data obtained depends crucially on the particular set of error terms drawn. A different set of error terms would create a different data set of \(Y\) for the same problem.
+With a data generating process (DGP) at hand, it is possible to create new simulated data, which could be viewed as an example of real-world data that a researcher would face. With the artificial data we generated, DGM is now known and the whole population is accessible. That is, we can test many models on different samples drawn from this population in order to see whether their inferential properties are in line with DGM. We'll have several examples below.
 
-With the artificial data we generated, DGM is now known and the whole population is accessible. That is, we can test many models on different samples drawn from this population in order to see whether their inferential properties are in line with DGM. We'll have several examples below.
+Here is our DGM:
 
-Here is our DGM:\\
 \[
 Y_{i}=\beta_{1}+\beta_{2} X_{2 i}+\beta_{3} X_{3 i}+\beta_{4} X_{2 i} X_{3 i}+\beta_{5} X_{5 i},
 \]
-with the following coefficient vector: \(\beta = (12, -0.7, 34, -0.17, 5.4)\). Moreover \(x_2\) is binary variable with values of 0 and 1 and \(x_5\) and \(x_3\) are highly correlated with \(\rho = 0.65\). When we add the error term, \(u\), which is independently and identically (i.i.d) distributed with \(N(0,1)\), we can get the whole \emph{population} of 10,000 observations. DGM plus the error term is called the data generating process (DGP)
+
+with the following coefficient vector: \(\beta = (12, -0.7, 34, -0.17, 5.4)\). Moreover \(x_2\) is a binary variable with values of 0 and 1 and \(x_5\) and \(x_3\) are highly correlated with \(\rho = 0.65\). When we add the error term, \(u\), which is independently and identically (i.i.d) distributed with \(N(0,1)\), we can get the whole \emph{population} of 10,000 observations.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6319,7 +6353,7 @@ with the following coefficient vector: \(\beta = (12, -0.7, 34, -0.17, 5.4)\). M
 \NormalTok{beta }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{12}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{0.7}\NormalTok{, }\DecValTok{34}\NormalTok{, }\SpecialCharTok{{-}}\FloatTok{0.17}\NormalTok{, }\FloatTok{5.4}\NormalTok{)}
 \NormalTok{dgm }\OtherTok{\textless{}{-}}\NormalTok{ beta[}\DecValTok{1}\NormalTok{] }\SpecialCharTok{+}\NormalTok{ beta[}\DecValTok{2}\NormalTok{]}\SpecialCharTok{*}\NormalTok{x\_2 }\SpecialCharTok{+}\NormalTok{ beta[}\DecValTok{3}\NormalTok{]}\SpecialCharTok{*}\NormalTok{x\_3 }\SpecialCharTok{+}\NormalTok{ beta[}\DecValTok{4}\NormalTok{]}\SpecialCharTok{*}\NormalTok{x\_23 }\SpecialCharTok{+}\NormalTok{ beta[}\DecValTok{5}\NormalTok{]}\SpecialCharTok{*}\NormalTok{x\_5}
 
-\CommentTok{\#And our Yi}
+\CommentTok{\#And our Y}
 \NormalTok{y }\OtherTok{\textless{}{-}}\NormalTok{ dgm }\SpecialCharTok{+} \FunctionTok{rnorm}\NormalTok{(N,}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{)}
 \NormalTok{pop }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(y, x\_2, x\_3, x\_23, x\_5)}
 \FunctionTok{str}\NormalTok{(pop)}
@@ -6328,16 +6362,15 @@ with the following coefficient vector: \(\beta = (12, -0.7, 34, -0.17, 5.4)\). M
 
 \begin{verbatim}
 ## 'data.frame':    10000 obs. of  5 variables:
-##  $ y   : num  -37.09 8.41 12.84 44.55 31.87 ...
-##  $ x_2 : num  0 0 1 1 0 1 1 1 0 0 ...
-##  $ x_3 : num  -1.3163 -0.1002 0.0558 0.7737 0.6297 ...
-##  $ x_23: num  0 0 0.0558 0.7737 0 ...
-##  $ x_5 : num  -0.6134 -0.0465 -0.0857 1.5022 -0.3612 ...
+##  $ y   : num  -49.2 16.8 -10.1 -50.2 93 ...
+##  $ x_2 : num  1 1 1 1 0 0 0 1 0 0 ...
+##  $ x_3 : num  -1.575 0.307 -0.431 -1.487 2.159 ...
+##  $ x_23: num  -1.575 0.307 -0.431 -1.487 0 ...
+##  $ x_5 : num  -1.321 -0.692 -1.338 -1.726 1.3 ...
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\#Here is new thing/trick to learn}
 \CommentTok{\#for better looking tables install.packages("stargazer")}
 \FunctionTok{library}\NormalTok{(stargazer)}
 \FunctionTok{stargazer}\NormalTok{(pop, }\AttributeTok{type =} \StringTok{"text"}\NormalTok{, }\AttributeTok{title =} \StringTok{"Descriptive Statistics"}\NormalTok{,}
@@ -6351,17 +6384,17 @@ with the following coefficient vector: \(\beta = (12, -0.7, 34, -0.17, 5.4)\). M
 ## ============================================
 ## Statistic   N    Mean  St. Dev.  Min    Max 
 ## --------------------------------------------
-## y         10,000 11.7    37.7   -168.8 164.3
+## y         10,000 11.7    37.7   -143.1 164.3
 ## x_2       10,000  0.5    0.5      0      1  
-## x_3       10,000  0.0    1.0     -4.7   3.9 
-## x_23      10,000 0.004   0.7     -4.7   3.9 
-## x_5       10,000 -0.0    1.0     -4.4   3.8 
+## x_3       10,000  0.0    1.0     -3.9   3.9 
+## x_23      10,000 0.002   0.7     -3.2   3.7 
+## x_5       10,000 -0.0    1.0     -3.8   3.6 
 ## --------------------------------------------
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\#The table will be saved in the working directory}
+\CommentTok{\#The table will be saved in the working directory too}
 \CommentTok{\#with whatever name you write in the out option.}
 \CommentTok{\#You can open this file with any word processor}
 \end{Highlighting}
@@ -6382,11 +6415,11 @@ Now we are going to sample this population and run a SRF.
 
 \begin{verbatim}
 ## 'data.frame':    500 obs. of  5 variables:
-##  $ y   : num  10.7 44.7 -47.1 -30.6 24 ...
-##  $ x_2 : num  0 1 0 0 1 0 1 1 1 0 ...
-##  $ x_3 : num  -0.111 0.705 -1.62 -1.153 0.358 ...
-##  $ x_23: num  0 0.705 0 0 0.358 ...
-##  $ x_5 : num  0.627 1.528 -0.889 -0.722 0.281 ...
+##  $ y   : num  40.8 55.8 -11.1 17.9 20.5 ...
+##  $ x_2 : num  1 0 0 0 0 0 1 0 1 0 ...
+##  $ x_3 : num  0.9187 1.177 -0.5007 0.3275 0.0758 ...
+##  $ x_23: num  0.919 0 0 0 0 ...
+##  $ x_5 : num  -0.221 0.692 -0.724 -0.606 1.417 ...
 \end{verbatim}
 
 \begin{Shaded}
@@ -6406,27 +6439,27 @@ Now we are going to sample this population and run a SRF.
 ##                     ----------------------------
 ##                                  Y              
 ## ------------------------------------------------
-## x_2                          -0.718***          
-##                               (0.087)           
+## x_2                          -0.714***          
+##                               (0.089)           
 ##                                                 
-## x_3                          34.025***          
-##                               (0.068)           
+## x_3                          34.029***          
+##                               (0.070)           
 ##                                                 
-## x_23                          -0.162*           
-##                               (0.085)           
+## x_23                          -0.164*           
+##                               (0.089)           
 ##                                                 
-## x_5                           5.357***          
-##                               (0.058)           
+## x_5                           5.344***          
+##                               (0.055)           
 ##                                                 
-## Constant                     12.075***          
-##                               (0.060)           
+## Constant                     11.945***          
+##                               (0.061)           
 ##                                                 
 ## ------------------------------------------------
 ## Observations                    500             
 ## R2                             0.999            
 ## Adjusted R2                    0.999            
-## Residual Std. Error       0.974 (df = 495)      
-## F Statistic         196,907.500*** (df = 4; 495)
+## Residual Std. Error       0.992 (df = 495)      
+## F Statistic         177,153.800*** (df = 4; 495)
 ## ================================================
 ## Note:                *p<0.1; **p<0.05; ***p<0.01
 \end{verbatim}
@@ -6445,11 +6478,11 @@ As you can see the coefficients are very close to our ``true'' coefficients spec
 
 \begin{verbatim}
 ## 'data.frame':    500 obs. of  5 variables:
-##  $ y   : num  -21.42 35.02 -2.79 -12.15 -10.37 ...
-##  $ x_2 : num  0 1 1 0 0 0 0 1 0 1 ...
-##  $ x_3 : num  -0.828 0.65 -0.387 -0.907 -0.423 ...
-##  $ x_23: num  0 0.65 -0.387 0 0 ...
-##  $ x_5 : num  -1.035 0.194 -0.298 1.311 -1.467 ...
+##  $ y   : num  22.46 6.48 35.52 32.34 -16.7 ...
+##  $ x_2 : num  1 1 0 1 1 1 0 1 1 0 ...
+##  $ x_3 : num  0.2913 0.0582 0.3794 0.7569 -0.6862 ...
+##  $ x_23: num  0.2913 0.0582 0 0.7569 -0.6862 ...
+##  $ x_5 : num  0.146 -1.156 1.972 -0.523 -0.518 ...
 \end{verbatim}
 
 \begin{Shaded}
@@ -6469,36 +6502,38 @@ As you can see the coefficients are very close to our ``true'' coefficients spec
 ##                     ---------------------------
 ##                                  Y             
 ## -----------------------------------------------
-## x_2                           -0.717*          
-##                               (0.379)          
+## x_2                           -0.485           
+##                               (0.377)          
 ##                                                
-## x_3                          37.534***         
-##                               (0.275)          
-##                                                
-## x_23                          -0.581           
-##                               (0.406)          
-##                                                
-## Constant                     11.861***         
+## x_3                          37.569***         
 ##                               (0.266)          
+##                                                
+## x_23                          -0.501           
+##                               (0.387)          
+##                                                
+## Constant                     11.886***         
+##                               (0.271)          
 ##                                                
 ## -----------------------------------------------
 ## Observations                    500            
-## R2                             0.986           
-## Adjusted R2                    0.986           
-## Residual Std. Error      4.231 (df = 496)      
-## F Statistic         11,326.660*** (df = 3; 496)
+## R2                             0.987           
+## Adjusted R2                    0.987           
+## Residual Std. Error      4.205 (df = 496)      
+## F Statistic         12,481.320*** (df = 3; 496)
 ## ===============================================
 ## Note:               *p<0.1; **p<0.05; ***p<0.01
 \end{verbatim}
 
-Now it seems that none of the coefficients are as good as before, except for the intercept. This is a so-called omitted variable bias (OVB) problem, also known as a model underfitting or specification error. Would be the case that that this is a problem for only one sample? We can simulate the results many times and see whether \textbf{on average} \(\hat{\beta_3}\) is biased or not.
+Now it seems that none of the coefficients are as good as before, except for the intercept. This is a so-called omitted variable bias (OVB) problem, also known as a model underfitting or specification error. Would it be a problem for only one sample? We can simulate the results many times and see whether \textbf{on average} \(\hat{\beta_3}\) is biased or not.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{n.sims }\OtherTok{\textless{}{-}} \DecValTok{500}
 \NormalTok{n }\OtherTok{\textless{}{-}} \DecValTok{500} \CommentTok{\#sample size}
-\NormalTok{beta\_3 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\ConstantTok{NA}\NormalTok{, n.sims)}
+\NormalTok{beta\_3 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{)}
+
 \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{n.sims)\{}
+  \FunctionTok{set.seed}\NormalTok{(i)}
 \NormalTok{  sample }\OtherTok{\textless{}{-}}\NormalTok{ pop[}\FunctionTok{sample}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(pop), n, }\AttributeTok{replace =} \ConstantTok{FALSE}\NormalTok{), ]}
 \NormalTok{  model\_bad }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(y }\SpecialCharTok{\textasciitilde{}}\NormalTok{ x\_2 }\SpecialCharTok{+}\NormalTok{ x\_3 }\SpecialCharTok{+}\NormalTok{ x\_23, }\AttributeTok{data =}\NormalTok{ sample)}
 \NormalTok{  beta\_3[i] }\OtherTok{\textless{}{-}}\NormalTok{ model\_bad}\SpecialCharTok{$}\NormalTok{coefficients[}\StringTok{"x\_3"}\NormalTok{]}
@@ -6509,16 +6544,17 @@ Now it seems that none of the coefficients are as good as before, except for the
 
 \begin{verbatim}
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   36.56   37.33   37.49   37.50   37.68   38.19
+##   36.76   37.32   37.50   37.50   37.67   38.26
 \end{verbatim}
 
-As we can see the OVB problem is not a problem in one sample. We withdrew a sample and estimated the same underfitting model 500 times with a simulation. Therefore we collected 500 \(\hat{\beta_3}\). The average is 37.47. If we do the same simulation with a model that is correctly specified, you can see the results: the average of 500 \(\hat{\beta_3}\) is 34, which is the ``correct''true'' coefficent in our DGM.
+As we can see the OVB problem is not a problem in one sample. We withdrew a sample and estimated the same underfitting model 500 times with a simulation. Hence, we collected 500 \(\hat{\beta_3}\). The average is 37.58. If we do the same simulation with a model that is correctly specified, you can see the results: the average of 500 \(\hat{\beta_3}\) is 34, which is the ``correct''true'' coefficient in our DGM.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{n.sims }\OtherTok{\textless{}{-}} \DecValTok{500}
 \NormalTok{n }\OtherTok{\textless{}{-}} \DecValTok{500} \CommentTok{\#sample size}
 \NormalTok{beta\_3 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\ConstantTok{NA}\NormalTok{, n.sims)}
+
 \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{n.sims)\{}
 \NormalTok{  sample }\OtherTok{\textless{}{-}}\NormalTok{ pop[}\FunctionTok{sample}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(pop), n, }\AttributeTok{replace =} \ConstantTok{FALSE}\NormalTok{), ]}
 \NormalTok{  model\_good }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(y }\SpecialCharTok{\textasciitilde{}}\NormalTok{ x\_2 }\SpecialCharTok{+}\NormalTok{ x\_3 }\SpecialCharTok{+}\NormalTok{ x\_23 }\SpecialCharTok{+}\NormalTok{ x\_5, }\AttributeTok{data =}\NormalTok{ sample)}
@@ -6530,13 +6566,13 @@ As we can see the OVB problem is not a problem in one sample. We withdrew a samp
 
 \begin{verbatim}
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   33.81   33.96   34.02   34.01   34.06   34.23
+##   33.79   33.94   33.99   33.99   34.04   34.19
 \end{verbatim}
 
 \hypertarget{bootstrapping}{%
 \section{Bootstrapping}\label{bootstrapping}}
 
-Bootstrapping is the process of resampling with replacement (all values in the sample have an equal probability of being selected, including multiple times, so a value could have duplicates). Resample, calculate a statistic (e.g.~the mean), repeat this hundreds or thousands of times and you are able to estimate a precise/accurate uncertainty of the mean (confidence interval) of the data's distribution. There are less assumptions about the underlying distribution using bootstrap compared to calculating the standard error directly.
+Bootstrapping is the process of resampling with replacement with an equal probabilities. With bootstrapping, we can calculate a statistic (e.g.~the mean) from each bootstrapped sample repeated thousands of times and estimate a precise/accurate uncertainty of the mean (confidence interval) of the data's distribution.
 
 Generally bootstrapping follows the same basic steps:
 
@@ -6550,29 +6586,18 @@ Generally bootstrapping follows the same basic steps:
   Find the standard deviation of the distribution of that statistic.
 \end{itemize}
 
-In the following bootstrapping example we would like to obtain a standard error for the estimate of the mean. We will be using the \texttt{lapply()}, \texttt{sapply()} functions in combination with the sample function. (see \url{https://stats.idre.ucla.edu/r/library/r-library-introduction-to-bootstrapping/})\citep{UCLA_2021}
+In the following bootstrapping example we would like to obtain a standard error for the estimate of the mean. We will be using the \texttt{lapply()}, \texttt{sapply()} functions in combination with the sample function. (see this link for more details: \url{https://stats.idre.ucla.edu/r/library/r-library-introduction-to-bootstrapping/})\citep{UCLA_2021}
+
+Let's create a data set by taking 100 observations from a normal distribution with mean 5 and standard deviation 3:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\#creating the data set by taking 100 observations }
-\CommentTok{\#from a normal distribution with mean 5 and stdev 3}
-
 \FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
-\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{3}\NormalTok{) }\CommentTok{\#rounding each observation to nearest integer}
-\NormalTok{data[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{10}\NormalTok{]}
-\end{Highlighting}
-\end{Shaded}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{3}\NormalTok{) }
 
-\begin{verbatim}
-##  [1]  3.318573  4.309468  9.676125  5.211525  5.387863 10.145195  6.382749
-##  [8]  1.204816  2.939441  3.663014
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{\#obtaining 20 bootstrap samples and storing in a list}
 \NormalTok{resamples }\OtherTok{\textless{}{-}} \FunctionTok{lapply}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{20}\NormalTok{, }\ControlFlowTok{function}\NormalTok{(i) }\FunctionTok{sample}\NormalTok{(data, }\AttributeTok{replace =}\NormalTok{ T))}
-\CommentTok{\#display the first of the bootstrap samples}
+
 \NormalTok{resamples[}\DecValTok{1}\NormalTok{]}
 \end{Highlighting}
 \end{Shaded}
@@ -6605,15 +6630,17 @@ Here is another way to do the same thing:
 \FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
 \NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{3}\NormalTok{)}
 \NormalTok{resamples\_2 }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\ConstantTok{NA}\NormalTok{, }\AttributeTok{nrow =} \DecValTok{100}\NormalTok{, }\AttributeTok{ncol =} \DecValTok{20}\NormalTok{)}
+
 \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{20}\NormalTok{) \{}
 \NormalTok{  resamples\_2[,i] }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(data, }\DecValTok{100}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{)}
 \NormalTok{\}}
-\FunctionTok{str}\NormalTok{(resamples\_2)}
+
+\FunctionTok{dim}\NormalTok{(resamples\_2)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##  num [1:100, 1:20] 8.76 3.12 4.02 10.36 6.31 ...
+## [1] 100  20
 \end{verbatim}
 
 \begin{Shaded}
@@ -6683,11 +6710,23 @@ Calculating the standard deviation of the distribution of means:
 \hypertarget{monty-hall---fun-example}{%
 \section{Monty Hall - Fun example}\label{monty-hall---fun-example}}
 
-The Monty Hall problem is a brain teaser, in the form of a probability puzzle, loosely based on the American television game show Let's Make a Deal and named after its original host, Monty Hall. The problem was originally posed (and solved) in a letter by Steve Selvin to the American Statistician in 1975 (Selvin 1975a), (Selvin 1975b). It became famous as a question from a reader's letter quoted in Marilyn vos Savant's ``Ask Marilyn'' column in Parade magazine in 1990:
+The Monty Hall problem is a well-known brain teaser based on the American television game show \textbf{Let's Make a Deal} and named after its original host, Monty Hall. Here is an excerpt from \href{https://en.wikipedia.org/wiki/Monty_Hall}{Wikipedia}
 
-\textbf{Suppose you're on a game show, and you're given the choice of three doors: Behind one door is a car; behind the others, goats. You pick a door, say No.~1, and the host, who knows what's behind the doors, opens another door, say No.~3, which has a goat. He then says to you, ``Do you want to pick door No.~2?'' Is it to your advantage to switch your choice?}
+\begin{quote}
+Hall's name is used in a probability puzzle known as the ``Monty Hall problem''. The name was conceived by statistician Steve Selvin who used the title in describing a probability problem to Scientific American in 1975 based on one of the games on Let's Make a Deal, and more popularized when it was presented in a weekly national newspaper column by Marilyn vos Savant in 1990.
+\end{quote}
 
-Vos Savant's response was that the contestant should switch to the other door (vos Savant 1990a). Under the standard assumptions, contestants who switch have a 2/3 chance of winning the car, while contestants who stick to their initial choice have only a 1/3 chance.
+\begin{quote}
+A host (``Monty'') provides a player with three doors, one containing a valuable prize and the other two containing a ``gag'', valueless prize. The contestant is offered a choice of one of the doors without knowledge of the content behind them. ``Monty'', who knows which door has the prize, opens a door that the player did not select that has a gag prize, and then offers the player the option to switch from their choice to the other remaining unopened door. The probability problem arises from asking if the player should switch to the unrevealed door.
+\end{quote}
+
+\begin{quote}
+Mathematically, the problem shows that a player switching to the other door has a 2/3 chance of winning under standard conditions, but this is a counterintuitive effect of switching one's choice of doors, and the problem gained wide attention due to conflicting views following vos Savant's publication, with many asserting that the probability of winning had dropped to 1/2 if one switched. A number of other solutions become possible if the problem setup is outside of the ``standard conditions'' defined by vos Savant: that the host equally selects one of the two gag prize doors if the player had first picked the winning prize, and the offer to switch is always presented.
+\end{quote}
+
+\begin{quote}
+Hall gave an explanation of the solution to that problem in an interview with The New York Times reporter John Tierney in 1991. In the article, Hall pointed out that because he had control over the way the game progressed, playing on the psychology of the contestant, the theoretical solution did not apply to the show's actual gameplay. He said he was not surprised at the experts' insistence that the probability was 1 out of 2. ``That's the same assumption contestants would make on the show after I showed them there was nothing behind one door,'' he said. ``They'd think the odds on their door had now gone up to 1 in 2, so they hated to give up the door no matter how much money I offered. By opening that door we were applying pressure. We called it the Henry James treatment. It was `The Turn of the Screw.'\,'' Hall clarified that as a game show host he was not required to follow the rules of the puzzle as Marilyn vos Savant often explains in her weekly column in Parade, and did not always allow a person the opportunity to switch. For example, he might open their door immediately if it was a losing door, might offer them money to not switch from a losing door to a winning door, or might only allow them the opportunity to switch if they had a winning door. ``If the host is required to open a door all the time and offer you a switch, then you should take the switch,'' he said. ``But if he has the choice whether to allow a switch or not, beware. Caveat emptor. It all depends on his mood.''
+\end{quote}
 
 Many readers of vos Savant's column refused to believe switching is beneficial despite her explanation. After the problem appeared in Parade, approximately 10,000 readers, \textbf{including nearly 1,000 with PhDs}, wrote to the magazine, most of them claiming vos Savant was wrong. Even when given explanations, simulations, and formal mathematical proofs, many people still do not accept that switching is the best strategy. \textbf{Paul Erdős, one of the most prolific mathematicians in history, remained unconvinced until he was shown a computer simulation demonstrating the predicted result}.
 
@@ -6705,7 +6744,7 @@ If this is true the player should always switch. Here is the Bayesian answer:
 
 \(Pr(Car=1|Open=3) = Pr(Open=3|Car=1)Pr(Car=1)/Pr(Open=3)\) = 1/2 x (1/3) / (1/2) = 1/3
 
-Let's see each number. Given that the player picks Door 1, if the car is behind Door 1, Monty should be indifferent between opening Doors 2 and 3. So the first term is 1/2. The second term is easy: Probability that the car is behind Door 1 is 1/3. The third term is also simple and usualy overlooked. This is not a conditional probability. If the car were behind Door 2, the probability that Monty opens Door 3 would be 1. And this explains why the second option is different, below:
+Let's see each number. Given that the player picks Door 1, if the car is behind Door 1, Monty should be indifferent between opening Doors 2 and 3. So the first term is 1/2. The second term is easy: Probability that the car is behind Door 1 is 1/3. The third term is also simple and usually overlooked. This is not a conditional probability. If the car were behind Door 2, the probability that Monty opens Door 3 would be 1. And this explains why the second option is different, below:
 
 \(Pr(Car=2|Open=3) = Pr(Open=3|Car=2)Pr(Car=2)/Pr(Open=3)\) = 1 x (1/3) / (1/2) = 2/3
 
@@ -7186,196 +7225,76 @@ Given a correlation matrix, the \texttt{findCorrelation} function uses the follo
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{examples}{%
-\section{Examples}\label{examples}}
+\hypertarget{rmarkdown}{%
+\section{RMarkdown}\label{rmarkdown}}
 
-\url{https://raw.githack.com/yaydede/Blog_posts/main/EDA.html}
+R Markdown provides an excellent platform for authoring your data science projects (like EDA's) combining your codes, their results, and your commentary. R Markdown documents support multiple output formats: HTML, PDFs, Word files, slideshows, and more.
 
-\hypertarget{parts}{%
-\chapter{Parts}\label{parts}}
+Here are some examples
 
-You can add parts to organize one or more book chapters together. Parts can be inserted at the top of an .Rmd file, before the first-level chapter heading in that same file.
-
-Add a numbered part: \texttt{\#\ (PART)\ Act\ one\ \{-\}} (followed by \texttt{\#\ A\ chapter})
-
-Add an unnumbered part: \texttt{\#\ (PART\textbackslash{}*)\ Act\ one\ \{-\}} (followed by \texttt{\#\ A\ chapter})
-
-Add an appendix as a special kind of un-numbered part: \texttt{\#\ (APPENDIX)\ Other\ stuff\ \{-\}} (followed by \texttt{\#\ A\ chapter}). Chapters in an appendix are prepended with letters instead of numbers.
-
-\hypertarget{footnotes-and-citations}{%
-\chapter{Footnotes and citations}\label{footnotes-and-citations}}
-
-\hypertarget{footnotes}{%
-\section{Footnotes}\label{footnotes}}
-
-Footnotes are put inside the square brackets after a caret \texttt{\^{}{[}{]}}. Like this one \footnote{This is a footnote.}.
-
-\hypertarget{citations}{%
-\section{Citations}\label{citations}}
-
-Reference items in your bibliography file(s) using \texttt{@key}.
-
-For example, we are using the \textbf{bookdown} package \citep{R-bookdown} (check out the last code chunk in index.Rmd to see how this citation key was added) in this sample book, which was built on top of R Markdown and \textbf{knitr} \citep{xie2015} (this citation was added manually in an external file book.bib).
-Note that the \texttt{.bib} files need to be listed in the index.Rmd with the YAML \texttt{bibliography} key.
-
-The RStudio Visual Markdown Editor can also make it easier to insert citations: \url{https://rstudio.github.io/visual-markdown-editing/\#/citations}
-
-\hypertarget{blocks}{%
-\chapter{Blocks}\label{blocks}}
-
-\hypertarget{equations}{%
-\section{Equations}\label{equations}}
-
-Here is an equation.
-
-\begin{equation} 
-  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
-  \label{eq:binom}
-\end{equation}
-
-You may refer to using \texttt{\textbackslash{}@ref(eq:binom)}, like see Equation \eqref{eq:binom}.
-
-\hypertarget{theorems-and-proofs}{%
-\section{Theorems and proofs}\label{theorems-and-proofs}}
-
-Labeled theorems can be referenced in text using \texttt{\textbackslash{}@ref(thm:tri)}, for example, check out this smart theorem \ref{thm:tri}.
-
-\begin{theorem}
-\protect\hypertarget{thm:tri}{}\label{thm:tri}For a right triangle, if \(c\) denotes the \emph{length} of the hypotenuse
-and \(a\) and \(b\) denote the lengths of the \textbf{other} two sides, we have
-\[a^2 + b^2 = c^2\]
-\end{theorem}
-
-Read more here \url{https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html}.
-
-\hypertarget{callout-blocks}{%
-\section{Callout blocks}\label{callout-blocks}}
-
-The R Markdown Cookbook provides more help on how to use custom blocks to design your own callouts: \url{https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html}
-
-\hypertarget{sharing-your-book}{%
-\chapter{Sharing your book}\label{sharing-your-book}}
-
-\hypertarget{publishing}{%
-\section{Publishing}\label{publishing}}
-
-HTML books can be published online, see: \url{https://bookdown.org/yihui/bookdown/publishing.html}
-
-\hypertarget{pages}{%
-\section{404 pages}\label{pages}}
-
-By default, users will be directed to a 404 page if they try to access a webpage that cannot be found. If you'd like to customize your 404 page instead of using the default, you may add either a \texttt{\_404.Rmd} or \texttt{\_404.md} file to your project root and use code and/or Markdown syntax.
-
-\hypertarget{metadata-for-sharing}{%
-\section{Metadata for sharing}\label{metadata-for-sharing}}
-
-Bookdown HTML books will provide HTML metadata for social sharing on platforms like Twitter, Facebook, and LinkedIn, using information you provide in the \texttt{index.Rmd} YAML. To setup, set the \texttt{url} for your book and the path to your \texttt{cover-image} file. Your book's \texttt{title} and \texttt{description} are also used.
-
-This \texttt{gitbook} uses the same social sharing data across all chapters in your book- all links shared will look the same.
-
-Specify your book's source repository on GitHub using the \texttt{edit} key under the configuration options in the \texttt{\_output.yml} file, which allows users to suggest an edit by linking to a chapter's source file.
-
-Read more about the features of this output format here:
-
-\url{https://pkgs.rstudio.com/bookdown/reference/gitbook.html}
-
-Or use:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{?bookdown}\SpecialCharTok{::}\NormalTok{gitbook}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{cross}{%
-\chapter{Cross-references}\label{cross}}
-
-Cross-references make it easier for your readers to find and link to elements in your book.
-
-\hypertarget{chapters-and-sub-chapters}{%
-\section{Chapters and sub-chapters}\label{chapters-and-sub-chapters}}
-
-There are two steps to cross-reference any heading:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\begin{itemize}
 \tightlist
 \item
-  Label the heading: \texttt{\#\ Hello\ world\ \{\#nice-label\}}.
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Leave the label off if you like the automated heading generated based on your heading title: for example, \texttt{\#\ Hello\ world} = \texttt{\#\ Hello\ world\ \{\#hello-world\}}.
-  \item
-    To label an un-numbered heading, use: \texttt{\#\ Hello\ world\ \{-\#nice-label\}} or \texttt{\{\#\ Hello\ world\ .unnumbered\}}.
-  \end{itemize}
+  html output: \url{https://raw.githack.com/yaydede/Blog_posts/main/EDA.html}
 \item
-  Next, reference the labeled heading anywhere in the text using \texttt{\textbackslash{}@ref(nice-label)}; for example, please see Chapter \ref{cross}.
+  pdf output: \url{https://yaydede.github.io/files/CV6.pdf}
+\end{itemize}
 
-  \begin{itemize}
-  \tightlist
-  \item
-    If you prefer text as the link instead of a numbered reference use: \protect\hyperlink{cross}{any text you want can go here}.
-  \end{itemize}
-\end{enumerate}
+You can use R Markdown in many ways but here are the few main ways:
 
-\hypertarget{captioned-figures-and-tables}{%
-\section{Captioned figures and tables}\label{captioned-figures-and-tables}}
+\begin{itemize}
+\tightlist
+\item
+  For communicating to decision makers who want to focus on the conclusions, not the code behind the analysis.
+\item
+  For collaborating with those, who are interested in both your conclusions and the codes.
+\item
+  As a nice notebook where you can capture not only what you did, but also what you were thinking.
+\item
+  As a scientific manuscript using Latex: \url{https://www.marianamontes.me/post/academic-writing-in-r-markdown-i/}
+\item
+  A book with \href{https://bookdown.org}{Bookdown}: \url{https://yaydede.github.io/ToolShed/}
+\item
+  As a blog with \href{https://bookdown.org/yihui/blogdown/}{Blogdown}: \url{https://shilaan.rbind.io/post/building-your-website-using-r-blogdown/}
+\item
+  As a good \texttt{html} support for your website: \url{https://yaydede.github.io}
+\end{itemize}
 
-Figures and tables \emph{with captions} can also be cross-referenced from elsewhere in your book using \texttt{\textbackslash{}@ref(fig:chunk-label)} and \texttt{\textbackslash{}@ref(tab:chunk-label)}, respectively.
+Our package \texttt{RBootcamp} has a template: \texttt{Worksheet1}. Locate it at \texttt{File\ \textgreater{}\ New\ File\ \textgreater{}\ R\ Markdown\ \textgreater{}\ Template}. It will give a a good starting point
 
-See Figure \ref{fig:nice-fig}.
+\hypertarget{lessons-answers}{%
+\chapter{Lessons \& Answers}\label{lessons-answers}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{par}\NormalTok{(}\AttributeTok{mar =} \FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, .}\DecValTok{1}\NormalTok{, .}\DecValTok{1}\NormalTok{))}
-\FunctionTok{plot}\NormalTok{(pressure, }\AttributeTok{type =} \StringTok{\textquotesingle{}b\textquotesingle{}}\NormalTok{, }\AttributeTok{pch =} \DecValTok{19}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.8\linewidth]{14-cross-refs_files/figure-latex/nice-fig-1} 
-
-}
-
-\caption{Here is a nice figure!}\label{fig:nice-fig}
-\end{figure}
-
-Don't miss Table \ref{tab:nice-tab}.
+There are 6 interactive lessons with a wide range of exercises. Please access them by
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(}
-  \FunctionTok{head}\NormalTok{(pressure, }\DecValTok{10}\NormalTok{), }\AttributeTok{caption =} \StringTok{\textquotesingle{}Here is a nice table!\textquotesingle{}}\NormalTok{,}
-  \AttributeTok{booktabs =} \ConstantTok{TRUE}
-\NormalTok{)}
+\CommentTok{\#install.packages("remotes")}
+\CommentTok{\#remotes::install\_github("yaydede/RBootcamp")}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{table}
+Run the following lines on your console \ldots{}
 
-\caption{\label{tab:nice-tab}Here is a nice table!}
-\centering
-\begin{tabular}[t]{rr}
-\toprule
-temperature & pressure\\
-\midrule
-0 & 0.0002\\
-20 & 0.0012\\
-40 & 0.0060\\
-60 & 0.0300\\
-80 & 0.0900\\
-\addlinespace
-100 & 0.2700\\
-120 & 0.7500\\
-140 & 1.8500\\
-160 & 4.2000\\
-180 & 8.8000\\
-\bottomrule
-\end{tabular}
-\end{table}
+\hypertarget{lessons}{%
+\section{Lessons}\label{lessons}}
+
+\texttt{learnr::run\_tutorial("Lesson1",\ "RBootcamp")} for Ch's 1 and 2\\
+\texttt{learnr::run\_tutorial("Lesson2",\ "RBootcamp")} for Ch. 4\\
+\texttt{learnr::run\_tutorial("Lesson3",\ "RBootcamp")} for Ch. 5\\
+\texttt{learnr::run\_tutorial("Lesson4",\ "RBootcamp")} for Ch. 6\\
+\texttt{learnr::run\_tutorial("Lesson5",\ "RBootcamp")} for Ch. 7\\
+\texttt{learnr::run\_tutorial("Lesson6",\ "RBootcamp")} for Ch. 8
+
+\hypertarget{answers}{%
+\section{Answers}\label{answers}}
+
+\texttt{learnr::run\_tutorial("Lesson1A",\ "RBootcamp")}\strut \\
+\texttt{learnr::run\_tutorial("Lesson2A",\ "RBootcamp")}\strut \\
+\texttt{learnr::run\_tutorial("Lesson3A",\ "RBootcamp")}\strut \\
+\texttt{learnr::run\_tutorial("Lesson4A",\ "RBootcamp")}\strut \\
+\texttt{learnr::run\_tutorial("Lesson5A",\ "RBootcamp")}\strut \\
+\texttt{learnr::run\_tutorial("Lesson6A",\ "RBootcamp")}
 
   \bibliography{book.bib,packages.bib}
 

@@ -235,3 +235,20 @@ corrplot(M, order = 'AOE')
 corrplot.mixed(M, order = 'AOE')
 ```
 
+## Conditional Scatterplot
+
+To visualize the relationship between two continuous variables but for different levels of a factor variable you can create a conditional scatterplot with `coplot()`. Note that we haven't converted `maturity.stage` to a factor variable.
+
+```{r}
+library(RBootcamp)
+coplot(weight ~ DML | maturity.stage, data = squid1)
+```
+
+## `panel()`
+
+To explore the relationships between multiple continuous variables we can have a pairs plot. 
+
+```{r}
+pairs(mtcars[, c(1, 3, 6)])
+```
+

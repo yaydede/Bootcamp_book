@@ -4,7 +4,7 @@ In this section we see three main applications: conditional flows, loops, and fu
 
 ## Conditional flows
 
-### if/Else
+### if/else
 
 The main syntax is as follows  
 

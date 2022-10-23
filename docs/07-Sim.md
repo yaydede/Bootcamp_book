@@ -9,11 +9,11 @@ In this chapter, we will learn how to simulate data and illustrate their use in 
 5. **Bootstrapping,**
 6. **Power of simulation - A fun example.**
 
-Why would we want to simulate data? Why not just use real data?  Because with real data, we don’t know what the right answer is. Suppose we use real data and we apply a method to extract information, how do we know that we applied the method correctly?  Now suppose we create artificial data by simulating a "Data Generating Model".  Since we can know the correct answer, we can check whether or not our methods work to extract the information we wish to have. If our method is correct, than we can apply it to real data.  
+Why would we want to simulate data? Why not just use real data?  Because with real data, we don’t know what the right answer is. Suppose we use real data and we apply a method to extract information, how do we know that we applied the method correctly?  Now suppose we create artificial data by simulating a "Data Generating Model".  Since we can know the correct answer, we can check whether or not our methods work to extract the information we wish to have. If our method is correct, then we can apply it to the real data.  
 
 ## Sampling in R: `sample()`
 
-Let's play with sample() for simple random sampling.  We will see the arguments of sample() function.  
+Let's play with `sample()` for simple random sampling.  We will see the arguments of `sample()` function.  
 
 
 ```r
@@ -21,32 +21,32 @@ sample(c("H","T"), size = 8, replace = TRUE)  # fair coin
 ```
 
 ```
-## [1] "H" "T" "T" "T" "H" "T" "H" "T"
+## [1] "H" "T" "T" "T" "T" "T" "H" "H"
 ```
 
 ```r
-sample(1:6, size = 2, replace = TRUE, prob=c(3,3,3,4,4,4))
+sample(1:6, size = 2, replace = TRUE, prob=c(0.3, 0.1, 0.1, 0.2, 0.3, 0.1))
 ```
 
 ```
-## [1] 6 5
+## [1] 3 5
 ```
 
 ```r
 #let's do it again
-sample(c("H","T"), size = 8, replace = TRUE)  # fair coin
+sample(c("H","T"), size = 8, replace = TRUE)  
 ```
 
 ```
-## [1] "T" "T" "T" "H" "H" "T" "H" "H"
+## [1] "T" "T" "T" "H" "H" "H" "H" "T"
 ```
 
 ```r
-sample(1:6, size = 2, replace = TRUE, prob=c(3,3,3,4,4,4))
+sample(1:6, size = 2, replace = TRUE, prob=c(0.3, 0.1, 0.1, 0.2, 0.3, 0.1))
 ```
 
 ```
-## [1] 4 5
+## [1] 2 5
 ```
 
 The results are different. If we use `set.seed()` then we can get the same results each time. Lets try now:  
@@ -54,7 +54,7 @@ The results are different. If we use `set.seed()` then we can get the same resul
 
 ```r
 set.seed(123)
-sample(c("H","T"), size = 8, replace = TRUE)  # fair coin
+sample(c("H","T"), size = 8, replace = TRUE)  
 ```
 
 ```
@@ -62,18 +62,18 @@ sample(c("H","T"), size = 8, replace = TRUE)  # fair coin
 ```
 
 ```r
-sample(1:6, size = 2, replace = TRUE, prob=c(3,3,3,4,4,4))
+sample(1:6, size = 2, replace = TRUE, prob=c(0.3, 0.1, 0.1, 0.2, 0.3, 0.1))
 ```
 
 ```
-## [1] 4 4
+## [1] 4 5
 ```
 
 ```r
 #let's do it again
 
 set.seed(123)
-sample(c("H","T"), size = 8, replace = TRUE)  # fair coin
+sample(c("H","T"), size = 8, replace = TRUE) 
 ```
 
 ```
@@ -81,20 +81,20 @@ sample(c("H","T"), size = 8, replace = TRUE)  # fair coin
 ```
 
 ```r
-sample(1:6, size = 2, replace = TRUE, prob=c(3,3,3,4,4,4))
+sample(1:6, size = 2, replace = TRUE, prob=c(0.3, 0.1, 0.1, 0.2, 0.3, 0.1))
 ```
 
 ```
-## [1] 4 4
+## [1] 4 5
 ```
   
-We use `replace=TRUE` to override the default sample without replacement. This means the same thing can get selected from the population multiple times. And, `prob=` to sample elements with different probabilities, e.g. over sample based on some factor.  The `set.seed()` function allow you to make a reproducible set of random numbers.  Let's see the difference.  
+We use `replace=TRUE` to override the default sample without replacement. This means the same thing can get selected from the population multiple times. And, `prob=` to sample elements with different probabilities.  
 
 
 ```r
 x <- 1:12
-# a random permutation
 
+# Shuffles
 set.seed(123)
 sample(x)
 ```
@@ -104,7 +104,6 @@ sample(x)
 ```
 
 ```r
-# This shuffles the numbers
 set.seed(123)
 sample(x, replace = TRUE)
 ```
@@ -113,40 +112,7 @@ sample(x, replace = TRUE)
 ##  [1]  3  3 10  2  6 11  5  4  6  9 10 11
 ```
 
-```r
-# This shuffles the numbers and replacing them
-```
-
-More...   
-
-
-```r
-# sample()'s surprise -- example
-x <- 1:10
-    sample(x[x >  3]) # length 2
-```
-
-```
-## [1]  8  6  9  4  7 10  5
-```
-
-```r
-    sample(x[x >  9]) # oops -- length 10!  So this doesn't work
-```
-
-```
-##  [1]  3  8  2  7  9  1  6 10  4  5
-```
-
-```r
-    sample(x[x > 10]) # length 0
-```
-
-```
-## integer(0)
-```
-
-Here is an example: let’s generate 501 coin flips.  In the true model, this should generate heads half of the time, and tails half of the time.  
+Let’s generate 501 coin flips.  In the true model, this should generate heads half of the time, and tails half of the time.  
 
 
 ```r
@@ -154,7 +120,7 @@ set.seed(123)
 coins <- sample(c("Heads","Tails"), 501, replace = TRUE)
 ```
 
-Now let’s take that data as given and analyze it in our standard way!  The proportion of heads is:  
+The proportion of heads:  
 
 
 ```r
@@ -171,9 +137,9 @@ barplot(prop.table(table(coins)),
         cex.axis = 0.8, cex.names = 0.8)
 ```
 
-![](07-Sim_files/figure-epub3/unnamed-chunk-6-1.png)<!-- -->
+![](07-Sim_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
 
-So what’s our conclusion?  We came to the conclusion that the true model generates heads 0.493014 of the time.  But it is NOT 0.50 , so pretty close, but not exact. Did this whole thing work or not?  What if it always errs on the same side? In other words, what if it's always bias towards *heads* in every sample with 501 flips?  We will do our first simulation to answer it momentarily.
+The true model generates heads 0.521 of the time.  What if it always errs on the same side? In other words, what if it's always bias towards *heads* in every sample with 501 flips?  We will do our first simulation to answer it momentarily.
 
 One more useful application:   
 
@@ -186,7 +152,7 @@ sample(letters, 10, replace = TRUE)
 ##  [1] "p" "z" "o" "s" "c" "n" "a" "x" "a" "p"
 ```
 
-## Random number generating with probablity distributions
+## PDF's in R
 Here are the common probability distributions in R.  Search help in R for more detail.  
 
 `beta(shape1, shape2, ncp)`,  
@@ -203,12 +169,12 @@ Here are the common probability distributions in R.  Search help in R for more d
 `dnorm(x,)` returns the density or the value on the y-axis of a probability distribution for a discrete value of x,  
 `pnorm(q,)` returns the cumulative density function (CDF) or the area under the curve to the left of an x value on a probability distribution curve, 
 `qnorm(p,)` returns the quantile value, i.e. the standardized z value for x, 
-**`rnorm(n,)` returns a random simulation of size n**
+`rnorm(n,)` returns a random simulation of size n 
 
   
 
 ```r
-rnorm(6) #  6 std nrml distribution values
+rnorm(6) #  6 values from a standard normal distribution
 ```
 
 ```
@@ -216,7 +182,7 @@ rnorm(6) #  6 std nrml distribution values
 ```
 
 ```r
-rnorm(10, mean = 50, sd = 19) # set parameters
+rnorm(10, mean = 50, sd = 19) # 10 values from a normal distribution
 ```
 
 ```
@@ -224,48 +190,49 @@ rnorm(10, mean = 50, sd = 19) # set parameters
 ##  [9] 24.71680 38.74801
 ```
 
-```r
-runif(n = 10, min = 0, max = 1) #uniform distribution
-```
+The binomial distribution is the distribution of the number of successes in n independent Bernoulli trials where a Bernoulli trial results in success or failure, with the probability of success = p
 
-```
-##  [1] 0.96415257 0.08146656 0.85436475 0.80223822 0.38517360 0.32759740
-##  [7] 0.20493870 0.56938266 0.88805519 0.52971409
-```
 
 ```r
-rpois(n = 10, lambda = 15) # Poisson distribution
+# A single Bernoulli trial (e.g. a coin flip) is given with size = 1.
+rbinom(n = 1, size = 1, prob = 0.5)
 ```
 
 ```
-##  [1] 15 15  6 17 16 13 15 15 15 21
+## [1] 1
 ```
 
 ```r
-# toss coin 8 times using binomial distribution
-rbinom(n = 8, size = 1, p = 0.5)
+# 10 trials for one flip (size = 1)
+rbinom(n = 10, size = 1, prob = 0.5)
 ```
 
 ```
-## [1] 0 0 1 0 1 1 1 0
-```
-
-```r
-rbinom(8,1,.5) # args correct order
-```
-
-```
-## [1] 1 0 0 1 1 1 1 0
+##  [1] 0 1 1 0 0 0 1 1 1 1
 ```
 
 ```r
-# 18 trials, sample size 10, prob success =.2
-rbinom(18, 10, 0.2)
+# how many successes in 10 trials
+rbinom(n = 1, size = 10, p = 0.5)
 ```
 
 ```
-##  [1] 5 1 0 4 2 1 4 0 1 3 1 1 1 3 1 3 1 1
+## [1] 6
 ```
+
+So, a binomially distributed number is the same as the number of 1's in n such Bernoulli numbers.
+
+
+```r
+# 5 separate series of 10 trials
+rbinom(n = 5, size = 10, p = 0.5)
+```
+
+```
+## [1] 5 5 2 2 7
+```
+
+These numbers shows how many 1's we have out of 10 trials in each of 5 observations
 
 Can we replicate our coin-flip example here with probability distributions?   Yes, we can!
 
@@ -281,126 +248,109 @@ mean(coins==0)
 ```
 
 ```r
+mean(coins)
+```
+
+```
+## [1] 0.4690619
+```
+
+```r
 barplot(prop.table(table(coins)),
         col = c("lightskyblue3","mistyrose3"),
         cex.axis = 0.8, cex.names = 0.8)
 ```
 
-![](07-Sim_files/figure-epub3/unnamed-chunk-9-1.png)<!-- -->
+![](07-Sim_files/figure-epub3/unnamed-chunk-10-1.png)<!-- -->
+
+
+Uniform numbers are ones that are "equally likely" to be in the specified range. We use `runif()`:
+
+
+```r
+runif(n = 10, min = 0, max = 2) # Uniform distribution
+```
+
+```
+##  [1] 0.7328829 0.5742003 0.1599458 0.7309085 0.3560276 1.0721074 1.0078974
+##  [8] 1.8900702 0.6826426 0.9294275
+```
+
+Poisson distribution gives the likelihood of a certain number of events occurring in a given period of space or time.  It can be used to estimate how likely it is that something will happen `x` number of times. For example, if the average number of people who buy cheeseburgers from a fast-food chain on a Friday night at a single restaurant location is 200, a Poisson distribution can answer questions such as, *What is the probability that more than 300 people will buy burgers?* The application of the Poisson distribution thereby enables managers to introduce optimal scheduling systems that would not work with, say, a normal distribution.
+
+
+
+```r
+# Lambda = Average number of events
+rpois(n = 10, lambda = 15) # Poisson distribution
+```
+
+```
+##  [1]  9 17 14  9 13  8 20 23 20 14
+```
 
 ## Simulation for statistical inference  
 
-Let's predict number of girls in 400 births, where probability of female birth is 48.8%
+Let's apply a simulation to our coin flipping.
 
 
 ```r
-n.girls <- rbinom(1, 400, 0.488)
-n.girls
-```
+nsims <- 10000
+nheads <- c() 
 
-```
-## [1] 201
-```
-
-```r
-n.girls/400
-```
-
-```
-## [1] 0.5025
-```
-
-Now, to get distribution of the simulations, repeat the simulation many times.
-
-
-```r
-n.sims <- 1000
-n.girls <- rbinom(n.sims, 400, .488)
-hist(n.girls, col = "slategray3",  cex.axis = 0.75)
-```
-
-![](07-Sim_files/figure-epub3/unnamed-chunk-11-1.png)<!-- -->
-
-```r
-mean(n.girls)/400
-```
-
-```
-## [1] 0.4872775
-```
-
-This is called as *sampling distribution*.  Can we do same thing with a loop?
-
-
-```r
-n.sims <- 1000
-n.girls <- rep(NA, n.sims) # create vector to store simulations
-for (i in 1:n.sims){
-  n.girls[i] <- rbinom(1, 400, 0.488)
+for (i in 1:nsims){
+  nheads[i] <- mean(rbinom(n = 501, size = 1, p = 0.5))
 }
-hist(n.girls, col = "lavender", cex.axis = 0.75)
+
+mean(nheads)
 ```
 
-![](07-Sim_files/figure-epub3/unnamed-chunk-12-1.png)<!-- -->
-
-Let's apply a similar simulation to our coin flipping.
-
+```
+## [1] 0.4999669
+```
 
 ```r
-n.sims <- 1000
-n.heads <- rep(NA, n.sims) # create vector to store simulations
-for (i in 1:n.sims){
-  n.heads[i] <- mean(rbinom(n = 501, size = 1, p = 0.5))
-}
-hist(n.heads, col="aliceblue", cex.axis = 0.75)
+hist(nheads, col="blue", cex.axis = 0.75)
 ```
 
 ![](07-Sim_files/figure-epub3/unnamed-chunk-13-1.png)<!-- -->
-
-```r
-mean(n.heads)
-```
-
-```
-## [1] 0.4997705
-```
 
 Here is another way for the same simulation:   
 
 
 ```r
-n.heads <- replicate(1000, mean(rbinom(n = 501, size = 1, p = 0.5)))
-hist(n.heads, col="lightpink",cex.axis = 0.75)
+nheads <- replicate(10000, mean(rbinom(n = 501, size = 1, p = 0.5)))
+hist(nheads, col="pink",cex.axis = 0.75)
 ```
 
 ![](07-Sim_files/figure-epub3/unnamed-chunk-14-1.png)<!-- -->
 
 ```r
-mean(n.heads)
+mean(nheads)
 ```
 
 ```
-## [1] 0.4987265
+## [1] 0.4999421
 ```
 
-What's the 95% confidence interval for the mean?  
+What's the 95% confidence interval for the mean?  In other words, what's the 95% CI for the mean of a randomly selected sample?    
 
 
 ```r
-sd <- sd(n.heads)
-CI95 <- c(-2*sd+mean(n.heads), 2*sd+mean(n.heads))
+sd <- sd(nheads)
+CI95 <- c(-1.96*sd+mean(nheads), 1.96*sd+mean(nheads))
 CI95
 ```
 
 ```
-## [1] 0.4538446 0.5436085
+## [1] 0.4563052 0.5435791
 ```
-
+  
 What happens if we use a "wrong" estimator for the mean, like sum(heads)/300?  
 
 
 ```r
-n.sims <- 1000
+n.sims <- 10000
 n.heads <- rep(NA, n.sims) # create vector to store simulations
 for (i in 1:n.sims){
   n.heads[i] <- sum(rbinom(n = 501, size = 1, p = 0.5))/300
@@ -409,33 +359,34 @@ mean(n.heads)
 ```
 
 ```
-## [1] 0.83496
+## [1] 0.834594
 ```
 
-Because we are working with a simulation, identifying that the result from this incorrect estimator is wrong becomes easy.
+Because we are working with a simulation, it would be easy to show the result from this incorrect estimator.
 
-## Creataing data with a Data Generating Model (DGM)
+## Data Generating Model (DGM)
 
-One of the major tasks of statistics is to obtain information about populations. In most of cases, the population is unknown and the only thing that is known for the researcher is a finite subset of observations drawn from the population. The main aim of the statistical analysis is to obtain information about the population through analysis of the sample.  Since very little information is known about the population characteristics, one has to establish some assumptions about the behavior of this unknown population. For example, for a regression analysis, we can state that the whole population regression function (PRF) is a linear function of the different values of $X$.  One important issue related to the PRF is the error term ($u_i$) in the regression equation.  For a pair of realizations $(x_i,y_i)$ from the random variables $(X,Y)$, we can write the following equalities:  
+One of the major tasks of statistics is to obtain information about populations. In most of cases, the population is unknown and the only thing that is known for the researcher is a finite subset of observations drawn from the population. The main aim of the statistical analysis is to obtain information about the population through analysis of the sample.  Since very little information is known about the population characteristics, one has to establish some assumptions about the behavior of this unknown population. For example, we can state the population regression function (PRF) as a data generating process (DGP). DGP can be expressed as the some of DGM plus the error term ($u_i$).  For a pair of realizations $(x_i,y_i)$ from the random variables $(X,Y)$, we can write the following equalities:  
 
 $$
-y_{i}=E\left(Y | X=x_{i}\right)+u_{i}=\alpha+\beta x_{i}+u_{i}
+y_{i}=E\left(Y | X=x_{i}\right)+u_{i}=\text{DGM} + u_{i} = \alpha+\beta x_{i}+u_{i} =\text{DGP}
 $$
+  
 and  
 
 $$
 E\left(u | X=x_{i}\right)=0
 $$
 
-This result implies that for $X=x_i$, the divergences of all values of $Y$ with respect to the conditional expectation  $E(Y\vert X=x_i)$ are averaged out. There are several reasons for the existence of the error term in the regression:  (1) the error term is taking into account variables which are not in the model; (2) we do not have great confidence about the correctness of the model; and (3) we do not know if there are measurement errors in the variables.  
+This result implies that for $X=x_i$, if the DGM is correctly specified, the divergences of all values of $Y$ from the its conditional expectation $E(Y\vert X=x_i)$ are averaged out. Hence, if DGM is not correctly specified, the error picks up those omitted variables and $E\left(u | X=x_{i}\right)\neq0$.   
 
-In a regression analysis, the PRF is a Data Generating Model for $y_i$, which is unknown to us. Because it is unknown, we must try to learn about it from a sample since that is the only available data for us.  If we assume that there is a specific PRF that generates the data, then given any estimator of $\alpha$ and $\beta$, namely $\hat{\beta}$ and  $\hat{\alpha}$, we can estimate them from our sample with the sample regression function (SRF):   
+In a regression analysis, the PRF includes DGM for $y_i$, which is unknown to us. Because it is unknown, we must try to learn about it from a sample which is the only available data for us.  If we assume that there is a specific PRF that generates the data, then given any estimator of $\alpha$ and $\beta$, namely $\hat{\beta}$ and  $\hat{\alpha}$, we can estimate them from our sample with the sample regression function (SRF):   
 
 $$
-\hat{y}_{i}=\hat{\alpha}+\hat{\beta} x_{i}, \quad i=1, \cdots, n
+\widehat{E\left(Y | X=x_{i}\right)}=\hat{y}_{i}=\hat{\alpha}+\hat{\beta} x_{i}, \quad i=1, \cdots, n
 $$
   
-The relationship between the PRF and SRF is:   
+Hence,  
 
 $$
 y_{i}=\hat{y}_{i}+\hat{u}_{i}, \quad i=1, \cdots, n
@@ -443,15 +394,15 @@ $$
   
 where $\hat{u_i}$ is denoted the residuals from SRF.   
 
-With a data generating process (DGP) at hand, it is possible to create new simulated data. With $\alpha$, $\beta$ and the vector of exogenous variables $X$ (fixed), a sample of size $n$ can be used to obtain $N$ values of $Y$ with random variable $u$. This yields one complete **population** of size $N$. Note that this artificially generated set of data could be viewed as an example of real-world data that a researcher would be faced with when dealing with the kind of estimation problem this model represents. Note especially that the set of data obtained depends crucially on the particular set of error terms drawn. A different set of error terms would create a different data set of $Y$ for the same problem.
-  
-With the artificial data we generated, DGM is now known and the whole population is accessible.  That is, we can test many models on different samples drawn from this population in order to see whether their inferential properties are in line with DGM. We'll have several examples below.
+With a data generating process (DGP) at hand, it is possible to create new simulated data, which could be viewed as an example of real-world data that a researcher would face.  With the artificial data we generated, DGM is now known and the whole population is accessible.  That is, we can test many models on different samples drawn from this population in order to see whether their inferential properties are in line with DGM. We'll have several examples below.
   
 Here is our DGM:  
+  
 $$
 Y_{i}=\beta_{1}+\beta_{2} X_{2 i}+\beta_{3} X_{3 i}+\beta_{4} X_{2 i} X_{3 i}+\beta_{5} X_{5 i},
 $$
-with the following coefficient vector: $\beta = (12, -0.7, 34, -0.17, 5.4)$.  Moreover $x_2$ is binary variable with values of 0 and 1 and $x_5$ and $x_3$ are highly correlated with $\rho = 0.65$.  When we add the error term, $u$, which is independently and identically (i.i.d) distributed with $N(0,1)$, we can get the whole *population* of 10,000 observations.  DGM plus the error term is called the data generating process (DGP)
+  
+with the following coefficient vector: $\beta = (12, -0.7, 34, -0.17, 5.4)$.  Moreover $x_2$ is a binary variable with values of 0 and 1 and $x_5$ and $x_3$ are highly correlated with $\rho = 0.65$.  When we add the error term, $u$, which is independently and identically (i.i.d) distributed with $N(0,1)$, we can get the whole *population* of 10,000 observations.  
 
 
 ```r
@@ -485,7 +436,7 @@ x_23 <- x_2*x_3
 beta <- c(12, -0.7, 34, -0.17, 5.4)
 dgm <- beta[1] + beta[2]*x_2 + beta[3]*x_3 + beta[4]*x_23 + beta[5]*x_5
 
-#And our Yi
+#And our Y
 y <- dgm + rnorm(N,0,1)
 pop <- data.frame(y, x_2, x_3, x_23, x_5)
 str(pop)
@@ -493,15 +444,14 @@ str(pop)
 
 ```
 ## 'data.frame':	10000 obs. of  5 variables:
-##  $ y   : num  -37.09 8.41 12.84 44.55 31.87 ...
-##  $ x_2 : num  0 0 1 1 0 1 1 1 0 0 ...
-##  $ x_3 : num  -1.3163 -0.1002 0.0558 0.7737 0.6297 ...
-##  $ x_23: num  0 0 0.0558 0.7737 0 ...
-##  $ x_5 : num  -0.6134 -0.0465 -0.0857 1.5022 -0.3612 ...
+##  $ y   : num  -49.2 16.8 -10.1 -50.2 93 ...
+##  $ x_2 : num  1 1 1 1 0 0 0 1 0 0 ...
+##  $ x_3 : num  -1.575 0.307 -0.431 -1.487 2.159 ...
+##  $ x_23: num  -1.575 0.307 -0.431 -1.487 0 ...
+##  $ x_5 : num  -1.321 -0.692 -1.338 -1.726 1.3 ...
 ```
 
 ```r
-#Here is new thing/trick to learn
 #for better looking tables install.packages("stargazer")
 library(stargazer)
 stargazer(pop, type = "text", title = "Descriptive Statistics",
@@ -514,20 +464,20 @@ stargazer(pop, type = "text", title = "Descriptive Statistics",
 ## ============================================
 ## Statistic   N    Mean  St. Dev.  Min    Max 
 ## --------------------------------------------
-## y         10,000 11.7    37.7   -168.8 164.3
+## y         10,000 11.7    37.7   -143.1 164.3
 ## x_2       10,000  0.5    0.5      0      1  
-## x_3       10,000  0.0    1.0     -4.7   3.9 
-## x_23      10,000 0.004   0.7     -4.7   3.9 
-## x_5       10,000 -0.0    1.0     -4.4   3.8 
+## x_3       10,000  0.0    1.0     -3.9   3.9 
+## x_23      10,000 0.002   0.7     -3.2   3.7 
+## x_5       10,000 -0.0    1.0     -3.8   3.6 
 ## --------------------------------------------
 ```
 
 ```r
-#The table will be saved in the working directory
+#The table will be saved in the working directory too
 #with whatever name you write in the out option.
 #You can open this file with any word processor
 ```
-    
+  
 Now we are going to sample this population and run a SRF.  
 
 
@@ -542,11 +492,11 @@ str(sample)
 
 ```
 ## 'data.frame':	500 obs. of  5 variables:
-##  $ y   : num  10.7 44.7 -47.1 -30.6 24 ...
-##  $ x_2 : num  0 1 0 0 1 0 1 1 1 0 ...
-##  $ x_3 : num  -0.111 0.705 -1.62 -1.153 0.358 ...
-##  $ x_23: num  0 0.705 0 0 0.358 ...
-##  $ x_5 : num  0.627 1.528 -0.889 -0.722 0.281 ...
+##  $ y   : num  40.8 55.8 -11.1 17.9 20.5 ...
+##  $ x_2 : num  1 0 0 0 0 0 1 0 1 0 ...
+##  $ x_3 : num  0.9187 1.177 -0.5007 0.3275 0.0758 ...
+##  $ x_23: num  0.919 0 0 0 0 ...
+##  $ x_5 : num  -0.221 0.692 -0.724 -0.606 1.417 ...
 ```
 
 ```r
@@ -564,27 +514,27 @@ stargazer(model, type = "text", title = "G O O D -  M O D E L",
 ##                     ----------------------------
 ##                                  Y              
 ## ------------------------------------------------
-## x_2                          -0.718***          
-##                               (0.087)           
+## x_2                          -0.714***          
+##                               (0.089)           
 ##                                                 
-## x_3                          34.025***          
-##                               (0.068)           
+## x_3                          34.029***          
+##                               (0.070)           
 ##                                                 
-## x_23                          -0.162*           
-##                               (0.085)           
+## x_23                          -0.164*           
+##                               (0.089)           
 ##                                                 
-## x_5                           5.357***          
-##                               (0.058)           
+## x_5                           5.344***          
+##                               (0.055)           
 ##                                                 
-## Constant                     12.075***          
-##                               (0.060)           
+## Constant                     11.945***          
+##                               (0.061)           
 ##                                                 
 ## ------------------------------------------------
 ## Observations                    500             
 ## R2                             0.999            
 ## Adjusted R2                    0.999            
-## Residual Std. Error       0.974 (df = 495)      
-## F Statistic         196,907.500*** (df = 4; 495)
+## Residual Std. Error       0.992 (df = 495)      
+## F Statistic         177,153.800*** (df = 4; 495)
 ## ================================================
 ## Note:                *p<0.1; **p<0.05; ***p<0.01
 ```
@@ -602,11 +552,11 @@ str(sample)
 
 ```
 ## 'data.frame':	500 obs. of  5 variables:
-##  $ y   : num  -21.42 35.02 -2.79 -12.15 -10.37 ...
-##  $ x_2 : num  0 1 1 0 0 0 0 1 0 1 ...
-##  $ x_3 : num  -0.828 0.65 -0.387 -0.907 -0.423 ...
-##  $ x_23: num  0 0.65 -0.387 0 0 ...
-##  $ x_5 : num  -1.035 0.194 -0.298 1.311 -1.467 ...
+##  $ y   : num  22.46 6.48 35.52 32.34 -16.7 ...
+##  $ x_2 : num  1 1 0 1 1 1 0 1 1 0 ...
+##  $ x_3 : num  0.2913 0.0582 0.3794 0.7569 -0.6862 ...
+##  $ x_23: num  0.2913 0.0582 0 0.7569 -0.6862 ...
+##  $ x_5 : num  0.146 -1.156 1.972 -0.523 -0.518 ...
 ```
 
 ```r
@@ -624,36 +574,38 @@ stargazer(model_bad, type = "text", title = "B A D - M O D E L",
 ##                     ---------------------------
 ##                                  Y             
 ## -----------------------------------------------
-## x_2                           -0.717*          
-##                               (0.379)          
+## x_2                           -0.485           
+##                               (0.377)          
 ##                                                
-## x_3                          37.534***         
-##                               (0.275)          
-##                                                
-## x_23                          -0.581           
-##                               (0.406)          
-##                                                
-## Constant                     11.861***         
+## x_3                          37.569***         
 ##                               (0.266)          
+##                                                
+## x_23                          -0.501           
+##                               (0.387)          
+##                                                
+## Constant                     11.886***         
+##                               (0.271)          
 ##                                                
 ## -----------------------------------------------
 ## Observations                    500            
-## R2                             0.986           
-## Adjusted R2                    0.986           
-## Residual Std. Error      4.231 (df = 496)      
-## F Statistic         11,326.660*** (df = 3; 496)
+## R2                             0.987           
+## Adjusted R2                    0.987           
+## Residual Std. Error      4.205 (df = 496)      
+## F Statistic         12,481.320*** (df = 3; 496)
 ## ===============================================
 ## Note:               *p<0.1; **p<0.05; ***p<0.01
 ```
 
-Now it seems that none of the coefficients are as good as before, except for the intercept.  This is a so-called omitted variable bias (OVB) problem, also known as a model underfitting or specification error.  Would be the case that that this is a problem for only one sample? We can simulate the results many times and see whether **on average** $\hat{\beta_3}$ is biased or not.  
+Now it seems that none of the coefficients are as good as before, except for the intercept.  This is a so-called omitted variable bias (OVB) problem, also known as a model underfitting or specification error.  Would it be a problem for only one sample? We can simulate the results many times and see whether **on average** $\hat{\beta_3}$ is biased or not.  
 
 
 ```r
 n.sims <- 500
 n <- 500 #sample size
-beta_3 <- c(NA, n.sims)
+beta_3 <- c(0)
+
 for (i in 1:n.sims){
+  set.seed(i)
   sample <- pop[sample(nrow(pop), n, replace = FALSE), ]
   model_bad <- lm(y ~ x_2 + x_3 + x_23, data = sample)
   beta_3[i] <- model_bad$coefficients["x_3"]
@@ -663,16 +615,17 @@ summary(beta_3)
 
 ```
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   36.56   37.33   37.49   37.50   37.68   38.19
+##   36.76   37.32   37.50   37.50   37.67   38.26
 ```
   
-As we can see the OVB problem is not a problem in one sample.  We withdrew a sample and estimated the same underfitting model 500 times with a simulation. Therefore we collected 500 $\hat{\beta_3}$.  The average is 37.47.  If we do the same simulation with a model that is correctly specified, you can see the results:  the average of 500 $\hat{\beta_3}$ is 34, which is the "correct"true" coefficent in our DGM.  
+As we can see the OVB problem is not a problem in one sample.  We withdrew a sample and estimated the same underfitting model 500 times with a simulation. Hence, we collected 500 $\hat{\beta_3}$.  The average is 37.58.  If we do the same simulation with a model that is correctly specified, you can see the results:  the average of 500 $\hat{\beta_3}$ is 34, which is the "correct"true" coefficient in our DGM.  
 
 
 ```r
 n.sims <- 500
 n <- 500 #sample size
 beta_3 <- c(NA, n.sims)
+
 for (i in 1:n.sims){
   sample <- pop[sample(nrow(pop), n, replace = FALSE), ]
   model_good <- lm(y ~ x_2 + x_3 + x_23 + x_5, data = sample)
@@ -683,12 +636,12 @@ summary(beta_3)
 
 ```
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   33.81   33.96   34.02   34.01   34.06   34.23
+##   33.79   33.94   33.99   33.99   34.04   34.19
 ```
   
 ## Bootstrapping  
 
-Bootstrapping is the process of resampling with replacement (all values in the sample have an equal probability of being selected, including multiple times, so a value could have duplicates). Resample, calculate a statistic (e.g. the mean), repeat this hundreds or thousands of times and you are able to estimate a precise/accurate uncertainty of the mean (confidence interval) of the data’s distribution. There are less assumptions about the underlying distribution using bootstrap compared to calculating the standard error directly.
+Bootstrapping is the process of resampling with replacement with an equal probabilities. With bootstrapping, we can calculate a statistic (e.g. the mean) from each bootstrapped sample repeated thousands of times and estimate a precise/accurate uncertainty of the mean (confidence interval) of the data’s distribution. 
 
 Generally bootstrapping follows the same basic steps:
 
@@ -696,27 +649,18 @@ Generally bootstrapping follows the same basic steps:
 -  Calculate a specific statistic from each sample,  
 -  Find the standard deviation of the distribution of that statistic.  
 
-In the following bootstrapping example we would like to obtain a standard error for the estimate of the mean. We will be using the `lapply()`, `sapply()` functions in combination with the sample function. (see <https://stats.idre.ucla.edu/r/library/r-library-introduction-to-bootstrapping/>)[@UCLA_2021]
+In the following bootstrapping example we would like to obtain a standard error for the estimate of the mean. We will be using the `lapply()`, `sapply()` functions in combination with the sample function. (see this link for more details: <https://stats.idre.ucla.edu/r/library/r-library-introduction-to-bootstrapping/>)[@UCLA_2021]
+
+Let's create a data set by taking 100 observations from a normal distribution with mean 5 and standard deviation 3:  
 
 
 ```r
-#creating the data set by taking 100 observations 
-#from a normal distribution with mean 5 and stdev 3
-
 set.seed(123)
-data <- rnorm(100, 5, 3) #rounding each observation to nearest integer
-data[1:10]
-```
+data <- rnorm(100, 5, 3) 
 
-```
-##  [1]  3.318573  4.309468  9.676125  5.211525  5.387863 10.145195  6.382749
-##  [8]  1.204816  2.939441  3.663014
-```
-
-```r
 #obtaining 20 bootstrap samples and storing in a list
 resamples <- lapply(1:20, function(i) sample(data, replace = T))
-#display the first of the bootstrap samples
+
 resamples[1]
 ```
 
@@ -748,14 +692,16 @@ Here is another way to do the same thing:
 set.seed(123)
 data <- rnorm(100, 5, 3)
 resamples_2 <- matrix(NA, nrow = 100, ncol = 20)
+
 for (i in 1:20) {
   resamples_2[,i] <- sample(data, 100, replace = TRUE)
 }
-str(resamples_2)
+
+dim(resamples_2)
 ```
 
 ```
-##  num [1:100, 1:20] 8.76 3.12 4.02 10.36 6.31 ...
+## [1] 100  20
 ```
 
 ```r
@@ -818,11 +764,15 @@ sqrt(var(colMeans(resamples_2)))
 
 ## Monty Hall - Fun example
 
-The Monty Hall problem is a brain teaser, in the form of a probability puzzle, loosely based on the American television game show Let's Make a Deal and named after its original host, Monty Hall. The problem was originally posed (and solved) in a letter by Steve Selvin to the American Statistician in 1975 (Selvin 1975a), (Selvin 1975b). It became famous as a question from a reader's letter quoted in Marilyn vos Savant's "Ask Marilyn" column in Parade magazine in 1990:  
+The Monty Hall problem is a well-known brain teaser based on the American television game show **Let's Make a Deal** and named after its original host, Monty Hall. Here is an excerpt from [Wikipedia](https://en.wikipedia.org/wiki/Monty_Hall) 
 
-**Suppose you're on a game show, and you're given the choice of three doors: Behind one door is a car; behind the others, goats. You pick a door, say No. 1, and the host, who knows what's behind the doors, opens another door, say No. 3, which has a goat. He then says to you, "Do you want to pick door No. 2?" Is it to your advantage to switch your choice?**  
+>Hall's name is used in a probability puzzle known as the "Monty Hall problem". The name was conceived by statistician Steve Selvin who used the title in describing a probability problem to Scientific American in 1975 based on one of the games on Let's Make a Deal, and more popularized when it was presented in a weekly national newspaper column by Marilyn vos Savant in 1990.
 
-Vos Savant's response was that the contestant should switch to the other door (vos Savant 1990a). Under the standard assumptions, contestants who switch have a 2/3 chance of winning the car, while contestants who stick to their initial choice have only a 1/3 chance.  
+>A host ("Monty") provides a player with three doors, one containing a valuable prize and the other two containing a "gag", valueless prize. The contestant is offered a choice of one of the doors without knowledge of the content behind them. "Monty", who knows which door has the prize, opens a door that the player did not select that has a gag prize, and then offers the player the option to switch from their choice to the other remaining unopened door. The probability problem arises from asking if the player should switch to the unrevealed door.
+
+>Mathematically, the problem shows that a player switching to the other door has a 2/3 chance of winning under standard conditions, but this is a counterintuitive effect of switching one's choice of doors, and the problem gained wide attention due to conflicting views following vos Savant's publication, with many asserting that the probability of winning had dropped to 1/2 if one switched. A number of other solutions become possible if the problem setup is outside of the "standard conditions" defined by vos Savant: that the host equally selects one of the two gag prize doors if the player had first picked the winning prize, and the offer to switch is always presented.
+
+>Hall gave an explanation of the solution to that problem in an interview with The New York Times reporter John Tierney in 1991. In the article, Hall pointed out that because he had control over the way the game progressed, playing on the psychology of the contestant, the theoretical solution did not apply to the show's actual gameplay. He said he was not surprised at the experts' insistence that the probability was 1 out of 2. "That's the same assumption contestants would make on the show after I showed them there was nothing behind one door," he said. "They'd think the odds on their door had now gone up to 1 in 2, so they hated to give up the door no matter how much money I offered. By opening that door we were applying pressure. We called it the Henry James treatment. It was 'The Turn of the Screw.'" Hall clarified that as a game show host he was not required to follow the rules of the puzzle as Marilyn vos Savant often explains in her weekly column in Parade, and did not always allow a person the opportunity to switch. For example, he might open their door immediately if it was a losing door, might offer them money to not switch from a losing door to a winning door, or might only allow them the opportunity to switch if they had a winning door. "If the host is required to open a door all the time and offer you a switch, then you should take the switch," he said. "But if he has the choice whether to allow a switch or not, beware. Caveat emptor. It all depends on his mood."
 
 Many readers of vos Savant's column refused to believe switching is beneficial despite her explanation. After the problem appeared in Parade, approximately 10,000 readers, **including nearly 1,000 with PhDs**, wrote to the magazine, most of them claiming vos Savant was wrong. Even when given explanations, simulations, and formal mathematical proofs, many people still do not accept that switching is the best strategy. **Paul Erdős, one of the most prolific mathematicians in history, remained unconvinced until he was shown a computer simulation demonstrating the predicted result**.  
 
@@ -838,7 +788,7 @@ If this is true the player should always switch.  Here is the Bayesian answer:
 
 $Pr(Car=1|Open=3) = Pr(Open=3|Car=1)Pr(Car=1)/Pr(Open=3)$ = 1/2 x (1/3) / (1/2) = 1/3
 
-Let's see each number.  Given that the player picks Door 1, if the car is behind Door 1, Monty should be indifferent between opening Doors 2 and 3.  So the first term is 1/2.  The second term is easy: Probability that the car is behind Door 1 is 1/3.  The third term is also simple and usualy overlooked. This is not a conditional probability.  If the car were behind Door 2, the probability that Monty opens Door 3 would be 1.  And this explains why the second option is different, below:   
+Let's see each number.  Given that the player picks Door 1, if the car is behind Door 1, Monty should be indifferent between opening Doors 2 and 3.  So the first term is 1/2.  The second term is easy: Probability that the car is behind Door 1 is 1/3.  The third term is also simple and usually overlooked. This is not a conditional probability.  If the car were behind Door 2, the probability that Monty opens Door 3 would be 1.  And this explains why the second option is different, below:   
 
 $Pr(Car=2|Open=3) = Pr(Open=3|Car=2)Pr(Car=2)/Pr(Open=3)$ = 1 x (1/3) / (1/2) = 2/3
 

@@ -340,6 +340,26 @@ Again, using the package `caret`:
 #highCorr <- sum(abs(descrCor[upper.tri(descrCor)]) > .999)
 ```
 
-## Examples
+## RMarkdown
 
-<https://raw.githack.com/yaydede/Blog_posts/main/EDA.html>
+R Markdown provides an excellent platform for authoring your data science projects (like EDA's) combining your codes, their results, and your commentary. R Markdown documents support multiple output formats: HTML, PDFs, Word files, slideshows, and more.
+
+Here are some examples
+
+- html output: <https://raw.githack.com/yaydede/Blog_posts/main/EDA.html>
+- pdf output: <https://yaydede.github.io/files/CV6.pdf> 
+
+You can use R Markdown in many ways but here are the few main ways:
+
+- For communicating to decision makers who want to focus on the conclusions, not the code behind the analysis.
+- For collaborating with those, who are interested in both your conclusions and the codes. 
+- As a nice notebook where you can capture not only what you did, but also what you were thinking.
+- As a scientific manuscript using Latex: <https://www.marianamontes.me/post/academic-writing-in-r-markdown-i/>
+- A book with [Bookdown](https://bookdown.org): <https://yaydede.github.io/ToolShed/>
+- As a blog with [Blogdown](https://bookdown.org/yihui/blogdown/): <https://shilaan.rbind.io/post/building-your-website-using-r-blogdown/>
+- As a good `html` support for your website: <https://yaydede.github.io>
+
+Our package `RBootcamp` has a template: `Worksheet1`.  Locate it at `File > New File > R Markdown > Template`.  It will give a a good starting point
+
+
+

@@ -1,6 +1,6 @@
 # Data Management
 
-We will use the same data set, Ames Housing Price data from the `AmesHousing` package, containing 2930 observations and 81 features including the sale date and price. And we will introduce the `dplyr` package in many applications.  See more about `dplyr` [here](https://dplyr.tidyverse.org/articles/dplyr.html)
+We will use the same data set, Ames Housing Price data from the `AmesHousing` package, containing 2930 observations and 81 features including the sale date and price. And we will introduce the `dplyr` package in many applications. See more about `dplyr` [here](https://dplyr.tidyverse.org/articles/dplyr.html)
 
 ```{r }
 library(AmesHousing)
@@ -16,8 +16,8 @@ Suppose we want to find the houses that are sold in Jan 2010. You can use the fu
 ```{r}
 amesdata[amesdata$Year_Sold == 2010 & amesdata$Mo_Sold == 1, ] 
 ```
-  
-Or we can use `filter()`:  
+
+Or we can use `filter()`:
 
 ```{r}
 library(dplyr)
@@ -74,7 +74,8 @@ amesdata %>%
   select(Overall_Qual, Lot_Area, Sale_Price) %>%
   mutate(ave_price = Sale_Price/Lot_Area) 
 ```
-Can we summarize by groups?  First let's see an example for `summarize`:
+
+Can we summarize by groups? First let's see an example for `summarize`:
 
 ```{r}
 amesdata %>% 
@@ -114,12 +115,12 @@ amesless = subset(amesdata, select = c("Sale_Type", "Mo_Sold"))
 head(amesless)
 ```
 
-However, look at the `help(subset)`: "This is a convenience function intended for use interactively. *For programming it is better to use the standard subsetting functions like []*, and in particular the non-standard evaluation of argument subset can have unanticipated consequences".
+However, look at the `help(subset)`: "This is a convenience function intended for use interactively. *For programming it is better to use the standard subsetting functions like `[ ]`*, and in particular the non-standard evaluation of argument subset can have unanticipated consequences".
 
 ### `within()` & `with()`
 
 Here is an example to use `within()`:
-  
+
 ```{r}
 ana <- within(amesdata, Sale_Price[Fence != 2] <- 0) 
 
@@ -127,7 +128,6 @@ ana <- within(amesdata, Sale_Price[Fence != 2] <- 0)
 
 amesdata$Sale_Price[amesdata$Fence != 2] <- 0
 ```
-
 
 And `with()`
 
@@ -168,30 +168,30 @@ aggregate(df$points, by=list(df$assists), FUN=mine)
 
 ## Tables
 
-Here, we'll look at two-way tables.  
+Here, we'll look at two-way tables.
 
 ### From Data with `table()`
 
-Most data tables use categorical variables.  Here is definition of input from `table()`: 
+Most data tables use categorical variables. Here is definition of input from `table()`:
 
-> One or more objects which can be interpreted as factors (including numbers or character strings), or a list (such as a data frame) whose components can be so interpreted. 
+> One or more objects which can be interpreted as factors (including numbers or character strings), or a list (such as a data frame) whose components can be so interpreted.
 
 ```{r}
 tb1 <- table(amesdata$Lot_Shape, amesdata$House_Style)
 tb1
 ```
-  
+
 ```{r}
 tb2 <- table(amesdata$Lot_Shape, amesdata$House_Style, amesdata$Street)
 tb2
 ```
 
-See what happens if you a continuous variable `amesdata$Lot_Area`: 
-  
+See what happens if you a continuous variable `amesdata$Lot_Area`:
+
 ```{r}
 #tb2 <- table(amesdata$Lot_Shape, amesdata$Lot_Area, amesdata$Street)
 #tb2
-```    
+```
 
 ### `datatable()`
 
@@ -200,8 +200,6 @@ If we have more columns:
 ```{r}
 DT::datatable(amesdata, rownames = FALSE, filter="top", options = list(pageLength = 10, scrollX=T) )
 ```
-
-
 
 ### With `describr`
 
@@ -217,6 +215,15 @@ One continuous one factor:
 ```{r}
 mtcars$cyl <- as.factor(mtcars$cyl)
 ds_group_summary(mtcars, cyl, mpg)
+```
+
+### `xtabs()` & `ftabs()`
+
+The `xtabs()`  & `ftabs()` functions allows you to quickly calculate frequencies for more factor variables.
+
+```{r, results='asis'}
+library(RBootcamp)
+ftable(xtabs(~ year + maturity.stage + month, data = squid1))
 ```
 
 ### Table with manual entry
@@ -241,5 +248,31 @@ prop.table(smoke)
 ```{r}
 mosaicplot(smoke,main="Smokers",xlab="Status",ylab="Economic Class")
 
+```
+
+## `merge()`
+
+The `merge()` function merges two data frames by common columns or row names, or do other versions of database join operations.  Here is an example:
+  
+```{r}
+df1 = data.frame(StudentId = c(1:6), 
+                 Marks = c("70", "84", "90", "93", "80", "76"))
+
+df2 = data.frame(StudentId = c(2, 4, 6, 7, 8), 
+                 city = c("Lahore", "Karachi", "Peshawar", "Quetta", "Multan")) 
+
+df3 = merge(df1, df2, by = "StudentId")
+df3
+
+df4 = merge(df1, df2, by = "StudentId", all = TRUE)
+df4
+```
+
+See the options of `merge()` by `?merge`.   We can do the same operation in `dplyr`:  
+
+```{r}
+library(dplyr)
+df3= df1 %>% inner_join(df2,by="StudentId")
+df3
 ```
 
