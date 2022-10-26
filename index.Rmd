@@ -8,7 +8,7 @@ bibliography: [book.bib, packages.bib]
 url: 'https\://yaydede.github.io/Bootcamp_book/'
 cover-image: /Users/yigitaydede/Dropbox/Documents/Courses/MBAN/RBootcamps/Bootcamp_book/png/cover.png
 description: |
-  This book is companion fro RBootcamp package.
+  This book is companion for RBootcamp package.
 link-citations: yes
 urlcolor: cyan
 ---
