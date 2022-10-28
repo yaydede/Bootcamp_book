@@ -48,4 +48,20 @@ I did not specify realistic path names below.
 - Stata .dta file: `write_dta(dat_csv, file = "path/to/save/filename.dta")` 
 - save these objects to an .Rdata file:  `save(dat_csv, mydata, file="path/to/save/filename.Rdata")` 
 
-One last thing: if you want to save the entire workspace, `save.image()` is just a short-cut for "save my current workspace", i.e., `save(list = ls(all.names = TRUE), file = ".RData", envir = .GlobalEnv)`. It is also what happens with `q("yes")`.  
+One last thing: if you want to save the entire workspace, `save.image()` is just a short-cut for "save my current workspace", i.e., `save(list = ls(all.names = TRUE), file = ".RData", envir = .GlobalEnv)`. It is also what happens with `q("yes")`. 
+
+## Downlaoding
+
+The `download.file()` function could be very handy and can be used to download a file from the Internet.
+
+Download both csv files into a sub-directory called data:
+Download `MS_stops.csv` from: <https://github.com/cengel/R-data-viz/raw/master/data/MS_stops.csv>
+Download `MS_county_stops.csv` from:  <https://github.com/cengel/R-data-viz/raw/master/data/MS_county_stops.csv>
+
+```{r}
+# download.file("https://github.com/cengel/R-data-viz/raw/master/data/MS_stops.csv", 
+#               "YOUR PATH/MS_stops.csv")
+# 
+# download.file("https://github.com/cengel/R-data-viz/raw/master/data/MS_stops_by_county.csv", 
+#               "YOUR PATH/MS_stops_by_county.csv")
+```

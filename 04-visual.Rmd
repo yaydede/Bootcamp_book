@@ -1,11 +1,9 @@
 # Data visualisation with R
 
-Let’s first introduce the data set that will be used throughout this chapter. The data set is a part of the Ames Housing Price data, containing 165 observations and 12 features including the sale date and price.
+Let’s first introduce the data set that will be used throughout this chapter. The data set, `ames` is a part of the Ames Housing Price data, containing 165 observations and 12 features including the sale date and price.
 
 ```{r }
-library(AmesHousing)
-amesdata <- make_ames()
-str(amesdata)
+str(ames)
 ```
 
 ## Scatterplots
@@ -13,13 +11,13 @@ str(amesdata)
 Are the bigger houses more expensive?  In base R, we can use the `plot()` function to generate this scatterplot with the first argument being the variable on the x-axis and the second argument being the variable on the y-axis.
 
 ```{r pressure, echo=FALSE}
-plot(amesdata$Gr_Liv_Area, amesdata$Sale_Price)
+plot(ames$Gr_Liv_Area, ames$Sale_Price)
 ```
 
 It's OK but not nice.  The `plot()` function provides a rich capability of customization by setting the graphical parameters. 
 
 ```{r}
-plot(amesdata$Gr_Liv_Area, amesdata$Sale_Price, 
+plot(ames$Gr_Liv_Area, ames$Sale_Price, 
      col = "red", 
      xlab = "Living Area", 
      ylab = "Sale Price", 
@@ -32,14 +30,14 @@ Although the `plot()` function gets the work done, the `ggplot2` package provide
 
 ```{r}
 library(ggplot2)
-ggplot(data = amesdata) + 
+ggplot(data = ames) + 
   geom_point(mapping = aes(x = Gr_Liv_Area, y = Sale_Price))
 ```
 
 In a nutshell, `ggplot2` implements the grammar of graphics, a coherent system for describing and building graphs.  We always start with the function `ggplot()` with a data frame or tibble as its argument. To generate a scatterplot, you can add a layer using the `+` operator followed by the `geom_point()` function, which is one of the many available geoms in ggplot. Inside `geom_point()`, you need to set the value of the mapping argument. The mapping argument takes a functional form as `mapping = aes()`, where the `aes` is short for aesthetics. For example, you can use `aes()` to tell ggplot to use which variable on the x-axis, which variable on the y-axis. 
 
 ```{r}
-ggplot(data = amesdata) + 
+ggplot(data = ames) + 
   geom_point(mapping = aes(Gr_Liv_Area, y = Sale_Price), 
              color = "red",
              shape = 2,
@@ -50,7 +48,7 @@ ggplot(data = amesdata) +
 Suppose we want to use different colors according to the different `House_Style` in the scatterplot.
 
 ```{r}
-ggplot(data = amesdata) + 
+ggplot(data = ames) + 
   geom_point(mapping = aes(x = Gr_Liv_Area, 
                            y = Sale_Price, 
                            color = House_Style), 
@@ -60,7 +58,7 @@ ggplot(data = amesdata) +
 In addition to color, you can also map a discrete variable to the size aesthetic.
 
 ```{r, warning=FALSE}
-ggplot(data = amesdata) + 
+ggplot(data = ames) + 
   geom_point(mapping = aes(x = Gr_Liv_Area, 
                            y = Sale_Price, 
                            size = House_Style), 
@@ -70,7 +68,7 @@ ggplot(data = amesdata) +
 Or
 
 ```{r}
-ggplot(data = amesdata) + 
+ggplot(data = ames) + 
   geom_point(mapping = aes(x = Gr_Liv_Area, 
                            y = Sale_Price, 
                            shape = Exter_Qual), 
@@ -81,7 +79,7 @@ ggplot(data = amesdata) +
 and multiple mapping:
 
 ```{r}
-ggplot(data = amesdata) + 
+ggplot(data = ames) + 
   geom_point(mapping = aes(x = Gr_Liv_Area, 
                            y = Sale_Price, 
                            shape = Exter_Qual,
@@ -93,14 +91,14 @@ ggplot(data = amesdata) +
 ## Smootlines
 
 ```{r}
-ggplot(data = amesdata) + 
+ggplot(data = ames) + 
   geom_smooth(mapping = aes(x = Gr_Liv_Area, 
                            y = Sale_Price), 
               size = 1.5)
 ```
 
 ```{r}
-ggplot(data = amesdata) + 
+ggplot(data = ames) + 
   geom_smooth(mapping = aes(x = Gr_Liv_Area, 
                            y = Sale_Price), 
               size = 1.5,
@@ -110,7 +108,7 @@ ggplot(data = amesdata) +
 And 
 
 ```{r}
-ggplot(data = amesdata) + 
+ggplot(data = ames) + 
   geom_point(mapping = aes(x = Gr_Liv_Area, 
                            y = Sale_Price)) +
   geom_smooth(mapping = aes(x = Gr_Liv_Area, 
@@ -118,13 +116,98 @@ ggplot(data = amesdata) +
 
 # Or with global mapping
 
-ggplot(data = amesdata, 
+ggplot(data = ames, 
        mapping = aes(x = Gr_Liv_Area, 
                      y = Sale_Price,
                      color = Central_Air)) +
   geom_point() +
   geom_smooth() 
 ```
+
+## Interactive graphs
+
+JavaScript is one of the most widely used language to create interactive webpages (html). There is an R [package](https://www.htmlwidgets.org), `htmlwidgets`, to bind R commands to various interactive JavaScript libraries that provides a great framework for graphs. The interactive components (“widgets”) created using the framework can be used at the R console, seamlessly embedded within R Markdown documents, Shiny web applications, saved as standalone web pages for ad-hoc sharing via email, Dropbox, etc.
+
+There are a number of [widgets](http://gallery.htmlwidgets.org) already available, that you can install and easily make interactive visualizations. 
+
+The `htmlwidgets`, by default, either run locally in your web browser or in the R Studio viewer. If you use R Markdown, the html pages rendered contain the full JavaScript code, so you can also also deploy them to a standard web server (like github pages).
+
+Let's see one of those widgets, [`plotly`](https://plotly.com/r/), which binds R commands to o the JavaScript [`plotly.js`](https://plotly.com/javascript/) graphing library. The `plotly` package helps translate `ggplot2` graphics to an interactive web-based version.
+
+```{r, warning=FALSE, message=FALSE}
+# First install the package, if you haven't yet
+library(plotly)
+
+# our previous plot
+p <- ggplot2::ggplot(data = ames, 
+       mapping = aes(x = Gr_Liv_Area, 
+                     y = Sale_Price,
+                     color = Central_Air)) +
+  geom_point() +
+  geom_smooth()
+
+# Converts ggplot2 to plotly
+ggplotly(p)
+```
+## Shiny
+
+`shiny` accepts user input.  Therefore, you can make the plot design by the user. Because it executes an actual R code, `shiny` requires its own server.  There are several ways to run an `shiny` app. A simple one is R command line.  Or you can call it from a R Markdown document. Or host it at `ShinyApps.io`.
+
+Let's have a simple example:
+
+```{r, message=FALSE, warning=FALSE}
+library(shiny)
+library(ggplot2)
+library(dplyr)
+library(RBootcamp)
+
+
+ui <- fluidPage(    
+  
+  # Give the page a title
+  titlePanel("Housing in Ames"),
+  
+  # Generate a row with a sidebar
+  sidebarLayout(      
+    
+    # Define the sidebar with one input
+    sidebarPanel(
+      selectInput("neighborhood", "Neighborhood:", 
+                  choices=unique(ames$Neighborhood)),
+      hr(),
+      helpText("Data from Ames Iowa Housing")
+    ),
+    
+    # Create a spot for the barplot
+    mainPanel(
+      plotOutput("HousingStylePlot")  
+    )
+    
+  )
+)
+
+## Server
+
+# Define a server for the Shiny app
+server <- function(input, output) {
+  
+  # Fill in the spot we created for a plot
+  output$HousingStylePlot <- renderPlot({
+    
+    ames %>% 
+      filter(Neighborhood == input$neighborhood) %>% 
+      ggplot(aes(x = Gr_Liv_Area, 
+                     y = Sale_Price,
+                     color = Central_Air)) +
+      geom_point() +
+      geom_smooth()
+  })
+}
+
+shinyApp(ui, server)
+```
+
+
 
 ## Histograms & Density
 
