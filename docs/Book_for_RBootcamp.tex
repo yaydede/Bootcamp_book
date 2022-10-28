@@ -122,7 +122,7 @@
 
 \title{R Bootcamp for Data Analytics}
 \author{\href{https://yaydede.github.io/}{Yigit Aydede}}
-\date{2022-10-26}
+\date{2022-10-28}
 
 \begin{document}
 \maketitle
@@ -337,8 +337,9 @@ Without further specification, files will be loaded from and saved to the workin
 ## [27] "index.md"                 "index.Rmd"               
 ## [29] "packages.bib"             "png"                     
 ## [31] "preamble.tex"             "README.md"               
-## [33] "render9287638b9550.rds"   "some_functions.R"        
-## [35] "style.css"                "table1.text"
+## [33] "renderf4751895f055.rds"   "shinyapp"                
+## [35] "some_functions.R"         "style.css"               
+## [37] "table1.text"
 \end{verbatim}
 
 \begin{Shaded}
@@ -2910,7 +2911,7 @@ Lets look at some examples of working with them:
 ##  $ c: chr "Hello!"
 ##  $ d:function (arg = 1)  
 ##   ..- attr(*, "srcref")= 'srcref' int [1:8] 12 15 12 55 15 55 12 12
-##   .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x7fdd3067b200> 
+##   .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x7fbd15161dc0> 
 ##  $ X: num [1:4, 1:4] 0 0 0 0 0 0 0 0 0 0 ...
 \end{verbatim}
 
@@ -3424,25 +3425,43 @@ I did not specify realistic path names below.
 
 One last thing: if you want to save the entire workspace, \texttt{save.image()} is just a short-cut for ``save my current workspace'', i.e., \texttt{save(list\ =\ ls(all.names\ =\ TRUE),\ file\ =\ ".RData",\ envir\ =\ .GlobalEnv)}. It is also what happens with \texttt{q("yes")}.
 
-\hypertarget{data-visualisation-with-r}{%
-\chapter{Data visualisation with R}\label{data-visualisation-with-r}}
+\hypertarget{downlaoding}{%
+\section{Downlaoding}\label{downlaoding}}
 
-Let's first introduce the data set that will be used throughout this chapter. The data set is a part of the Ames Housing Price data, containing 165 observations and 12 features including the sale date and price.
+The \texttt{download.file()} function could be very handy and can be used to download a file from the Internet.
+
+Download both csv files into a sub-directory called data:
+Download \texttt{MS\_stops.csv} from: \url{https://github.com/cengel/R-data-viz/raw/master/data/MS_stops.csv}
+Download \texttt{MS\_county\_stops.csv} from: \url{https://github.com/cengel/R-data-viz/raw/master/data/MS_county_stops.csv}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(AmesHousing)}
-\NormalTok{amesdata }\OtherTok{\textless{}{-}} \FunctionTok{make\_ames}\NormalTok{()}
-\FunctionTok{str}\NormalTok{(amesdata)}
+\CommentTok{\# download.file("https://github.com/cengel/R{-}data{-}viz/raw/master/data/MS\_stops.csv", }
+\CommentTok{\#               "YOUR PATH/MS\_stops.csv")}
+\CommentTok{\# }
+\CommentTok{\# download.file("https://github.com/cengel/R{-}data{-}viz/raw/master/data/MS\_stops\_by\_county.csv", }
+\CommentTok{\#               "YOUR PATH/MS\_stops\_by\_county.csv")}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{data-visualisation-with-r}{%
+\chapter{Data visualisation with R}\label{data-visualisation-with-r}}
+
+Let's first introduce the data set that will be used throughout this chapter. The data set, \texttt{ames} is a part of the Ames Housing Price data, containing 165 observations and 12 features including the sale date and price.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(RBootcamp)}
+\FunctionTok{str}\NormalTok{(ames)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## tibble [2,930 x 81] (S3: tbl_df/tbl/data.frame)
+## 'data.frame':    2930 obs. of  81 variables:
 ##  $ MS_SubClass       : Factor w/ 16 levels "One_Story_1946_and_Newer_All_Styles",..: 1 1 1 1 6 6 12 12 12 6 ...
 ##  $ MS_Zoning         : Factor w/ 7 levels "Floating_Village_Residential",..: 3 2 3 3 3 3 3 3 3 3 ...
-##  $ Lot_Frontage      : num [1:2930] 141 80 81 93 74 78 41 43 39 60 ...
-##  $ Lot_Area          : int [1:2930] 31770 11622 14267 11160 13830 9978 4920 5005 5389 7500 ...
+##  $ Lot_Frontage      : num  141 80 81 93 74 78 41 43 39 60 ...
+##  $ Lot_Area          : int  31770 11622 14267 11160 13830 9978 4920 5005 5389 7500 ...
 ##  $ Street            : Factor w/ 2 levels "Grvl","Pave": 2 2 2 2 2 2 2 2 2 2 ...
 ##  $ Alley             : Factor w/ 3 levels "Gravel","No_Alley_Access",..: 2 2 2 2 2 2 2 2 2 2 ...
 ##  $ Lot_Shape         : Factor w/ 4 levels "Regular","Slightly_Irregular",..: 2 1 2 1 2 2 1 2 2 1 ...
@@ -3457,14 +3476,14 @@ Let's first introduce the data set that will be used throughout this chapter. Th
 ##  $ House_Style       : Factor w/ 8 levels "One_and_Half_Fin",..: 3 3 3 3 8 8 3 3 3 8 ...
 ##  $ Overall_Qual      : Factor w/ 10 levels "Very_Poor","Poor",..: 6 5 6 7 5 6 8 8 8 7 ...
 ##  $ Overall_Cond      : Factor w/ 10 levels "Very_Poor","Poor",..: 5 6 6 5 5 6 5 5 5 5 ...
-##  $ Year_Built        : int [1:2930] 1960 1961 1958 1968 1997 1998 2001 1992 1995 1999 ...
-##  $ Year_Remod_Add    : int [1:2930] 1960 1961 1958 1968 1998 1998 2001 1992 1996 1999 ...
+##  $ Year_Built        : int  1960 1961 1958 1968 1997 1998 2001 1992 1995 1999 ...
+##  $ Year_Remod_Add    : int  1960 1961 1958 1968 1998 1998 2001 1992 1996 1999 ...
 ##  $ Roof_Style        : Factor w/ 6 levels "Flat","Gable",..: 4 2 4 4 2 2 2 2 2 2 ...
 ##  $ Roof_Matl         : Factor w/ 8 levels "ClyTile","CompShg",..: 2 2 2 2 2 2 2 2 2 2 ...
 ##  $ Exterior_1st      : Factor w/ 16 levels "AsbShng","AsphShn",..: 4 14 15 4 14 14 6 7 6 14 ...
 ##  $ Exterior_2nd      : Factor w/ 17 levels "AsbShng","AsphShn",..: 11 15 16 4 15 15 6 7 6 15 ...
 ##  $ Mas_Vnr_Type      : Factor w/ 5 levels "BrkCmn","BrkFace",..: 5 4 2 4 4 2 4 4 4 4 ...
-##  $ Mas_Vnr_Area      : num [1:2930] 112 0 108 0 0 20 0 0 0 0 ...
+##  $ Mas_Vnr_Area      : num  112 0 108 0 0 20 0 0 0 0 ...
 ##  $ Exter_Qual        : Factor w/ 4 levels "Excellent","Fair",..: 4 4 4 3 4 4 3 3 3 4 ...
 ##  $ Exter_Cond        : Factor w/ 5 levels "Excellent","Fair",..: 5 5 5 5 5 5 5 5 5 5 ...
 ##  $ Foundation        : Factor w/ 6 levels "BrkTil","CBlock",..: 2 2 2 2 3 3 3 3 3 3 ...
@@ -3472,223 +3491,54 @@ Let's first introduce the data set that will be used throughout this chapter. Th
 ##  $ Bsmt_Cond         : Factor w/ 6 levels "Excellent","Fair",..: 3 6 6 6 6 6 6 6 6 6 ...
 ##  $ Bsmt_Exposure     : Factor w/ 5 levels "Av","Gd","Mn",..: 2 4 4 4 4 4 3 4 4 4 ...
 ##  $ BsmtFin_Type_1    : Factor w/ 7 levels "ALQ","BLQ","GLQ",..: 2 6 1 1 3 3 3 1 3 7 ...
-##  $ BsmtFin_SF_1      : num [1:2930] 2 6 1 1 3 3 3 1 3 7 ...
+##  $ BsmtFin_SF_1      : num  2 6 1 1 3 3 3 1 3 7 ...
 ##  $ BsmtFin_Type_2    : Factor w/ 7 levels "ALQ","BLQ","GLQ",..: 7 4 7 7 7 7 7 7 7 7 ...
-##  $ BsmtFin_SF_2      : num [1:2930] 0 144 0 0 0 0 0 0 0 0 ...
-##  $ Bsmt_Unf_SF       : num [1:2930] 441 270 406 1045 137 ...
-##  $ Total_Bsmt_SF     : num [1:2930] 1080 882 1329 2110 928 ...
+##  $ BsmtFin_SF_2      : num  0 144 0 0 0 0 0 0 0 0 ...
+##  $ Bsmt_Unf_SF       : num  441 270 406 1045 137 ...
+##  $ Total_Bsmt_SF     : num  1080 882 1329 2110 928 ...
 ##  $ Heating           : Factor w/ 6 levels "Floor","GasA",..: 2 2 2 2 2 2 2 2 2 2 ...
 ##  $ Heating_QC        : Factor w/ 5 levels "Excellent","Fair",..: 2 5 5 1 3 1 1 1 1 3 ...
 ##  $ Central_Air       : Factor w/ 2 levels "N","Y": 2 2 2 2 2 2 2 2 2 2 ...
 ##  $ Electrical        : Factor w/ 6 levels "FuseA","FuseF",..: 5 5 5 5 5 5 5 5 5 5 ...
-##  $ First_Flr_SF      : int [1:2930] 1656 896 1329 2110 928 926 1338 1280 1616 1028 ...
-##  $ Second_Flr_SF     : int [1:2930] 0 0 0 0 701 678 0 0 0 776 ...
-##  $ Low_Qual_Fin_SF   : int [1:2930] 0 0 0 0 0 0 0 0 0 0 ...
-##  $ Gr_Liv_Area       : int [1:2930] 1656 896 1329 2110 1629 1604 1338 1280 1616 1804 ...
-##  $ Bsmt_Full_Bath    : num [1:2930] 1 0 0 1 0 0 1 0 1 0 ...
-##  $ Bsmt_Half_Bath    : num [1:2930] 0 0 0 0 0 0 0 0 0 0 ...
-##  $ Full_Bath         : int [1:2930] 1 1 1 2 2 2 2 2 2 2 ...
-##  $ Half_Bath         : int [1:2930] 0 0 1 1 1 1 0 0 0 1 ...
-##  $ Bedroom_AbvGr     : int [1:2930] 3 2 3 3 3 3 2 2 2 3 ...
-##  $ Kitchen_AbvGr     : int [1:2930] 1 1 1 1 1 1 1 1 1 1 ...
+##  $ First_Flr_SF      : int  1656 896 1329 2110 928 926 1338 1280 1616 1028 ...
+##  $ Second_Flr_SF     : int  0 0 0 0 701 678 0 0 0 776 ...
+##  $ Low_Qual_Fin_SF   : int  0 0 0 0 0 0 0 0 0 0 ...
+##  $ Gr_Liv_Area       : int  1656 896 1329 2110 1629 1604 1338 1280 1616 1804 ...
+##  $ Bsmt_Full_Bath    : num  1 0 0 1 0 0 1 0 1 0 ...
+##  $ Bsmt_Half_Bath    : num  0 0 0 0 0 0 0 0 0 0 ...
+##  $ Full_Bath         : int  1 1 1 2 2 2 2 2 2 2 ...
+##  $ Half_Bath         : int  0 0 1 1 1 1 0 0 0 1 ...
+##  $ Bedroom_AbvGr     : int  3 2 3 3 3 3 2 2 2 3 ...
+##  $ Kitchen_AbvGr     : int  1 1 1 1 1 1 1 1 1 1 ...
 ##  $ Kitchen_Qual      : Factor w/ 5 levels "Excellent","Fair",..: 5 5 3 1 5 3 3 3 3 3 ...
-##  $ TotRms_AbvGrd     : int [1:2930] 7 5 6 8 6 7 6 5 5 7 ...
+##  $ TotRms_AbvGrd     : int  7 5 6 8 6 7 6 5 5 7 ...
 ##  $ Functional        : Factor w/ 8 levels "Maj1","Maj2",..: 8 8 8 8 8 8 8 8 8 8 ...
-##  $ Fireplaces        : int [1:2930] 2 0 0 2 1 1 0 0 1 1 ...
+##  $ Fireplaces        : int  2 0 0 2 1 1 0 0 1 1 ...
 ##  $ Fireplace_Qu      : Factor w/ 6 levels "Excellent","Fair",..: 3 4 4 6 6 3 4 4 6 6 ...
 ##  $ Garage_Type       : Factor w/ 7 levels "Attchd","Basment",..: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ Garage_Finish     : Factor w/ 4 levels "Fin","No_Garage",..: 1 4 4 1 1 1 1 3 3 1 ...
-##  $ Garage_Cars       : num [1:2930] 2 1 1 2 2 2 2 2 2 2 ...
-##  $ Garage_Area       : num [1:2930] 528 730 312 522 482 470 582 506 608 442 ...
+##  $ Garage_Cars       : num  2 1 1 2 2 2 2 2 2 2 ...
+##  $ Garage_Area       : num  528 730 312 522 482 470 582 506 608 442 ...
 ##  $ Garage_Qual       : Factor w/ 6 levels "Excellent","Fair",..: 6 6 6 6 6 6 6 6 6 6 ...
 ##  $ Garage_Cond       : Factor w/ 6 levels "Excellent","Fair",..: 6 6 6 6 6 6 6 6 6 6 ...
 ##  $ Paved_Drive       : Factor w/ 3 levels "Dirt_Gravel",..: 2 3 3 3 3 3 3 3 3 3 ...
-##  $ Wood_Deck_SF      : int [1:2930] 210 140 393 0 212 360 0 0 237 140 ...
-##  $ Open_Porch_SF     : int [1:2930] 62 0 36 0 34 36 0 82 152 60 ...
-##  $ Enclosed_Porch    : int [1:2930] 0 0 0 0 0 0 170 0 0 0 ...
-##  $ Three_season_porch: int [1:2930] 0 0 0 0 0 0 0 0 0 0 ...
-##  $ Screen_Porch      : int [1:2930] 0 120 0 0 0 0 0 144 0 0 ...
-##  $ Pool_Area         : int [1:2930] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Wood_Deck_SF      : int  210 140 393 0 212 360 0 0 237 140 ...
+##  $ Open_Porch_SF     : int  62 0 36 0 34 36 0 82 152 60 ...
+##  $ Enclosed_Porch    : int  0 0 0 0 0 0 170 0 0 0 ...
+##  $ Three_season_porch: int  0 0 0 0 0 0 0 0 0 0 ...
+##  $ Screen_Porch      : int  0 120 0 0 0 0 0 144 0 0 ...
+##  $ Pool_Area         : int  0 0 0 0 0 0 0 0 0 0 ...
 ##  $ Pool_QC           : Factor w/ 5 levels "Excellent","Fair",..: 4 4 4 4 4 4 4 4 4 4 ...
 ##  $ Fence             : Factor w/ 5 levels "Good_Privacy",..: 5 3 5 5 3 5 5 5 5 5 ...
 ##  $ Misc_Feature      : Factor w/ 6 levels "Elev","Gar2",..: 3 3 2 3 3 3 3 3 3 3 ...
-##  $ Misc_Val          : int [1:2930] 0 0 12500 0 0 0 0 0 0 0 ...
-##  $ Mo_Sold           : int [1:2930] 5 6 6 4 3 6 4 1 3 6 ...
-##  $ Year_Sold         : int [1:2930] 2010 2010 2010 2010 2010 2010 2010 2010 2010 2010 ...
+##  $ Misc_Val          : int  0 0 12500 0 0 0 0 0 0 0 ...
+##  $ Mo_Sold           : int  5 6 6 4 3 6 4 1 3 6 ...
+##  $ Year_Sold         : int  2010 2010 2010 2010 2010 2010 2010 2010 2010 2010 ...
 ##  $ Sale_Type         : Factor w/ 10 levels "COD","Con","ConLD",..: 10 10 10 10 10 10 10 10 10 10 ...
 ##  $ Sale_Condition    : Factor w/ 6 levels "Abnorml","AdjLand",..: 5 5 5 5 5 5 5 5 5 5 ...
-##  $ Sale_Price        : int [1:2930] 215000 105000 172000 244000 189900 195500 213500 191500 236500 189000 ...
-##  $ Longitude         : num [1:2930] -93.6 -93.6 -93.6 -93.6 -93.6 ...
-##  $ Latitude          : num [1:2930] 42.1 42.1 42.1 42.1 42.1 ...
-##  - attr(*, "spec")=List of 2
-##   ..$ cols   :List of 82
-##   .. ..$ Order          : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ PID            : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ MS SubClass    : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ MS Zoning      : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Lot Frontage   : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Lot Area       : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Street         : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Alley          : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Lot Shape      : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Land Contour   : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Utilities      : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Lot Config     : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Land Slope     : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Neighborhood   : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Condition 1    : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Condition 2    : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Bldg Type      : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ House Style    : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Overall Qual   : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Overall Cond   : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Year Built     : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Year Remod/Add : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Roof Style     : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Roof Matl      : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Exterior 1st   : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Exterior 2nd   : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Mas Vnr Type   : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Mas Vnr Area   : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Exter Qual     : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Exter Cond     : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Foundation     : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Bsmt Qual      : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Bsmt Cond      : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Bsmt Exposure  : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ BsmtFin Type 1 : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ BsmtFin SF 1   : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ BsmtFin Type 2 : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ BsmtFin SF 2   : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Bsmt Unf SF    : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Total Bsmt SF  : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Heating        : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Heating QC     : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Central Air    : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Electrical     : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ 1st Flr SF     : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ 2nd Flr SF     : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Low Qual Fin SF: list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Gr Liv Area    : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Bsmt Full Bath : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Bsmt Half Bath : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Full Bath      : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Half Bath      : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Bedroom AbvGr  : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Kitchen AbvGr  : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Kitchen Qual   : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ TotRms AbvGrd  : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Functional     : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Fireplaces     : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Fireplace Qu   : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Garage Type    : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Garage Yr Blt  : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Garage Finish  : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Garage Cars    : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Garage Area    : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Garage Qual    : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Garage Cond    : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Paved Drive    : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Wood Deck SF   : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Open Porch SF  : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Enclosed Porch : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ 3Ssn Porch     : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Screen Porch   : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Pool Area      : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Pool QC        : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Fence          : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Misc Feature   : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Misc Val       : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Mo Sold        : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Yr Sold        : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   .. ..$ Sale Type      : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ Sale Condition : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
-##   .. ..$ SalePrice      : list()
-##   .. .. ..- attr(*, "class")= chr [1:2] "collector_integer" "collector"
-##   ..$ default: list()
-##   .. ..- attr(*, "class")= chr [1:2] "collector_guess" "collector"
-##   ..- attr(*, "class")= chr "col_spec"
+##  $ Sale_Price        : int  215000 105000 172000 244000 189900 195500 213500 191500 236500 189000 ...
+##  $ Longitude         : num  -93.6 -93.6 -93.6 -93.6 -93.6 ...
+##  $ Latitude          : num  42.1 42.1 42.1 42.1 42.1 ...
 \end{verbatim}
 
 \hypertarget{scatterplots}{%
@@ -3702,7 +3552,7 @@ It's OK but not nice. The \texttt{plot()} function provides a rich capability of
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{plot}\NormalTok{(amesdata}\SpecialCharTok{$}\NormalTok{Gr\_Liv\_Area, amesdata}\SpecialCharTok{$}\NormalTok{Sale\_Price, }
+\FunctionTok{plot}\NormalTok{(ames}\SpecialCharTok{$}\NormalTok{Gr\_Liv\_Area, ames}\SpecialCharTok{$}\NormalTok{Sale\_Price, }
      \AttributeTok{col =} \StringTok{"red"}\NormalTok{, }
      \AttributeTok{xlab =} \StringTok{"Living Area"}\NormalTok{, }
      \AttributeTok{ylab =} \StringTok{"Sale Price"}\NormalTok{, }
@@ -3719,7 +3569,7 @@ Although the \texttt{plot()} function gets the work done, the \texttt{ggplot2} p
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(ggplot2)}
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ amesdata) }\SpecialCharTok{+} 
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ ames) }\SpecialCharTok{+} 
   \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Gr\_Liv\_Area, }\AttributeTok{y =}\NormalTok{ Sale\_Price))}
 \end{Highlighting}
 \end{Shaded}
@@ -3730,7 +3580,7 @@ In a nutshell, \texttt{ggplot2} implements the grammar of graphics, a coherent s
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ amesdata) }\SpecialCharTok{+} 
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ ames) }\SpecialCharTok{+} 
   \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(Gr\_Liv\_Area, }\AttributeTok{y =}\NormalTok{ Sale\_Price), }
              \AttributeTok{color =} \StringTok{"red"}\NormalTok{,}
              \AttributeTok{shape =} \DecValTok{2}\NormalTok{,}
@@ -3745,7 +3595,7 @@ Suppose we want to use different colors according to the different \texttt{House
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ amesdata) }\SpecialCharTok{+} 
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ ames) }\SpecialCharTok{+} 
   \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Gr\_Liv\_Area, }
                            \AttributeTok{y =}\NormalTok{ Sale\_Price, }
                            \AttributeTok{color =}\NormalTok{ House\_Style), }
@@ -3759,7 +3609,7 @@ In addition to color, you can also map a discrete variable to the size aesthetic
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ amesdata) }\SpecialCharTok{+} 
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ ames) }\SpecialCharTok{+} 
   \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Gr\_Liv\_Area, }
                            \AttributeTok{y =}\NormalTok{ Sale\_Price, }
                            \AttributeTok{size =}\NormalTok{ House\_Style), }
@@ -3773,7 +3623,7 @@ Or
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ amesdata) }\SpecialCharTok{+} 
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ ames) }\SpecialCharTok{+} 
   \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Gr\_Liv\_Area, }
                            \AttributeTok{y =}\NormalTok{ Sale\_Price, }
                            \AttributeTok{shape =}\NormalTok{ Exter\_Qual), }
@@ -3788,7 +3638,7 @@ and multiple mapping:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ amesdata) }\SpecialCharTok{+} 
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ ames) }\SpecialCharTok{+} 
   \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Gr\_Liv\_Area, }
                            \AttributeTok{y =}\NormalTok{ Sale\_Price, }
                            \AttributeTok{shape =}\NormalTok{ Exter\_Qual,}
@@ -3805,7 +3655,7 @@ and multiple mapping:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ amesdata) }\SpecialCharTok{+} 
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ ames) }\SpecialCharTok{+} 
   \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Gr\_Liv\_Area, }
                            \AttributeTok{y =}\NormalTok{ Sale\_Price), }
               \AttributeTok{size =} \FloatTok{1.5}\NormalTok{)}
@@ -3820,7 +3670,7 @@ and multiple mapping:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ amesdata) }\SpecialCharTok{+} 
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ ames) }\SpecialCharTok{+} 
   \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Gr\_Liv\_Area, }
                            \AttributeTok{y =}\NormalTok{ Sale\_Price), }
               \AttributeTok{size =} \FloatTok{1.5}\NormalTok{,}
@@ -3838,7 +3688,7 @@ And
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ amesdata) }\SpecialCharTok{+} 
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ ames) }\SpecialCharTok{+} 
   \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Gr\_Liv\_Area, }
                            \AttributeTok{y =}\NormalTok{ Sale\_Price)) }\SpecialCharTok{+}
   \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Gr\_Liv\_Area, }
@@ -3856,7 +3706,7 @@ And
 \begin{Highlighting}[]
 \CommentTok{\# Or with global mapping}
 
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ amesdata, }
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ ames, }
        \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Gr\_Liv\_Area, }
                      \AttributeTok{y =}\NormalTok{ Sale\_Price,}
                      \AttributeTok{color =}\NormalTok{ Central\_Air)) }\SpecialCharTok{+}
@@ -3871,6 +3721,107 @@ And
 
 \includegraphics{04-visual_files/figure-latex/unnamed-chunk-11-2.pdf}
 
+\hypertarget{interactive-graphs}{%
+\section{Interactive graphs}\label{interactive-graphs}}
+
+JavaScript is one of the most widely used language to create interactive webpages (html). There is an R \href{https://www.htmlwidgets.org}{package}, \texttt{htmlwidgets}, to bind R commands to various interactive JavaScript libraries that provides a great framework for graphs. The interactive components (``widgets'') created using the framework can be used at the R console, seamlessly embedded within R Markdown documents, Shiny web applications, saved as standalone web pages for ad-hoc sharing via email, Dropbox, etc.
+
+There are a number of \href{http://gallery.htmlwidgets.org}{widgets} already available, that you can install and easily make interactive visualizations.
+
+The \texttt{htmlwidgets}, by default, either run locally in your web browser or in the R Studio viewer. If you use R Markdown, the html pages rendered contain the full JavaScript code, so you can also also deploy them to a standard web server (like github pages).
+
+Let's see one of those widgets, \href{https://plotly.com/r/}{\texttt{plotly}}, which binds R commands to o the JavaScript \href{https://plotly.com/javascript/}{\texttt{plotly.js}} graphing library. The \texttt{plotly} package helps translate \texttt{ggplot2} graphics to an interactive web-based version.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# First install the package, if you haven\textquotesingle{}t yet}
+\FunctionTok{library}\NormalTok{(plotly)}
+
+\CommentTok{\# our previous plot}
+\NormalTok{p }\OtherTok{\textless{}{-}}\NormalTok{ ggplot2}\SpecialCharTok{::}\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ ames, }
+       \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Gr\_Liv\_Area, }
+                     \AttributeTok{y =}\NormalTok{ Sale\_Price,}
+                     \AttributeTok{color =}\NormalTok{ Central\_Air)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{geom\_smooth}\NormalTok{()}
+
+\CommentTok{\# Converts ggplot2 to plotly}
+\FunctionTok{ggplotly}\NormalTok{(p)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-12-1.pdf}
+\#\# Shiny
+
+\texttt{shiny} accepts user input. Therefore, you can make the plot design by the user. Because it executes an actual R code, \texttt{shiny} requires its own server. There are several ways to run an \texttt{shiny} app. A simple one is R command line. Or you can call it from a R Markdown document. Or host it at \texttt{ShinyApps.io}.
+
+Let's have a simple example and see its snapshot:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(shiny)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{library}\NormalTok{(RBootcamp)}
+
+
+\NormalTok{ui }\OtherTok{\textless{}{-}} \FunctionTok{fluidPage}\NormalTok{(    }
+  
+  \CommentTok{\# Give the page a title}
+  \FunctionTok{titlePanel}\NormalTok{(}\StringTok{"Housing in Ames"}\NormalTok{),}
+  
+  \CommentTok{\# Generate a row with a sidebar}
+  \FunctionTok{sidebarLayout}\NormalTok{(      }
+    
+    \CommentTok{\# Define the sidebar with one input}
+    \FunctionTok{sidebarPanel}\NormalTok{(}
+      \FunctionTok{selectInput}\NormalTok{(}\StringTok{"neighborhood"}\NormalTok{, }\StringTok{"Neighborhood:"}\NormalTok{, }
+                  \AttributeTok{choices=}\FunctionTok{unique}\NormalTok{(ames}\SpecialCharTok{$}\NormalTok{Neighborhood)),}
+      \FunctionTok{hr}\NormalTok{(),}
+      \FunctionTok{helpText}\NormalTok{(}\StringTok{"Data from Ames Iowa Housing"}\NormalTok{)}
+\NormalTok{    ),}
+    
+    \CommentTok{\# Create a spot for the barplot}
+    \FunctionTok{mainPanel}\NormalTok{(}
+      \FunctionTok{plotOutput}\NormalTok{(}\StringTok{"HousingStylePlot"}\NormalTok{)  }
+\NormalTok{    )}
+    
+\NormalTok{  )}
+\NormalTok{)}
+
+\DocumentationTok{\#\# Server}
+
+\CommentTok{\# Define a server for the Shiny app}
+\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output) \{}
+  
+  \CommentTok{\# Fill in the spot we created for a plot}
+\NormalTok{  output}\SpecialCharTok{$}\NormalTok{HousingStylePlot }\OtherTok{\textless{}{-}} \FunctionTok{renderPlot}\NormalTok{(\{}
+    
+\NormalTok{    ames }\SpecialCharTok{\%\textgreater{}\%} 
+      \FunctionTok{filter}\NormalTok{(Neighborhood }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{neighborhood) }\SpecialCharTok{\%\textgreater{}\%} 
+      \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Gr\_Liv\_Area, }
+                     \AttributeTok{y =}\NormalTok{ Sale\_Price,}
+                     \AttributeTok{color =}\NormalTok{ Central\_Air)) }\SpecialCharTok{+}
+      \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+      \FunctionTok{geom\_smooth}\NormalTok{()}
+\NormalTok{  \})}
+\NormalTok{\}}
+
+\FunctionTok{shinyApp}\NormalTok{(ui, server)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-13-1.pdf}
+
+Run it in a script and see it. Or you can save it, like \texttt{app.R}, in a folder, like \texttt{shinyapps}, and then you can call it in your console
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# library(shiny)}
+\CommentTok{\# runApp("./shinyapp/")}
+\end{Highlighting}
+\end{Shaded}
+
 \hypertarget{histograms-density}{%
 \section{Histograms \& Density}\label{histograms-density}}
 
@@ -3878,17 +3829,17 @@ How do we visualize continuous variables? One popular plot is called histograms.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{hist}\NormalTok{(amesdata}\SpecialCharTok{$}\NormalTok{Sale\_Price)}
+\FunctionTok{hist}\NormalTok{(ames}\SpecialCharTok{$}\NormalTok{Sale\_Price)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-12-1.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-15-1.pdf}
 
 And density with ggplot
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ amesdata, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Sale\_Price)) }\SpecialCharTok{+}
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ ames, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Sale\_Price)) }\SpecialCharTok{+}
   \FunctionTok{geom\_histogram}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ ..density..)) }\SpecialCharTok{+}
   \FunctionTok{geom\_density}\NormalTok{(}\AttributeTok{color =} \StringTok{"red"}\NormalTok{,}
                \AttributeTok{size =} \FloatTok{1.5}\NormalTok{)}
@@ -3899,14 +3850,14 @@ And density with ggplot
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 \end{verbatim}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-13-1.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-16-1.pdf}
 
 \hypertarget{multiple-plots}{%
 \section{Multiple plots}\label{multiple-plots}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{fc }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ amesdata, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Sale\_Price)) }\SpecialCharTok{+}
+\NormalTok{fc }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ ames, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Sale\_Price)) }\SpecialCharTok{+}
   \FunctionTok{geom\_histogram}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ ..density..)) }\SpecialCharTok{+}
   \FunctionTok{geom\_density}\NormalTok{(}\AttributeTok{color =} \StringTok{"red"}\NormalTok{,}
                \AttributeTok{size =} \FloatTok{1.5}\NormalTok{)}
@@ -3918,7 +3869,7 @@ And density with ggplot
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 \end{verbatim}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-14-1.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-17-1.pdf}
 \#\# Lables etc.
 
 \begin{Shaded}
@@ -3939,7 +3890,7 @@ And density with ggplot
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 \end{verbatim}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-15-1.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-18-1.pdf}
 
 \hypertarget{add-lines}{%
 \section{Add lines}\label{add-lines}}
@@ -3962,7 +3913,7 @@ Let's create some series (compounding series) of \$1000:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-17-1.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-20-1.pdf}
 
 Here is a simple but beautiful plot \ldots{} So you may not want to use ggplot all the time:
 
@@ -3981,7 +3932,7 @@ Here is a simple but beautiful plot \ldots{} So you may not want to use ggplot a
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-18-1.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-21-1.pdf}
 
 Or we can put them next to each other:
 
@@ -4010,7 +3961,7 @@ Or we can put them next to each other:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-19-1.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-22-1.pdf}
 
 \hypertarget{pairwise-relationship}{%
 \section{Pairwise relationship}\label{pairwise-relationship}}
@@ -4034,7 +3985,7 @@ R package \texttt{corrplot} provides a visual exploratory tool on correlation ma
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-20-1.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-23-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4042,7 +3993,7 @@ R package \texttt{corrplot} provides a visual exploratory tool on correlation ma
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-20-2.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-23-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4050,7 +4001,7 @@ R package \texttt{corrplot} provides a visual exploratory tool on correlation ma
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-20-3.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-23-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4058,7 +4009,7 @@ R package \texttt{corrplot} provides a visual exploratory tool on correlation ma
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-20-4.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-23-4.pdf}
 
 \hypertarget{conditional-scatterplot}{%
 \section{Conditional Scatterplot}\label{conditional-scatterplot}}
@@ -4072,7 +4023,7 @@ To visualize the relationship between two continuous variables but for different
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-21-1.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-24-1.pdf}
 
 \hypertarget{panel}{%
 \section{\texorpdfstring{\texttt{panel()}}{panel()}}\label{panel}}
@@ -4085,7 +4036,7 @@ To explore the relationships between multiple continuous variables we can have a
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-22-1.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-25-1.pdf}
 
 \hypertarget{data-management}{%
 \chapter{Data Management}\label{data-management}}
@@ -5490,7 +5441,7 @@ It becomes very handy when we build a polynomial model:
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]  7  9 19 10  0  5 17 10  7  9
+##  [1] 15 20  8 12  7 12 13  6 14  5
 \end{verbatim}
 
 \begin{Shaded}
@@ -5502,16 +5453,16 @@ It becomes very handy when we build a polynomial model:
 
 \begin{verbatim}
 ##       [,1] [,2] [,3]   [,4]
-##  [1,]    7   49  343   2401
-##  [2,]    9   81  729   6561
-##  [3,]   19  361 6859 130321
-##  [4,]   10  100 1000  10000
-##  [5,]    0    0    0      0
-##  [6,]    5   25  125    625
-##  [7,]   17  289 4913  83521
-##  [8,]   10  100 1000  10000
-##  [9,]    7   49  343   2401
-## [10,]    9   81  729   6561
+##  [1,]   15  225 3375  50625
+##  [2,]   20  400 8000 160000
+##  [3,]    8   64  512   4096
+##  [4,]   12  144 1728  20736
+##  [5,]    7   49  343   2401
+##  [6,]   12  144 1728  20736
+##  [7,]   13  169 2197  28561
+##  [8,]    6   36  216   1296
+##  [9,]   14  196 2744  38416
+## [10,]    5   25  125    625
 \end{verbatim}
 
 We can also use \texttt{outer()} for this example
@@ -5568,7 +5519,7 @@ The R base manual tells you that it's called as follows: \texttt{apply(X,\ MARGI
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  2.3823217 -1.2894225 -2.4129301 -0.2844947 -1.6296557 -4.8437539
+## [1]  0.9814464  0.8345699 -1.3027370 -1.3983604 -1.6465991  0.8599690
 \end{verbatim}
 
 \begin{Shaded}
@@ -5624,13 +5575,13 @@ The R base manual tells you that it's called as follows: \texttt{apply(X,\ MARGI
 \end{Shaded}
 
 \begin{verbatim}
-##              [,1]         [,2]
-## [1,]  1.448670734  1.788860514
-## [2,]  1.750915324  0.722027088
-## [3,]  0.833623757  0.949493235
-## [4,]  0.001116069  0.738579066
-## [5,]  1.769290662  1.783511818
-## [6,] -0.044204172 -0.006294795
+##           [,1]       [,2]
+## [1,] 1.4841399  0.8979595
+## [2,] 1.2879850  0.9478266
+## [3,] 1.8919106 -0.8439504
+## [4,] 1.0904187  1.3854116
+## [5,] 1.3645625  1.4083366
+## [6,] 0.8792504  2.5625232
 \end{verbatim}
 
 Since \texttt{apply()} is used only for matrices, if you apply \texttt{apply()} to a data frame, it first coerces your data.frame to an array which means all the columns must have the same type. Depending on your context, this could have unintended consequences. For a safer practice in data frames, we can use \texttt{lappy()} and \texttt{sapply()}:
@@ -5897,7 +5848,7 @@ Let's play with \texttt{sample()} for simple random sampling. We will see the ar
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "H" "T" "H" "H" "H" "H" "T" "H"
+## [1] "T" "T" "H" "H" "H" "H" "H" "T"
 \end{verbatim}
 
 \begin{Shaded}
@@ -5907,7 +5858,7 @@ Let's play with \texttt{sample()} for simple random sampling. We will see the ar
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 4 3
+## [1] 5 5
 \end{verbatim}
 
 \begin{Shaded}
@@ -5918,7 +5869,7 @@ Let's play with \texttt{sample()} for simple random sampling. We will see the ar
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "T" "T" "T" "T" "T" "T" "H" "T"
+## [1] "H" "H" "T" "H" "T" "H" "T" "T"
 \end{verbatim}
 
 \begin{Shaded}
@@ -5928,7 +5879,7 @@ Let's play with \texttt{sample()} for simple random sampling. We will see the ar
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 5 1
+## [1] 4 5
 \end{verbatim}
 
 The results are different. If we use \texttt{set.seed()} then we can get the same results each time. Lets try now:

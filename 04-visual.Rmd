@@ -3,6 +3,7 @@
 Let’s first introduce the data set that will be used throughout this chapter. The data set, `ames` is a part of the Ames Housing Price data, containing 165 observations and 12 features including the sale date and price.
 
 ```{r }
+library(RBootcamp)
 str(ames)
 ```
 
@@ -153,7 +154,7 @@ ggplotly(p)
 
 `shiny` accepts user input.  Therefore, you can make the plot design by the user. Because it executes an actual R code, `shiny` requires its own server.  There are several ways to run an `shiny` app. A simple one is R command line.  Or you can call it from a R Markdown document. Or host it at `ShinyApps.io`.
 
-Let's have a simple example:
+Let's have a simple example and see its snapshot:
 
 ```{r, message=FALSE, warning=FALSE}
 library(shiny)
@@ -207,6 +208,12 @@ server <- function(input, output) {
 shinyApp(ui, server)
 ```
 
+Run it in a script and see it.  Or you can save it, like `app.R`, in a folder, like `shinyapps`, and then you can call it in your console
+
+```{r}
+# library(shiny)
+# runApp("./shinyapp/")
+```
 
 
 ## Histograms & Density
@@ -214,13 +221,13 @@ shinyApp(ui, server)
 How do we visualize continuous variables? One popular plot is called histograms.
 
 ```{r}
-hist(amesdata$Sale_Price)
+hist(ames$Sale_Price)
 ```
 
 And density with ggplot
 
 ```{r}
-ggplot(data = amesdata, aes(x = Sale_Price)) +
+ggplot(data = ames, aes(x = Sale_Price)) +
   geom_histogram(aes(y = ..density..)) +
   geom_density(color = "red",
                size = 1.5)
@@ -229,7 +236,7 @@ ggplot(data = amesdata, aes(x = Sale_Price)) +
 ## Multiple plots
 
 ```{r}
-fc <- ggplot(data = amesdata, aes(x = Sale_Price)) +
+fc <- ggplot(data = ames, aes(x = Sale_Price)) +
   geom_histogram(aes(y = ..density..)) +
   geom_density(color = "red",
                size = 1.5)

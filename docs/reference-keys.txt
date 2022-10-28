@@ -35,9 +35,11 @@ array
 reading-and-writting-data-files
 reading-importing
 writing-exporting
+downlaoding
 data-visualisation-with-r
 scatterplots
 smootlines
+interactive-graphs
 histograms-density
 multiple-plots
 add-lines
