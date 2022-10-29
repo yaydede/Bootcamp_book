@@ -289,7 +289,7 @@ ggplotly(p)
 ![](04-visual_files/figure-epub3/unnamed-chunk-12-1.png)<!-- -->
 ## Shiny
 
-You can develop a `shiny` application that accepts user input for your interactive plots.  Hence, you can make plots designed by the user. Because it executes an actual R code, `shiny` requires its own server.  There are several ways to run an `shiny` app. A simple one is R command line.  
+You can develop a `shiny` application that accepts user input for your interactive plots.  Hence, you can make plots designed by the user. Because it executes an actual R code, `shiny` requires its own server.  There are several ways to share/run an `shiny` app. Users can use these scripts to launch the app from their own R session. 
 
 Let's have a simple example and see its snapshot.  You can run it in a script and see the interactive plot:
 
@@ -356,7 +356,7 @@ Or you can save it, like `app.R`, in a folder, like `shinyapps`, and then you ca
 # runApp("./shinyapp/")
 ```
 
-The final solution is to host it at `shinyapps.io` and deploy it in your R Markdown:
+You can share your Shiny app as a web page. This is definitely the most user friendly way to share a Shiny app. You need to host the app so that it can be reached.  The easiest option is to host it at `shinyapps.io` and deploy it in your R Markdown:
 
 
 ```r
@@ -365,7 +365,7 @@ knitr::include_app("https://jzmtko-yigit-aydede.shinyapps.io/shinyapp/",
 ```
 
 [![](04-visual_files/figure-epub3/unnamed-chunk-15-1.png)](https://jzmtko-yigit-aydede.shinyapps.io/shinyapp/)<!-- -->
-More details about hosting your shiny applications can be found here: <https://bookdown.org/yihui/rmarkdown/shiny-deploy.html>.  
+The other option is `GitHub` to host your.  You can find the instructions [here](https://www.youtube.com/watch?v=zIRNv3kH79w).  More details about hosting your shiny applications can be found here: <https://bookdown.org/yihui/rmarkdown/shiny-deploy.html>.  
 
 ## Histograms & Density
 

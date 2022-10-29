@@ -337,7 +337,7 @@ Without further specification, files will be loaded from and saved to the workin
 ## [27] "index.md"                 "index.Rmd"               
 ## [29] "packages.bib"             "png"                     
 ## [31] "preamble.tex"             "README.md"               
-## [33] "render113b141fc4bab.rds"  "shinyapp"                
+## [33] "render11c88191c6ec2.rds"  "shinyapp"                
 ## [35] "some_functions.R"         "style.css"               
 ## [37] "table1.text"
 \end{verbatim}
@@ -2911,7 +2911,7 @@ Lets look at some examples of working with them:
 ##  $ c: chr "Hello!"
 ##  $ d:function (arg = 1)  
 ##   ..- attr(*, "srcref")= 'srcref' int [1:8] 12 15 12 55 15 55 12 12
-##   .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x7f8e1bc8f918> 
+##   .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x7fe98ee8c580> 
 ##  $ X: num [1:4, 1:4] 0 0 0 0 0 0 0 0 0 0 ...
 \end{verbatim}
 
@@ -3753,7 +3753,7 @@ Let's see one of those widgets, \href{https://plotly.com/r/}{\texttt{plotly}}, w
 \includegraphics{04-visual_files/figure-latex/unnamed-chunk-12-1.pdf}
 \#\# Shiny
 
-You can develop a \texttt{shiny} application that accepts user input for your interactive plots. Hence, you can make plots designed by the user. Because it executes an actual R code, \texttt{shiny} requires its own server. There are several ways to run an \texttt{shiny} app. A simple one is R command line.
+You can develop a \texttt{shiny} application that accepts user input for your interactive plots. Hence, you can make plots designed by the user. Because it executes an actual R code, \texttt{shiny} requires its own server. There are several ways to share/run an \texttt{shiny} app. Users can use these scripts to launch the app from their own R session.
 
 Let's have a simple example and see its snapshot. You can run it in a script and see the interactive plot:
 
@@ -3822,7 +3822,7 @@ Or you can save it, like \texttt{app.R}, in a folder, like \texttt{shinyapps}, a
 \end{Highlighting}
 \end{Shaded}
 
-The final solution is to host it at \texttt{shinyapps.io} and deploy it in your R Markdown:
+You can share your Shiny app as a web page. This is definitely the most user friendly way to share a Shiny app. You need to host the app so that it can be reached. The easiest option is to host it at \texttt{shinyapps.io} and deploy it in your R Markdown:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3832,7 +3832,7 @@ The final solution is to host it at \texttt{shinyapps.io} and deploy it in your 
 \end{Shaded}
 
 \href{https://jzmtko-yigit-aydede.shinyapps.io/shinyapp/}{\includegraphics{04-visual_files/figure-latex/unnamed-chunk-15-1.pdf}}
-More details about hosting your shiny applications can be found here: \url{https://bookdown.org/yihui/rmarkdown/shiny-deploy.html}.
+The other option is \texttt{GitHub} to host your. You can find the instructions \href{https://www.youtube.com/watch?v=zIRNv3kH79w}{here}. More details about hosting your shiny applications can be found here: \url{https://bookdown.org/yihui/rmarkdown/shiny-deploy.html}.
 
 \hypertarget{histograms-density}{%
 \section{Histograms \& Density}\label{histograms-density}}
@@ -5453,7 +5453,7 @@ It becomes very handy when we build a polynomial model:
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 16 12  8 19  9  2 15  7 10 16
+##  [1] 18 14  0  4  3 18 13  9 18 10
 \end{verbatim}
 
 \begin{Shaded}
@@ -5465,16 +5465,16 @@ It becomes very handy when we build a polynomial model:
 
 \begin{verbatim}
 ##       [,1] [,2] [,3]   [,4]
-##  [1,]   16  256 4096  65536
-##  [2,]   12  144 1728  20736
-##  [3,]    8   64  512   4096
-##  [4,]   19  361 6859 130321
-##  [5,]    9   81  729   6561
-##  [6,]    2    4    8     16
-##  [7,]   15  225 3375  50625
-##  [8,]    7   49  343   2401
-##  [9,]   10  100 1000  10000
-## [10,]   16  256 4096  65536
+##  [1,]   18  324 5832 104976
+##  [2,]   14  196 2744  38416
+##  [3,]    0    0    0      0
+##  [4,]    4   16   64    256
+##  [5,]    3    9   27     81
+##  [6,]   18  324 5832 104976
+##  [7,]   13  169 2197  28561
+##  [8,]    9   81  729   6561
+##  [9,]   18  324 5832 104976
+## [10,]   10  100 1000  10000
 \end{verbatim}
 
 We can also use \texttt{outer()} for this example
@@ -5531,7 +5531,7 @@ The R base manual tells you that it's called as follows: \texttt{apply(X,\ MARGI
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  0.4917161  0.1968144 -1.1172349 -0.6060660  3.3326096  2.3756839
+## [1] -0.3270795 -0.4055372 -1.9075290 -4.0090052 -3.2947210  0.8890759
 \end{verbatim}
 
 \begin{Shaded}
@@ -5587,13 +5587,13 @@ The R base manual tells you that it's called as follows: \texttt{apply(X,\ MARGI
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]      [,2]
-## [1,]  0.4951597 0.7906296
-## [2,]  0.7092157 0.8073328
-## [3,]  0.6442555 0.2348421
-## [4,]  1.8559914 0.8865806
-## [5,] -0.2169464 1.2377507
-## [6,]  2.8587436 0.9275147
+##           [,1]       [,2]
+## [1,] 0.6617319  1.0622223
+## [2,] 1.3243993  0.4053818
+## [3,] 1.5198330 -1.1936927
+## [4,] 0.8530223 -1.3767925
+## [5,] 0.6666412  0.8884314
+## [6,] 1.4836533  1.7158766
 \end{verbatim}
 
 Since \texttt{apply()} is used only for matrices, if you apply \texttt{apply()} to a data frame, it first coerces your data.frame to an array which means all the columns must have the same type. Depending on your context, this could have unintended consequences. For a safer practice in data frames, we can use \texttt{lappy()} and \texttt{sapply()}:
@@ -5860,7 +5860,7 @@ Let's play with \texttt{sample()} for simple random sampling. We will see the ar
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "T" "H" "H" "H" "H" "T" "H" "H"
+## [1] "T" "T" "T" "T" "H" "T" "H" "H"
 \end{verbatim}
 
 \begin{Shaded}
@@ -5870,7 +5870,7 @@ Let's play with \texttt{sample()} for simple random sampling. We will see the ar
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 6 4
+## [1] 2 5
 \end{verbatim}
 
 \begin{Shaded}
@@ -5881,7 +5881,7 @@ Let's play with \texttt{sample()} for simple random sampling. We will see the ar
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "T" "T" "H" "T" "T" "H" "H" "H"
+## [1] "T" "T" "T" "H" "T" "H" "H" "T"
 \end{verbatim}
 
 \begin{Shaded}
@@ -5891,7 +5891,7 @@ Let's play with \texttt{sample()} for simple random sampling. We will see the ar
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 5 1
+## [1] 5 5
 \end{verbatim}
 
 The results are different. If we use \texttt{set.seed()} then we can get the same results each time. Lets try now:
