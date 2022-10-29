@@ -289,9 +289,9 @@ ggplotly(p)
 ![](04-visual_files/figure-epub3/unnamed-chunk-12-1.png)<!-- -->
 ## Shiny
 
-`shiny` accepts user input.  Therefore, you can make the plot design by the user. Because it executes an actual R code, `shiny` requires its own server.  There are several ways to run an `shiny` app. A simple one is R command line.  Or you can call it from a R Markdown document. Or host it at `ShinyApps.io`.
+You can develop a `shiny` application that accepts user input for your interactive plots.  Hence, you can make plots designed by the user. Because it executes an actual R code, `shiny` requires its own server.  There are several ways to run an `shiny` app. A simple one is R command line.  
 
-Let's have a simple example and see its snapshot:
+Let's have a simple example and see its snapshot.  You can run it in a script and see the interactive plot:
 
 
 ```r
@@ -348,7 +348,7 @@ shinyApp(ui, server)
 
 ![](04-visual_files/figure-epub3/unnamed-chunk-13-1.png)<!-- -->
 
-Run it in a script and see it.  Or you can save it, like `app.R`, in a folder, like `shinyapps`, and then you can call it in your console
+Or you can save it, like `app.R`, in a folder, like `shinyapps`, and then you can call it in your console:
 
 
 ```r
@@ -356,6 +356,16 @@ Run it in a script and see it.  Or you can save it, like `app.R`, in a folder, l
 # runApp("./shinyapp/")
 ```
 
+The final solution is to host it at `shinyapps.io` and deploy it in your R Markdown:
+
+
+```r
+knitr::include_app("https://jzmtko-yigit-aydede.shinyapps.io/shinyapp/",
+  height = "600px")
+```
+
+[![](04-visual_files/figure-epub3/unnamed-chunk-15-1.png)](https://jzmtko-yigit-aydede.shinyapps.io/shinyapp/)<!-- -->
+More details about hosting your shiny applications can be found here: <https://bookdown.org/yihui/rmarkdown/shiny-deploy.html>.  
 
 ## Histograms & Density
 
@@ -366,7 +376,7 @@ How do we visualize continuous variables? One popular plot is called histograms.
 hist(ames$Sale_Price)
 ```
 
-![](04-visual_files/figure-epub3/unnamed-chunk-15-1.png)<!-- -->
+![](04-visual_files/figure-epub3/unnamed-chunk-16-1.png)<!-- -->
 
 And density with ggplot
 
@@ -382,7 +392,7 @@ ggplot(data = ames, aes(x = Sale_Price)) +
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![](04-visual_files/figure-epub3/unnamed-chunk-16-1.png)<!-- -->
+![](04-visual_files/figure-epub3/unnamed-chunk-17-1.png)<!-- -->
 
 ## Multiple plots
 
@@ -399,7 +409,7 @@ fc + facet_wrap("Street")
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![](04-visual_files/figure-epub3/unnamed-chunk-17-1.png)<!-- -->
+![](04-visual_files/figure-epub3/unnamed-chunk-18-1.png)<!-- -->
 ## Lables etc.
 
 
@@ -419,7 +429,7 @@ fc +
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![](04-visual_files/figure-epub3/unnamed-chunk-18-1.png)<!-- -->
+![](04-visual_files/figure-epub3/unnamed-chunk-19-1.png)<!-- -->
 
 ## Add lines
 
@@ -439,7 +449,7 @@ A4 <- 1000*(1+0.1)^t
 plot(t, A1)
 ```
 
-![](04-visual_files/figure-epub3/unnamed-chunk-20-1.png)<!-- -->
+![](04-visual_files/figure-epub3/unnamed-chunk-21-1.png)<!-- -->
 
 Here is a simple but beautiful plot ... So you may not want to use ggplot all the time:  
 
@@ -457,7 +467,7 @@ legend("bottomright",
        lty = c(2, 1, 3), bty = "o", cex = 0.75)
 ```
 
-![](04-visual_files/figure-epub3/unnamed-chunk-21-1.png)<!-- -->
+![](04-visual_files/figure-epub3/unnamed-chunk-22-1.png)<!-- -->
 
 Or we can put them next to each other:
 
@@ -485,7 +495,7 @@ mtext("Accumulated Value of $1000 Investment",
       outer=TRUE, cex = 1.5, col="olivedrab")
 ```
 
-![](04-visual_files/figure-epub3/unnamed-chunk-22-1.png)<!-- -->
+![](04-visual_files/figure-epub3/unnamed-chunk-23-1.png)<!-- -->
 
 ## Pairwise relationship
 
@@ -505,25 +515,25 @@ M = cor(mtcars)
 corrplot(M, method = 'number') # colorful number
 ```
 
-![](04-visual_files/figure-epub3/unnamed-chunk-23-1.png)<!-- -->
+![](04-visual_files/figure-epub3/unnamed-chunk-24-1.png)<!-- -->
 
 ```r
 corrplot(M)
 ```
 
-![](04-visual_files/figure-epub3/unnamed-chunk-23-2.png)<!-- -->
+![](04-visual_files/figure-epub3/unnamed-chunk-24-2.png)<!-- -->
 
 ```r
 corrplot(M, order = 'AOE')
 ```
 
-![](04-visual_files/figure-epub3/unnamed-chunk-23-3.png)<!-- -->
+![](04-visual_files/figure-epub3/unnamed-chunk-24-3.png)<!-- -->
 
 ```r
 corrplot.mixed(M, order = 'AOE')
 ```
 
-![](04-visual_files/figure-epub3/unnamed-chunk-23-4.png)<!-- -->
+![](04-visual_files/figure-epub3/unnamed-chunk-24-4.png)<!-- -->
 
 ## Conditional Scatterplot
 
@@ -535,7 +545,7 @@ library(RBootcamp)
 coplot(weight ~ DML | maturity.stage, data = squid1)
 ```
 
-![](04-visual_files/figure-epub3/unnamed-chunk-24-1.png)<!-- -->
+![](04-visual_files/figure-epub3/unnamed-chunk-25-1.png)<!-- -->
 
 ## `panel()`
 
@@ -546,5 +556,5 @@ To explore the relationships between multiple continuous variables we can have a
 pairs(mtcars[, c(1, 3, 6)])
 ```
 
-![](04-visual_files/figure-epub3/unnamed-chunk-25-1.png)<!-- -->
+![](04-visual_files/figure-epub3/unnamed-chunk-26-1.png)<!-- -->
 

@@ -1,37 +1,32 @@
 library(shiny)
 library(ggplot2)
 library(dplyr)
+library(RBootcamp)
 
-# uncomment this if you need to reload the stops table
-# stops <- read.csv('https://github.com/cengel/R-data-viz/raw/master/data/MS_stops.csv')
 
-## UI
-# Use a fluid Bootstrap layout
 ui <- fluidPage(    
   
   # Give the page a title
-  titlePanel("Missisippi Violations by County"),
+  titlePanel("Housing in Ames"),
   
   # Generate a row with a sidebar
   sidebarLayout(      
     
     # Define the sidebar with one input
     sidebarPanel(
-      selectInput("county", "County:", 
-                  choices=unique(stops$county_name)),
+      selectInput("neighborhood", "Neighborhood:", 
+                  choices=unique(ames$Neighborhood)),
       hr(),
-      helpText("Data from Stanford Openpolicing Project.")
+      helpText("Data from Ames Iowa Housing")
     ),
     
     # Create a spot for the barplot
     mainPanel(
-      plotOutput("violationsPlot")  
+      plotOutput("HousingStylePlot")  
     )
     
   )
 )
-
-
 
 ## Server
 
@@ -39,12 +34,15 @@ ui <- fluidPage(
 server <- function(input, output) {
   
   # Fill in the spot we created for a plot
-  output$violationsPlot <- renderPlot({
+  output$HousingStylePlot <- renderPlot({
     
-    stops %>% 
-      filter(county_name == input$county) %>% 
-      ggplot(aes(violation)) + 
-        geom_bar(aes(fill = driver_gender), position = "fill")
+    ames %>% 
+      filter(Neighborhood == input$neighborhood) %>% 
+      ggplot(aes(x = Gr_Liv_Area, 
+                 y = Sale_Price,
+                 color = Central_Air)) +
+      geom_point() +
+      geom_smooth()
   })
 }
 

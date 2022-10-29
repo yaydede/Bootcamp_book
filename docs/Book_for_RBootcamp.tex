@@ -122,7 +122,7 @@
 
 \title{R Bootcamp for Data Analytics}
 \author{\href{https://yaydede.github.io/}{Yigit Aydede}}
-\date{2022-10-28}
+\date{2022-10-29}
 
 \begin{document}
 \maketitle
@@ -337,7 +337,7 @@ Without further specification, files will be loaded from and saved to the workin
 ## [27] "index.md"                 "index.Rmd"               
 ## [29] "packages.bib"             "png"                     
 ## [31] "preamble.tex"             "README.md"               
-## [33] "renderf4751895f055.rds"   "shinyapp"                
+## [33] "render113b141fc4bab.rds"  "shinyapp"                
 ## [35] "some_functions.R"         "style.css"               
 ## [37] "table1.text"
 \end{verbatim}
@@ -2911,7 +2911,7 @@ Lets look at some examples of working with them:
 ##  $ c: chr "Hello!"
 ##  $ d:function (arg = 1)  
 ##   ..- attr(*, "srcref")= 'srcref' int [1:8] 12 15 12 55 15 55 12 12
-##   .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x7fbd15161dc0> 
+##   .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x7f8e1bc8f918> 
 ##  $ X: num [1:4, 1:4] 0 0 0 0 0 0 0 0 0 0 ...
 \end{verbatim}
 
@@ -3753,9 +3753,9 @@ Let's see one of those widgets, \href{https://plotly.com/r/}{\texttt{plotly}}, w
 \includegraphics{04-visual_files/figure-latex/unnamed-chunk-12-1.pdf}
 \#\# Shiny
 
-\texttt{shiny} accepts user input. Therefore, you can make the plot design by the user. Because it executes an actual R code, \texttt{shiny} requires its own server. There are several ways to run an \texttt{shiny} app. A simple one is R command line. Or you can call it from a R Markdown document. Or host it at \texttt{ShinyApps.io}.
+You can develop a \texttt{shiny} application that accepts user input for your interactive plots. Hence, you can make plots designed by the user. Because it executes an actual R code, \texttt{shiny} requires its own server. There are several ways to run an \texttt{shiny} app. A simple one is R command line.
 
-Let's have a simple example and see its snapshot:
+Let's have a simple example and see its snapshot. You can run it in a script and see the interactive plot:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3813,7 +3813,7 @@ Let's have a simple example and see its snapshot:
 
 \includegraphics{04-visual_files/figure-latex/unnamed-chunk-13-1.pdf}
 
-Run it in a script and see it. Or you can save it, like \texttt{app.R}, in a folder, like \texttt{shinyapps}, and then you can call it in your console
+Or you can save it, like \texttt{app.R}, in a folder, like \texttt{shinyapps}, and then you can call it in your console:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3821,6 +3821,18 @@ Run it in a script and see it. Or you can save it, like \texttt{app.R}, in a fol
 \CommentTok{\# runApp("./shinyapp/")}
 \end{Highlighting}
 \end{Shaded}
+
+The final solution is to host it at \texttt{shinyapps.io} and deploy it in your R Markdown:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_app}\NormalTok{(}\StringTok{"https://jzmtko{-}yigit{-}aydede.shinyapps.io/shinyapp/"}\NormalTok{,}
+  \AttributeTok{height =} \StringTok{"600px"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\href{https://jzmtko-yigit-aydede.shinyapps.io/shinyapp/}{\includegraphics{04-visual_files/figure-latex/unnamed-chunk-15-1.pdf}}
+More details about hosting your shiny applications can be found here: \url{https://bookdown.org/yihui/rmarkdown/shiny-deploy.html}.
 
 \hypertarget{histograms-density}{%
 \section{Histograms \& Density}\label{histograms-density}}
@@ -3833,7 +3845,7 @@ How do we visualize continuous variables? One popular plot is called histograms.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-15-1.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-16-1.pdf}
 
 And density with ggplot
 
@@ -3850,7 +3862,7 @@ And density with ggplot
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 \end{verbatim}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-16-1.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-17-1.pdf}
 
 \hypertarget{multiple-plots}{%
 \section{Multiple plots}\label{multiple-plots}}
@@ -3869,7 +3881,7 @@ And density with ggplot
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 \end{verbatim}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-17-1.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-18-1.pdf}
 \#\# Lables etc.
 
 \begin{Shaded}
@@ -3890,7 +3902,7 @@ And density with ggplot
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 \end{verbatim}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-18-1.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-19-1.pdf}
 
 \hypertarget{add-lines}{%
 \section{Add lines}\label{add-lines}}
@@ -3913,7 +3925,7 @@ Let's create some series (compounding series) of \$1000:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-20-1.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-21-1.pdf}
 
 Here is a simple but beautiful plot \ldots{} So you may not want to use ggplot all the time:
 
@@ -3932,7 +3944,7 @@ Here is a simple but beautiful plot \ldots{} So you may not want to use ggplot a
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-21-1.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-22-1.pdf}
 
 Or we can put them next to each other:
 
@@ -3961,7 +3973,7 @@ Or we can put them next to each other:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-22-1.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-23-1.pdf}
 
 \hypertarget{pairwise-relationship}{%
 \section{Pairwise relationship}\label{pairwise-relationship}}
@@ -3985,7 +3997,7 @@ R package \texttt{corrplot} provides a visual exploratory tool on correlation ma
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-23-1.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-24-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3993,7 +4005,7 @@ R package \texttt{corrplot} provides a visual exploratory tool on correlation ma
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-23-2.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-24-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4001,7 +4013,7 @@ R package \texttt{corrplot} provides a visual exploratory tool on correlation ma
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-23-3.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-24-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4009,7 +4021,7 @@ R package \texttt{corrplot} provides a visual exploratory tool on correlation ma
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-23-4.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-24-4.pdf}
 
 \hypertarget{conditional-scatterplot}{%
 \section{Conditional Scatterplot}\label{conditional-scatterplot}}
@@ -4023,7 +4035,7 @@ To visualize the relationship between two continuous variables but for different
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-24-1.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-25-1.pdf}
 
 \hypertarget{panel}{%
 \section{\texorpdfstring{\texttt{panel()}}{panel()}}\label{panel}}
@@ -4036,7 +4048,7 @@ To explore the relationships between multiple continuous variables we can have a
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{04-visual_files/figure-latex/unnamed-chunk-25-1.pdf}
+\includegraphics{04-visual_files/figure-latex/unnamed-chunk-26-1.pdf}
 
 \hypertarget{data-management}{%
 \chapter{Data Management}\label{data-management}}
@@ -5441,7 +5453,7 @@ It becomes very handy when we build a polynomial model:
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 15 20  8 12  7 12 13  6 14  5
+##  [1] 16 12  8 19  9  2 15  7 10 16
 \end{verbatim}
 
 \begin{Shaded}
@@ -5453,16 +5465,16 @@ It becomes very handy when we build a polynomial model:
 
 \begin{verbatim}
 ##       [,1] [,2] [,3]   [,4]
-##  [1,]   15  225 3375  50625
-##  [2,]   20  400 8000 160000
+##  [1,]   16  256 4096  65536
+##  [2,]   12  144 1728  20736
 ##  [3,]    8   64  512   4096
-##  [4,]   12  144 1728  20736
-##  [5,]    7   49  343   2401
-##  [6,]   12  144 1728  20736
-##  [7,]   13  169 2197  28561
-##  [8,]    6   36  216   1296
-##  [9,]   14  196 2744  38416
-## [10,]    5   25  125    625
+##  [4,]   19  361 6859 130321
+##  [5,]    9   81  729   6561
+##  [6,]    2    4    8     16
+##  [7,]   15  225 3375  50625
+##  [8,]    7   49  343   2401
+##  [9,]   10  100 1000  10000
+## [10,]   16  256 4096  65536
 \end{verbatim}
 
 We can also use \texttt{outer()} for this example
@@ -5519,7 +5531,7 @@ The R base manual tells you that it's called as follows: \texttt{apply(X,\ MARGI
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  0.9814464  0.8345699 -1.3027370 -1.3983604 -1.6465991  0.8599690
+## [1]  0.4917161  0.1968144 -1.1172349 -0.6060660  3.3326096  2.3756839
 \end{verbatim}
 
 \begin{Shaded}
@@ -5575,13 +5587,13 @@ The R base manual tells you that it's called as follows: \texttt{apply(X,\ MARGI
 \end{Shaded}
 
 \begin{verbatim}
-##           [,1]       [,2]
-## [1,] 1.4841399  0.8979595
-## [2,] 1.2879850  0.9478266
-## [3,] 1.8919106 -0.8439504
-## [4,] 1.0904187  1.3854116
-## [5,] 1.3645625  1.4083366
-## [6,] 0.8792504  2.5625232
+##            [,1]      [,2]
+## [1,]  0.4951597 0.7906296
+## [2,]  0.7092157 0.8073328
+## [3,]  0.6442555 0.2348421
+## [4,]  1.8559914 0.8865806
+## [5,] -0.2169464 1.2377507
+## [6,]  2.8587436 0.9275147
 \end{verbatim}
 
 Since \texttt{apply()} is used only for matrices, if you apply \texttt{apply()} to a data frame, it first coerces your data.frame to an array which means all the columns must have the same type. Depending on your context, this could have unintended consequences. For a safer practice in data frames, we can use \texttt{lappy()} and \texttt{sapply()}:
@@ -5848,7 +5860,7 @@ Let's play with \texttt{sample()} for simple random sampling. We will see the ar
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "T" "T" "H" "H" "H" "H" "H" "T"
+## [1] "T" "H" "H" "H" "H" "T" "H" "H"
 \end{verbatim}
 
 \begin{Shaded}
@@ -5858,7 +5870,7 @@ Let's play with \texttt{sample()} for simple random sampling. We will see the ar
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 5 5
+## [1] 6 4
 \end{verbatim}
 
 \begin{Shaded}
@@ -5869,7 +5881,7 @@ Let's play with \texttt{sample()} for simple random sampling. We will see the ar
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "H" "H" "T" "H" "T" "H" "T" "T"
+## [1] "T" "T" "H" "T" "T" "H" "H" "H"
 \end{verbatim}
 
 \begin{Shaded}
@@ -5879,7 +5891,7 @@ Let's play with \texttt{sample()} for simple random sampling. We will see the ar
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 4 5
+## [1] 5 1
 \end{verbatim}
 
 The results are different. If we use \texttt{set.seed()} then we can get the same results each time. Lets try now:
