@@ -23,7 +23,7 @@
 <meta name="author" content="Yigit Aydede" />
 
 
-<meta name="date" content="2022-10-29" />
+<meta name="date" content="2022-10-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -206,7 +206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.1" data-path="reading-and-writting-data-files.html"><a href="reading-and-writting-data-files.html#reading-importing"><i class="fa fa-check"></i><b>4.1</b> Reading (importing)</a></li>
 <li class="chapter" data-level="4.2" data-path="reading-and-writting-data-files.html"><a href="reading-and-writting-data-files.html#writing-exporting"><i class="fa fa-check"></i><b>4.2</b> Writing (exporting)</a></li>
-<li class="chapter" data-level="4.3" data-path="reading-and-writting-data-files.html"><a href="reading-and-writting-data-files.html#downlaoding"><i class="fa fa-check"></i><b>4.3</b> Downlaoding</a></li>
+<li class="chapter" data-level="4.3" data-path="reading-and-writting-data-files.html"><a href="reading-and-writting-data-files.html#downloading"><i class="fa fa-check"></i><b>4.3</b> Downloading</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html"><i class="fa fa-check"></i><b>5</b> Data visualisation with R</a>
 <ul>
@@ -576,20 +576,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>It becomes very handy when we build a polynomial model:</p>
 <div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="programing-basics.html#cb588-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">20</span>, <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb588-2"><a href="programing-basics.html#cb588-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
-<pre><code>##  [1] 11 16 17 11 14  4 20  3  7 14</code></pre>
+<pre><code>##  [1]  3 12  8  4 17  3  1  0  0 12</code></pre>
 <div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="programing-basics.html#cb590-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">outer</span>(x, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="st">&quot;^&quot;</span>)</span>
 <span id="cb590-2"><a href="programing-basics.html#cb590-2" aria-hidden="true" tabindex="-1"></a>m</span></code></pre></div>
-<pre><code>##       [,1] [,2] [,3]   [,4]
-##  [1,]   11  121 1331  14641
-##  [2,]   16  256 4096  65536
-##  [3,]   17  289 4913  83521
-##  [4,]   11  121 1331  14641
-##  [5,]   14  196 2744  38416
-##  [6,]    4   16   64    256
-##  [7,]   20  400 8000 160000
-##  [8,]    3    9   27     81
-##  [9,]    7   49  343   2401
-## [10,]   14  196 2744  38416</code></pre>
+<pre><code>##       [,1] [,2] [,3]  [,4]
+##  [1,]    3    9   27    81
+##  [2,]   12  144 1728 20736
+##  [3,]    8   64  512  4096
+##  [4,]    4   16   64   256
+##  [5,]   17  289 4913 83521
+##  [6,]    3    9   27    81
+##  [7,]    1    1    1     1
+##  [8,]    0    0    0     0
+##  [9,]    0    0    0     0
+## [10,]   12  144 1728 20736</code></pre>
 <p>We can also use <code>outer()</code> for this example</p>
 <div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="programing-basics.html#cb592-1" aria-hidden="true" tabindex="-1"></a><span class="fu">outer</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="st">&quot;+&quot;</span>)</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5]
@@ -619,7 +619,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb596-3"><a href="programing-basics.html#cb596-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb596-4"><a href="programing-basics.html#cb596-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum the values of each column with `apply()`</span></span>
 <span id="cb596-5"><a href="programing-basics.html#cb596-5" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(X, <span class="dv">2</span>, sum)</span></code></pre></div>
-<pre><code>## [1] -3.0567063  0.9091483  0.8282795  3.6816724 -1.4515636 -2.5422739</code></pre>
+<pre><code>## [1] -1.169529  1.314124  1.765657  3.002579  1.438356  1.959431</code></pre>
 <div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="programing-basics.html#cb598-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(X, <span class="dv">2</span>, length)</span></code></pre></div>
 <pre><code>## [1] 5 5 5 5 5 5</code></pre>
 <div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="programing-basics.html#cb600-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(X, <span class="dv">1</span>, length)</span></code></pre></div>
@@ -635,13 +635,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="programing-basics.html#cb606-1" aria-hidden="true" tabindex="-1"></a><span class="co">#It can also be used to repeat a function on cells within a matrix</span></span>
 <span id="cb606-2"><a href="programing-basics.html#cb606-2" aria-hidden="true" tabindex="-1"></a>X_new <span class="ot">&lt;-</span> <span class="fu">apply</span>(X[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,], <span class="dv">1</span>, <span class="cf">function</span>(x) x<span class="sc">+</span><span class="dv">1</span>)</span>
 <span id="cb606-3"><a href="programing-basics.html#cb606-3" aria-hidden="true" tabindex="-1"></a>X_new</span></code></pre></div>
-<pre><code>##            [,1]      [,2]
-## [1,] -0.2371025 1.7216248
-## [2,]  2.5071504 1.6483293
-## [3,]  1.6736155 0.2656482
-## [4,]  0.7479178 3.4860994
-## [5,]  2.2328755 2.6439196
-## [6,] -0.4243333 1.9852668</code></pre>
+<pre><code>##           [,1]      [,2]
+## [1,] 1.7842024 0.3181374
+## [2,] 0.3155519 2.4573571
+## [3,] 1.9450320 1.0806406
+## [4,] 1.1729520 0.4851314
+## [5,] 2.0787647 0.2761168
+## [6,] 1.6136214 1.3686087</code></pre>
 <p>Since <code>apply()</code> is used only for matrices, if you apply <code>apply()</code> to a data frame, it first coerces your data.frame to an array which means all the columns must have the same type. Depending on your context, this could have unintended consequences. For a safer practice in data frames, we can use <code>lappy()</code> and <code>sapply()</code>:</p>
 </div>
 <div id="lapply" class="section level3 hasAnchor" number="7.3.2">

@@ -23,7 +23,7 @@
 <meta name="author" content="Yigit Aydede" />
 
 
-<meta name="date" content="2022-10-29" />
+<meta name="date" content="2022-10-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -206,7 +206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.1" data-path="reading-and-writting-data-files.html"><a href="reading-and-writting-data-files.html#reading-importing"><i class="fa fa-check"></i><b>4.1</b> Reading (importing)</a></li>
 <li class="chapter" data-level="4.2" data-path="reading-and-writting-data-files.html"><a href="reading-and-writting-data-files.html#writing-exporting"><i class="fa fa-check"></i><b>4.2</b> Writing (exporting)</a></li>
-<li class="chapter" data-level="4.3" data-path="reading-and-writting-data-files.html"><a href="reading-and-writting-data-files.html#downlaoding"><i class="fa fa-check"></i><b>4.3</b> Downlaoding</a></li>
+<li class="chapter" data-level="4.3" data-path="reading-and-writting-data-files.html"><a href="reading-and-writting-data-files.html#downloading"><i class="fa fa-check"></i><b>4.3</b> Downloading</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html"><i class="fa fa-check"></i><b>5</b> Data visualisation with R</a>
 <ul>
@@ -331,14 +331,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">8.1</span> Sampling in R: <code>sample()</code><a href="simulation-in-r.html#sampling-in-r-sample" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let’s play with <code>sample()</code> for simple random sampling. We will see the arguments of <code>sample()</code> function.</p>
 <div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb628-1"><a href="simulation-in-r.html#cb628-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;H&quot;</span>,<span class="st">&quot;T&quot;</span>), <span class="at">size =</span> <span class="dv">8</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)  <span class="co"># fair coin</span></span></code></pre></div>
-<pre><code>## [1] &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot;</code></pre>
+<pre><code>## [1] &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot;</code></pre>
 <div class="sourceCode" id="cb630"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb630-1"><a href="simulation-in-r.html#cb630-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob=</span><span class="fu">c</span>(<span class="fl">0.3</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.3</span>, <span class="fl">0.1</span>))</span></code></pre></div>
-<pre><code>## [1] 5 5</code></pre>
+<pre><code>## [1] 2 1</code></pre>
 <div class="sourceCode" id="cb632"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb632-1"><a href="simulation-in-r.html#cb632-1" aria-hidden="true" tabindex="-1"></a><span class="co">#let&#39;s do it again</span></span>
 <span id="cb632-2"><a href="simulation-in-r.html#cb632-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;H&quot;</span>,<span class="st">&quot;T&quot;</span>), <span class="at">size =</span> <span class="dv">8</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)  </span></code></pre></div>
-<pre><code>## [1] &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot;</code></pre>
+<pre><code>## [1] &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot;</code></pre>
 <div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb634-1"><a href="simulation-in-r.html#cb634-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob=</span><span class="fu">c</span>(<span class="fl">0.3</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.3</span>, <span class="fl">0.1</span>))</span></code></pre></div>
-<pre><code>## [1] 1 6</code></pre>
+<pre><code>## [1] 1 4</code></pre>
 <p>The results are different. If we use <code>set.seed()</code> then we can get the same results each time. Lets try now:</p>
 <div class="sourceCode" id="cb636"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb636-1"><a href="simulation-in-r.html#cb636-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb636-2"><a href="simulation-in-r.html#cb636-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;H&quot;</span>,<span class="st">&quot;T&quot;</span>), <span class="at">size =</span> <span class="dv">8</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)  </span></code></pre></div>

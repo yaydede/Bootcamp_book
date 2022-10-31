@@ -1,7 +1,7 @@
 --- 
 title: "R Bootcamp for Data Analytics"
 author: "[Yigit Aydede](https://yaydede.github.io/)"
-date: "2022-10-29"
+date: "2022-10-31"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]

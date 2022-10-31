@@ -23,7 +23,7 @@
 <meta name="author" content="Yigit Aydede" />
 
 
-<meta name="date" content="2022-10-29" />
+<meta name="date" content="2022-10-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -206,7 +206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.1" data-path="reading-and-writting-data-files.html"><a href="reading-and-writting-data-files.html#reading-importing"><i class="fa fa-check"></i><b>4.1</b> Reading (importing)</a></li>
 <li class="chapter" data-level="4.2" data-path="reading-and-writting-data-files.html"><a href="reading-and-writting-data-files.html#writing-exporting"><i class="fa fa-check"></i><b>4.2</b> Writing (exporting)</a></li>
-<li class="chapter" data-level="4.3" data-path="reading-and-writting-data-files.html"><a href="reading-and-writting-data-files.html#downlaoding"><i class="fa fa-check"></i><b>4.3</b> Downlaoding</a></li>
+<li class="chapter" data-level="4.3" data-path="reading-and-writting-data-files.html"><a href="reading-and-writting-data-files.html#downloading"><i class="fa fa-check"></i><b>4.3</b> Downloading</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html"><i class="fa fa-check"></i><b>5</b> Data visualisation with R</a>
 <ul>
@@ -401,12 +401,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>One last thing: if you want to save the entire workspace, <code>save.image()</code> is just a short-cut for “save my current workspace”, i.e., <code>save(list = ls(all.names = TRUE), file = ".RData", envir = .GlobalEnv)</code>. It is also what happens with <code>q("yes")</code>.</p>
 </div>
-<div id="downlaoding" class="section level2 hasAnchor" number="4.3">
-<h2><span class="header-section-number">4.3</span> Downlaoding<a href="reading-and-writting-data-files.html#downlaoding" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="downloading" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Downloading<a href="reading-and-writting-data-files.html#downloading" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <code>download.file()</code> function could be very handy and can be used to download a file from the Internet.</p>
-<p>Download both csv files into a sub-directory called data:
-Download <code>MS_stops.csv</code> from: <a href="https://github.com/cengel/R-data-viz/raw/master/data/MS_stops.csv" class="uri">https://github.com/cengel/R-data-viz/raw/master/data/MS_stops.csv</a>
-Download <code>MS_county_stops.csv</code> from: <a href="https://github.com/cengel/R-data-viz/raw/master/data/MS_county_stops.csv" class="uri">https://github.com/cengel/R-data-viz/raw/master/data/MS_county_stops.csv</a></p>
+<p>Download both csv files into a sub-directory called data:</p>
+<ul>
+<li>Download <code>MS_stops.csv</code> from: <a href="https://github.com/cengel/R-data-viz/raw/master/data/MS_stops.csv" class="uri">https://github.com/cengel/R-data-viz/raw/master/data/MS_stops.csv</a></li>
+<li>Download <code>MS_county_stops.csv</code> from: <a href="https://github.com/cengel/R-data-viz/raw/master/data/MS_county_stops.csv" class="uri">https://github.com/cengel/R-data-viz/raw/master/data/MS_county_stops.csv</a></li>
+</ul>
 <div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="reading-and-writting-data-files.html#cb424-1" aria-hidden="true" tabindex="-1"></a><span class="co"># download.file(&quot;https://github.com/cengel/R-data-viz/raw/master/data/MS_stops.csv&quot;, </span></span>
 <span id="cb424-2"><a href="reading-and-writting-data-files.html#cb424-2" aria-hidden="true" tabindex="-1"></a><span class="co">#               &quot;YOUR PATH/MS_stops.csv&quot;)</span></span>
 <span id="cb424-3"><a href="reading-and-writting-data-files.html#cb424-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>

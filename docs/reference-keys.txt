@@ -35,7 +35,7 @@ array
 reading-and-writting-data-files
 reading-importing
 writing-exporting
-downlaoding
+downloading
 data-visualisation-with-r
 scatterplots
 smootlines

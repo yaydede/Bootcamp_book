@@ -118,13 +118,14 @@ I did not specify realistic path names below.
 
 One last thing: if you want to save the entire workspace, `save.image()` is just a short-cut for "save my current workspace", i.e., `save(list = ls(all.names = TRUE), file = ".RData", envir = .GlobalEnv)`. It is also what happens with `q("yes")`. 
 
-## Downlaoding
+## Downloading
 
 The `download.file()` function could be very handy and can be used to download a file from the Internet.
 
 Download both csv files into a sub-directory called data:
-Download `MS_stops.csv` from: <https://github.com/cengel/R-data-viz/raw/master/data/MS_stops.csv>
-Download `MS_county_stops.csv` from:  <https://github.com/cengel/R-data-viz/raw/master/data/MS_county_stops.csv>
+  
+- Download `MS_stops.csv` from: <https://github.com/cengel/R-data-viz/raw/master/data/MS_stops.csv> 
+- Download `MS_county_stops.csv` from:  <https://github.com/cengel/R-data-viz/raw/master/data/MS_county_stops.csv>  
 
 
 ```r
