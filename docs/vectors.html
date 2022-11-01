@@ -23,7 +23,7 @@
 <meta name="author" content="Yigit Aydede" />
 
 
-<meta name="date" content="2022-10-31" />
+<meta name="date" content="2022-11-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -290,10 +290,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="exploratory-data-analysis-eda.html"><a href="exploratory-data-analysis-eda.html#rmarkdown"><i class="fa fa-check"></i><b>9.3</b> RMarkdown</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="lessons-answers.html"><a href="lessons-answers.html"><i class="fa fa-check"></i><b>10</b> Lessons &amp; Answers</a>
+<li class="chapter" data-level="10" data-path="publishing-at-github.html"><a href="publishing-at-github.html"><i class="fa fa-check"></i><b>10</b> Publishing at GitHub</a></li>
+<li class="chapter" data-level="11" data-path="lessons-answers.html"><a href="lessons-answers.html"><i class="fa fa-check"></i><b>11</b> Lessons &amp; Answers</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="lessons-answers.html"><a href="lessons-answers.html#lessons"><i class="fa fa-check"></i><b>10.1</b> Lessons</a></li>
-<li class="chapter" data-level="10.2" data-path="lessons-answers.html"><a href="lessons-answers.html#answers"><i class="fa fa-check"></i><b>10.2</b> Answers</a></li>
+<li class="chapter" data-level="11.1" data-path="lessons-answers.html"><a href="lessons-answers.html#lessons"><i class="fa fa-check"></i><b>11.1</b> Lessons</a></li>
+<li class="chapter" data-level="11.2" data-path="lessons-answers.html"><a href="lessons-answers.html#answers"><i class="fa fa-check"></i><b>11.2</b> Answers</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://yaydede.github.io" target="blank">2022 Yigit Aydede</a></li>
@@ -711,7 +712,7 @@ It’s the sum of the first element of <code>x</code>, which is 1 and the last e
 </div>
 <div id="factors" class="section level2 hasAnchor" number="2.11">
 <h2><span class="header-section-number">2.11</span> Factors<a href="vectors.html#factors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Factor type is known as an “indicator” variable.</p>
+<p>Factor type is known as an “indicator” variable. Factors represent a very efficient way to store character values, because each unique character value is stored only once, and the data itself is stored as a vector of integers.</p>
 <div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="vectors.html#cb231-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>((<span class="dv">123</span>))</span>
 <span id="cb231-2"><a href="vectors.html#cb231-2" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> <span class="fu">sample</span>(animals, <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb231-3"><a href="vectors.html#cb231-3" aria-hidden="true" tabindex="-1"></a>anim</span></code></pre></div>
@@ -736,6 +737,40 @@ It’s the sum of the first element of <code>x</code>, which is 1 and the last e
 <div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="vectors.html#cb235-1" aria-hidden="true" tabindex="-1"></a>animf <span class="ot">&lt;-</span><span class="fu">as.factor</span>(anim)</span>
 <span id="cb235-2"><a href="vectors.html#cb235-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(animf)</span></code></pre></div>
 <pre><code>## [1] &quot;cat&quot;    &quot;dog&quot;    &quot;donkey&quot;</code></pre>
+<p>We can change the levels:</p>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="vectors.html#cb237-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">1</span>)</span>
+<span id="cb237-2"><a href="vectors.html#cb237-2" aria-hidden="true" tabindex="-1"></a>fdata <span class="ot">=</span> <span class="fu">factor</span>(data)</span>
+<span id="cb237-3"><a href="vectors.html#cb237-3" aria-hidden="true" tabindex="-1"></a>fdata</span></code></pre></div>
+<pre><code>##  [1] 1 2 2 3 1 2 3 3 1 2 3 3 1
+## Levels: 1 2 3</code></pre>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="vectors.html#cb239-1" aria-hidden="true" tabindex="-1"></a>rdata <span class="ot">=</span> <span class="fu">factor</span>(data,<span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;I&quot;</span>,<span class="st">&quot;II&quot;</span>,<span class="st">&quot;III&quot;</span>))</span>
+<span id="cb239-2"><a href="vectors.html#cb239-2" aria-hidden="true" tabindex="-1"></a>rdata</span></code></pre></div>
+<pre><code>##  [1] I   II  II  III I   II  III III I   II  III III I  
+## Levels: I II III</code></pre>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="vectors.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Or</span></span>
+<span id="cb241-2"><a href="vectors.html#cb241-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(fdata) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;I&#39;</span>,<span class="st">&#39;II&#39;</span>,<span class="st">&#39;III&#39;</span>)</span>
+<span id="cb241-3"><a href="vectors.html#cb241-3" aria-hidden="true" tabindex="-1"></a>fdata</span></code></pre></div>
+<pre><code>##  [1] I   II  II  III I   II  III III I   II  III III I  
+## Levels: I II III</code></pre>
+<p>The <code>cut</code> function is used to convert a numeric variable into a factor. The <code>breaks=</code> argument is used to define how ranges of numbers will be converted to factor values. Consider <code>Lot_Area</code> in the <code>ames</code> data.</p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="vectors.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RBootcamp)</span>
+<span id="cb243-2"><a href="vectors.html#cb243-2" aria-hidden="true" tabindex="-1"></a>Area <span class="ot">=</span> <span class="fu">cut</span>(ames<span class="sc">$</span>Lot_Area,<span class="dv">3</span>)</span>
+<span id="cb243-3"><a href="vectors.html#cb243-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Area)</span></code></pre></div>
+<pre><code>## Area
+## (1.09e+03,7.26e+04] (7.26e+04,1.44e+05] (1.44e+05,2.15e+05] 
+##                2926                   1                   3</code></pre>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="vectors.html#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="co"># More</span></span>
+<span id="cb245-2"><a href="vectors.html#cb245-2" aria-hidden="true" tabindex="-1"></a>Area <span class="ot">=</span> <span class="fu">cut</span>(ames<span class="sc">$</span>Lot_Area,<span class="dv">3</span>, <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&#39;Small&#39;</span>,<span class="st">&#39;Medium&#39;</span>,<span class="st">&#39;Large&#39;</span>))</span>
+<span id="cb245-3"><a href="vectors.html#cb245-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Area)</span></code></pre></div>
+<pre><code>## Area
+##  Small Medium  Large 
+##   2926      1      3</code></pre>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="vectors.html#cb247-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Quantiles</span></span>
+<span id="cb247-2"><a href="vectors.html#cb247-2" aria-hidden="true" tabindex="-1"></a>Area <span class="ot">=</span> <span class="fu">cut</span>(ames<span class="sc">$</span>Lot_Area, <span class="fu">quantile</span>(ames<span class="sc">$</span>Lot_Area,<span class="at">prob =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.25</span>)))</span>
+<span id="cb247-3"><a href="vectors.html#cb247-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Area)</span></code></pre></div>
+<pre><code>## Area
+##  (1.3e+03,7.44e+03] (7.44e+03,9.44e+03] (9.44e+03,1.16e+04] (1.16e+04,2.15e+05] 
+##                 732                 732                 732                 733</code></pre>
 
 </div>
 </div>

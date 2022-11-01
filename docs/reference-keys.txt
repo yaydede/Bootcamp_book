@@ -95,6 +95,7 @@ visualization
 looking-into
 plots
 rmarkdown
+publishing-at-github
 lessons-answers
 lessons
 answers

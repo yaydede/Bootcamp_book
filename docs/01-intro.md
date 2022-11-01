@@ -135,7 +135,7 @@ dir()
 ## [27] "index.md"                 "index.Rmd"               
 ## [29] "packages.bib"             "png"                     
 ## [31] "preamble.tex"             "README.md"               
-## [33] "render1578973f52cf1.rds"  "shinyapp"                
+## [33] "renderab371157e4c.rds"    "shinyapp"                
 ## [35] "some_functions.R"         "style.css"               
 ## [37] "table1.text"
 ```
@@ -1364,7 +1364,7 @@ x[complete.cases(x)]
 
 ## Factors
 
-Factor type is known as an "indicator" variable.
+Factor type is known as an "indicator" variable.  Factors represent a very efficient way to store character values, because each unique character value is stored only once, and the data itself is stored as a vector of integers.
 
 
 ```r
@@ -1411,3 +1411,78 @@ levels(animf)
 ```
 ## [1] "cat"    "dog"    "donkey"
 ```
+
+We can change the levels:
+
+
+```r
+data = c(1,2,2,3,1,2,3,3,1,2,3,3,1)
+fdata = factor(data)
+fdata
+```
+
+```
+##  [1] 1 2 2 3 1 2 3 3 1 2 3 3 1
+## Levels: 1 2 3
+```
+
+```r
+rdata = factor(data,labels=c("I","II","III"))
+rdata
+```
+
+```
+##  [1] I   II  II  III I   II  III III I   II  III III I  
+## Levels: I II III
+```
+
+```r
+#Or
+levels(fdata) = c('I','II','III')
+fdata
+```
+
+```
+##  [1] I   II  II  III I   II  III III I   II  III III I  
+## Levels: I II III
+```
+
+The `cut` function is used to convert a numeric variable into a factor. The `breaks=` argument is used to define how ranges of numbers will be converted to factor values. Consider `Lot_Area` in the `ames` data.
+
+
+```r
+library(RBootcamp)
+Area = cut(ames$Lot_Area,3)
+table(Area)
+```
+
+```
+## Area
+## (1.09e+03,7.26e+04] (7.26e+04,1.44e+05] (1.44e+05,2.15e+05] 
+##                2926                   1                   3
+```
+
+```r
+# More
+Area = cut(ames$Lot_Area,3, labels=c('Small','Medium','Large'))
+table(Area)
+```
+
+```
+## Area
+##  Small Medium  Large 
+##   2926      1      3
+```
+
+```r
+# Quantiles
+Area = cut(ames$Lot_Area, quantile(ames$Lot_Area,prob = seq(0, 1, 0.25)))
+table(Area)
+```
+
+```
+## Area
+##  (1.3e+03,7.44e+03] (7.44e+03,9.44e+03] (9.44e+03,1.16e+04] (1.16e+04,2.15e+05] 
+##                 732                 732                 732                 733
+```
+

@@ -122,7 +122,7 @@
 
 \title{R Bootcamp for Data Analytics}
 \author{\href{https://yaydede.github.io/}{Yigit Aydede}}
-\date{2022-10-31}
+\date{2022-11-01}
 
 \begin{document}
 \maketitle
@@ -332,14 +332,15 @@ Without further specification, files will be loaded from and saved to the workin
 ## [17] "07-Sim.Rmd"               "08-cross-refs_files"     
 ## [19] "08-EDA_files"             "08-EDA.Rmd"              
 ## [21] "09-Lessons.Rmd"           "Book_for_RBootcamp.log"  
-## [23] "Book_for_RBootcamp.rds"   "book.bib"                
-## [25] "Bootcamp_book.Rproj"      "docs"                    
-## [27] "index.md"                 "index.Rmd"               
-## [29] "packages.bib"             "png"                     
-## [31] "preamble.tex"             "README.md"               
-## [33] "render1556c1df6135.rds"   "shinyapp"                
-## [35] "some_functions.R"         "style.css"               
-## [37] "table1.text"
+## [23] "Book_for_RBootcamp.pdf"   "Book_for_RBootcamp.rds"  
+## [25] "Book_for_RBootcamp.tex"   "book.bib"                
+## [27] "Bootcamp_book.Rproj"      "docs"                    
+## [29] "index.md"                 "index.Rmd"               
+## [31] "packages.bib"             "png"                     
+## [33] "preamble.tex"             "README.md"               
+## [35] "render865198436b.rds"     "shinyapp"                
+## [37] "some_functions.R"         "style.css"               
+## [39] "table1.text"
 \end{verbatim}
 
 \begin{Shaded}
@@ -1772,7 +1773,7 @@ So we may skip removing them from the data as many functions have built-in argum
 \hypertarget{factors}{%
 \section{Factors}\label{factors}}
 
-Factor type is known as an ``indicator'' variable.
+Factor type is known as an ``indicator'' variable. Factors represent a very efficient way to store character values, because each unique character value is stored only once, and the data itself is stored as a vector of integers.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1821,6 +1822,90 @@ Let's define \texttt{anim} vector as factor variable:
 
 \begin{verbatim}
 ## [1] "cat"    "dog"    "donkey"
+\end{verbatim}
+
+We can change the levels:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{)}
+\NormalTok{fdata }\OtherTok{=} \FunctionTok{factor}\NormalTok{(data)}
+\NormalTok{fdata}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 1 2 2 3 1 2 3 3 1 2 3 3 1
+## Levels: 1 2 3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rdata }\OtherTok{=} \FunctionTok{factor}\NormalTok{(data,}\AttributeTok{labels=}\FunctionTok{c}\NormalTok{(}\StringTok{"I"}\NormalTok{,}\StringTok{"II"}\NormalTok{,}\StringTok{"III"}\NormalTok{))}
+\NormalTok{rdata}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] I   II  II  III I   II  III III I   II  III III I  
+## Levels: I II III
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Or}
+\FunctionTok{levels}\NormalTok{(fdata) }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}I\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}II\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}III\textquotesingle{}}\NormalTok{)}
+\NormalTok{fdata}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] I   II  II  III I   II  III III I   II  III III I  
+## Levels: I II III
+\end{verbatim}
+
+The \texttt{cut} function is used to convert a numeric variable into a factor. The \texttt{breaks=} argument is used to define how ranges of numbers will be converted to factor values. Consider \texttt{Lot\_Area} in the \texttt{ames} data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(RBootcamp)}
+\NormalTok{Area }\OtherTok{=} \FunctionTok{cut}\NormalTok{(ames}\SpecialCharTok{$}\NormalTok{Lot\_Area,}\DecValTok{3}\NormalTok{)}
+\FunctionTok{table}\NormalTok{(Area)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Area
+## (1.09e+03,7.26e+04] (7.26e+04,1.44e+05] (1.44e+05,2.15e+05] 
+##                2926                   1                   3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# More}
+\NormalTok{Area }\OtherTok{=} \FunctionTok{cut}\NormalTok{(ames}\SpecialCharTok{$}\NormalTok{Lot\_Area,}\DecValTok{3}\NormalTok{, }\AttributeTok{labels=}\FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}Small\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}Medium\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}Large\textquotesingle{}}\NormalTok{))}
+\FunctionTok{table}\NormalTok{(Area)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Area
+##  Small Medium  Large 
+##   2926      1      3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Quantiles}
+\NormalTok{Area }\OtherTok{=} \FunctionTok{cut}\NormalTok{(ames}\SpecialCharTok{$}\NormalTok{Lot\_Area, }\FunctionTok{quantile}\NormalTok{(ames}\SpecialCharTok{$}\NormalTok{Lot\_Area,}\AttributeTok{prob =} \FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\FloatTok{0.25}\NormalTok{)))}
+\FunctionTok{table}\NormalTok{(Area)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Area
+##  (1.3e+03,7.44e+03] (7.44e+03,9.44e+03] (9.44e+03,1.16e+04] (1.16e+04,2.15e+05] 
+##                 732                 732                 732                 733
 \end{verbatim}
 
 \hypertarget{other-r-objects}{%
@@ -2911,7 +2996,7 @@ Lets look at some examples of working with them:
 ##  $ c: chr "Hello!"
 ##  $ d:function (arg = 1)  
 ##   ..- attr(*, "srcref")= 'srcref' int [1:8] 12 15 12 55 15 55 12 12
-##   .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x7fb511c90280> 
+##   .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x7f808703d4d0> 
 ##  $ X: num [1:4, 1:4] 0 0 0 0 0 0 0 0 0 0 ...
 \end{verbatim}
 
@@ -5459,7 +5544,7 @@ It becomes very handy when we build a polynomial model:
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]  4 16 17  5 10  4  6 16 18  4
+##  [1]  4 18 11  0  5 12  9  1  3 20
 \end{verbatim}
 
 \begin{Shaded}
@@ -5472,15 +5557,15 @@ It becomes very handy when we build a polynomial model:
 \begin{verbatim}
 ##       [,1] [,2] [,3]   [,4]
 ##  [1,]    4   16   64    256
-##  [2,]   16  256 4096  65536
-##  [3,]   17  289 4913  83521
-##  [4,]    5   25  125    625
-##  [5,]   10  100 1000  10000
-##  [6,]    4   16   64    256
-##  [7,]    6   36  216   1296
-##  [8,]   16  256 4096  65536
-##  [9,]   18  324 5832 104976
-## [10,]    4   16   64    256
+##  [2,]   18  324 5832 104976
+##  [3,]   11  121 1331  14641
+##  [4,]    0    0    0      0
+##  [5,]    5   25  125    625
+##  [6,]   12  144 1728  20736
+##  [7,]    9   81  729   6561
+##  [8,]    1    1    1      1
+##  [9,]    3    9   27     81
+## [10,]   20  400 8000 160000
 \end{verbatim}
 
 We can also use \texttt{outer()} for this example
@@ -5537,7 +5622,7 @@ The R base manual tells you that it's called as follows: \texttt{apply(X,\ MARGI
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  3.2433182  2.6198931  0.9774607 -1.9001120 -3.1871826  0.8140801
+## [1]  2.8368915 -0.3239102 -2.0856034 -0.1815844 -3.2838020  1.7832224
 \end{verbatim}
 
 \begin{Shaded}
@@ -5594,12 +5679,12 @@ The R base manual tells you that it's called as follows: \texttt{apply(X,\ MARGI
 
 \begin{verbatim}
 ##            [,1]       [,2]
-## [1,]  1.5944282  1.0052926
-## [2,]  2.9248760  1.2696595
-## [3,]  1.1015254  1.7682987
-## [4,] -0.1324743  1.1013220
-## [5,]  0.4292822 -0.8140388
-## [6,]  3.5994149  1.0533780
+## [1,]  2.0516771  1.7775025
+## [2,]  1.5032573 -0.5090611
+## [3,] -0.2482994  1.1411748
+## [4,]  1.1656635  1.6257271
+## [5,]  0.5773773  0.7550580
+## [6,]  1.2935740  1.6859393
 \end{verbatim}
 
 Since \texttt{apply()} is used only for matrices, if you apply \texttt{apply()} to a data frame, it first coerces your data.frame to an array which means all the columns must have the same type. Depending on your context, this could have unintended consequences. For a safer practice in data frames, we can use \texttt{lappy()} and \texttt{sapply()}:
@@ -5866,28 +5951,7 @@ Let's play with \texttt{sample()} for simple random sampling. We will see the ar
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "T" "H" "H" "H" "T" "T" "T" "H"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{sample}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{, }\AttributeTok{size =} \DecValTok{2}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{prob=}\FunctionTok{c}\NormalTok{(}\FloatTok{0.3}\NormalTok{, }\FloatTok{0.1}\NormalTok{, }\FloatTok{0.1}\NormalTok{, }\FloatTok{0.2}\NormalTok{, }\FloatTok{0.3}\NormalTok{, }\FloatTok{0.1}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 4 4
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\#let\textquotesingle{}s do it again}
-\FunctionTok{sample}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"H"}\NormalTok{,}\StringTok{"T"}\NormalTok{), }\AttributeTok{size =} \DecValTok{8}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{)  }
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "T" "H" "T" "T" "T" "T" "T" "H"
+## [1] "H" "H" "H" "H" "T" "H" "T" "H"
 \end{verbatim}
 
 \begin{Shaded}
@@ -5898,6 +5962,27 @@ Let's play with \texttt{sample()} for simple random sampling. We will see the ar
 
 \begin{verbatim}
 ## [1] 1 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#let\textquotesingle{}s do it again}
+\FunctionTok{sample}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"H"}\NormalTok{,}\StringTok{"T"}\NormalTok{), }\AttributeTok{size =} \DecValTok{8}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{)  }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "T" "H" "H" "T" "H" "H" "T" "T"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sample}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{, }\AttributeTok{size =} \DecValTok{2}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{prob=}\FunctionTok{c}\NormalTok{(}\FloatTok{0.3}\NormalTok{, }\FloatTok{0.1}\NormalTok{, }\FloatTok{0.1}\NormalTok{, }\FloatTok{0.2}\NormalTok{, }\FloatTok{0.3}\NormalTok{, }\FloatTok{0.1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5 5
 \end{verbatim}
 
 The results are different. If we use \texttt{set.seed()} then we can get the same results each time. Lets try now:
@@ -7236,7 +7321,56 @@ You can use R Markdown in many ways but here are the few main ways:
   As a good \texttt{html} support for your website: \url{https://yaydede.github.io}
 \end{itemize}
 
-Our package \texttt{RBootcamp} has a template: \texttt{Worksheet1}. Locate it at \texttt{File\ \textgreater{}\ New\ File\ \textgreater{}\ R\ Markdown\ \textgreater{}\ Template}. It will give a a good starting point
+Our package \texttt{RBootcamp} has a template: \texttt{Worksheet1}. Locate it at \texttt{File\ \textgreater{}\ New\ File\ \textgreater{}\ R\ Markdown\ \textgreater{}\ Template}. It will give you a good starting point
+
+\hypertarget{publishing-at-github}{%
+\chapter{Publishing at GitHub}\label{publishing-at-github}}
+
+You can make your work open, reproducible, shareable, and portable by using RStudio, RMarkdown, and \href{https://github.com}{GitHub}. We can use RMarkdown files in RStudio and connect them to GitHub, which is an online repository that allows anyone to view the code you have produced.
+
+This tutorial is just for creating your own personal website that you can store your works and many other shareable documents like your resume. More details about how to use R and RStudio projects with GitHub can be found in \href{https://happygitwithr.com/new-github-first.html}{Happy Git with R}.
+
+Here are the steps:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Create a new repository on \href{https://github.com}{GitHub} for your work: Do not initialize the repo with a \texttt{.gitignore} or a \texttt{README} file.
+\item
+  Copy the repository URL to your clipboard: Do this by clicking the green \texttt{Clone} or \texttt{Download} button. Copy the HTTPS clone URL (looks like: \url{https://github.com/\%7Byourname\%7D/\%7Byourrepo\%7D.git}).
+\item
+  Create a new RStudio Project via git clone. Open RStudio: Do this by clicking \texttt{File\ \textgreater{}\ New\ Project\ \textgreater{}\ Version\ Control\textgreater{}\ Git}. Paste the copied URL. Make sure that you you tell RStudio where to create this new Project. Click \texttt{Create\ Project}.
+\item
+  In your R console, type and run the following code: \texttt{rmarkdown:::site\_skeleton(getwd())}. This will create the shell for a basic R Markdown website and publishing this site to GitHub Pages.
+\item
+  Close RStudio and re-open your site by clicking on the project file (\texttt{.Rproj}). Now you will see two \texttt{rmd} files: \texttt{index.Rmd}, which has the content of your site's homepage. This file must be named \texttt{index.Rmd}; \texttt{about.Rmd}, which is a second, distinct page of your site. This file can have any name, but let keep it as \texttt{about} for now.
+\item
+  When we build your site those \texttt{rmd} files will be knitted to create \texttt{.html} versions locally. The file \texttt{\_site.yml}, is just necessary for site setup. We will have our HTML files (when we build the site) in \texttt{docs/}, which is necessary for using GitHub pages to make our pages go live. Open \texttt{\_site.yml} and add the following on its own line at the end:
+\end{enumerate}
+
+\texttt{name:\ my-website}\strut \\
+\texttt{output\_dir:\ docs}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  If you plan to use GitHub Pages for publishing your website, you need to tell GitHub Pages to bypass using \texttt{Jekyll} to build your site. Add a single empty file named \texttt{.nojekyll} to your project root directory: \texttt{file.create(".nojekyll")}
+\item
+  Almost done! In RStudio, you can render your site locally from the either the IDE or the R console: find the \texttt{Build} tab and select \texttt{Build\ Website}. Or you can run from the console: \texttt{rmarkdown::render\_site()}.
+\item
+  Finally push all those changes to GitHub: \texttt{commit} and \texttt{push}.
+\end{enumerate}
+
+One more step will give you a website: Back on GitHub, click the \texttt{Settings} tab of your project repository. Scroll down until you get to \texttt{Pages} and select \texttt{master\ branch/docs\ folder}.
+
+Now you have your own personal website with a live \texttt{url}: You can share it, tweet it, send it to your friends -- it's now live! You can add this \texttt{url} to the repo description so that it's easy to find.
+
+See more details at \href{https://rstudio4edu.github.io/rstudio4edu-book/make-rmd.html}{rstudio4edu}.
+
+\includegraphics[width=14.68in]{png/website}
 
 \hypertarget{lessons-answers}{%
 \chapter{Lessons \& Answers}\label{lessons-answers}}

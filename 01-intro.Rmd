@@ -678,7 +678,7 @@ x[complete.cases(x)]
 
 ## Factors
 
-Factor type is known as an "indicator" variable.
+Factor type is known as an "indicator" variable.  Factors represent a very efficient way to store character values, because each unique character value is stored only once, and the data itself is stored as a vector of integers.
 
 ```{r}
 set.seed((123))
@@ -696,3 +696,34 @@ Let's define `anim` vector as factor variable:
 animf <-as.factor(anim)
 levels(animf)
 ```
+
+We can change the levels:
+
+```{r}
+data = c(1,2,2,3,1,2,3,3,1,2,3,3,1)
+fdata = factor(data)
+fdata
+rdata = factor(data,labels=c("I","II","III"))
+rdata
+
+#Or
+levels(fdata) = c('I','II','III')
+fdata
+```
+
+The `cut` function is used to convert a numeric variable into a factor. The `breaks=` argument is used to define how ranges of numbers will be converted to factor values. Consider `Lot_Area` in the `ames` data.
+
+```{r}
+library(RBootcamp)
+Area = cut(ames$Lot_Area,3)
+table(Area)
+
+# More
+Area = cut(ames$Lot_Area,3, labels=c('Small','Medium','Large'))
+table(Area)
+
+# Quantiles
+Area = cut(ames$Lot_Area, quantile(ames$Lot_Area,prob = seq(0, 1, 0.25)))
+table(Area)
+```
+
