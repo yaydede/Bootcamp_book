@@ -256,10 +256,11 @@ It is also common to put one loop inside another one.  Let’s say we want to cr
 ```{r}
 A <- matrix(0, 5, 5) #initialize the matrix A
 
-for (i in 1:5)       #loop over index i
+for (i in 1:5){      #loop over index i
   for (j in 1:5){    #loop over index j
     A[i, j] <- i + j #set the (i, j)-th element of A
   }
+}  
 A
 ```
 

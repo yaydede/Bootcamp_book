@@ -23,7 +23,7 @@
 <meta name="author" content="Yigit Aydede" />
 
 
-<meta name="date" content="2022-11-01" />
+<meta name="date" content="2022-11-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -216,10 +216,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html#shiny"><i class="fa fa-check"></i><b>5.4</b> Shiny</a></li>
 <li class="chapter" data-level="5.5" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html#histograms-density"><i class="fa fa-check"></i><b>5.5</b> Histograms &amp; Density</a></li>
 <li class="chapter" data-level="5.6" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html#multiple-plots"><i class="fa fa-check"></i><b>5.6</b> Multiple plots</a></li>
-<li class="chapter" data-level="5.7" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html#add-lines"><i class="fa fa-check"></i><b>5.7</b> Add lines</a></li>
-<li class="chapter" data-level="5.8" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html#pairwise-relationship"><i class="fa fa-check"></i><b>5.8</b> Pairwise relationship</a></li>
-<li class="chapter" data-level="5.9" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html#conditional-scatterplot"><i class="fa fa-check"></i><b>5.9</b> Conditional Scatterplot</a></li>
-<li class="chapter" data-level="5.10" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html#panel"><i class="fa fa-check"></i><b>5.10</b> <code>panel()</code></a></li>
+<li class="chapter" data-level="5.7" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html#lables-etc."><i class="fa fa-check"></i><b>5.7</b> Lables etc.</a></li>
+<li class="chapter" data-level="5.8" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html#add-lines"><i class="fa fa-check"></i><b>5.8</b> Add lines</a></li>
+<li class="chapter" data-level="5.9" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html#pairwise-relationship"><i class="fa fa-check"></i><b>5.9</b> Pairwise relationship</a></li>
+<li class="chapter" data-level="5.10" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html#conditional-scatterplot"><i class="fa fa-check"></i><b>5.10</b> Conditional Scatterplot</a></li>
+<li class="chapter" data-level="5.11" data-path="data-visualisation-with-r.html"><a href="data-visualisation-with-r.html#panel"><i class="fa fa-check"></i><b>5.11</b> <code>panel()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="data-management.html"><a href="data-management.html"><i class="fa fa-check"></i><b>6</b> Data Management</a>
 <ul>
@@ -288,7 +289,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2.1" data-path="exploratory-data-analysis-eda.html"><a href="exploratory-data-analysis-eda.html#looking-into"><i class="fa fa-check"></i><b>9.2.1</b> Looking into</a></li>
 <li class="chapter" data-level="9.2.2" data-path="exploratory-data-analysis-eda.html"><a href="exploratory-data-analysis-eda.html#plots"><i class="fa fa-check"></i><b>9.2.2</b> Plots</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="exploratory-data-analysis-eda.html"><a href="exploratory-data-analysis-eda.html#rmarkdown"><i class="fa fa-check"></i><b>9.3</b> RMarkdown</a></li>
+<li class="chapter" data-level="9.3" data-path="exploratory-data-analysis-eda.html"><a href="exploratory-data-analysis-eda.html#variation-correlation"><i class="fa fa-check"></i><b>9.3</b> Variation &amp; Correlation</a></li>
+<li class="chapter" data-level="9.4" data-path="exploratory-data-analysis-eda.html"><a href="exploratory-data-analysis-eda.html#rmarkdown"><i class="fa fa-check"></i><b>9.4</b> RMarkdown</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="publishing-at-github.html"><a href="publishing-at-github.html"><i class="fa fa-check"></i><b>10</b> Publishing at GitHub</a></li>
 <li class="chapter" data-level="11" data-path="lessons-answers.html"><a href="lessons-answers.html"><i class="fa fa-check"></i><b>11</b> Lessons &amp; Answers</a>
@@ -332,14 +334,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">8.1</span> Sampling in R: <code>sample()</code><a href="simulation-in-r.html#sampling-in-r-sample" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let’s play with <code>sample()</code> for simple random sampling. We will see the arguments of <code>sample()</code> function.</p>
 <div class="sourceCode" id="cb640"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb640-1"><a href="simulation-in-r.html#cb640-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;H&quot;</span>,<span class="st">&quot;T&quot;</span>), <span class="at">size =</span> <span class="dv">8</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)  <span class="co"># fair coin</span></span></code></pre></div>
-<pre><code>## [1] &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot;</code></pre>
+<pre><code>## [1] &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot;</code></pre>
 <div class="sourceCode" id="cb642"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb642-1"><a href="simulation-in-r.html#cb642-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob=</span><span class="fu">c</span>(<span class="fl">0.3</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.3</span>, <span class="fl">0.1</span>))</span></code></pre></div>
-<pre><code>## [1] 1 1</code></pre>
+<pre><code>## [1] 5 5</code></pre>
 <div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="simulation-in-r.html#cb644-1" aria-hidden="true" tabindex="-1"></a><span class="co">#let&#39;s do it again</span></span>
 <span id="cb644-2"><a href="simulation-in-r.html#cb644-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;H&quot;</span>,<span class="st">&quot;T&quot;</span>), <span class="at">size =</span> <span class="dv">8</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)  </span></code></pre></div>
-<pre><code>## [1] &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot;</code></pre>
+<pre><code>## [1] &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot;</code></pre>
 <div class="sourceCode" id="cb646"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb646-1"><a href="simulation-in-r.html#cb646-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob=</span><span class="fu">c</span>(<span class="fl">0.3</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.3</span>, <span class="fl">0.1</span>))</span></code></pre></div>
-<pre><code>## [1] 5 5</code></pre>
+<pre><code>## [1] 4 4</code></pre>
 <p>The results are different. If we use <code>set.seed()</code> then we can get the same results each time. Lets try now:</p>
 <div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb648-1"><a href="simulation-in-r.html#cb648-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb648-2"><a href="simulation-in-r.html#cb648-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;H&quot;</span>,<span class="st">&quot;T&quot;</span>), <span class="at">size =</span> <span class="dv">8</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)  </span></code></pre></div>

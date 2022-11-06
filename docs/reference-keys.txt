@@ -42,6 +42,7 @@ smootlines
 interactive-graphs
 histograms-density
 multiple-plots
+lables-etc.
 add-lines
 pairwise-relationship
 conditional-scatterplot
@@ -94,6 +95,7 @@ getting-the-data
 visualization
 looking-into
 plots
+variation-correlation
 rmarkdown
 publishing-at-github
 lessons-answers

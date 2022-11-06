@@ -221,9 +221,10 @@ ds_group_summary(mtcars, cyl, mpg)
 
 The `xtabs()`  & `ftabs()` functions allows you to quickly calculate frequencies for more factor variables.
 
-```{r, results='asis'}
+```{r}
 library(RBootcamp)
-ftable(xtabs(~ year + maturity.stage + month, data = squid1))
+nt <- ftable(xtabs(~ year + maturity.stage + month, data = squid1))
+nt
 ```
 
 ### Table with manual entry
@@ -247,7 +248,6 @@ prop.table(smoke)
 
 ```{r}
 mosaicplot(smoke,main="Smokers",xlab="Status",ylab="Economic Class")
-
 ```
 
 ## `merge()`

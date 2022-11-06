@@ -410,6 +410,7 @@ fc + facet_wrap("Street")
 ```
 
 ![](04-visual_files/figure-epub3/unnamed-chunk-18-1.png)<!-- -->
+  
 ## Lables etc.
 
 

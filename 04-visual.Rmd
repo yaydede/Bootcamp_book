@@ -249,6 +249,7 @@ fc <- ggplot(data = ames, aes(x = Sale_Price)) +
                size = 1.5)
 fc + facet_wrap("Street")
 ```
+  
 ## Lables etc.
 
 ```{r}

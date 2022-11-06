@@ -227,6 +227,7 @@ gss_cat  %>% plot_correlation()
 ```
 
 ![](08-EDA_files/figure-epub3/unnamed-chunk-6-1.png)<!-- -->
+  
 ## Variation & Correlation
 
 The “near-zero-variance” predictors may need to be identified and eliminated prior to modeling.  We use the package `caret` to identify ["near-zero-variance" variables](https://topepo.github.io/caret/pre-processing.html):
@@ -339,7 +340,7 @@ Again, using the package `caret`:
 #descrCor <-  cor(gss_cat)
 #highCorr <- sum(abs(descrCor[upper.tri(descrCor)]) > .999)
 ```
-
+  
 ## RMarkdown
 
 R Markdown provides an excellent platform for authoring your data science projects (like EDA's) combining your codes, their results, and your commentary. R Markdown documents support multiple output formats: HTML, PDFs, Word files, slideshows, and more.
