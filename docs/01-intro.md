@@ -135,7 +135,7 @@ dir()
 ## [27] "index.md"                 "index.Rmd"               
 ## [29] "packages.bib"             "png"                     
 ## [31] "preamble.tex"             "README.md"               
-## [33] "render63bb49e3144c.rds"   "shinyapp"                
+## [33] "render702a1cbe5cc9.rds"   "shinyapp"                
 ## [35] "some_functions.R"         "style.css"               
 ## [37] "table1.text"
 ```
@@ -200,6 +200,47 @@ Your code (in your script window) is saved by clicking the SAVE button in the RS
 
 At a very basic level, we can use R as a calculator.
 
+
+```r
+2*2
+```
+
+```
+## [1] 4
+```
+
+```r
+log(10)
+```
+
+```
+## [1] 2.302585
+```
+
+```r
+exp(log(10))
+```
+
+```
+## [1] 10
+```
+
+```r
+sqrt(2^2)
+```
+
+```
+## [1] 2
+```
+
+```r
+exp(log(10))^-1
+```
+
+```
+## [1] 0.1
+```
+  
 See `Lesson1` in our package `Rbootcamp`:
 
 

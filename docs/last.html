@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 1 Introduction | R Bootcamp for Data Analytics</title>
+  <title>Chapter 11 Lessons &amp; Answers | R Bootcamp for Data Analytics</title>
   <meta name="description" content="This book is companion for RBootcamp package." />
   <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 Introduction | R Bootcamp for Data Analytics" />
+  <meta property="og:title" content="Chapter 11 Lessons &amp; Answers | R Bootcamp for Data Analytics" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://yaydede.github.io/Bootcamp_book//Users/yigitaydede/Dropbox/Documents/Courses/MBAN/RBootcamps/Bootcamp_book/png/cover.png" />
   <meta property="og:description" content="This book is companion for RBootcamp package." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 Introduction | R Bootcamp for Data Analytics" />
+  <meta name="twitter:title" content="Chapter 11 Lessons &amp; Answers | R Bootcamp for Data Analytics" />
   
   <meta name="twitter:description" content="This book is companion for RBootcamp package." />
   <meta name="twitter:image" content="https://yaydede.github.io/Bootcamp_book//Users/yigitaydede/Dropbox/Documents/Courses/MBAN/RBootcamps/Bootcamp_book/png/cover.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="vectors.html"/>
+<link rel="prev" href="publishing-at-github.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -318,167 +318,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introduction" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Introduction<a href="introduction.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The following sections will serve as an introduction to the R basics that could be used in data analytics. At the beginning, these introductory R subjects may feel like an overwhelming amount of information. The leaning curve will be steeper as practice more. You should try all of the codes from these examples and solve the practice exercises.</p>
-<p>R is used both for software development and data analysis. We will not use it for software development but apply some concepts in that area. Our main goal will be to analyze data, but we will also perform programming exercises that help illustrate certain algorithmic concepts.</p>
-<div id="installation-of-r-rstudio-and-r-packages" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Installation of R, RStudio and R Packages<a href="introduction.html#installation-of-r-rstudio-and-r-packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>To get started, you will need to install two pieces of software:</p>
-<p><strong>R</strong>, the actual programming language: <a href="https://cran.r-project.org"><strong>Download it from here.</strong></a> – Chose your operating system, and select the most recent version.</p>
-<p><strong>RStudio</strong>, an excellent integrated development environment (IDE) for working with R, an interface used to interact with R: <a href="https://www.rstudio.com"><strong>Download it from here.</strong></a> Throughout this book, you will use RStudio instead of R to learn R programming.</p>
+<div id="last" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Chapter 11</span> Lessons &amp; Answers<a href="last.html#last" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>There are 6 interactive lessons with a wide range of exercises. Please access them by</p>
+<div class="sourceCode" id="cb764"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb764-1"><a href="last.html#cb764-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;remotes&quot;)</span></span>
+<span id="cb764-2"><a href="last.html#cb764-2" aria-hidden="true" tabindex="-1"></a><span class="co">#remotes::install_github(&quot;yaydede/RBootcamp&quot;)</span></span></code></pre></div>
+<p>Run the following lines on your console …</p>
+<div id="lessons" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Lessons<a href="last.html#lessons" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>learnr::run_tutorial("Lesson1", "RBootcamp")</code> for Ch’s 1 and 2<br />
+<code>learnr::run_tutorial("Lesson2", "RBootcamp")</code> for Ch. 4<br />
+<code>learnr::run_tutorial("Lesson3", "RBootcamp")</code> for Ch. 5<br />
+<code>learnr::run_tutorial("Lesson4", "RBootcamp")</code> for Ch. 6<br />
+<code>learnr::run_tutorial("Lesson5", "RBootcamp")</code> for Ch. 7<br />
+<code>learnr::run_tutorial("Lesson6", "RBootcamp")</code> for Ch. 8</p>
 </div>
-<div id="rstudio" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> RStudio<a href="introduction.html#rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><img src="png/RStudio.png" width="546" /></p>
-<p>Source Pane, click on the plus sign in the top left corner. From the drop-down menu, select <strong>R Script</strong> . As shown in that dropdown menu, you can also open an R Script by pressing <strong>Ctrl+Shift+N</strong>. You should now see the screen above.</p>
-<p>The <strong>Console Pane</strong> is the interface to R. If you opened R directly instead of opening RStudio, you would see just this console. You can type commands directly in the console. The console displays the results of any command you run. For example, type 2+4 in the command line and press enter. You should see the command you typed, the result of the command, and a new command line.</p>
-<p><img src="png/RStudio2.png" width="296" /></p>
-<p>To clear the console, you press <strong>Ctrl+L</strong> or type <strong>cat(“\014”)</strong> in the command line.</p>
-<p>R code can be entered into the command line directly (in Console Pane) or saved to a script (Source Pane).</p>
-<p>Let’s try some coding.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="introduction.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span> <span class="co">#write this on the command line and hit Enter</span></span></code></pre></div>
-<pre><code>## [1] 5</code></pre>
-<p>Now write the same line into the script in Source Pane and <strong>run</strong> it</p>
-<p><img src="png/RStudio5.png" width="171" /></p>
-<p>The <strong>Source Pane</strong> is a text editor where you can type your code before running it. You can save your code in a text file called a script. Scripts have typically file names with the extension <strong>.R</strong>. Any text shown in green is a comment in the script. You write a comment by adding a <strong>#</strong> to an RScript. Anything to the right of a <code>#</code> is considered a comment and is thus ignored by R when running code. Place your cursor anywhere on the first few lines of code and click <strong>Run</strong>. You can also run code by pressing <strong>Ctrl+Enter</strong>.</p>
-<p><img src="png/RStudio3.png" width="292" /></p>
-<p>The <strong>Environment Pane</strong> includes an Environment, a History tab, and a Connections tab. The Connections tab makes it easy to connect to any data source on your system.</p>
-<p>The Environment tab displays any objects that you have created during your R session. For example, if we create three variables: <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>, and <span class="math inline">\(z\)</span>, R stored those variables as objects so that you can see them in the Environment pane.</p>
-<p>To do object assignments, you need to assign value(s) to a name via the assignment operator, which will create a new object with a name.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="introduction.html#cb4-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb4-2"><a href="introduction.html#cb4-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">*</span><span class="fl">1.5</span></span>
-<span id="cb4-3"><a href="introduction.html#cb4-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> x <span class="sc">-</span> y<span class="sc">*</span><span class="dv">3</span></span>
-<span id="cb4-4"><a href="introduction.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
-<p>We will discuss R objects in more detail later. If you want to see a list of all objects in the current session, type <code>ls()</code> in the command line. You can remove an individual object from the environment with the <code>rm()</code> command. For example, remove <span class="math inline">\(x\)</span> by typing <code>rm(x)</code> in the command line. You can remove all objects from the environment by clicking or typing <code>rm(list=ls())</code> in the command line. The History tab keeps a record of all the commands you have run. To copy a command from the history into the console, select the command and press Enter.</p>
-<p>The <strong>Files Pane</strong> includes several tabs that provide useful information. The Files tab displays the contents of your working directory. The Plot tab shows all graphs that you have created. The Packages tab displays the R packages that you have installed in your System Library.</p>
-</div>
-<div id="packages" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> Packages<a href="introduction.html#packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>An R package typically includes code, data, documentation for the package and functions inside, and tests to check everything works as it should. Check to see if the package <code>moments</code> has been installed. If you cannot find it, you need to install it by using the command <code>install.packages("moments")</code>. Once you have installed the package, you need to load it using the command <code>library(moments)</code>. Or you can use install tab and follow the instructions and the go to package to check it to activate as shown below.</p>
-<p><img src="png/RStudio4.png" width="292" /></p>
-<p>The help tab has built-in documentation for packages and functions in R. The help is automatically available for any loaded packages. You can access that file by typing <code>help(mean)</code> or <code>?mean</code> in the command line. You can also use the search bar in the help tab.</p>
-<p>The packages can be installed from sources other than CRAN. For example, in this book we will use <code>RBootcamp</code> which is not located on CRAN</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="introduction.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;remotes&quot;)</span></span>
-<span id="cb6-2"><a href="introduction.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#remotes::install_github(&quot;yaydede/RBootcamp&quot;)</span></span></code></pre></div>
-<p>One of the most difficult things to do when learning R is to know how to find help. Your very first helper should be <strong>Google</strong> where you post your error message or a short description of your issue. The ability to solve problems using this method is quickly becoming an extremely valuable skill.</p>
-<p><strong>Do not be discouraged by running into errors and difficulties when learning R. It is simply part of the learning process.</strong></p>
-<p>The Viewer tab displays HTML output. R packages such as R Markdown and Shiny create HTML outputs that you can view in the Viewer tab. We’ll see it later.</p>
-</div>
-<div id="working-directory" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> Working directory<a href="introduction.html#working-directory" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Without further specification, files will be loaded from and saved to the working directory. The functions <code>getwd()</code> and <code>setwd()</code> will get and set the working directory, respectively.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="introduction.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;/Users/yigitaydede/Dropbox/Documents/Courses/MBAN/RBootcamps/Bootcamp_book&quot;</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="introduction.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#setwd(&quot;Book2022&quot;)</span></span>
-<span id="cb9-2"><a href="introduction.html#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="introduction.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#List all the objects in your local workspace using</span></span>
-<span id="cb9-4"><a href="introduction.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="introduction.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#List all the files in your working directory using list.files() or </span></span>
-<span id="cb11-2"><a href="introduction.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>()</span></code></pre></div>
-<pre><code>##  [1] &quot;_book&quot;                    &quot;_bookdown_files&quot;         
-##  [3] &quot;_bookdown.yml&quot;            &quot;_main_files&quot;             
-##  [5] &quot;_output.yml&quot;              &quot;01-intro.Rmd&quot;            
-##  [7] &quot;02-Others_files&quot;          &quot;02-Others.Rmd&quot;           
-##  [9] &quot;03-ReadWrite.Rmd&quot;         &quot;04-visual_files&quot;         
-## [11] &quot;04-visual.Rmd&quot;            &quot;05-DataMan_files&quot;        
-## [13] &quot;05-DataMan.Rmd&quot;           &quot;06-Progrmamingbasics.Rmd&quot;
-## [15] &quot;07-Sim_cache&quot;             &quot;07-Sim_files&quot;            
-## [17] &quot;07-Sim.Rmd&quot;               &quot;08-cross-refs_files&quot;     
-## [19] &quot;08-EDA_files&quot;             &quot;08-EDA.Rmd&quot;              
-## [21] &quot;09-Lessons.Rmd&quot;           &quot;Book_for_RBootcamp.log&quot;  
-## [23] &quot;Book_for_RBootcamp.rds&quot;   &quot;book.bib&quot;                
-## [25] &quot;Bootcamp_book.Rproj&quot;      &quot;docs&quot;                    
-## [27] &quot;index.md&quot;                 &quot;index.Rmd&quot;               
-## [29] &quot;packages.bib&quot;             &quot;png&quot;                     
-## [31] &quot;preamble.tex&quot;             &quot;README.md&quot;               
-## [33] &quot;render6c441d1c38f6.rds&quot;   &quot;shinyapp&quot;                
-## [35] &quot;some_functions.R&quot;         &quot;style.css&quot;               
-## [37] &quot;table1.text&quot;</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="introduction.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#As we go through this lesson, you should be examining the help page </span></span>
-<span id="cb13-2"><a href="introduction.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#for each new function. Check out the help page for list.files with the</span></span>
-<span id="cb13-3"><a href="introduction.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#command</span></span>
-<span id="cb13-4"><a href="introduction.html#cb13-4" aria-hidden="true" tabindex="-1"></a>?list.files</span>
-<span id="cb13-5"><a href="introduction.html#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">#or</span></span>
-<span id="cb13-6"><a href="introduction.html#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">&quot;list.files&quot;</span>)</span>
-<span id="cb13-7"><a href="introduction.html#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-8"><a href="introduction.html#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Using the args() function on a function name is also a handy way to </span></span>
-<span id="cb13-9"><a href="introduction.html#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">#see what arguments a function can take.</span></span>
-<span id="cb13-10"><a href="introduction.html#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="fu">args</span>(list.files)</span></code></pre></div>
-<pre><code>## function (path = &quot;.&quot;, pattern = NULL, all.files = FALSE, full.names = FALSE, 
-##     recursive = FALSE, ignore.case = FALSE, include.dirs = FALSE, 
-##     no.. = FALSE) 
-## NULL</code></pre>
-<p>For this bootcamp, I would suggest to create a RStudio Project in your local driver. RStudio projects make it straightforward to divide your work into multiple contexts, each with their own working directory, workspace, history, and source documents.</p>
-<p>RStudio projects are associated with R working directories. You can create an RStudio project:</p>
-<ul>
-<li>In a brand new directory</li>
-<li>In an existing directory where you already have R code and data</li>
-<li>By cloning a version control (Git or Subversion) repository</li>
-</ul>
-<p>To create a new project in the RStudio, use the Create Project command (available on the Projects menu and on the global toolbar)</p>
-</div>
-<div id="hints" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> Hints<a href="introduction.html#hints" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>R distinguishes upper case from lower case letters. Thus a variable named <code>X</code> differs from another variable named <code>x</code>.</li>
-<li>The way to learn programming is through practice. The learning curve to R is not bad. You may struggle a bit in the process, but the skills learned will be invaluable for you in the future.</li>
-<li>There are many ways to write a code to solve the same thing. You can develop your own style. But, if you see nother and better code, try to learn from others!</li>
-<li>There are many option that you can customize R Studio. Check out Tools &gt; Global Options &gt; General tab in the menu bar of RStudio.</li>
-<li>Before you start coding, draft a plan to address the question at hand.</li>
-<li>There is convention in writing codes. Try to adhere these accepted styles.</li>
-<li>Comment your code properly (using a # sign at the beginning of each line). Good documentation is a great reminder what you have done. Believe me you will forget later the lines in the your own script.</li>
-<li>The character <code>&gt;</code> in the R Console indicates that R is ready for you to enter a command.<br />
-</li>
-<li>Do not overwrite the original data set and variables. Create new data sets just to be sure, especially when taking a subset from that data set.</li>
-</ul>
-</div>
-<div id="console-or-script" class="section level2 hasAnchor" number="1.6">
-<h2><span class="header-section-number">1.6</span> Console or Script?<a href="introduction.html#console-or-script" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The Script Window is the place to enter and run your code so that it is easily edited and saved for future use. You create new R Script by clicking on File &gt; New File &gt; R Script in the RStudio menu bar.</p>
-<p>To execute your code in the R script, you can either highlight the code and click on Run, or you can highlight the code and press CTRL + Enter on your keyboard.</p>
-<p>If you prefer, you can enter code directly in the Console Window and click Enter. The commands that you run will be shown in the History Window on the top right of RStudio. You can save these commands for future use.</p>
-<p>Or, to find the older commands in the console, use the upper arrow to get them again …</p>
-<p>Make sure you save your code. With your code, you can always regenerate your workspace but it could take a little time. Or you can save your workspace which allows you to start where you left off, with all of the variables you created and renamed saved.</p>
-<p>Your code (in your script window) is saved by clicking the SAVE button in the RStudio menu bar. The code will be saved in the working directory. See 2.1 for setting and getting the working directory.</p>
-</div>
-<div id="r-as-a-calculator" class="section level2 hasAnchor" number="1.7">
-<h2><span class="header-section-number">1.7</span> R as a calculator<a href="introduction.html#r-as-a-calculator" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>At a very basic level, we can use R as a calculator.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="introduction.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">*</span><span class="dv">2</span></span></code></pre></div>
-<pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="introduction.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">10</span>)</span></code></pre></div>
-<pre><code>## [1] 2.302585</code></pre>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="introduction.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">log</span>(<span class="dv">10</span>))</span></code></pre></div>
-<pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="introduction.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">2</span><span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
-<pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="introduction.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">log</span>(<span class="dv">10</span>))<span class="sc">^-</span><span class="dv">1</span></span></code></pre></div>
-<pre><code>## [1] 0.1</code></pre>
-<p>See <code>Lesson1</code> in our package <code>Rbootcamp</code>:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="introduction.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RBootcamp)</span>
-<span id="cb25-2"><a href="introduction.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">#learnr::run_tutorial(&quot;Lesson1&quot;, &quot;RBootcamp&quot;)</span></span></code></pre></div>
-</div>
-<div id="data-object-types" class="section level2 hasAnchor" number="1.8">
-<h2><span class="header-section-number">1.8</span> Data &amp; Object Types<a href="introduction.html#data-object-types" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>R has a number of basic data types.</p>
-<p><strong>Numeric</strong>: Also known as Double. The default type when dealing with numbers. 1,1.0,42.5<br />
-<strong>Integer</strong>: 1L,2L,42L<br />
-<strong>Complex</strong>: 4 + 2i<br />
-<strong>Logical</strong>: Two possible values: TRUE and FALSE. NA is also considered logical.<br />
-<strong>Character</strong>:“a”,“Statistics”,“1plus2.”</p>
-<p>R also has a number of basic data structures. A data structure is either <strong>homogeneous</strong> (all elements are of the same data type) or <strong>heterogeneous</strong> (elements can be of more than one data type): You can think each data structure as <strong>data container</strong> (object types) where you data is stored. Here are the main “container” or data structures. Think it as Stata or Excel spread-sheets.</p>
-<p><strong>Vector</strong>: 1 dimension (column OR row) and homogeneous. That is every element of the vector has to be the same type. Each vector can be thought of as a variable.<br />
-<strong>Matrix</strong>: 2 dimensions (column AND row) and homogeneous. That is every element of the matrix has to be the same type.<br />
-<strong>Data Frame</strong>: 2 dimensions (column AND row) and heterogeneous. That is every element of the data frame doesn’t have to be the same type. This is the main difference between a matrix and a data frame. Data frames are the most common data structure in any data analysis.<br />
-<strong>List</strong>: 1 dimension and heterogeneous. Data can be multiple data structures.<br />
-<strong>Array</strong>: 3+ dimensions and homogeneous.</p>
-</div>
-<div id="r-style-guide" class="section level2 hasAnchor" number="1.9">
-<h2><span class="header-section-number">1.9</span> R-Style Guide<a href="introduction.html#r-style-guide" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The idea is simple: your R code, or any other code in different languages, should be written in a readable and maintainable style. Here is a <a href="https://rpahl.github.io/r-some-blog/posts/r-style-guide/">blog</a> by Roman Pahl that may help you develop a better styling in your codes. (You may find in some chapters and labs that my codes are not following the “good” styling practices. I am trying to improve!)</p>
+<div id="answers" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Answers<a href="last.html#answers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>learnr::run_tutorial("Lesson1A", "RBootcamp")</code><br />
+<code>learnr::run_tutorial("Lesson2A", "RBootcamp")</code><br />
+<code>learnr::run_tutorial("Lesson3A", "RBootcamp")</code><br />
+<code>learnr::run_tutorial("Lesson4A", "RBootcamp")</code><br />
+<code>learnr::run_tutorial("Lesson5A", "RBootcamp")</code><br />
+<code>learnr::run_tutorial("Lesson6A", "RBootcamp")</code></p>
+
 </div>
 </div>
             </section>
@@ -486,8 +349,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="vectors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="publishing-at-github.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -518,7 +381,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/yaydede/Bootcamp_book/edit/master/01-intro.Rmd",
+"link": "https://github.com/yaydede/Bootcamp_book/edit/master/09-Lessons.Rmd",
 "text": "Edit"
 },
 "history": {

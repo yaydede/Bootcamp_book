@@ -154,6 +154,14 @@ Your code (in your script window) is saved by clicking the SAVE button in the RS
 
 At a very basic level, we can use R as a calculator.
 
+```{r}
+2*2
+log(10)
+exp(log(10))
+sqrt(2^2)
+exp(log(10))^-1
+```
+  
 See `Lesson1` in our package `Rbootcamp`:
 
 ```{r}
