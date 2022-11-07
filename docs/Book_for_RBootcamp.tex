@@ -122,7 +122,7 @@
 
 \title{R Bootcamp for Data Analytics}
 \author{\href{https://yaydede.github.io/}{Yigit Aydede}}
-\date{2022-11-06}
+\date{2022-11-07}
 
 \begin{document}
 \maketitle
@@ -337,7 +337,7 @@ Without further specification, files will be loaded from and saved to the workin
 ## [27] "index.md"                 "index.Rmd"               
 ## [29] "packages.bib"             "png"                     
 ## [31] "preamble.tex"             "README.md"               
-## [33] "render3bb21320e0a5.rds"   "shinyapp"                
+## [33] "render61a04065aebd.rds"   "shinyapp"                
 ## [35] "some_functions.R"         "style.css"               
 ## [37] "table1.text"
 \end{verbatim}
@@ -2995,7 +2995,7 @@ Lets look at some examples of working with them:
 ##  $ c: chr "Hello!"
 ##  $ d:function (arg = 1)  
 ##   ..- attr(*, "srcref")= 'srcref' int [1:8] 12 15 12 55 15 55 12 12
-##   .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x7f896faa3d58> 
+##   .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x7f9534b770e0> 
 ##  $ X: num [1:4, 1:4] 0 0 0 0 0 0 0 0 0 0 ...
 \end{verbatim}
 
@@ -3973,8 +3973,8 @@ And density with ggplot
 
 \includegraphics{04-visual_files/figure-latex/unnamed-chunk-18-1.pdf}
 
-\hypertarget{lables-etc.}{%
-\section{Lables etc.}\label{lables-etc.}}
+\hypertarget{labels-etc.}{%
+\section{Labels etc.}\label{labels-etc.}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5546,7 +5546,7 @@ It becomes very handy when we build a polynomial model:
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]  7 10 15 18  6 14  6  4 16  9
+##  [1] 17  2 16  6 18  9  0  5  6  6
 \end{verbatim}
 
 \begin{Shaded}
@@ -5558,16 +5558,16 @@ It becomes very handy when we build a polynomial model:
 
 \begin{verbatim}
 ##       [,1] [,2] [,3]   [,4]
-##  [1,]    7   49  343   2401
-##  [2,]   10  100 1000  10000
-##  [3,]   15  225 3375  50625
-##  [4,]   18  324 5832 104976
-##  [5,]    6   36  216   1296
-##  [6,]   14  196 2744  38416
-##  [7,]    6   36  216   1296
-##  [8,]    4   16   64    256
-##  [9,]   16  256 4096  65536
-## [10,]    9   81  729   6561
+##  [1,]   17  289 4913  83521
+##  [2,]    2    4    8     16
+##  [3,]   16  256 4096  65536
+##  [4,]    6   36  216   1296
+##  [5,]   18  324 5832 104976
+##  [6,]    9   81  729   6561
+##  [7,]    0    0    0      0
+##  [8,]    5   25  125    625
+##  [9,]    6   36  216   1296
+## [10,]    6   36  216   1296
 \end{verbatim}
 
 We can also use \texttt{outer()} for this example
@@ -5624,7 +5624,8 @@ The R base manual tells you that it's called as follows: \texttt{apply(X,\ MARGI
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -1.067734  1.245370  2.431343  1.890633 -2.384400  2.271643
+## [1] -4.966116356  3.568392879 -1.240295688 -4.824220378 -0.086073916
+## [6] -0.006043845
 \end{verbatim}
 
 \begin{Shaded}
@@ -5680,13 +5681,13 @@ The R base manual tells you that it's called as follows: \texttt{apply(X,\ MARGI
 \end{Shaded}
 
 \begin{verbatim}
-##          [,1]        [,2]
-## [1,] 1.188862  0.12382877
-## [2,] 2.622119  1.17642571
-## [3,] 1.219819  2.05955791
-## [4,] 1.918139 -0.07735045
-## [5,] 1.798158 -0.51081401
-## [6,] 1.682171  2.36339868
+##           [,1]       [,2]
+## [1,]  1.809129 0.25161615
+## [2,]  2.066829 2.90842961
+## [3,]  1.651754 0.03010026
+## [4,] -2.096855 0.45779298
+## [5,]  1.161385 1.24035825
+## [6,]  1.468704 2.09199130
 \end{verbatim}
 
 Since \texttt{apply()} is used only for matrices, if you apply \texttt{apply()} to a data frame, it first coerces your data.frame to an array which means all the columns must have the same type. Depending on your context, this could have unintended consequences. For a safer practice in data frames, we can use \texttt{lappy()} and \texttt{sapply()}:
@@ -5953,7 +5954,7 @@ Let's play with \texttt{sample()} for simple random sampling. We will see the ar
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "T" "T" "T" "H" "T" "H" "H" "H"
+## [1] "H" "T" "H" "H" "H" "H" "T" "H"
 \end{verbatim}
 
 \begin{Shaded}
@@ -5963,7 +5964,7 @@ Let's play with \texttt{sample()} for simple random sampling. We will see the ar
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1 1
+## [1] 1 4
 \end{verbatim}
 
 \begin{Shaded}
@@ -5974,7 +5975,7 @@ Let's play with \texttt{sample()} for simple random sampling. We will see the ar
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "H" "T" "T" "T" "H" "T" "H" "T"
+## [1] "T" "T" "H" "H" "T" "T" "T" "H"
 \end{verbatim}
 
 \begin{Shaded}
@@ -5984,7 +5985,7 @@ Let's play with \texttt{sample()} for simple random sampling. We will see the ar
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1 2
+## [1] 4 1
 \end{verbatim}
 
 The results are different. If we use \texttt{set.seed()} then we can get the same results each time. Lets try now:
@@ -7372,7 +7373,7 @@ One more step will give you a website: Back on GitHub, click the \texttt{Setting
 
 Now you have your own personal website with a live \texttt{url}: You can share it, tweet it, send it to your friends -- it's now live! You can add this \texttt{url} to the repo description so that it's easy to find.
 
-See more details at \href{https://rstudio4edu.github.io/rstudio4edu-book/make-rmd.html}{rstudio4edu}.
+Here is another good source on R Studio and its integration to GitHub: \href{https://rstudio4edu.github.io/rstudio4edu-book/make-rmd.html}{rstudio4edu}.
 
 \includegraphics[width=14.68in]{png/website}
 

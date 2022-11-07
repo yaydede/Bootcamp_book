@@ -135,7 +135,7 @@ dir()
 ## [27] "index.md"                 "index.Rmd"               
 ## [29] "packages.bib"             "png"                     
 ## [31] "preamble.tex"             "README.md"               
-## [33] "render3da329486c36.rds"   "shinyapp"                
+## [33] "render63bb49e3144c.rds"   "shinyapp"                
 ## [35] "some_functions.R"         "style.css"               
 ## [37] "table1.text"
 ```

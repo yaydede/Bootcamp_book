@@ -388,8 +388,9 @@ One more step will give you a website: Back on GitHub, click the `Settings` tab 
 
 Now you have your own personal website with a live `url`: You can share it, tweet it, send it to your friends – it’s now live!  You can add this `url` to the repo description so that it’s easy to find.
 
-See more details at [rstudio4edu](https://rstudio4edu.github.io/rstudio4edu-book/make-rmd.html).
-
+Here is another good source on R Studio and its integration to GitHub: [rstudio4edu](https://rstudio4edu.github.io/rstudio4edu-book/make-rmd.html).
+  
+  
 <img src="png/website.png" width="1057" />
 
 

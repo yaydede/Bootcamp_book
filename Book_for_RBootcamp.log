@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.4.7)  6 NOV 2022 08:04
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.4.7)  7 NOV 2022 07:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1213,7 +1213,7 @@ Overfull \hbox (22.5pt too wide) in paragraph at lines 3000--3000
 
 Overfull \hbox (143.25pt too wide) in paragraph at lines 3000--3000
 []\TU/lmtt/m/n/10 ##   .. ..- attr(*, "srcfile")=Classes []srcfilecopy[], []src
-file[] <environment: 0x7f896faa3d58>[] 
+file[] <environment: 0x7f9534b770e0>[] 
  []
 
 [57] [58] [59] [60] [61] [62]
@@ -1849,17 +1849,13 @@ Underfull \hbox (badness 1320) in paragraph at lines 3924--3926
 here:
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[86]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[87]
 File: 04-visual_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file (type pd
 f)
 <use 04-visual_files/figure-latex/unnamed-chunk-16-1.pdf>
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[86]
 Overfull \hbox (17.25pt too wide) in paragraph at lines 3953--3953
 []\TU/lmtt/m/n/10 ## []stat_bin()[] using []bins = 30[]. Pick better value with
  []binwidth[].[] 
@@ -1871,7 +1867,7 @@ f)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[88]
+[87]
 Overfull \hbox (17.25pt too wide) in paragraph at lines 3972--3972
 []\TU/lmtt/m/n/10 ## []stat_bin()[] using []bins = 30[]. Pick better value with
  []binwidth[].[] 
@@ -1883,7 +1879,7 @@ f)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[89]
+[88]
 Overfull \hbox (17.25pt too wide) in paragraph at lines 3995--3995
 []\TU/lmtt/m/n/10 ## []stat_bin()[] using []bins = 30[]. Pick better value with
  []binwidth[].[] 
@@ -1895,63 +1891,63 @@ f)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[90]
+[89]
 File: 04-visual_files/figure-latex/unnamed-chunk-21-1.pdf Graphic file (type pd
 f)
 <use 04-visual_files/figure-latex/unnamed-chunk-21-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[91]
+[90]
 File: 04-visual_files/figure-latex/unnamed-chunk-22-1.pdf Graphic file (type pd
 f)
 <use 04-visual_files/figure-latex/unnamed-chunk-22-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[92]
+[91]
 File: 04-visual_files/figure-latex/unnamed-chunk-23-1.pdf Graphic file (type pd
 f)
 <use 04-visual_files/figure-latex/unnamed-chunk-23-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[93]
+[92]
 File: 04-visual_files/figure-latex/unnamed-chunk-24-1.pdf Graphic file (type pd
 f)
 <use 04-visual_files/figure-latex/unnamed-chunk-24-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[94]
+[93]
 File: 04-visual_files/figure-latex/unnamed-chunk-24-2.pdf Graphic file (type pd
 f)
 <use 04-visual_files/figure-latex/unnamed-chunk-24-2.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[95]
+[94]
 File: 04-visual_files/figure-latex/unnamed-chunk-24-3.pdf Graphic file (type pd
 f)
 <use 04-visual_files/figure-latex/unnamed-chunk-24-3.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[96]
+[95]
 File: 04-visual_files/figure-latex/unnamed-chunk-24-4.pdf Graphic file (type pd
 f)
 <use 04-visual_files/figure-latex/unnamed-chunk-24-4.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[97]
+[96]
 File: 04-visual_files/figure-latex/unnamed-chunk-25-1.pdf Graphic file (type pd
 f)
 <use 04-visual_files/figure-latex/unnamed-chunk-25-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[98]
+[97]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
 (Font)              Font shape `TU/lmtt/b/n' tried instead on input line 4133.
 File: 04-visual_files/figure-latex/unnamed-chunk-26-1.pdf Graphic file (type pd
@@ -1960,7 +1956,9 @@ f)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[99] [100]
+[98] [99] [100
+
+]
 Chapter 6.
 
 Overfull \hbox (85.5pt too wide) in paragraph at lines 4265--4265
@@ -2016,9 +2014,7 @@ Overfull \hbox (85.5pt too wide) in paragraph at lines 4265--4265
  AllPub, AllPub, All~[] 
  []
 
-[101
-
-]
+[101]
 Overfull \hbox (85.5pt too wide) in paragraph at lines 4265--4265
 []\TU/lmtt/m/n/10 ## $ Lot_Config         <fct> Corner, Inside, Corner, Corner,
  Inside, Inside, Ins~[] 
@@ -3233,19 +3229,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 5278--5280
  []
 
 [120] [121] [122] [123] [124]
-Overfull \hbox (1.5pt too wide) in paragraph at lines 5628--5628
-[]\TU/lmtt/m/n/10 ## [1] -1.067734  1.245370  2.431343  1.890633 -2.384400  2.2
-71643[] 
+Overfull \hbox (27.75pt too wide) in paragraph at lines 5629--5629
+[]\TU/lmtt/m/n/10 ## [1] -4.966116356  3.568392879 -1.240295688 -4.824220378 -0
+.086073916[] 
  []
 
-[125] [126] [127]
-Overfull \hbox (38.25pt too wide) in paragraph at lines 5809--5809
+
+Overfull \vbox (0.73122pt too high) detected at line 5669
+ []
+
+[125]
+Underfull \vbox (badness 3623) has occurred while \output is active []
+
+[126] [127]
+Overfull \hbox (38.25pt too wide) in paragraph at lines 5810--5810
 []\TU/lmtt/m/n/10 ##  [1] 0.04761905 0.09090909 0.13043478 0.16666667 0.2000000
 0 0.23076923[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 5853--5853
+Overfull \hbox (69.75pt too wide) in paragraph at lines 5854--5854
 []\TU/lmtt/m/n/10 ##  [1] -0.97190653  0.06589991 -1.23987805  1.87433300  0.25
 276523 -1.22045645[] 
  []
@@ -3258,13 +3261,13 @@ Chapter 8.
 File: 07-Sim_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (type pdf)
 <use 07-Sim_files/figure-latex/unnamed-chunk-5-1.pdf>
 [133]
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6138--6138
 []\TU/lmtt/m/n/10 ## [1] -0.2645952 -0.9472983  0.7395213  0.8967787 -0.3460009
  -1.7820571[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 6148--6148
+Overfull \hbox (69.75pt too wide) in paragraph at lines 6149--6149
 []\TU/lmtt/m/n/10 ##  [1] 58.83389 12.93042 40.19385 59.29253 67.13847 62.16690
  68.07297 38.61666[] 
  []
@@ -3273,7 +3276,7 @@ Overfull \hbox (69.75pt too wide) in paragraph at lines 6148--6148
 File: 07-Sim_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (type pdf)
 <use 07-Sim_files/figure-latex/unnamed-chunk-10-1.pdf>
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 6245--6245
+Overfull \hbox (59.25pt too wide) in paragraph at lines 6246--6246
 []\TU/lmtt/m/n/10 ##  [1] 0.7328829 0.5742003 0.1599458 0.7309085 0.3560276 1.0
 721074 1.0078974[] 
  []
@@ -3285,219 +3288,219 @@ File: 07-Sim_files/figure-latex/unnamed-chunk-13-1.pdf Graphic file (type pdf)
 File: 07-Sim_files/figure-latex/unnamed-chunk-14-1.pdf Graphic file (type pdf)
 <use 07-Sim_files/figure-latex/unnamed-chunk-14-1.pdf>
 [137] [138] [139] [140] [141] [142]
-Underfull \hbox (badness 10000) in paragraph at lines 6645--6647
+Underfull \hbox (badness 10000) in paragraph at lines 6646--6648
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6647--6649
+Underfull \hbox (badness 10000) in paragraph at lines 6648--6650
 
  []
 
 
 Package natbib Warning: Citation `UCLA_2021' on page 143 undefined on input lin
-e 6652.
+e 6653.
 
 [143]
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6687--6687
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6688--6688
 []\TU/lmtt/m/n/10 ##   [1]  8.76144476  3.11628177  4.02220524 10.36073941  6.3
 0554447  9.10580685[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6687--6687
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6688--6688
 []\TU/lmtt/m/n/10 ##   [7]  2.93597415  3.60003394  3.58162578  6.34462934  5.7
 1619521  7.06592076[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6687--6687
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6688--6688
 []\TU/lmtt/m/n/10 ##  [13]  4.91435973  4.34607526  7.33989536  4.37624817  5.3
 7156273  6.93312965[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6687--6687
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6688--6688
 []\TU/lmtt/m/n/10 ##  [19]  8.67224539  4.32268704  1.20481630  1.63067425  4.3
 3854031  5.91058592[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6687--6687
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6688--6688
 []\TU/lmtt/m/n/10 ##  [25]  4.14568098  1.63067425 11.15025406 -1.92750663 11.5
 0686790  4.11478555[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6687--6687
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6688--6688
 []\TU/lmtt/m/n/10 ##  [31]  7.06592076  8.62388599  5.33204815 10.36073941  8.2
 9051704  7.68537698[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6687--6687
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6688--6688
 []\TU/lmtt/m/n/10 ##  [37]  3.85858700  3.85858700  3.66301409  4.02220524 -1.9
 2750663  6.15584120[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6687--6687
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6688--6688
 []\TU/lmtt/m/n/10 ##  [43]  2.93944144  6.38274862  6.38274862  6.75384125  6.1
 3891845  2.87239771[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6687--6687
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6688--6688
 []\TU/lmtt/m/n/10 ##  [49]  2.81332631  4.00037785  9.10580685  1.92198666 -0.0
 6007993  7.68537698[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6687--6687
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6688--6688
 []\TU/lmtt/m/n/10 ##  [55]  0.35374159  1.58558919  3.66301409  4.87138863  9.1
 0580685  4.14568098[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6687--6687
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6688--6688
 []\TU/lmtt/m/n/10 ##  [61]  8.67224539  3.12488220  4.91435973 -0.06007993  6.3
 8274862  3.12488220[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6687--6687
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6688--6688
 []\TU/lmtt/m/n/10 ##  [67]  8.29051704  8.44642286  4.11478555  6.93312965  2.8
 1332631  0.35374159[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6687--6687
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6688--6688
 []\TU/lmtt/m/n/10 ##  [73]  8.01721557  1.92198666  5.33204815 10.14519496  7.9
 8051157  3.31857306[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6687--6687
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6688--6688
 []\TU/lmtt/m/n/10 ##  [79]  8.44642286  6.75384125  5.01729256  1.58558919 -0.0
 6007993  7.51336113[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6687--6687
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6688--6688
 []\TU/lmtt/m/n/10 ##  [85]  4.33854031  6.38274862  5.64782471 -0.06007993  2.9
 1587906  6.93312965[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6687--6687
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6688--6688
 []\TU/lmtt/m/n/10 ##  [91] 10.14519496  3.11628177  6.27939266  5.71619521  6.4
 9355143  1.94427385[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6734--6734
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6735--6735
 []\TU/lmtt/m/n/10 ##   [1]  8.76144476  3.11628177  4.02220524 10.36073941  6.3
 0554447  9.10580685[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6734--6734
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6735--6735
 []\TU/lmtt/m/n/10 ##   [7]  2.93597415  3.60003394  3.58162578  6.34462934  5.7
 1619521  7.06592076[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6734--6734
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6735--6735
 []\TU/lmtt/m/n/10 ##  [13]  4.91435973  4.34607526  7.33989536  4.37624817  5.3
 7156273  6.93312965[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6734--6734
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6735--6735
 []\TU/lmtt/m/n/10 ##  [19]  8.67224539  4.32268704  1.20481630  1.63067425  4.3
 3854031  5.91058592[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6734--6734
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6735--6735
 []\TU/lmtt/m/n/10 ##  [25]  4.14568098  1.63067425 11.15025406 -1.92750663 11.5
 0686790  4.11478555[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6734--6734
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6735--6735
 []\TU/lmtt/m/n/10 ##  [31]  7.06592076  8.62388599  5.33204815 10.36073941  8.2
 9051704  7.68537698[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6734--6734
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6735--6735
 []\TU/lmtt/m/n/10 ##  [37]  3.85858700  3.85858700  3.66301409  4.02220524 -1.9
 2750663  6.15584120[] 
  []
 
 [144]
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6734--6734
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6735--6735
 []\TU/lmtt/m/n/10 ##  [43]  2.93944144  6.38274862  6.38274862  6.75384125  6.1
 3891845  2.87239771[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6734--6734
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6735--6735
 []\TU/lmtt/m/n/10 ##  [49]  2.81332631  4.00037785  9.10580685  1.92198666 -0.0
 6007993  7.68537698[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6734--6734
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6735--6735
 []\TU/lmtt/m/n/10 ##  [55]  0.35374159  1.58558919  3.66301409  4.87138863  9.1
 0580685  4.14568098[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6734--6734
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6735--6735
 []\TU/lmtt/m/n/10 ##  [61]  8.67224539  3.12488220  4.91435973 -0.06007993  6.3
 8274862  3.12488220[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6734--6734
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6735--6735
 []\TU/lmtt/m/n/10 ##  [67]  8.29051704  8.44642286  4.11478555  6.93312965  2.8
 1332631  0.35374159[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6734--6734
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6735--6735
 []\TU/lmtt/m/n/10 ##  [73]  8.01721557  1.92198666  5.33204815 10.14519496  7.9
 8051157  3.31857306[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6734--6734
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6735--6735
 []\TU/lmtt/m/n/10 ##  [79]  8.44642286  6.75384125  5.01729256  1.58558919 -0.0
 6007993  7.51336113[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6734--6734
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6735--6735
 []\TU/lmtt/m/n/10 ##  [85]  4.33854031  6.38274862  5.64782471 -0.06007993  2.9
 1587906  6.93312965[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6734--6734
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6735--6735
 []\TU/lmtt/m/n/10 ##  [91] 10.14519496  3.11628177  6.27939266  5.71619521  6.4
 9355143  1.94427385[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 6748--6748
+Overfull \hbox (69.75pt too wide) in paragraph at lines 6749--6749
 []\TU/lmtt/m/n/10 ##  [1] 5.095470 5.611315 5.283893 4.930731 4.804722 5.187125
  4.946582 4.952693[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 6748--6748
+Overfull \hbox (69.75pt too wide) in paragraph at lines 6749--6749
 []\TU/lmtt/m/n/10 ##  [9] 5.470162 5.058354 4.790996 5.357154 5.479364 5.366046
  5.454458 5.474732[] 
  []
@@ -3506,7 +3509,7 @@ Overfull \hbox (69.75pt too wide) in paragraph at lines 6748--6748
 File: png/montyhall.jpg Graphic file (type bmp)
 <png/montyhall.jpg>
 
-Overfull \hbox (347.36389pt too wide) in paragraph at lines 6814--6815
+Overfull \hbox (347.36389pt too wide) in paragraph at lines 6815--6816
 [][] 
  []
 
@@ -3522,518 +3525,518 @@ Underfull \vbox (badness 1810) has occurred while \output is active []
 [149]
 
 Package natbib Warning: Citation `Rajter_2019' on page 150 undefined on input l
-ine 6904.
+ine 6905.
 
 [150]
 Chapter 9.
 [151
 
 ]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 6974--6974
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6975--6975
 []\TU/lmtt/m/n/10 ##    rows columns discrete_columns conti~1 all_m~2 total~3 c
 ompl~4 total~5 memor~6[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 6974--6974
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6975--6975
 []\TU/lmtt/m/n/10 ##   <int>   <int>            <int>   <int>   <int>   <int>  
  <int>   <int>   <dbl>[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 6974--6974
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6975--6975
 []\TU/lmtt/m/n/10 ## 1  2930      81               46      35       0       0  
   2930  237330 1146920[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 6974--6974
+Overfull \hbox (38.25pt too wide) in paragraph at lines 6975--6975
 []\TU/lmtt/m/n/10 ## #   2: all_missing_columns, 3: total_missing_values, 4: co
 mplete_rows,[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ MS_SubClass        <fct> One_Story_1946_and_Newer_All_St
 yles, One_Story_1946~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ MS_Zoning          <fct> Residential_Low_Density, Reside
 ntial_High_Density, ~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Lot_Frontage       <dbl> 141, 80, 81, 93, 74, 78, 41, 43
 , 39, 60, 75, 0, 63,~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Lot_Area           <int> 31770, 11622, 14267, 11160, 138
 30, 9978, 4920, 5005~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Street             <fct> Pave, Pave, Pave, Pave, Pave, P
 ave, Pave, Pave, Pav~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Alley              <fct> No_Alley_Access, No_Alley_Acces
 s, No_Alley_Access, ~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Lot_Shape          <fct> Slightly_Irregular, Regular, Sl
 ightly_Irregular, Re~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Land_Contour       <fct> Lvl, Lvl, Lvl, Lvl, Lvl, Lvl, L
 vl, HLS, Lvl, Lvl, L~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Utilities          <fct> AllPub, AllPub, AllPub, AllPub,
  AllPub, AllPub, All~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Lot_Config         <fct> Corner, Inside, Corner, Corner,
  Inside, Inside, Ins~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Land_Slope         <fct> Gtl, Gtl, Gtl, Gtl, Gtl, Gtl, G
 tl, Gtl, Gtl, Gtl, G~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Neighborhood       <fct> North_Ames, North_Ames, North_A
 mes, North_Ames, Gil~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Condition_1        <fct> Norm, Feedr, Norm, Norm, Norm, 
 Norm, Norm, Norm, No~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Condition_2        <fct> Norm, Norm, Norm, Norm, Norm, N
 orm, Norm, Norm, Nor~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Bldg_Type          <fct> OneFam, OneFam, OneFam, OneFam,
  OneFam, OneFam, Twn~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ House_Style        <fct> One_Story, One_Story, One_Story
 , One_Story, Two_Sto~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Overall_Qual       <fct> Above_Average, Average, Above_A
 verage, Good, Averag~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Overall_Cond       <fct> Average, Above_Average, Above_A
 verage, Average, Ave~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Year_Built         <int> 1960, 1961, 1958, 1968, 1997, 1
 998, 2001, 1992, 199~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Year_Remod_Add     <int> 1960, 1961, 1958, 1968, 1998, 1
 998, 2001, 1992, 199~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Roof_Style         <fct> Hip, Gable, Hip, Hip, Gable, Ga
 ble, Gable, Gable, G~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Roof_Matl          <fct> CompShg, CompShg, CompShg, Comp
 Shg, CompShg, CompSh~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Exterior_1st       <fct> BrkFace, VinylSd, Wd Sdng, BrkF
 ace, VinylSd, VinylS~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Exterior_2nd       <fct> Plywood, VinylSd, Wd Sdng, BrkF
 ace, VinylSd, VinylS~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Mas_Vnr_Type       <fct> Stone, None, BrkFace, None, Non
 e, BrkFace, None, No~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Mas_Vnr_Area       <dbl> 112, 0, 108, 0, 0, 20, 0, 0, 0,
  0, 0, 0, 0, 0, 0, 6~[] 
  []
 
 [152]
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Exter_Qual         <fct> Typical, Typical, Typical, Good
 , Typical, Typical, ~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Exter_Cond         <fct> Typical, Typical, Typical, Typi
 cal, Typical, Typica~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Foundation         <fct> CBlock, CBlock, CBlock, CBlock,
  PConc, PConc, PConc~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Bsmt_Qual          <fct> Typical, Typical, Typical, Typi
 cal, Good, Typical, ~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Bsmt_Cond          <fct> Good, Typical, Typical, Typical
 , Typical, Typical, ~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Bsmt_Exposure      <fct> Gd, No, No, No, No, No, Mn, No,
  No, No, No, No, No,~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ BsmtFin_Type_1     <fct> BLQ, Rec, ALQ, ALQ, GLQ, GLQ, G
 LQ, ALQ, GLQ, Unf, U~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ BsmtFin_SF_1       <dbl> 2, 6, 1, 1, 3, 3, 3, 1, 3, 7, 7
 , 1, 7, 3, 3, 1, 3, ~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ BsmtFin_Type_2     <fct> Unf, LwQ, Unf, Unf, Unf, Unf, U
 nf, Unf, Unf, Unf, U~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ BsmtFin_SF_2       <dbl> 0, 144, 0, 0, 0, 0, 0, 0, 0, 0,
  0, 0, 0, 0, 1120, 0~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Bsmt_Unf_SF        <dbl> 441, 270, 406, 1045, 137, 324, 
 722, 1017, 415, 994,~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Total_Bsmt_SF      <dbl> 1080, 882, 1329, 2110, 928, 926
 , 1338, 1280, 1595, ~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Heating            <fct> GasA, GasA, GasA, GasA, GasA, G
 asA, GasA, GasA, Gas~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Heating_QC         <fct> Fair, Typical, Typical, Excelle
 nt, Good, Excellent,~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Central_Air        <fct> Y, Y, Y, Y, Y, Y, Y, Y, Y, Y, Y
 , Y, Y, Y, Y, Y, Y, ~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Electrical         <fct> SBrkr, SBrkr, SBrkr, SBrkr, SBr
 kr, SBrkr, SBrkr, SB~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ First_Flr_SF       <int> 1656, 896, 1329, 2110, 928, 926
 , 1338, 1280, 1616, ~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Second_Flr_SF      <int> 0, 0, 0, 0, 701, 678, 0, 0, 0, 
 776, 892, 0, 676, 0,~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Low_Qual_Fin_SF    <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 , 0, 0, 0, 0, 0, 0, ~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Gr_Liv_Area        <int> 1656, 896, 1329, 2110, 1629, 16
 04, 1338, 1280, 1616~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Bsmt_Full_Bath     <dbl> 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0
 , 1, 0, 1, 1, 1, 0, ~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Bsmt_Half_Bath     <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 , 0, 0, 0, 0, 0, 0, ~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Full_Bath          <int> 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2
 , 2, 2, 1, 1, 3, 2, ~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Half_Bath          <int> 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1
 , 0, 1, 1, 1, 1, 0, ~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Bedroom_AbvGr      <int> 3, 2, 3, 3, 3, 3, 2, 2, 2, 3, 3
 , 3, 3, 2, 1, 4, 4, ~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Kitchen_AbvGr      <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 , 1, 1, 1, 1, 1, 1, ~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Kitchen_Qual       <fct> Typical, Typical, Good, Excelle
 nt, Typical, Good, G~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ TotRms_AbvGrd      <int> 7, 5, 6, 8, 6, 7, 6, 5, 5, 7, 7
 , 6, 7, 5, 4, 12, 8,~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Functional         <fct> Typ, Typ, Typ, Typ, Typ, Typ, T
 yp, Typ, Typ, Typ, T~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Fireplaces         <int> 2, 0, 0, 2, 1, 1, 0, 0, 1, 1, 1
 , 0, 1, 1, 0, 1, 0, ~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Fireplace_Qu       <fct> Good, No_Fireplace, No_Fireplac
 e, Typical, Typical,~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Garage_Type        <fct> Attchd, Attchd, Attchd, Attchd,
  Attchd, Attchd, Att~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Garage_Finish      <fct> Fin, Unf, Unf, Fin, Fin, Fin, F
 in, RFn, RFn, Fin, F~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Garage_Cars        <dbl> 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2
 , 2, 2, 2, 2, 3, 2, ~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Garage_Area        <dbl> 528, 730, 312, 522, 482, 470, 5
 82, 506, 608, 442, 4~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Garage_Qual        <fct> Typical, Typical, Typical, Typi
 cal, Typical, Typica~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Garage_Cond        <fct> Typical, Typical, Typical, Typi
 cal, Typical, Typica~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Paved_Drive        <fct> Partial_Pavement, Paved, Paved,
  Paved, Paved, Paved~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Wood_Deck_SF       <int> 210, 140, 393, 0, 212, 360, 0, 
 0, 237, 140, 157, 48~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Open_Porch_SF      <int> 62, 0, 36, 0, 34, 36, 0, 82, 15
 2, 60, 84, 21, 75, 0~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Enclosed_Porch     <int> 0, 0, 0, 0, 0, 0, 170, 0, 0, 0,
  0, 0, 0, 0, 0, 0, 0~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Three_season_porch <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 , 0, 0, 0, 0, 0, 0, ~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Screen_Porch       <int> 0, 120, 0, 0, 0, 0, 0, 144, 0, 
 0, 0, 0, 0, 0, 140, ~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Pool_Area          <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 , 0, 0, 0, 0, 0, 0, ~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Pool_QC            <fct> No_Pool, No_Pool, No_Pool, No_P
 ool, No_Pool, No_Poo~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Fence              <fct> No_Fence, Minimum_Privacy, No_F
 ence, No_Fence, Mini~[] 
  []
 
 [153]
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Misc_Feature       <fct> None, None, Gar2, None, None, N
 one, None, None, Non~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Misc_Val           <int> 0, 0, 12500, 0, 0, 0, 0, 0, 0, 
 0, 0, 500, 0, 0, 0, ~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Mo_Sold            <int> 5, 6, 6, 4, 3, 6, 4, 1, 3, 6, 4
 , 3, 5, 2, 6, 6, 6, ~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Year_Sold          <int> 2010, 2010, 2010, 2010, 2010, 2
 010, 2010, 2010, 201~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Sale_Type          <fct> WD , WD , WD , WD , WD , WD , W
 D , WD , WD , WD , W~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Sale_Condition     <fct> Normal, Normal, Normal, Normal,
  Normal, Normal, Nor~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Sale_Price         <int> 215000, 105000, 172000, 244000,
  189900, 195500, 213~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Longitude          <dbl> -93.61975, -93.61976, -93.61939
 , -93.61732, -93.638~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7066--7066
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7067--7067
 []\TU/lmtt/m/n/10 ## $ Latitude           <dbl> 42.05403, 42.05301, 42.05266, 4
 2.05125, 42.06090, 4~[] 
  []
@@ -4046,55 +4049,55 @@ File: 08-EDA_files/figure-latex/unnamed-chunk-3-2.pdf Graphic file (type pdf)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [154]
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7110--7110
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7111--7111
 []\TU/lmtt/m/n/10 ## $ year    <int> 2000, 2000, 2000, 2000, 2000, 2000, 2000, 
 2000, 2000, 2000, 20~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7110--7110
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7111--7111
 []\TU/lmtt/m/n/10 ## $ marital <fct> Never married, Divorced, Widowed, Never ma
 rried, Divorced, Mar~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7110--7110
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7111--7111
 []\TU/lmtt/m/n/10 ## $ age     <int> 26, 48, 67, 39, 25, 25, 36, 44, 44, 47, 53
 , 52, 52, 51, 52, 40~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7110--7110
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7111--7111
 []\TU/lmtt/m/n/10 ## $ race    <fct> White, White, White, White, White, White, 
 White, White, White,~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7110--7110
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7111--7111
 []\TU/lmtt/m/n/10 ## $ rincome <fct> $8000 to 9999, $8000 to 9999, Not applicab
 le, Not applicable, ~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7110--7110
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7111--7111
 []\TU/lmtt/m/n/10 ## $ partyid <fct> "Ind,near rep", "Not str republican", "Ind
 ependent", "Ind,near~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7110--7110
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7111--7111
 []\TU/lmtt/m/n/10 ## $ relig   <fct> Protestant, Protestant, Protestant, Orthod
 ox-christian, None, ~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7110--7110
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7111--7111
 []\TU/lmtt/m/n/10 ## $ denom   <fct> "Southern baptist", "Baptist-dk which", "N
 o denomination", "No~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7110--7110
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7111--7111
 []\TU/lmtt/m/n/10 ## $ tvhours <int> 12, NA, 2, 4, 1, NA, 3, NA, 0, 3, 2, NA, 1
 , NA, 1, 7, NA, 3, 3~[] 
  []
@@ -4126,7 +4129,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [158] [159] [160] [161] [162]
 Chapter 10.
 
-Overfull \hbox (78.98592pt too wide) in paragraph at lines 7349--7351
+Overfull \hbox (78.98592pt too wide) in paragraph at lines 7350--7352
 []\TU/lmr/m/n/10 In your R console, type and run the following code: \TU/lmtt/m
 /n/10 rmarkdown:::site_skeleton(getwd())\TU/lmr/m/n/10 .
  []
@@ -4137,7 +4140,7 @@ Overfull \hbox (78.98592pt too wide) in paragraph at lines 7349--7351
 File: png/website.png Graphic file (type bmp)
 <png/website.png>
 
-Overfull \hbox (715.99352pt too wide) in paragraph at lines 7377--7378
+Overfull \hbox (715.99352pt too wide) in paragraph at lines 7378--7379
 [][] 
  []
 
@@ -4158,12 +4161,12 @@ Package natbib Warning: Empty `thebibliography' environment on input line 8.
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 7415.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 7416.
 [169]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 7415.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 7416.
 (./Book_for_RBootcamp.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 7415.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 7415.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 7416.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 7416.
  ) 
 Here is how much of TeX's memory you used:
  20174 strings out of 479418

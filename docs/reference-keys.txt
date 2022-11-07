@@ -42,7 +42,7 @@ smootlines
 interactive-graphs
 histograms-density
 multiple-plots
-lables-etc.
+labels-etc.
 add-lines
 pairwise-relationship
 conditional-scatterplot
