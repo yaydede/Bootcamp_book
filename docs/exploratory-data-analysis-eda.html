@@ -23,7 +23,7 @@
 <meta name="author" content="Yigit Aydede" />
 
 
-<meta name="date" content="2022-11-07" />
+<meta name="date" content="2022-11-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -332,27 +332,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div id="getting-the-data" class="section level2 hasAnchor" number="9.1">
 <h2><span class="header-section-number">9.1</span> Getting the data<a href="exploratory-data-analysis-eda.html#getting-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We will use the same data set, Ames Housing Price data from the <code>AmesHousing</code> package, containing 2930 observations and 81 features including the sale date and price.</p>
-<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb743-1"><a href="exploratory-data-analysis-eda.html#cb743-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(AmesHousing)</span>
-<span id="cb743-2"><a href="exploratory-data-analysis-eda.html#cb743-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<div class="sourceCode" id="cb747"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb747-1"><a href="exploratory-data-analysis-eda.html#cb747-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DataExplorer)</span>
-<span id="cb747-2"><a href="exploratory-data-analysis-eda.html#cb747-2" aria-hidden="true" tabindex="-1"></a>amesdata <span class="ot">&lt;-</span> <span class="fu">make_ames</span>()</span>
-<span id="cb747-3"><a href="exploratory-data-analysis-eda.html#cb747-3" aria-hidden="true" tabindex="-1"></a><span class="fu">introduce</span>(amesdata)</span></code></pre></div>
-<pre><code>## # A tibble: 1 × 9
-##    rows columns discrete_columns conti…¹ all_m…² total…³ compl…⁴ total…⁵ memor…⁶
-##   &lt;int&gt;   &lt;int&gt;            &lt;int&gt;   &lt;int&gt;   &lt;int&gt;   &lt;int&gt;   &lt;int&gt;   &lt;int&gt;   &lt;dbl&gt;
-## 1  2930      81               46      35       0       0    2930  237330 1146920
-## # … with abbreviated variable names ¹​continuous_columns, ²​all_missing_columns,
-## #   ³​total_missing_values, ⁴​complete_rows, ⁵​total_observations, ⁶​memory_usage</code></pre>
-<div class="sourceCode" id="cb749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb749-1"><a href="exploratory-data-analysis-eda.html#cb749-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(amesdata)</span></code></pre></div>
+<p>I already uploaded Ames Housing Price data from the <code>AmesHousing</code> package into our package <code>Rbootcamp</code> containing 2930 observations and 81 features including the sale date and price.</p>
+<div class="sourceCode" id="cb739"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb739-1"><a href="exploratory-data-analysis-eda.html#cb739-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RBootcamp)</span>
+<span id="cb739-2"><a href="exploratory-data-analysis-eda.html#cb739-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb739-3"><a href="exploratory-data-analysis-eda.html#cb739-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DataExplorer)</span>
+<span id="cb739-4"><a href="exploratory-data-analysis-eda.html#cb739-4" aria-hidden="true" tabindex="-1"></a><span class="fu">introduce</span>(ames)</span></code></pre></div>
+<pre><code>##   rows columns discrete_columns continuous_columns all_missing_columns
+## 1 2930      81               46                 35                   0
+##   total_missing_values complete_rows total_observations memory_usage
+## 1                    0          2930             237330      1146920</code></pre>
+<div class="sourceCode" id="cb741"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb741-1"><a href="exploratory-data-analysis-eda.html#cb741-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(ames)</span></code></pre></div>
 <pre><code>## Rows: 2,930
 ## Columns: 81
 ## $ MS_SubClass        &lt;fct&gt; One_Story_1946_and_Newer_All_Styles, One_Story_1946…
@@ -441,13 +430,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">9.2</span> Visualization<a href="exploratory-data-analysis-eda.html#visualization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="looking-into" class="section level3 hasAnchor" number="9.2.1">
 <h3><span class="header-section-number">9.2.1</span> Looking into<a href="exploratory-data-analysis-eda.html#looking-into" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb751"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb751-1"><a href="exploratory-data-analysis-eda.html#cb751-1" aria-hidden="true" tabindex="-1"></a>amesdata <span class="sc">%&gt;%</span> <span class="fu">plot_intro</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb743-1"><a href="exploratory-data-analysis-eda.html#cb743-1" aria-hidden="true" tabindex="-1"></a>ames <span class="sc">%&gt;%</span> <span class="fu">plot_intro</span>()</span></code></pre></div>
 <p><img src="08-EDA_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb752-1"><a href="exploratory-data-analysis-eda.html#cb752-1" aria-hidden="true" tabindex="-1"></a>amesdata <span class="sc">%&gt;%</span> <span class="fu">plot_missing</span>()</span></code></pre></div>
-<p><img src="08-EDA_files/figure-html/unnamed-chunk-3-2.png" width="672" />
-Yes, our data is “clean” but how about this:</p>
-<div class="sourceCode" id="cb753"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb753-1"><a href="exploratory-data-analysis-eda.html#cb753-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
-<span id="cb753-2"><a href="exploratory-data-analysis-eda.html#cb753-2" aria-hidden="true" tabindex="-1"></a>gss_cat <span class="sc">%&gt;%</span> <span class="fu">glimpse</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb744"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb744-1"><a href="exploratory-data-analysis-eda.html#cb744-1" aria-hidden="true" tabindex="-1"></a>ames <span class="sc">%&gt;%</span> <span class="fu">plot_missing</span>()</span></code></pre></div>
+<p><img src="08-EDA_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
+<p>Yes, our data is “clean” but how about this:</p>
+<div class="sourceCode" id="cb745"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb745-1"><a href="exploratory-data-analysis-eda.html#cb745-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb745-2"><a href="exploratory-data-analysis-eda.html#cb745-2" aria-hidden="true" tabindex="-1"></a>gss_cat <span class="sc">%&gt;%</span> <span class="fu">glimpse</span>()</span></code></pre></div>
 <pre><code>## Rows: 21,483
 ## Columns: 9
 ## $ year    &lt;int&gt; 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 20…
@@ -459,9 +448,9 @@ Yes, our data is “clean” but how about this:</p>
 ## $ relig   &lt;fct&gt; Protestant, Protestant, Protestant, Orthodox-christian, None, …
 ## $ denom   &lt;fct&gt; &quot;Southern baptist&quot;, &quot;Baptist-dk which&quot;, &quot;No denomination&quot;, &quot;No…
 ## $ tvhours &lt;int&gt; 12, NA, 2, 4, 1, NA, 3, NA, 0, 3, 2, NA, 1, NA, 1, 7, NA, 3, 3…</code></pre>
-<div class="sourceCode" id="cb755"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb755-1"><a href="exploratory-data-analysis-eda.html#cb755-1" aria-hidden="true" tabindex="-1"></a>gss_cat <span class="sc">%&gt;%</span> <span class="fu">plot_missing</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb747"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb747-1"><a href="exploratory-data-analysis-eda.html#cb747-1" aria-hidden="true" tabindex="-1"></a>gss_cat <span class="sc">%&gt;%</span> <span class="fu">plot_missing</span>()</span></code></pre></div>
 <p><img src="08-EDA_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<div class="sourceCode" id="cb756"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb756-1"><a href="exploratory-data-analysis-eda.html#cb756-1" aria-hidden="true" tabindex="-1"></a>gss_cat <span class="sc">%&gt;%</span> <span class="fu">profile_missing</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb748"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb748-1"><a href="exploratory-data-analysis-eda.html#cb748-1" aria-hidden="true" tabindex="-1"></a>gss_cat <span class="sc">%&gt;%</span> <span class="fu">profile_missing</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 9 × 3
 ##   feature num_missing pct_missing
 ##   &lt;fct&gt;         &lt;int&gt;       &lt;dbl&gt;
@@ -474,13 +463,13 @@ Yes, our data is “clean” but how about this:</p>
 ## 7 relig             0     0      
 ## 8 denom             0     0      
 ## 9 tvhours       10146     0.472</code></pre>
-<p>See the data source here: <a href="https://forcats.tidyverse.org/reference/gss_cat.html" class="uri">https://forcats.tidyverse.org/reference/gss_cat.html</a></p>
+<p>See the data source here: <a href="https://forcats.tidyverse.org/reference/gss_cat.html" class="uri">https://forcats.tidyverse.org/reference/gss_cat.html</a>.</p>
 </div>
 <div id="plots" class="section level3 hasAnchor" number="9.2.2">
 <h3><span class="header-section-number">9.2.2</span> Plots<a href="exploratory-data-analysis-eda.html#plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb758"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb758-1"><a href="exploratory-data-analysis-eda.html#cb758-1" aria-hidden="true" tabindex="-1"></a>amesdata  <span class="sc">%&gt;%</span> <span class="fu">plot_density</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb750-1"><a href="exploratory-data-analysis-eda.html#cb750-1" aria-hidden="true" tabindex="-1"></a>ames  <span class="sc">%&gt;%</span> <span class="fu">plot_density</span>()</span></code></pre></div>
 <p><img src="08-EDA_files/figure-html/unnamed-chunk-5-1.png" width="672" /><img src="08-EDA_files/figure-html/unnamed-chunk-5-2.png" width="672" /><img src="08-EDA_files/figure-html/unnamed-chunk-5-3.png" width="672" /></p>
-<div class="sourceCode" id="cb759"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb759-1"><a href="exploratory-data-analysis-eda.html#cb759-1" aria-hidden="true" tabindex="-1"></a>gss_cat  <span class="sc">%&gt;%</span> <span class="fu">plot_correlation</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb751"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb751-1"><a href="exploratory-data-analysis-eda.html#cb751-1" aria-hidden="true" tabindex="-1"></a>gss_cat  <span class="sc">%&gt;%</span> <span class="fu">plot_correlation</span>()</span></code></pre></div>
 <pre><code>## 1 features with more than 20 categories ignored!
 ## denom: 30 categories</code></pre>
 <p><img src="08-EDA_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
@@ -499,7 +488,7 @@ the “percent of unique values’’ is the number of unique values divided by 
 <blockquote>
 <p>If the frequency ratio is greater than a pre-specified threshold and the unique value percentage is less than a threshold, we might consider a predictor to be near zero-variance.</p>
 </blockquote>
-<div class="sourceCode" id="cb761"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb761-1"><a href="exploratory-data-analysis-eda.html#cb761-1" aria-hidden="true" tabindex="-1"></a>caret<span class="sc">::</span><span class="fu">nearZeroVar</span>(amesdata, <span class="at">saveMetrics=</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb753"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb753-1"><a href="exploratory-data-analysis-eda.html#cb753-1" aria-hidden="true" tabindex="-1"></a>caret<span class="sc">::</span><span class="fu">nearZeroVar</span>(ames, <span class="at">saveMetrics=</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>##                      freqRatio percentUnique zeroVar   nzv
 ## MS_SubClass           1.876522    0.54607509   FALSE FALSE
 ## MS_Zoning             4.919913    0.23890785   FALSE FALSE
@@ -589,8 +578,8 @@ the “percent of unique values’’ is the number of unique values divided by 
 <blockquote>
 <p>Given a correlation matrix, the <code>findCorrelation</code> function uses the following algorithm to flag predictors for removal:</p>
 </blockquote>
-<div class="sourceCode" id="cb763"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb763-1"><a href="exploratory-data-analysis-eda.html#cb763-1" aria-hidden="true" tabindex="-1"></a><span class="co">#descrCor &lt;-  cor(gss_cat)</span></span>
-<span id="cb763-2"><a href="exploratory-data-analysis-eda.html#cb763-2" aria-hidden="true" tabindex="-1"></a><span class="co">#highCorr &lt;- sum(abs(descrCor[upper.tri(descrCor)]) &gt; .999)</span></span></code></pre></div>
+<div class="sourceCode" id="cb755"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb755-1"><a href="exploratory-data-analysis-eda.html#cb755-1" aria-hidden="true" tabindex="-1"></a><span class="co">#descrCor &lt;-  cor(gss_cat)</span></span>
+<span id="cb755-2"><a href="exploratory-data-analysis-eda.html#cb755-2" aria-hidden="true" tabindex="-1"></a><span class="co">#highCorr &lt;- sum(abs(descrCor[upper.tri(descrCor)]) &gt; .999)</span></span></code></pre></div>
 </div>
 <div id="rmarkdown" class="section level2 hasAnchor" number="9.4">
 <h2><span class="header-section-number">9.4</span> RMarkdown<a href="exploratory-data-analysis-eda.html#rmarkdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>

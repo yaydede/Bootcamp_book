@@ -122,7 +122,7 @@
 
 \title{R Bootcamp for Data Analytics}
 \author{\href{https://yaydede.github.io/}{Yigit Aydede}}
-\date{2022-11-07}
+\date{2022-11-08}
 
 \begin{document}
 \maketitle
@@ -337,7 +337,7 @@ Without further specification, files will be loaded from and saved to the workin
 ## [27] "index.md"                 "index.Rmd"               
 ## [29] "packages.bib"             "png"                     
 ## [31] "preamble.tex"             "README.md"               
-## [33] "render6e17e48dc61.rds"    "shinyapp"                
+## [33] "render971c7eb6f42d.rds"   "shinyapp"                
 ## [35] "some_functions.R"         "style.css"               
 ## [37] "table1.text"
 \end{verbatim}
@@ -3045,7 +3045,7 @@ Lets look at some examples of working with them:
 ##  $ c: chr "Hello!"
 ##  $ d:function (arg = 1)  
 ##   ..- attr(*, "srcref")= 'srcref' int [1:8] 12 15 12 55 15 55 12 12
-##   .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x7f9b4c3306a8> 
+##   .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x7fe9b32b2ae0> 
 ##  $ X: num [1:4, 1:4] 0 0 0 0 0 0 0 0 0 0 ...
 \end{verbatim}
 
@@ -4195,34 +4195,12 @@ To explore the relationships between multiple continuous variables we can have a
 \hypertarget{data-management}{%
 \chapter{Data Management}\label{data-management}}
 
-We will use the same data set, Ames Housing Price data from the \texttt{AmesHousing} package, containing 2930 observations and 81 features including the sale date and price. And we will introduce the \texttt{dplyr} package in many applications. See more about \texttt{dplyr} \href{https://dplyr.tidyverse.org/articles/dplyr.html}{here}
+We will use the data set, \textbf{Ames Housing Price} data, from the \texttt{AmesHousing} package, containing 2930 observations and 81 features including the sale date and price. It's a \texttt{tibble} but a dataframe version (\texttt{Rbootcamp::ames}) is also available in our package, \texttt{Rbootcamp}. And, we will introduce the \texttt{dplyr} package in many applications. See more about \texttt{dplyr} \href{https://dplyr.tidyverse.org/articles/dplyr.html}{here}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(AmesHousing)}
 \FunctionTok{library}\NormalTok{(dplyr)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-## Attaching package: 'dplyr'
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{amesdata }\OtherTok{\textless{}{-}} \FunctionTok{make\_ames}\NormalTok{()}
 \FunctionTok{glimpse}\NormalTok{(amesdata)}
 \end{Highlighting}
@@ -4317,7 +4295,7 @@ We will use the same data set, Ames Housing Price data from the \texttt{AmesHous
 \hypertarget{filter}{%
 \section{Filter}\label{filter}}
 
-Suppose we want to find the houses that are sold in Jan 2010. You can use the function \texttt{filter()} in the \texttt{dplyr} package, a member of the tidyverse package. We can use subsetting operations
+Suppose we want to find the houses that are sold in Jan 2010. You can use the function \texttt{filter()} in the \texttt{dplyr} package, a member of the tidyverse package. We can use subsetting operations.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4383,7 +4361,7 @@ Or we can use \texttt{filter()}:
 \hypertarget{arrange}{%
 \section{Arrange}\label{arrange}}
 
-Let's find the 10 houses with the highest sale prices by year
+Let's find the 10 houses with the highest sale prices by year.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5596,7 +5574,7 @@ It becomes very handy when we build a polynomial model:
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]  7  0  6  8  9  9  1 18  5 20
+##  [1]  8 16 15  5 14 15  7  5 20 19
 \end{verbatim}
 
 \begin{Shaded}
@@ -5608,16 +5586,16 @@ It becomes very handy when we build a polynomial model:
 
 \begin{verbatim}
 ##       [,1] [,2] [,3]   [,4]
-##  [1,]    7   49  343   2401
-##  [2,]    0    0    0      0
-##  [3,]    6   36  216   1296
-##  [4,]    8   64  512   4096
-##  [5,]    9   81  729   6561
-##  [6,]    9   81  729   6561
-##  [7,]    1    1    1      1
-##  [8,]   18  324 5832 104976
-##  [9,]    5   25  125    625
-## [10,]   20  400 8000 160000
+##  [1,]    8   64  512   4096
+##  [2,]   16  256 4096  65536
+##  [3,]   15  225 3375  50625
+##  [4,]    5   25  125    625
+##  [5,]   14  196 2744  38416
+##  [6,]   15  225 3375  50625
+##  [7,]    7   49  343   2401
+##  [8,]    5   25  125    625
+##  [9,]   20  400 8000 160000
+## [10,]   19  361 6859 130321
 \end{verbatim}
 
 We can also use \texttt{outer()} for this example
@@ -5674,7 +5652,7 @@ The R base manual tells you that it's called as follows: \texttt{apply(X,\ MARGI
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  3.3998203 -1.3428846 -3.8376726 -0.4559773 -3.4315674  1.0936408
+## [1] -2.8809784 -0.9167122 -0.8443779 -1.6660144  0.7337742  5.0519938
 \end{verbatim}
 
 \begin{Shaded}
@@ -5730,13 +5708,13 @@ The R base manual tells you that it's called as follows: \texttt{apply(X,\ MARGI
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]         [,2]
-## [1,]  2.4408699  1.270355542
-## [2,]  0.8347208  1.953351361
-## [3,]  0.2221676 -0.007142353
-## [4,] -0.5362565  1.624082685
-## [5,] -0.2368205  0.343740203
-## [6,]  1.8166020 -0.048406545
+##           [,1]        [,2]
+## [1,] 0.6338018 -0.02548003
+## [2,] 0.8198154  1.38574294
+## [3,] 1.2716783  1.52958115
+## [4,] 2.1531056  0.76868661
+## [5,] 0.6124837  1.28923288
+## [6,] 2.0192953  3.15143180
 \end{verbatim}
 
 Since \texttt{apply()} is used only for matrices, if you apply \texttt{apply()} to a data frame, it first coerces your data.frame to an array which means all the columns must have the same type. Depending on your context, this could have unintended consequences. For a safer practice in data frames, we can use \texttt{lappy()} and \texttt{sapply()}:
@@ -6003,7 +5981,7 @@ Let's play with \texttt{sample()} for simple random sampling. We will see the ar
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "H" "H" "H" "H" "H" "T" "T" "T"
+## [1] "T" "H" "H" "T" "T" "T" "H" "H"
 \end{verbatim}
 
 \begin{Shaded}
@@ -6013,7 +5991,7 @@ Let's play with \texttt{sample()} for simple random sampling. We will see the ar
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 4 4
+## [1] 2 3
 \end{verbatim}
 
 \begin{Shaded}
@@ -6024,7 +6002,7 @@ Let's play with \texttt{sample()} for simple random sampling. We will see the ar
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "T" "H" "T" "T" "H" "T" "H" "H"
+## [1] "T" "T" "T" "T" "T" "H" "T" "H"
 \end{verbatim}
 
 \begin{Shaded}
@@ -6034,7 +6012,7 @@ Let's play with \texttt{sample()} for simple random sampling. We will see the ar
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 2 5
+## [1] 1 5
 \end{verbatim}
 
 The results are different. If we use \texttt{set.seed()} then we can get the same results each time. Lets try now:
@@ -6979,53 +6957,27 @@ The main steps in exploratory data analysis are:
 \hypertarget{getting-the-data}{%
 \section{Getting the data}\label{getting-the-data}}
 
-We will use the same data set, Ames Housing Price data from the \texttt{AmesHousing} package, containing 2930 observations and 81 features including the sale date and price.
+I already uploaded Ames Housing Price data from the \texttt{AmesHousing} package into our package \texttt{Rbootcamp} containing 2930 observations and 81 features including the sale date and price.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(AmesHousing)}
+\FunctionTok{library}\NormalTok{(RBootcamp)}
 \FunctionTok{library}\NormalTok{(dplyr)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-## Attaching package: 'dplyr'
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(DataExplorer)}
-\NormalTok{amesdata }\OtherTok{\textless{}{-}} \FunctionTok{make\_ames}\NormalTok{()}
-\FunctionTok{introduce}\NormalTok{(amesdata)}
+\FunctionTok{introduce}\NormalTok{(ames)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 1 x 9
-##    rows columns discrete_columns conti~1 all_m~2 total~3 compl~4 total~5 memor~6
-##   <int>   <int>            <int>   <int>   <int>   <int>   <int>   <int>   <dbl>
-## 1  2930      81               46      35       0       0    2930  237330 1146920
-## # ... with abbreviated variable names 1: continuous_columns,
-## #   2: all_missing_columns, 3: total_missing_values, 4: complete_rows,
-## #   5: total_observations, 6: memory_usage
+##   rows columns discrete_columns continuous_columns all_missing_columns
+## 1 2930      81               46                 35                   0
+##   total_missing_values complete_rows total_observations memory_usage
+## 1                    0          2930             237330      1146920
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{glimpse}\NormalTok{(amesdata)}
+\FunctionTok{glimpse}\NormalTok{(ames)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -7123,7 +7075,7 @@ We will use the same data set, Ames Housing Price data from the \texttt{AmesHous
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{amesdata }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{plot\_intro}\NormalTok{()}
+\NormalTok{ames }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{plot\_intro}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
@@ -7131,11 +7083,12 @@ We will use the same data set, Ames Housing Price data from the \texttt{AmesHous
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{amesdata }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{plot\_missing}\NormalTok{()}
+\NormalTok{ames }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{plot\_missing}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
 \includegraphics{08-EDA_files/figure-latex/unnamed-chunk-3-2.pdf}
+
 Yes, our data is ``clean'' but how about this:
 
 \begin{Shaded}
@@ -7188,14 +7141,14 @@ Yes, our data is ``clean'' but how about this:
 ## 9 tvhours       10146     0.472
 \end{verbatim}
 
-See the data source here: \url{https://forcats.tidyverse.org/reference/gss_cat.html}
+See the data source here: \url{https://forcats.tidyverse.org/reference/gss_cat.html}.
 
 \hypertarget{plots}{%
 \subsection{Plots}\label{plots}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{amesdata  }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{plot\_density}\NormalTok{()}
+\NormalTok{ames  }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{plot\_density}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
@@ -7234,7 +7187,7 @@ If the frequency ratio is greater than a pre-specified threshold and the unique 
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{caret}\SpecialCharTok{::}\FunctionTok{nearZeroVar}\NormalTok{(amesdata, }\AttributeTok{saveMetrics=} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{caret}\SpecialCharTok{::}\FunctionTok{nearZeroVar}\NormalTok{(ames, }\AttributeTok{saveMetrics=} \ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 

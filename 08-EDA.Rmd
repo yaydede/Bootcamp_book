@@ -13,26 +13,26 @@ The main steps in exploratory data analysis are:
 
 ## Getting the data
 
-We will use the same data set, Ames Housing Price data from the `AmesHousing` package, containing 2930 observations and 81 features including the sale date and price.
+I already uploaded Ames Housing Price data from the `AmesHousing` package into our package `Rbootcamp` containing 2930 observations and 81 features including the sale date and price.
 
-```{r }
-library(AmesHousing)
+```{r, message=FALSE, warning=FALSE}
+library(RBootcamp)
 library(dplyr)
 library(DataExplorer)
-amesdata <- make_ames()
-introduce(amesdata)
+introduce(ames)
 ```
 ```{r}
-glimpse(amesdata)
+glimpse(ames)
 ```
 ## Visualization
 
 ### Looking into
   
 ```{r}
-amesdata %>% plot_intro()
-amesdata %>% plot_missing()
+ames %>% plot_intro()
+ames %>% plot_missing()
 ```
+  
 Yes, our data is "clean" but how about this:
 
 ```{r}
@@ -42,12 +42,12 @@ gss_cat %>% plot_missing()
 gss_cat %>% profile_missing()
 ```
 
-See the data source here: <https://forcats.tidyverse.org/reference/gss_cat.html>
+See the data source here: <https://forcats.tidyverse.org/reference/gss_cat.html>.
 
 ### Plots
 
 ```{r}
-amesdata  %>% plot_density()
+ames  %>% plot_density()
 ```
 
 ```{r}
@@ -66,7 +66,7 @@ The “near-zero-variance” predictors may need to be identified and eliminated
 > If the frequency ratio is greater than a pre-specified threshold and the unique value percentage is less than a threshold, we might consider a predictor to be near zero-variance.
 
 ```{r}
-caret::nearZeroVar(amesdata, saveMetrics= TRUE)
+caret::nearZeroVar(ames, saveMetrics= TRUE)
 ```
   
 Again, using the package `caret`:

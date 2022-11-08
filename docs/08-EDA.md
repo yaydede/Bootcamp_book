@@ -13,48 +13,25 @@ The main steps in exploratory data analysis are:
 
 ## Getting the data
 
-We will use the same data set, Ames Housing Price data from the `AmesHousing` package, containing 2930 observations and 81 features including the sale date and price.
+I already uploaded Ames Housing Price data from the `AmesHousing` package into our package `Rbootcamp` containing 2930 observations and 81 features including the sale date and price.
 
 
 ```r
-library(AmesHousing)
+library(RBootcamp)
 library(dplyr)
-```
-
-```
-## 
-## Attaching package: 'dplyr'
-```
-
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
-```r
 library(DataExplorer)
-amesdata <- make_ames()
-introduce(amesdata)
+introduce(ames)
 ```
 
 ```
-## # A tibble: 1 × 9
-##    rows columns discrete_columns conti…¹ all_m…² total…³ compl…⁴ total…⁵ memor…⁶
-##   <int>   <int>            <int>   <int>   <int>   <int>   <int>   <int>   <dbl>
-## 1  2930      81               46      35       0       0    2930  237330 1146920
-## # … with abbreviated variable names ¹​continuous_columns, ²​all_missing_columns,
-## #   ³​total_missing_values, ⁴​complete_rows, ⁵​total_observations, ⁶​memory_usage
+##   rows columns discrete_columns continuous_columns all_missing_columns
+## 1 2930      81               46                 35                   0
+##   total_missing_values complete_rows total_observations memory_usage
+## 1                    0          2930             237330      1146920
 ```
 
 ```r
-glimpse(amesdata)
+glimpse(ames)
 ```
 
 ```
@@ -148,16 +125,17 @@ glimpse(amesdata)
   
 
 ```r
-amesdata %>% plot_intro()
+ames %>% plot_intro()
 ```
 
 ![](08-EDA_files/figure-epub3/unnamed-chunk-3-1.png)<!-- -->
 
 ```r
-amesdata %>% plot_missing()
+ames %>% plot_missing()
 ```
 
 ![](08-EDA_files/figure-epub3/unnamed-chunk-3-2.png)<!-- -->
+  
 Yes, our data is "clean" but how about this:
 
 
@@ -205,13 +183,13 @@ gss_cat %>% profile_missing()
 ## 9 tvhours       10146     0.472
 ```
 
-See the data source here: <https://forcats.tidyverse.org/reference/gss_cat.html>
+See the data source here: <https://forcats.tidyverse.org/reference/gss_cat.html>.
 
 ### Plots
 
 
 ```r
-amesdata  %>% plot_density()
+ames  %>% plot_density()
 ```
 
 ![](08-EDA_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->![](08-EDA_files/figure-epub3/unnamed-chunk-5-2.png)<!-- -->![](08-EDA_files/figure-epub3/unnamed-chunk-5-3.png)<!-- -->
@@ -241,7 +219,7 @@ The “near-zero-variance” predictors may need to be identified and eliminated
 
 
 ```r
-caret::nearZeroVar(amesdata, saveMetrics= TRUE)
+caret::nearZeroVar(ames, saveMetrics= TRUE)
 ```
 
 ```

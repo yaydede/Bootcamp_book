@@ -1,31 +1,11 @@
 # Data Management
 
-We will use the same data set, Ames Housing Price data from the `AmesHousing` package, containing 2930 observations and 81 features including the sale date and price. And we will introduce the `dplyr` package in many applications. See more about `dplyr` [here](https://dplyr.tidyverse.org/articles/dplyr.html)
+We will use the data set, **Ames Housing Price** data, from the `AmesHousing` package, containing 2930 observations and 81 features including the sale date and price.  It's a `tibble` but a dataframe version (`Rbootcamp::ames`) is also available in our package, `Rbootcamp`. And, we will introduce the `dplyr` package in many applications. See more about `dplyr` [here](https://dplyr.tidyverse.org/articles/dplyr.html).
 
 
 ```r
 library(AmesHousing)
 library(dplyr)
-```
-
-```
-## 
-## Attaching package: 'dplyr'
-```
-
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
-```r
 amesdata <- make_ames()
 glimpse(amesdata)
 ```
@@ -118,7 +98,7 @@ glimpse(amesdata)
 
 ## Filter
 
-Suppose we want to find the houses that are sold in Jan 2010. You can use the function `filter()` in the `dplyr` package, a member of the tidyverse package. We can use subsetting operations
+Suppose we want to find the houses that are sold in Jan 2010. You can use the function `filter()` in the `dplyr` package, a member of the tidyverse package. We can use subsetting operations.  
 
 
 ```r
@@ -181,7 +161,7 @@ dplyr::filter(amesdata, Year_Sold == 2010, Mo_Sold == 1)
 
 ## Arrange
 
-Let's find the 10 houses with the highest sale prices by year
+Let's find the 10 houses with the highest sale prices by year.
 
 
 ```r
